@@ -1,60 +1,31 @@
-# \ManageACLAPI
+# {{classname}}
 
 All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetDbDumpUploadUrls**](ManageACLAPI.md#GetDbDumpUploadUrls) | **Post** /manageacl/migration/getdbdumpuploadurls | 
-[**GetRMMigrationStatus**](ManageACLAPI.md#GetRMMigrationStatus) | **Get** /manageacl/migration/rmmigrationstatus | 
-[**IsInMigrationMode**](ManageACLAPI.md#IsInMigrationMode) | **Get** /manageacl/migration/isinmigrationmode | 
-[**PromoteUser**](ManageACLAPI.md#PromoteUser) | **Put** /manageacl/promoteUser | To promote the IAP Manage Acl users to Administrator role
-[**StoreSecretKeys**](ManageACLAPI.md#StoreSecretKeys) | **Post** /manageacl/migration/savesecret | 
+[**GetDbDumpUploadUrls**](ManageACLApi.md#GetDbDumpUploadUrls) | **Post** /manageacl/migration/getdbdumpuploadurls | 
+[**GetRMMigrationStatus**](ManageACLApi.md#GetRMMigrationStatus) | **Get** /manageacl/migration/rmmigrationstatus | 
+[**IsInMigrationMode**](ManageACLApi.md#IsInMigrationMode) | **Get** /manageacl/migration/isinmigrationmode | 
+[**PromoteUser**](ManageACLApi.md#PromoteUser) | **Put** /manageacl/promoteUser | To promote the IAP Manage Acl users to Administrator role
+[**StoreSecretKeys**](ManageACLApi.md#StoreSecretKeys) | **Post** /manageacl/migration/savesecret | 
+
+# **GetDbDumpUploadUrls**
+> GetDbDumpUploadUrls(ctx, optional)
 
 
-
-## GetDbDumpUploadUrls
-
-> GetDbDumpUploadUrls(ctx).RmExists(rmExists).Execute()
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/umeshkumhar/backupdr-client"
-)
-
-func main() {
-	rmExists := true // bool |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ManageACLAPI.GetDbDumpUploadUrls(context.Background()).RmExists(rmExists).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ManageACLAPI.GetDbDumpUploadUrls``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetDbDumpUploadUrlsRequest struct via the builder pattern
-
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rmExists** | **bool** |  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***ManageACLApiGetDbDumpUploadUrlsOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ManageACLApiGetDbDumpUploadUrlsOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **rmExists** | **optional.Bool**|  | 
 
 ### Return type
 
@@ -66,53 +37,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## GetRMMigrationStatus
-
-> GetRMMigrationStatus(ctx).Execute()
+# **GetRMMigrationStatus**
+> GetRMMigrationStatus(ctx, )
 
 
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/umeshkumhar/backupdr-client"
-)
-
-func main() {
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ManageACLAPI.GetRMMigrationStatus(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ManageACLAPI.GetRMMigrationStatus``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
+### Required Parameters
 This endpoint does not need any parameter.
 
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetRMMigrationStatusRequest struct via the builder pattern
-
-
 ### Return type
 
  (empty response body)
@@ -123,53 +59,18 @@ Other parameters are passed through a pointer to a apiGetRMMigrationStatusReques
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## IsInMigrationMode
-
-> IsInMigrationMode(ctx).Execute()
+# **IsInMigrationMode**
+> IsInMigrationMode(ctx, )
 
 
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/umeshkumhar/backupdr-client"
-)
-
-func main() {
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ManageACLAPI.IsInMigrationMode(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ManageACLAPI.IsInMigrationMode``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
+### Required Parameters
 This endpoint does not need any parameter.
 
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiIsInMigrationModeRequest struct via the builder pattern
-
-
 ### Return type
 
  (empty response body)
@@ -180,56 +81,19 @@ Other parameters are passed through a pointer to a apiIsInMigrationModeRequest s
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## PromoteUser
-
-> SessionRest PromoteUser(ctx).Execute()
-
+# **PromoteUser**
+> SessionRest PromoteUser(ctx, )
 To promote the IAP Manage Acl users to Administrator role
 
+If the caller identity has IAM ManageInternalACL permission, this call will grant the current user session temporary (up to 5 minutes) AGM Administrator role (which can be granted explicitly alternatively) and temporary full privileges with AGM access control management (such as assigning users to organizations/roles and modifying role/right definitions). If the caller identity doesn't have the IAM ManageInternalACL permission, this call fails with 403 not authorized
 
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/umeshkumhar/backupdr-client"
-)
-
-func main() {
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ManageACLAPI.PromoteUser(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ManageACLAPI.PromoteUser``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PromoteUser`: SessionRest
-	fmt.Fprintf(os.Stdout, "Response from `ManageACLAPI.PromoteUser`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
+### Required Parameters
 This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPromoteUserRequest struct via the builder pattern
-
 
 ### Return type
 
@@ -241,57 +105,27 @@ Other parameters are passed through a pointer to a apiPromoteUserRequest struct 
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-
-## StoreSecretKeys
-
-> StoreSecretKeys(ctx).ListNameValueRest(listNameValueRest).Execute()
+# **StoreSecretKeys**
+> StoreSecretKeys(ctx, optional)
 
 
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/umeshkumhar/backupdr-client"
-)
-
-func main() {
-	listNameValueRest := *openapiclient.NewListNameValueRest() // ListNameValueRest |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.ManageACLAPI.StoreSecretKeys(context.Background()).ListNameValueRest(listNameValueRest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ManageACLAPI.StoreSecretKeys``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiStoreSecretKeysRequest struct via the builder pattern
-
+### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **listNameValueRest** | [**ListNameValueRest**](ListNameValueRest.md) |  | 
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***ManageACLApiStoreSecretKeysOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ManageACLApiStoreSecretKeysOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**optional.Interface of ListNameValueRest**](ListNameValueRest.md)|  | 
 
 ### Return type
 
@@ -303,10 +137,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
