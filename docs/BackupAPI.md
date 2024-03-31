@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **FetchApplicationOptions**
-> AppClassRest FetchApplicationOptions(ctx, backupid, backupid)
+> AppClassRest FetchApplicationOptions(ctx, backupid)
 Gets the dynamic list of application options and corresponding default value (if any) for given backup image.
 
 ### Required Parameters
@@ -160,7 +160,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **backupid** | **string**| Id of the backup image whose application options are required. | 
-  **backupid** | **string**|  | 
 
 ### Return type
 
@@ -204,7 +203,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDiskMapping**
-> DiskMappingRest GetDiskMapping(ctx, backupid, backupid, optional)
+> DiskMappingRest GetDiskMapping(ctx, backupid, optional)
 Gets disk mapping options for restore (source disks, target disks, RAC node list etc)
 
 ### Required Parameters
@@ -213,7 +212,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **backupid** | **string**| Id of the backup image to be restored | 
-  **backupid** | **string**|  | 
  **optional** | ***BackupApiGetDiskMappingOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -221,11 +219,8 @@ Optional parameters are passed through a pointer to a BackupApiGetDiskMappingOpt
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **hostid** | **optional.String**| Restore target host | 
  **targetstoragetype** | **optional.String**| Restore Target Storage Type (ASM or FS) | 
- **hostid** | **optional.String**|  | 
- **targetstoragetype** | **optional.String**|  | 
 
 ### Return type
 
@@ -312,7 +307,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **MigrateRestoreMountBackup**
-> MigrateRestoreMountBackup(ctx, backupid, backupid, optional)
+> MigrateRestoreMountBackup(ctx, backupid, optional)
 Submit restore-migrate for Oracle restore-mounted image
 
 ### Required Parameters
@@ -321,14 +316,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **backupid** | **string**| Id of the restore-mounted image to be migrated | 
-  **backupid** | **string**|  | 
  **optional** | ***BackupApiMigrateRestoreMountBackupOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a BackupApiMigrateRestoreMountBackupOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
  **body** | [**optional.Interface of RestoreMigrateRest**](RestoreMigrateRest.md)|  | 
 
@@ -382,7 +375,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **MountMigratePreflight**
-> RestorePreflightRest MountMigratePreflight(ctx, backupid, backupid, optional)
+> RestorePreflightRest MountMigratePreflight(ctx, backupid, optional)
 Performs preflight check for Oracle restore-mount/restore-migrate operations
 
 ### Required Parameters
@@ -391,14 +384,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **backupid** | **string**| Id of the backup image which will be restore-mounted or restore-migrated. | 
-  **backupid** | **string**|  | 
  **optional** | ***BackupApiMountMigratePreflightOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
 Optional parameters are passed through a pointer to a BackupApiMountMigratePreflightOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
  **body** | [**optional.Interface of PreflightRest**](PreflightRest.md)|  | 
 

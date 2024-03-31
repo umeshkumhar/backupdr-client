@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**BackupNow**](ApplicationApi.md#BackupNow) | **Post** /application/{application_id}/backup | Run a backup job. The user must have Application Manage, Host Manage, or Backup Manage right.
 [**CountApplications**](ApplicationApi.md#CountApplications) | **Head** /application | Get a count of total applications matching the filters.
-[**CreateOptionForApp**](ApplicationApi.md#CreateOptionForApp) | **Post** /application/{application_id}/settableoption | Create a settable option for the particular application. It requires SLA Manage or SLA Assign rights.
 [**CreateWorkflow**](ApplicationApi.md#CreateWorkflow) | **Post** /application/{application_id}/workflow | Create new workflow for the particular application. It requires Workflow Manage right.
 [**DeleteApplication**](ApplicationApi.md#DeleteApplication) | **Delete** /application/{application_id} | Delete application. It requires Application Manage or Host Manage rights.
 [**DeleteOptionForApp**](ApplicationApi.md#DeleteOptionForApp) | **Delete** /application/{application_id}/settableoption/{option_id} | Delete the particular option from the particular application. It requires SLA Manage or SLA Assign rights.
@@ -21,10 +20,8 @@ Method | HTTP request | Description
 [**ListActiveImages**](ApplicationApi.md#ListActiveImages) | **Get** /application/{application_id}/activeimage | Get active images for an application
 [**ListApplicationTypes**](ApplicationApi.md#ListApplicationTypes) | **Get** /application/types | Get list of application types that are currently in the system.
 [**ListApplications**](ApplicationApi.md#ListApplications) | **Get** /application | List applications.
-[**ListOptionForApp**](ApplicationApi.md#ListOptionForApp) | **Get** /application/{application_id}/settableoption | List all existing settable options of the application
 [**ListWorkflows**](ApplicationApi.md#ListWorkflows) | **Get** /application/{application_id}/workflow | Get list of workflows for the particular application. It requires Workflow View right.
 [**OptionsForList2**](ApplicationApi.md#OptionsForList2) | **Options** /application | Describes the fields available for filtering and sorting
-[**SettableOptionMetadataForApp**](ApplicationApi.md#SettableOptionMetadataForApp) | **Options** /application/{application_id}/settableoption | Get settable option metadata of the particular application
 [**SettableOptionMetadataForPolicyType**](ApplicationApi.md#SettableOptionMetadataForPolicyType) | **Options** /application/settableoption/{apptype} | Settable option metadata for the particular application type
 [**UpdateApplication**](ApplicationApi.md#UpdateApplication) | **Put** /application/{application_id} | Update application data. It requires Application Manage or Host Manage rights.
 [**UpdateOptionForApp**](ApplicationApi.md#UpdateOptionForApp) | **Put** /application/{application_id}/settableoption/{option_id} | Update the particular option of the particular application. It requires SLA Manage or SLA Assign rights.
@@ -92,42 +89,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **CreateOptionForApp**
-> AdvancedOptionRest CreateOptionForApp(ctx, applicationId, optional)
-Create a settable option for the particular application. It requires SLA Manage or SLA Assign rights.
-
-Available options can be retrieved from the OPTIONS API. Existing options can be retrieved from GET API.
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **applicationId** | **string**|  | 
- **optional** | ***ApplicationApiCreateOptionForAppOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-Optional parameters are passed through a pointer to a ApplicationApiCreateOptionForAppOpts struct
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **body** | [**optional.Interface of AdvancedOptionRest**](AdvancedOptionRest.md)|  | 
-
-### Return type
-
-[**AdvancedOptionRest**](AdvancedOptionRest.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -554,32 +515,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ListOptionForApp**
-> ListAdvancedOptionRest ListOptionForApp(ctx, applicationId)
-List all existing settable options of the application
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **applicationId** | **string**|  | 
-
-### Return type
-
-[**ListAdvancedOptionRest**](ListAdvancedOptionRest.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **ListWorkflows**
 > ListWorkflowRest ListWorkflows(ctx, applicationId)
 Get list of workflows for the particular application. It requires Workflow View right.
@@ -616,32 +551,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**OptionsRest**](OptionsRest.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **SettableOptionMetadataForApp**
-> string SettableOptionMetadataForApp(ctx, applicationId)
-Get settable option metadata of the particular application
-
-### Required Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **applicationId** | **string**|  | 
-
-### Return type
-
-**string**
 
 ### Authorization
 

@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **GetDynamicJsonForPoolManage**
-> GetDynamicJsonForPoolManage(ctx, poolType, poolType)
+> GetDynamicJsonForPoolManage(ctx, poolType)
 List dynamic UI properties based on type of vault pool. Requires Storage Manage right.
 
 ### Required Parameters
@@ -141,7 +141,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **poolType** | **string**| The vault type for which dynamic json will be rendered | 
-  **poolType** | **string**|  | 
 
 ### Return type
 

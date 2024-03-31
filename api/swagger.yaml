@@ -1555,178 +1555,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /application/{application_id}/settableoption:
-    get:
-      tags:
-      - Application
-      summary: List all existing settable options of the application
-      operationId: listOptionForApp
-      parameters:
-      - name: application_id
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      responses:
-        "200":
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListAdvancedOptionRest'
-        "400":
-          description: The request is invalid.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        "401":
-          description: Not authenticated. Make sure you specified a valid session
-            id in the Authorization header with Actifio as the scheme.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        "403":
-          description: Not Authorized. Make sure your assigned roles contain sufficient
-            rights to perform the operation.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        "404":
-          description: Object not found. Make sure the id/names that are used to identify
-            the objects are valid.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        "500":
-          description: There are issues with the back-end. The API request cannot
-            be fulfilled.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    post:
-      tags:
-      - Application
-      summary: Create a settable option for the particular application. It requires
-        SLA Manage or SLA Assign rights.
-      description: Available options can be retrieved from the OPTIONS API. Existing
-        options can be retrieved from GET API.
-      operationId: createOptionForApp
-      parameters:
-      - name: application_id
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AdvancedOptionRest'
-      responses:
-        "200":
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AdvancedOptionRest'
-        "400":
-          description: The request is invalid.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        "401":
-          description: Not authenticated. Make sure you specified a valid session
-            id in the Authorization header with Actifio as the scheme.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        "403":
-          description: Not Authorized. Make sure your assigned roles contain sufficient
-            rights to perform the operation.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        "404":
-          description: Object not found. Make sure the id/names that are used to identify
-            the objects are valid.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        "500":
-          description: There are issues with the back-end. The API request cannot
-            be fulfilled.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    options:
-      tags:
-      - Application
-      summary: Get settable option metadata of the particular application
-      operationId: settableOptionMetadataForApp
-      parameters:
-      - name: application_id
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      responses:
-        "200":
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: string
-                x-content-type: application/json
-        "400":
-          description: The request is invalid.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        "401":
-          description: Not authenticated. Make sure you specified a valid session
-            id in the Authorization header with Actifio as the scheme.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        "403":
-          description: Not Authorized. Make sure your assigned roles contain sufficient
-            rights to perform the operation.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        "404":
-          description: Object not found. Make sure the id/names that are used to identify
-            the objects are valid.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        "500":
-          description: There are issues with the back-end. The API request cannot
-            be fulfilled.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
   /application/{application_id}/workflow:
     get:
       tags:
@@ -3878,13 +3706,6 @@ paths:
         explode: false
         schema:
           type: string
-      - name: backupid
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
       responses:
         "200":
           description: Success
@@ -3953,27 +3774,6 @@ paths:
       - name: targetstoragetype
         in: query
         description: Restore Target Storage Type (ASM or FS)
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: backupid
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: hostid
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: targetstoragetype
-        in: query
         required: false
         style: form
         explode: true
@@ -4092,13 +3892,6 @@ paths:
         explode: false
         schema:
           type: string
-      - name: backupid
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
       requestBody:
         content:
           '*/*':
@@ -4206,13 +3999,6 @@ paths:
       - name: backupid
         in: path
         description: Id of the backup image which will be restore-mounted or restore-migrated.
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: backupid
-        in: path
         required: true
         style: simple
         explode: false
@@ -6143,13 +5929,6 @@ paths:
       - name: pool_type
         in: path
         description: The vault type for which dynamic json will be rendered
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: pool_type
-        in: path
         required: true
         style: simple
         explode: false
@@ -8574,6 +8353,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
         "500":
+          description: There are issues with the back-end. The API request cannot
+            be fulfilled.
           content:
             application/json:
               schema:
@@ -12522,16 +12303,6 @@ components:
           logs:
           - logs
           - logs
-    ListRestApplianceUpdateLogsRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApplianceUpdateLogsRest'
     ListApplianceUpdateInstallationJobRest:
       type: object
       properties:
@@ -12587,16 +12358,6 @@ components:
             releasedate: 9
             rebootrequired: true
             readmelink: readmelink
-    ListRestApplianceUpdateInstallationJobRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApplianceUpdateInstallationJobRest'
     FilterFieldClassMapping:
       type: object
       properties:
@@ -12776,36 +12537,6 @@ components:
           syncdate: 6
           id: id
           href: http://example.com/aeiou
-    ApplianceUpdateNotificationRest:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Unique ID for this object
-        href:
-          type: string
-          description: URL to access this object
-          format: uri
-        syncdate:
-          type: integer
-          description: When this object was last synced from appliances (UNIX Epoch
-            time in microseconds). It does not apply to local resources.
-          format: int64
-        stale:
-          type: boolean
-          description: Optional flag to indicate if the information is out-of-date
-            due to communication problems with appliances. It does not apply to local
-            resources.
-    ListRestApplianceUpdateNotificationRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApplianceUpdateNotificationRest'
     ConsolidatedApplianceUpdatesRest:
       type: object
       properties:
@@ -12951,16 +12682,6 @@ components:
           syncdate: 5
           id: id
           href: http://example.com/aeiou
-    ListRestConsolidatedApplianceUpdatesRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConsolidatedApplianceUpdatesRest'
     AdvancedOptionRest:
       type: object
       properties:
@@ -24914,16 +24635,6 @@ components:
         id: id
         href: http://example.com/aeiou
         required: true
-    ListRestAppClassRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/AppClassRest'
     ListBackupRest:
       type: object
       properties:
@@ -25697,16 +25408,6 @@ components:
           datafilemovestarted: true
           releaselogs: true
           migrate-frequency: 8
-    ListRestBackupRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/BackupRest'
     ListStringRest:
       type: object
       properties:
@@ -30649,16 +30350,6 @@ components:
           frommount: true
           username: username
           friendlytype: friendlytype
-    ListRestApplicationRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApplicationRest'
     ListAdvancedOptionRest:
       type: object
       properties:
@@ -30686,16 +30377,6 @@ components:
           id: id
           href: http://example.com/aeiou
           value: value
-    ListRestAdvancedOptionRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/AdvancedOptionRest'
     ListWorkflowRest:
       type: object
       properties:
@@ -35853,16 +35534,6 @@ components:
             href: http://example.com/aeiou
             value: value
             key: key
-    ListRestWorkflowRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkflowRest'
     ArrayOptionRest:
       type: object
       properties:
@@ -36349,16 +36020,6 @@ components:
           label: label
           id: id
           href: http://example.com/aeiou
-    ListRestArrayTypeRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ArrayTypeRest'
     ListArrayRest:
       type: object
       properties:
@@ -36772,16 +36433,6 @@ components:
           arraytypelabel: arraytypelabel
           username: username
           status: status
-    ListRestArrayRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ArrayRest'
     ArrayTestResultRest:
       type: object
       properties:
@@ -37074,16 +36725,6 @@ components:
           error:
             err_code: 10011
             err_message: err_message
-    ListRestArrayTestResultRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ArrayTestResultRest'
     CloneRest:
       type: object
       properties:
@@ -38266,16 +37907,6 @@ components:
             id: id
             href: http://example.com/aeiou
           username: username
-    ListRestClusterRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClusterRest'
     ComponentRest:
       type: object
     EventRest:
@@ -41916,16 +41547,6 @@ components:
       type: object
     ObjectRest:
       type: object
-    ListRestJobRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/JobRest'
     VersionRest:
       type: object
       properties:
@@ -54039,16 +53660,6 @@ components:
           id: id
           href: http://example.com/aeiou
           groupname: groupname
-    ListRestConsistencyGroupRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConsistencyGroupRest'
     MembershipChangeRest:
       type: object
       properties:
@@ -54687,16 +54298,6 @@ components:
           - null
           status: status
           pooltype: pooltype
-    ListRestDiskPoolRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/DiskPoolRest'
     AppCreationRest:
       type: object
       properties:
@@ -57729,16 +57330,6 @@ components:
           diskpref: diskpref
           port_count: port_count
           originalhostid: originalhostid
-    ListRestHostRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/HostRest'
     CertificateRevocationRest:
       type: object
       properties:
@@ -57887,16 +57478,6 @@ components:
           jobname: jobname
           username: username
           status: 6
-    ListRestAuditRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/AuditRest'
     ListLogicalGroupRest:
       type: object
       properties:
@@ -57938,61 +57519,6 @@ components:
           syncdate: 4
           id: id
           href: http://example.com/aeiou
-    ListRestLogicalGroupRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/LogicalGroupRest'
-    DbDumpUploadUrlRest:
-      type: object
-      properties:
-        dbDumpUploadUrl:
-          type: string
-        dbName:
-          type: string
-        success:
-          type: boolean
-        errormsg:
-          type: string
-        id:
-          type: string
-          description: Unique ID for this object
-        href:
-          type: string
-          description: URL to access this object
-          format: uri
-        syncdate:
-          type: integer
-          description: When this object was last synced from appliances (UNIX Epoch
-            time in microseconds). It does not apply to local resources.
-          format: int64
-        stale:
-          type: boolean
-          description: Optional flag to indicate if the information is out-of-date
-            due to communication problems with appliances. It does not apply to local
-            resources.
-    ListRestDbDumpUploadUrlRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/DbDumpUploadUrlRest'
-    RMMigrationStatusRest:
-      type: object
-      properties:
-        rsrvStatus:
-          type: string
-        jasperStatus:
-          type: string
     AuthConfigRest:
       type: object
       properties:
@@ -58731,16 +58257,6 @@ components:
           id: id
           href: http://example.com/aeiou
           version: version
-    ListRestOrganizationRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrganizationRest'
     ListRightRest:
       type: object
       properties:
@@ -58776,16 +58292,6 @@ components:
           parents:
           - null
           - null
-    ListRestRightRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/RightRest'
     ListRoleRest:
       type: object
       properties:
@@ -58821,41 +58327,6 @@ components:
           rightList:
           - null
           - null
-    ListRestRoleRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/RoleRest'
-    IAMPermissionsRest:
-      type: object
-      properties:
-        permissions:
-          type: object
-          additionalProperties:
-            type: boolean
-        id:
-          type: string
-          description: Unique ID for this object
-        href:
-          type: string
-          description: URL to access this object
-          format: uri
-        syncdate:
-          type: integer
-          description: When this object was last synced from appliances (UNIX Epoch
-            time in microseconds). It does not apply to local resources.
-          format: int64
-        stale:
-          type: boolean
-          description: Optional flag to indicate if the information is out-of-date
-            due to communication problems with appliances. It does not apply to local
-            resources.
-      description: This object represents the results of IAM permission checks
     ListSlaRest:
       type: object
       properties:
@@ -59203,16 +58674,6 @@ components:
             syncdate: 4
             id: id
             href: http://example.com/aeiou
-    ListRestSlaRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/SlaRest'
     JSONArray:
       type: object
       properties:
@@ -59867,16 +59328,6 @@ components:
           id: id
           href: http://example.com/aeiou
           cid: cid
-    ListRestSlpRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/SlpRest'
     ListPolicyRest:
       type: object
       properties:
@@ -60004,16 +59455,6 @@ components:
           name: name
           remoteretention: 3
           targetvault: 8
-    ListRestPolicyRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolicyRest'
     ListSltRest:
       type: object
       properties:
@@ -60301,16 +59742,6 @@ components:
           override: override
           id: id
           href: http://example.com/aeiou
-    ListRestSltRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/SltRest'
     ListUserRest:
       type: object
       properties:
@@ -60654,16 +60085,6 @@ components:
             - null
             - null
           email: email
-    ListRestUserRest:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int32
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserRest'
     cluster_uploadupdate_body:
       type: object
       properties:

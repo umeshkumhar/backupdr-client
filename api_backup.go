@@ -580,10 +580,9 @@ func (a *BackupApiService) ExpireBackup(ctx context.Context, backupId string, lo
 BackupApiService Gets the dynamic list of application options and corresponding default value (if any) for given backup image.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupid Id of the backup image whose application options are required.
- * @param backupid
 @return AppClassRest
 */
-func (a *BackupApiService) FetchApplicationOptions(ctx context.Context, backupid string, backupid string) (AppClassRest, *http.Response, error) {
+func (a *BackupApiService) FetchApplicationOptions(ctx context.Context, backupid string) (AppClassRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -594,7 +593,6 @@ func (a *BackupApiService) FetchApplicationOptions(ctx context.Context, backupid
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/backup/{backupid}/applicationOptions"
-	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", fmt.Sprintf("%v", backupid), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", fmt.Sprintf("%v", backupid), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -876,23 +874,18 @@ func (a *BackupApiService) GetBackup(ctx context.Context, backupId string) (Back
 BackupApiService Gets disk mapping options for restore (source disks, target disks, RAC node list etc)
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupid Id of the backup image to be restored
- * @param backupid
  * @param optional nil or *BackupApiGetDiskMappingOpts - Optional Parameters:
      * @param "Hostid" (optional.String) -  Restore target host
      * @param "Targetstoragetype" (optional.String) -  Restore Target Storage Type (ASM or FS)
-     * @param "Hostid" (optional.String) - 
-     * @param "Targetstoragetype" (optional.String) - 
 @return DiskMappingRest
 */
 
 type BackupApiGetDiskMappingOpts struct {
     Hostid optional.String
     Targetstoragetype optional.String
-    Hostid optional.String
-    Targetstoragetype optional.String
 }
 
-func (a *BackupApiService) GetDiskMapping(ctx context.Context, backupid string, backupid string, localVarOptionals *BackupApiGetDiskMappingOpts) (DiskMappingRest, *http.Response, error) {
+func (a *BackupApiService) GetDiskMapping(ctx context.Context, backupid string, localVarOptionals *BackupApiGetDiskMappingOpts) (DiskMappingRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -904,18 +897,11 @@ func (a *BackupApiService) GetDiskMapping(ctx context.Context, backupid string, 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/backup/{backupid}/diskmapping"
 	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", fmt.Sprintf("%v", backupid), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", fmt.Sprintf("%v", backupid), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
-	if localVarOptionals != nil && localVarOptionals.Hostid.IsSet() {
-		localVarQueryParams.Add("hostid", parameterToString(localVarOptionals.Hostid.Value(), ""))
-	}
-	if localVarOptionals != nil && localVarOptionals.Targetstoragetype.IsSet() {
-		localVarQueryParams.Add("targetstoragetype", parameterToString(localVarOptionals.Targetstoragetype.Value(), ""))
-	}
 	if localVarOptionals != nil && localVarOptionals.Hostid.IsSet() {
 		localVarQueryParams.Add("hostid", parameterToString(localVarOptionals.Hostid.Value(), ""))
 	}
@@ -1362,8 +1348,7 @@ func (a *BackupApiService) LiveCloneBackup(ctx context.Context, backupId string,
 /*
 BackupApiService Submit restore-migrate for Oracle restore-mounted image
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param backupid2 Id of the restore-mounted image to be migrated
- * @param backupid
+ * @param backupid Id of the restore-mounted image to be migrated
  * @param optional nil or *BackupApiMigrateRestoreMountBackupOpts - Optional Parameters:
      * @param "Body" (optional.Interface of RestoreMigrateRest) - 
 
@@ -1373,7 +1358,7 @@ type BackupApiMigrateRestoreMountBackupOpts struct {
     Body optional.Interface
 }
 
-func (a *BackupApiService) MigrateRestoreMountBackup(ctx context.Context, backupid2 string, backupid string, localVarOptionals *BackupApiMigrateRestoreMountBackupOpts) (*http.Response, error) {
+func (a *BackupApiService) MigrateRestoreMountBackup(ctx context.Context, backupid string, localVarOptionals *BackupApiMigrateRestoreMountBackupOpts) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -1384,7 +1369,6 @@ func (a *BackupApiService) MigrateRestoreMountBackup(ctx context.Context, backup
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/backup/{backupid}/restoremigrate"
-	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", fmt.Sprintf("%v", backupid), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", fmt.Sprintf("%v", backupid), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1650,8 +1634,7 @@ func (a *BackupApiService) MountBackup(ctx context.Context, backupId string, loc
 /*
 BackupApiService Performs preflight check for Oracle restore-mount/restore-migrate operations
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param backupid2 Id of the backup image which will be restore-mounted or restore-migrated.
- * @param backupid
+ * @param backupid Id of the backup image which will be restore-mounted or restore-migrated.
  * @param optional nil or *BackupApiMountMigratePreflightOpts - Optional Parameters:
      * @param "Body" (optional.Interface of PreflightRest) - 
 @return RestorePreflightRest
@@ -1661,7 +1644,7 @@ type BackupApiMountMigratePreflightOpts struct {
     Body optional.Interface
 }
 
-func (a *BackupApiService) MountMigratePreflight(ctx context.Context, backupid2 string, backupid string, localVarOptionals *BackupApiMountMigratePreflightOpts) (RestorePreflightRest, *http.Response, error) {
+func (a *BackupApiService) MountMigratePreflight(ctx context.Context, backupid string, localVarOptionals *BackupApiMountMigratePreflightOpts) (RestorePreflightRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
@@ -1672,7 +1655,6 @@ func (a *BackupApiService) MountMigratePreflight(ctx context.Context, backupid2 
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/backup/{backupid}/mountmigratepreflight"
-	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", fmt.Sprintf("%v", backupid), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", fmt.Sprintf("%v", backupid), -1)
 
 	localVarHeaderParams := make(map[string]string)

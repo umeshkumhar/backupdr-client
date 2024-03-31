@@ -602,10 +602,9 @@ func (a *DiskPoolApiService) GetDiskPool(ctx context.Context, diskpoolId string)
 DiskPoolApiService List dynamic UI properties based on type of vault pool. Requires Storage Manage right.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param poolType The vault type for which dynamic json will be rendered
- * @param poolType
 
 */
-func (a *DiskPoolApiService) GetDynamicJsonForPoolManage(ctx context.Context, poolType string, poolType string) (*http.Response, error) {
+func (a *DiskPoolApiService) GetDynamicJsonForPoolManage(ctx context.Context, poolType string) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -616,7 +615,6 @@ func (a *DiskPoolApiService) GetDynamicJsonForPoolManage(ctx context.Context, po
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/diskpool/vault/listdynamicfields/{pool_type}"
-	localVarPath = strings.Replace(localVarPath, "{"+"pool_type"+"}", fmt.Sprintf("%v", poolType), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"pool_type"+"}", fmt.Sprintf("%v", poolType), -1)
 
 	localVarHeaderParams := make(map[string]string)

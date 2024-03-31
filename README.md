@@ -59,7 +59,6 @@ Class | Method | HTTP request | Description
 *ApplianceUpdateInstallationJobApi* | [**UpdateNotification**](docs/ApplianceUpdateInstallationJobApi.md#updatenotification) | **Put** /applianceupdateinstallationjob/notification/{id} | Update the acknowledge status of the notification to true
 *ApplicationApi* | [**BackupNow**](docs/ApplicationApi.md#backupnow) | **Post** /application/{application_id}/backup | Run a backup job. The user must have Application Manage, Host Manage, or Backup Manage right.
 *ApplicationApi* | [**CountApplications**](docs/ApplicationApi.md#countapplications) | **Head** /application | Get a count of total applications matching the filters.
-*ApplicationApi* | [**CreateOptionForApp**](docs/ApplicationApi.md#createoptionforapp) | **Post** /application/{application_id}/settableoption | Create a settable option for the particular application. It requires SLA Manage or SLA Assign rights.
 *ApplicationApi* | [**CreateWorkflow**](docs/ApplicationApi.md#createworkflow) | **Post** /application/{application_id}/workflow | Create new workflow for the particular application. It requires Workflow Manage right.
 *ApplicationApi* | [**DeleteApplication**](docs/ApplicationApi.md#deleteapplication) | **Delete** /application/{application_id} | Delete application. It requires Application Manage or Host Manage rights.
 *ApplicationApi* | [**DeleteOptionForApp**](docs/ApplicationApi.md#deleteoptionforapp) | **Delete** /application/{application_id}/settableoption/{option_id} | Delete the particular option from the particular application. It requires SLA Manage or SLA Assign rights.
@@ -74,10 +73,8 @@ Class | Method | HTTP request | Description
 *ApplicationApi* | [**ListActiveImages**](docs/ApplicationApi.md#listactiveimages) | **Get** /application/{application_id}/activeimage | Get active images for an application
 *ApplicationApi* | [**ListApplicationTypes**](docs/ApplicationApi.md#listapplicationtypes) | **Get** /application/types | Get list of application types that are currently in the system.
 *ApplicationApi* | [**ListApplications**](docs/ApplicationApi.md#listapplications) | **Get** /application | List applications.
-*ApplicationApi* | [**ListOptionForApp**](docs/ApplicationApi.md#listoptionforapp) | **Get** /application/{application_id}/settableoption | List all existing settable options of the application
 *ApplicationApi* | [**ListWorkflows**](docs/ApplicationApi.md#listworkflows) | **Get** /application/{application_id}/workflow | Get list of workflows for the particular application. It requires Workflow View right.
 *ApplicationApi* | [**OptionsForList2**](docs/ApplicationApi.md#optionsforlist2) | **Options** /application | Describes the fields available for filtering and sorting
-*ApplicationApi* | [**SettableOptionMetadataForApp**](docs/ApplicationApi.md#settableoptionmetadataforapp) | **Options** /application/{application_id}/settableoption | Get settable option metadata of the particular application
 *ApplicationApi* | [**SettableOptionMetadataForPolicyType**](docs/ApplicationApi.md#settableoptionmetadataforpolicytype) | **Options** /application/settableoption/{apptype} | Settable option metadata for the particular application type
 *ApplicationApi* | [**UpdateApplication**](docs/ApplicationApi.md#updateapplication) | **Put** /application/{application_id} | Update application data. It requires Application Manage or Host Manage rights.
 *ApplicationApi* | [**UpdateOptionForApp**](docs/ApplicationApi.md#updateoptionforapp) | **Put** /application/{application_id}/settableoption/{option_id} | Update the particular option of the particular application. It requires SLA Manage or SLA Assign rights.
@@ -240,7 +237,6 @@ Class | Method | HTTP request | Description
  - [AppDiscoveryRest](docs/AppDiscoveryRest.md)
  - [ApplianceUpdateInstallationJobRest](docs/ApplianceUpdateInstallationJobRest.md)
  - [ApplianceUpdateLogsRest](docs/ApplianceUpdateLogsRest.md)
- - [ApplianceUpdateNotificationRest](docs/ApplianceUpdateNotificationRest.md)
  - [ApplianceUpdateReadmeRest](docs/ApplianceUpdateReadmeRest.md)
  - [ApplianceUpdateRest](docs/ApplianceUpdateRest.md)
  - [ApplicationRest](docs/ApplicationRest.md)
@@ -270,7 +266,6 @@ Class | Method | HTTP request | Description
  - [ConsistencyGroupRest](docs/ConsistencyGroupRest.md)
  - [ConsolidatedApplianceUpdatesRest](docs/ConsolidatedApplianceUpdatesRest.md)
  - [DataStoreRest](docs/DataStoreRest.md)
- - [DbDumpUploadUrlRest](docs/DbDumpUploadUrlRest.md)
  - [DescValueRest](docs/DescValueRest.md)
  - [DiskMappingRest](docs/DiskMappingRest.md)
  - [DiskPoolCopiesRest](docs/DiskPoolCopiesRest.md)
@@ -288,7 +283,6 @@ Class | Method | HTTP request | Description
  - [FormFieldRest](docs/FormFieldRest.md)
  - [GetListRest](docs/GetListRest.md)
  - [HostRest](docs/HostRest.md)
- - [IamPermissionsRest](docs/IamPermissionsRest.md)
  - [IscsiTestResultDetailRest](docs/IscsiTestResultDetailRest.md)
  - [JobRest](docs/JobRest.md)
  - [JsonArray](docs/JsonArray.md)
@@ -313,34 +307,6 @@ Class | Method | HTTP request | Description
  - [ListOrganizationRest](docs/ListOrganizationRest.md)
  - [ListPolicyRest](docs/ListPolicyRest.md)
  - [ListRest](docs/ListRest.md)
- - [ListRestAdvancedOptionRest](docs/ListRestAdvancedOptionRest.md)
- - [ListRestAppClassRest](docs/ListRestAppClassRest.md)
- - [ListRestApplianceUpdateInstallationJobRest](docs/ListRestApplianceUpdateInstallationJobRest.md)
- - [ListRestApplianceUpdateLogsRest](docs/ListRestApplianceUpdateLogsRest.md)
- - [ListRestApplianceUpdateNotificationRest](docs/ListRestApplianceUpdateNotificationRest.md)
- - [ListRestApplicationRest](docs/ListRestApplicationRest.md)
- - [ListRestArrayRest](docs/ListRestArrayRest.md)
- - [ListRestArrayTestResultRest](docs/ListRestArrayTestResultRest.md)
- - [ListRestArrayTypeRest](docs/ListRestArrayTypeRest.md)
- - [ListRestAuditRest](docs/ListRestAuditRest.md)
- - [ListRestBackupRest](docs/ListRestBackupRest.md)
- - [ListRestClusterRest](docs/ListRestClusterRest.md)
- - [ListRestConsistencyGroupRest](docs/ListRestConsistencyGroupRest.md)
- - [ListRestConsolidatedApplianceUpdatesRest](docs/ListRestConsolidatedApplianceUpdatesRest.md)
- - [ListRestDbDumpUploadUrlRest](docs/ListRestDbDumpUploadUrlRest.md)
- - [ListRestDiskPoolRest](docs/ListRestDiskPoolRest.md)
- - [ListRestHostRest](docs/ListRestHostRest.md)
- - [ListRestJobRest](docs/ListRestJobRest.md)
- - [ListRestLogicalGroupRest](docs/ListRestLogicalGroupRest.md)
- - [ListRestOrganizationRest](docs/ListRestOrganizationRest.md)
- - [ListRestPolicyRest](docs/ListRestPolicyRest.md)
- - [ListRestRightRest](docs/ListRestRightRest.md)
- - [ListRestRoleRest](docs/ListRestRoleRest.md)
- - [ListRestSlaRest](docs/ListRestSlaRest.md)
- - [ListRestSlpRest](docs/ListRestSlpRest.md)
- - [ListRestSltRest](docs/ListRestSltRest.md)
- - [ListRestUserRest](docs/ListRestUserRest.md)
- - [ListRestWorkflowRest](docs/ListRestWorkflowRest.md)
  - [ListRightRest](docs/ListRightRest.md)
  - [ListRoleRest](docs/ListRoleRest.md)
  - [ListSlaRest](docs/ListSlaRest.md)
@@ -381,7 +347,6 @@ Class | Method | HTTP request | Description
  - [RestorePreflightRest](docs/RestorePreflightRest.md)
  - [RestoreRest](docs/RestoreRest.md)
  - [RightRest](docs/RightRest.md)
- - [RmMigrationStatusRest](docs/RmMigrationStatusRest.md)
  - [RoleRest](docs/RoleRest.md)
  - [ScriptFileRest](docs/ScriptFileRest.md)
  - [ScriptRest](docs/ScriptRest.md)
