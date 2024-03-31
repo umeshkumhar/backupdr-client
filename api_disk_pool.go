@@ -691,7 +691,6 @@ type ApiGetDynamicJsonForPoolManageRequest struct {
 	ctx context.Context
 	ApiService *DiskPoolAPIService
 	poolType string
-	poolType2 string
 }
 
 func (r ApiGetDynamicJsonForPoolManageRequest) Execute() (*http.Response, error) {
@@ -703,15 +702,13 @@ GetDynamicJsonForPoolManage List dynamic UI properties based on type of vault po
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param poolType The vault type for which dynamic json will be rendered
- @param poolType2
  @return ApiGetDynamicJsonForPoolManageRequest
 */
-func (a *DiskPoolAPIService) GetDynamicJsonForPoolManage(ctx context.Context, poolType string, poolType2 string) ApiGetDynamicJsonForPoolManageRequest {
+func (a *DiskPoolAPIService) GetDynamicJsonForPoolManage(ctx context.Context, poolType string) ApiGetDynamicJsonForPoolManageRequest {
 	return ApiGetDynamicJsonForPoolManageRequest{
 		ApiService: a,
 		ctx: ctx,
 		poolType: poolType,
-		poolType2: poolType2,
 	}
 }
 
@@ -730,7 +727,6 @@ func (a *DiskPoolAPIService) GetDynamicJsonForPoolManageExecute(r ApiGetDynamicJ
 
 	localVarPath := localBasePath + "/diskpool/vault/listdynamicfields/{pool_type}"
 	localVarPath = strings.Replace(localVarPath, "{"+"pool_type"+"}", url.PathEscape(parameterValueToString(r.poolType, "poolType")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"pool_type"+"}", url.PathEscape(parameterValueToString(r.poolType2, "poolType2")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ## GetDynamicJsonForPoolManage
 
-> GetDynamicJsonForPoolManage(ctx, poolType, poolType2).Execute()
+> GetDynamicJsonForPoolManage(ctx, poolType).Execute()
 
 List dynamic UI properties based on type of vault pool. Requires Storage Manage right.
 
@@ -297,11 +297,10 @@ import (
 
 func main() {
 	poolType := "poolType_example" // string | The vault type for which dynamic json will be rendered
-	poolType2 := "poolType_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.DiskPoolAPI.GetDynamicJsonForPoolManage(context.Background(), poolType, poolType2).Execute()
+	r, err := apiClient.DiskPoolAPI.GetDynamicJsonForPoolManage(context.Background(), poolType).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DiskPoolAPI.GetDynamicJsonForPoolManage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -316,7 +315,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **poolType** | **string** | The vault type for which dynamic json will be rendered | 
-**poolType2** | **string** |  | 
 
 ### Other Parameters
 
@@ -325,7 +323,6 @@ Other parameters are passed through a pointer to a apiGetDynamicJsonForPoolManag
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
 
 ### Return type

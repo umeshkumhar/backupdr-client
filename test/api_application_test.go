@@ -11,11 +11,10 @@ package openapi
 
 import (
 	"context"
-	"testing"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	openapiclient "github.com/umeshkumhar/backupdr-client"
+	"testing"
 )
 
 func Test_openapi_ApplicationAPIService(t *testing.T) {
@@ -43,20 +42,6 @@ func Test_openapi_ApplicationAPIService(t *testing.T) {
 		httpRes, err := apiClient.ApplicationAPI.CountApplications(context.Background()).Execute()
 
 		require.Nil(t, err)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationAPIService CreateOptionForApp", func(t *testing.T) {
-
-		t.Skip("skip test") // remove to run test
-
-		var applicationId string
-
-		resp, httpRes, err := apiClient.ApplicationAPI.CreateOptionForApp(context.Background(), applicationId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
 	})
@@ -251,20 +236,6 @@ func Test_openapi_ApplicationAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ApplicationAPIService ListOptionForApp", func(t *testing.T) {
-
-		t.Skip("skip test") // remove to run test
-
-		var applicationId string
-
-		resp, httpRes, err := apiClient.ApplicationAPI.ListOptionForApp(context.Background(), applicationId).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
 	t.Run("Test ApplicationAPIService ListWorkflows", func(t *testing.T) {
 
 		t.Skip("skip test") // remove to run test
@@ -284,20 +255,6 @@ func Test_openapi_ApplicationAPIService(t *testing.T) {
 		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.ApplicationAPI.OptionsForList2(context.Background()).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test ApplicationAPIService SettableOptionMetadataForApp", func(t *testing.T) {
-
-		t.Skip("skip test") // remove to run test
-
-		var applicationId string
-
-		resp, httpRes, err := apiClient.ApplicationAPI.SettableOptionMetadataForApp(context.Background(), applicationId).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

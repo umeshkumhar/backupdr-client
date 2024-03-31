@@ -11,11 +11,10 @@ package openapi
 
 import (
 	"context"
-	"testing"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	openapiclient "github.com/umeshkumhar/backupdr-client"
+	"testing"
 )
 
 func Test_openapi_StorageArrayAPIService(t *testing.T) {

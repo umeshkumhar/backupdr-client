@@ -292,7 +292,7 @@ Name | Type | Description  | Notes
 
 ## FetchApplicationOptions
 
-> AppClassRest FetchApplicationOptions(ctx, backupid, backupid2).Execute()
+> AppClassRest FetchApplicationOptions(ctx, backupid).Execute()
 
 Gets the dynamic list of application options and corresponding default value (if any) for given backup image.
 
@@ -310,11 +310,10 @@ import (
 
 func main() {
 	backupid := "backupid_example" // string | Id of the backup image whose application options are required.
-	backupid2 := "backupid_example" // string | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BackupAPI.FetchApplicationOptions(context.Background(), backupid, backupid2).Execute()
+	resp, r, err := apiClient.BackupAPI.FetchApplicationOptions(context.Background(), backupid).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BackupAPI.FetchApplicationOptions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -331,7 +330,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **backupid** | **string** | Id of the backup image whose application options are required. | 
-**backupid2** | **string** |  | 
 
 ### Other Parameters
 
@@ -340,7 +338,6 @@ Other parameters are passed through a pointer to a apiFetchApplicationOptionsReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
 
 ### Return type
@@ -431,7 +428,7 @@ Name | Type | Description  | Notes
 
 ## GetDiskMapping
 
-> DiskMappingRest GetDiskMapping(ctx, backupid, backupid2).Hostid(hostid).Targetstoragetype(targetstoragetype).Hostid2(hostid2).Targetstoragetype2(targetstoragetype2).Execute()
+> DiskMappingRest GetDiskMapping(ctx, backupid).Hostid(hostid).Targetstoragetype(targetstoragetype).Execute()
 
 Gets disk mapping options for restore (source disks, target disks, RAC node list etc)
 
@@ -449,15 +446,12 @@ import (
 
 func main() {
 	backupid := "backupid_example" // string | Id of the backup image to be restored
-	backupid2 := "backupid_example" // string | 
 	hostid := "hostid_example" // string | Restore target host (optional)
 	targetstoragetype := "targetstoragetype_example" // string | Restore Target Storage Type (ASM or FS) (optional)
-	hostid2 := "hostid_example" // string |  (optional)
-	targetstoragetype2 := "targetstoragetype_example" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BackupAPI.GetDiskMapping(context.Background(), backupid, backupid2).Hostid(hostid).Targetstoragetype(targetstoragetype).Hostid2(hostid2).Targetstoragetype2(targetstoragetype2).Execute()
+	resp, r, err := apiClient.BackupAPI.GetDiskMapping(context.Background(), backupid).Hostid(hostid).Targetstoragetype(targetstoragetype).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BackupAPI.GetDiskMapping``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -474,7 +468,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **backupid** | **string** | Id of the backup image to be restored | 
-**backupid2** | **string** |  | 
 
 ### Other Parameters
 
@@ -484,11 +477,8 @@ Other parameters are passed through a pointer to a apiGetDiskMappingRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
-
  **hostid** | **string** | Restore target host | 
  **targetstoragetype** | **string** | Restore Target Storage Type (ASM or FS) | 
- **hostid2** | **string** |  | 
- **targetstoragetype2** | **string** |  | 
 
 ### Return type
 
@@ -648,7 +638,7 @@ Name | Type | Description  | Notes
 
 ## MigrateRestoreMountBackup
 
-> MigrateRestoreMountBackup(ctx, backupid, backupid2).RestoreMigrateRest(restoreMigrateRest).Execute()
+> MigrateRestoreMountBackup(ctx, backupid).RestoreMigrateRest(restoreMigrateRest).Execute()
 
 Submit restore-migrate for Oracle restore-mounted image
 
@@ -666,12 +656,11 @@ import (
 
 func main() {
 	backupid := "backupid_example" // string | Id of the restore-mounted image to be migrated
-	backupid2 := "backupid_example" // string | 
 	restoreMigrateRest := *openapiclient.NewRestoreMigrateRest() // RestoreMigrateRest |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.BackupAPI.MigrateRestoreMountBackup(context.Background(), backupid, backupid2).RestoreMigrateRest(restoreMigrateRest).Execute()
+	r, err := apiClient.BackupAPI.MigrateRestoreMountBackup(context.Background(), backupid).RestoreMigrateRest(restoreMigrateRest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BackupAPI.MigrateRestoreMountBackup``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -686,7 +675,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **backupid** | **string** | Id of the restore-mounted image to be migrated | 
-**backupid2** | **string** |  | 
 
 ### Other Parameters
 
@@ -695,7 +683,6 @@ Other parameters are passed through a pointer to a apiMigrateRestoreMountBackupR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
  **restoreMigrateRest** | [**RestoreMigrateRest**](RestoreMigrateRest.md) |  | 
 
@@ -787,7 +774,7 @@ Name | Type | Description  | Notes
 
 ## MountMigratePreflight
 
-> RestorePreflightRest MountMigratePreflight(ctx, backupid, backupid2).PreflightRest(preflightRest).Execute()
+> RestorePreflightRest MountMigratePreflight(ctx, backupid).PreflightRest(preflightRest).Execute()
 
 Performs preflight check for Oracle restore-mount/restore-migrate operations
 
@@ -805,12 +792,11 @@ import (
 
 func main() {
 	backupid := "backupid_example" // string | Id of the backup image which will be restore-mounted or restore-migrated.
-	backupid2 := "backupid_example" // string | 
 	preflightRest := *openapiclient.NewPreflightRest() // PreflightRest |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.BackupAPI.MountMigratePreflight(context.Background(), backupid, backupid2).PreflightRest(preflightRest).Execute()
+	resp, r, err := apiClient.BackupAPI.MountMigratePreflight(context.Background(), backupid).PreflightRest(preflightRest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `BackupAPI.MountMigratePreflight``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -827,7 +813,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **backupid** | **string** | Id of the backup image which will be restore-mounted or restore-migrated. | 
-**backupid2** | **string** |  | 
 
 ### Other Parameters
 
@@ -836,7 +821,6 @@ Other parameters are passed through a pointer to a apiMountMigratePreflightReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
  **preflightRest** | [**PreflightRest**](PreflightRest.md) |  | 
 

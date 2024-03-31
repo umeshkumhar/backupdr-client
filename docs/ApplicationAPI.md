@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**BackupNow**](ApplicationAPI.md#BackupNow) | **Post** /application/{application_id}/backup | Run a backup job. The user must have Application Manage, Host Manage, or Backup Manage right.
 [**CountApplications**](ApplicationAPI.md#CountApplications) | **Head** /application | Get a count of total applications matching the filters.
-[**CreateOptionForApp**](ApplicationAPI.md#CreateOptionForApp) | **Post** /application/{application_id}/settableoption | Create a settable option for the particular application. It requires SLA Manage or SLA Assign rights.
 [**CreateWorkflow**](ApplicationAPI.md#CreateWorkflow) | **Post** /application/{application_id}/workflow | Create new workflow for the particular application. It requires Workflow Manage right.
 [**DeleteApplication**](ApplicationAPI.md#DeleteApplication) | **Delete** /application/{application_id} | Delete application. It requires Application Manage or Host Manage rights.
 [**DeleteOptionForApp**](ApplicationAPI.md#DeleteOptionForApp) | **Delete** /application/{application_id}/settableoption/{option_id} | Delete the particular option from the particular application. It requires SLA Manage or SLA Assign rights.
@@ -21,10 +20,8 @@ Method | HTTP request | Description
 [**ListActiveImages**](ApplicationAPI.md#ListActiveImages) | **Get** /application/{application_id}/activeimage | Get active images for an application
 [**ListApplicationTypes**](ApplicationAPI.md#ListApplicationTypes) | **Get** /application/types | Get list of application types that are currently in the system.
 [**ListApplications**](ApplicationAPI.md#ListApplications) | **Get** /application | List applications.
-[**ListOptionForApp**](ApplicationAPI.md#ListOptionForApp) | **Get** /application/{application_id}/settableoption | List all existing settable options of the application
 [**ListWorkflows**](ApplicationAPI.md#ListWorkflows) | **Get** /application/{application_id}/workflow | Get list of workflows for the particular application. It requires Workflow View right.
 [**OptionsForList2**](ApplicationAPI.md#OptionsForList2) | **Options** /application | Describes the fields available for filtering and sorting
-[**SettableOptionMetadataForApp**](ApplicationAPI.md#SettableOptionMetadataForApp) | **Options** /application/{application_id}/settableoption | Get settable option metadata of the particular application
 [**SettableOptionMetadataForPolicyType**](ApplicationAPI.md#SettableOptionMetadataForPolicyType) | **Options** /application/settableoption/{apptype} | Settable option metadata for the particular application type
 [**UpdateApplication**](ApplicationAPI.md#UpdateApplication) | **Put** /application/{application_id} | Update application data. It requires Application Manage or Host Manage rights.
 [**UpdateOptionForApp**](ApplicationAPI.md#UpdateOptionForApp) | **Put** /application/{application_id}/settableoption/{option_id} | Update the particular option of the particular application. It requires SLA Manage or SLA Assign rights.
@@ -155,78 +152,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## CreateOptionForApp
-
-> AdvancedOptionRest CreateOptionForApp(ctx, applicationId).AdvancedOptionRest(advancedOptionRest).Execute()
-
-Create a settable option for the particular application. It requires SLA Manage or SLA Assign rights.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/umeshkumhar/backupdr-client"
-)
-
-func main() {
-	applicationId := "applicationId_example" // string | 
-	advancedOptionRest := *openapiclient.NewAdvancedOptionRest() // AdvancedOptionRest |  (optional)
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ApplicationAPI.CreateOptionForApp(context.Background(), applicationId).AdvancedOptionRest(advancedOptionRest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationAPI.CreateOptionForApp``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateOptionForApp`: AdvancedOptionRest
-	fmt.Fprintf(os.Stdout, "Response from `ApplicationAPI.CreateOptionForApp`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**applicationId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateOptionForAppRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **advancedOptionRest** | [**AdvancedOptionRest**](AdvancedOptionRest.md) |  | 
-
-### Return type
-
-[**AdvancedOptionRest**](AdvancedOptionRest.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -1205,74 +1130,6 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListOptionForApp
-
-> ListAdvancedOptionRest ListOptionForApp(ctx, applicationId).Execute()
-
-List all existing settable options of the application
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/umeshkumhar/backupdr-client"
-)
-
-func main() {
-	applicationId := "applicationId_example" // string | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ApplicationAPI.ListOptionForApp(context.Background(), applicationId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationAPI.ListOptionForApp``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListOptionForApp`: ListAdvancedOptionRest
-	fmt.Fprintf(os.Stdout, "Response from `ApplicationAPI.ListOptionForApp`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**applicationId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListOptionForAppRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**ListAdvancedOptionRest**](ListAdvancedOptionRest.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## ListWorkflows
 
 > ListWorkflowRest ListWorkflows(ctx, applicationId).Execute()
@@ -1385,74 +1242,6 @@ Other parameters are passed through a pointer to a apiOptionsForList2Request str
 ### Return type
 
 [**OptionsRest**](OptionsRest.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## SettableOptionMetadataForApp
-
-> string SettableOptionMetadataForApp(ctx, applicationId).Execute()
-
-Get settable option metadata of the particular application
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/umeshkumhar/backupdr-client"
-)
-
-func main() {
-	applicationId := "applicationId_example" // string | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.ApplicationAPI.SettableOptionMetadataForApp(context.Background(), applicationId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ApplicationAPI.SettableOptionMetadataForApp``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SettableOptionMetadataForApp`: string
-	fmt.Fprintf(os.Stdout, "Response from `ApplicationAPI.SettableOptionMetadataForApp`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**applicationId** | **string** |  | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSettableOptionMetadataForAppRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-**string**
 
 ### Authorization
 

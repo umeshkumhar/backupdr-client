@@ -685,7 +685,6 @@ type ApiFetchApplicationOptionsRequest struct {
 	ctx context.Context
 	ApiService *BackupAPIService
 	backupid string
-	backupid2 string
 }
 
 func (r ApiFetchApplicationOptionsRequest) Execute() (*AppClassRest, *http.Response, error) {
@@ -697,15 +696,13 @@ FetchApplicationOptions Gets the dynamic list of application options and corresp
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param backupid Id of the backup image whose application options are required.
- @param backupid2
  @return ApiFetchApplicationOptionsRequest
 */
-func (a *BackupAPIService) FetchApplicationOptions(ctx context.Context, backupid string, backupid2 string) ApiFetchApplicationOptionsRequest {
+func (a *BackupAPIService) FetchApplicationOptions(ctx context.Context, backupid string) ApiFetchApplicationOptionsRequest {
 	return ApiFetchApplicationOptionsRequest{
 		ApiService: a,
 		ctx: ctx,
 		backupid: backupid,
-		backupid2: backupid2,
 	}
 }
 
@@ -726,7 +723,6 @@ func (a *BackupAPIService) FetchApplicationOptionsExecute(r ApiFetchApplicationO
 
 	localVarPath := localBasePath + "/backup/{backupid}/applicationOptions"
 	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", url.PathEscape(parameterValueToString(r.backupid, "backupid")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", url.PathEscape(parameterValueToString(r.backupid2, "backupid2")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1027,11 +1023,8 @@ type ApiGetDiskMappingRequest struct {
 	ctx context.Context
 	ApiService *BackupAPIService
 	backupid string
-	backupid2 string
 	hostid *string
 	targetstoragetype *string
-	hostid2 *string
-	targetstoragetype2 *string
 }
 
 // Restore target host
@@ -1046,16 +1039,6 @@ func (r ApiGetDiskMappingRequest) Targetstoragetype(targetstoragetype string) Ap
 	return r
 }
 
-func (r ApiGetDiskMappingRequest) Hostid2(hostid2 string) ApiGetDiskMappingRequest {
-	r.hostid2 = &hostid2
-	return r
-}
-
-func (r ApiGetDiskMappingRequest) Targetstoragetype2(targetstoragetype2 string) ApiGetDiskMappingRequest {
-	r.targetstoragetype2 = &targetstoragetype2
-	return r
-}
-
 func (r ApiGetDiskMappingRequest) Execute() (*DiskMappingRest, *http.Response, error) {
 	return r.ApiService.GetDiskMappingExecute(r)
 }
@@ -1065,15 +1048,13 @@ GetDiskMapping Gets disk mapping options for restore (source disks, target disks
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param backupid Id of the backup image to be restored
- @param backupid2
  @return ApiGetDiskMappingRequest
 */
-func (a *BackupAPIService) GetDiskMapping(ctx context.Context, backupid string, backupid2 string) ApiGetDiskMappingRequest {
+func (a *BackupAPIService) GetDiskMapping(ctx context.Context, backupid string) ApiGetDiskMappingRequest {
 	return ApiGetDiskMappingRequest{
 		ApiService: a,
 		ctx: ctx,
 		backupid: backupid,
-		backupid2: backupid2,
 	}
 }
 
@@ -1094,7 +1075,6 @@ func (a *BackupAPIService) GetDiskMappingExecute(r ApiGetDiskMappingRequest) (*D
 
 	localVarPath := localBasePath + "/backup/{backupid}/diskmapping"
 	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", url.PathEscape(parameterValueToString(r.backupid, "backupid")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", url.PathEscape(parameterValueToString(r.backupid2, "backupid2")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1105,12 +1085,6 @@ func (a *BackupAPIService) GetDiskMappingExecute(r ApiGetDiskMappingRequest) (*D
 	}
 	if r.targetstoragetype != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "targetstoragetype", r.targetstoragetype, "")
-	}
-	if r.hostid2 != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "hostid", r.hostid2, "")
-	}
-	if r.targetstoragetype2 != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "targetstoragetype", r.targetstoragetype2, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1609,7 +1583,6 @@ type ApiMigrateRestoreMountBackupRequest struct {
 	ctx context.Context
 	ApiService *BackupAPIService
 	backupid string
-	backupid2 string
 	restoreMigrateRest *RestoreMigrateRest
 }
 
@@ -1627,15 +1600,13 @@ MigrateRestoreMountBackup Submit restore-migrate for Oracle restore-mounted imag
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param backupid Id of the restore-mounted image to be migrated
- @param backupid2
  @return ApiMigrateRestoreMountBackupRequest
 */
-func (a *BackupAPIService) MigrateRestoreMountBackup(ctx context.Context, backupid string, backupid2 string) ApiMigrateRestoreMountBackupRequest {
+func (a *BackupAPIService) MigrateRestoreMountBackup(ctx context.Context, backupid string) ApiMigrateRestoreMountBackupRequest {
 	return ApiMigrateRestoreMountBackupRequest{
 		ApiService: a,
 		ctx: ctx,
 		backupid: backupid,
-		backupid2: backupid2,
 	}
 }
 
@@ -1654,7 +1625,6 @@ func (a *BackupAPIService) MigrateRestoreMountBackupExecute(r ApiMigrateRestoreM
 
 	localVarPath := localBasePath + "/backup/{backupid}/restoremigrate"
 	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", url.PathEscape(parameterValueToString(r.backupid, "backupid")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", url.PathEscape(parameterValueToString(r.backupid2, "backupid2")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1945,7 +1915,6 @@ type ApiMountMigratePreflightRequest struct {
 	ctx context.Context
 	ApiService *BackupAPIService
 	backupid string
-	backupid2 string
 	preflightRest *PreflightRest
 }
 
@@ -1963,15 +1932,13 @@ MountMigratePreflight Performs preflight check for Oracle restore-mount/restore-
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param backupid Id of the backup image which will be restore-mounted or restore-migrated.
- @param backupid2
  @return ApiMountMigratePreflightRequest
 */
-func (a *BackupAPIService) MountMigratePreflight(ctx context.Context, backupid string, backupid2 string) ApiMountMigratePreflightRequest {
+func (a *BackupAPIService) MountMigratePreflight(ctx context.Context, backupid string) ApiMountMigratePreflightRequest {
 	return ApiMountMigratePreflightRequest{
 		ApiService: a,
 		ctx: ctx,
 		backupid: backupid,
-		backupid2: backupid2,
 	}
 }
 
@@ -1992,7 +1959,6 @@ func (a *BackupAPIService) MountMigratePreflightExecute(r ApiMountMigratePreflig
 
 	localVarPath := localBasePath + "/backup/{backupid}/mountmigratepreflight"
 	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", url.PathEscape(parameterValueToString(r.backupid, "backupid")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"backupid"+"}", url.PathEscape(parameterValueToString(r.backupid2, "backupid2")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

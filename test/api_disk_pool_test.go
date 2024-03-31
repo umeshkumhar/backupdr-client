@@ -11,11 +11,10 @@ package openapi
 
 import (
 	"context"
-	"testing"
-
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	openapiclient "github.com/umeshkumhar/backupdr-client"
+	"testing"
 )
 
 func Test_openapi_DiskPoolAPIService(t *testing.T) {
@@ -78,9 +77,8 @@ func Test_openapi_DiskPoolAPIService(t *testing.T) {
 		t.Skip("skip test") // remove to run test
 
 		var poolType string
-		var poolType2 string
 
-		httpRes, err := apiClient.DiskPoolAPI.GetDynamicJsonForPoolManage(context.Background(), poolType, poolType2).Execute()
+		httpRes, err := apiClient.DiskPoolAPI.GetDynamicJsonForPoolManage(context.Background(), poolType).Execute()
 
 		require.Nil(t, err)
 		assert.Equal(t, 200, httpRes.StatusCode)
