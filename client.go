@@ -296,7 +296,7 @@ func (c *APIClient) prepareRequest(
 	}
 
 	// Setup path and query parameters
-	url, err := url.Parse(path)
+	url, err := url.Parse(c.cfg.Host + path)
 	if err != nil {
 		return nil, err
 	}
