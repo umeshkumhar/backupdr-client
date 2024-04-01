@@ -311,6 +311,7 @@ func (c *APIClient) prepareRequest(
 
 	// Encode the parameters.
 	url.RawQuery = query.Encode()
+	url.Host = c.cfg.Host
 
 	// Generate a new request
 	if body != nil {
@@ -334,7 +335,6 @@ func (c *APIClient) prepareRequest(
 	// Override request host, if applicable
 	if c.cfg.Host != "" {
 		localVarRequest.Host = c.cfg.Host
-		localVarRequest.URL, _ = url.Parse(c.cfg.Host)
 	}
 
 	// Add the user agent to the request.
