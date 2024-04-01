@@ -311,7 +311,6 @@ func (c *APIClient) prepareRequest(
 
 	// Encode the parameters.
 	url.RawQuery = query.Encode()
-	url.Host = c.cfg.Host
 
 	// Generate a new request
 	if body != nil {
