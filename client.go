@@ -525,7 +525,10 @@ type GenericSwaggerError struct {
 
 // Error returns non-empty string if there was an error.
 func (e GenericSwaggerError) Error() string {
-	return e.error + string(e.model.(ModelError).ErrCode) + e.model.(ModelError).ErrMessage
+	if e.model != nil {
+	     return e.error + string(e.model.(ModelError).ErrCode) + e.model.(ModelError).ErrMessage
+	}
+	return e.error 
 }
 
 // Body returns the raw bytes of the response
