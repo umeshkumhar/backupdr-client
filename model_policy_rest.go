@@ -25,6 +25,7 @@ type PolicyRest struct {
 	Sourcevault int32 `json:"sourcevault,omitempty"`
 	Selection string `json:"selection,omitempty"`
 	Scheduletype string `json:"scheduletype,omitempty"`
+	Scheduling string `json:"scheduling,omitempty"`
 	Exclusion string `json:"exclusion,omitempty"`
 	Reptype string `json:"reptype,omitempty"`
 	Retention string `json:"retention,omitempty"`
