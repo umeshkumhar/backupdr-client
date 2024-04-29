@@ -9,15 +9,16 @@
 package swagger
 
 type CloudVmDiscoveryRest struct {
-	Filter *CloudFilterRest `json:"filter,omitempty"`
-	Region string `json:"region,omitempty"`
-	Limit int32 `json:"limit,omitempty"`
-	ProjectId string `json:"projectId,omitempty"`
-	Cluster *ClusterRest `json:"cluster,omitempty"`
-	Vmids []string `json:"vmids,omitempty"`
-	Actifioroles []string `json:"actifioroles,omitempty"`
-	Sorter *NameValueRest `json:"sorter,omitempty"`
-	Offset int32 `json:"offset,omitempty"`
+	Filter       *CloudFilterRest `json:"filter,omitempty"`
+	Region       string           `json:"region,omitempty"`
+	Limit        int32            `json:"limit,omitempty"`
+	ListOnly     bool             `json:"listonly,omitempty"`
+	ProjectId    string           `json:"projectId,omitempty"`
+	Cluster      *ClusterRest     `json:"cluster,omitempty"`
+	Vmids        []string         `json:"vmids,omitempty"`
+	Actifioroles []string         `json:"actifioroles,omitempty"`
+	Sorter       *NameValueRest   `json:"sorter,omitempty"`
+	Offset       int32            `json:"offset,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
