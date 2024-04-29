@@ -4,20 +4,20 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CountArrays**](StorageArrayApi.md#CountArrays) | **Head** /array | Get a count of total storage arrays matching the filters.
-[**CreateArray**](StorageArrayApi.md#CreateArray) | **Post** /array | Create a storage array. It requires Storage Manage right.
-[**CredentialTest**](StorageArrayApi.md#CredentialTest) | **Post** /array/pretest | Credential test before creating a storage array. It requires Storage Manage right.
-[**DeleteArray**](StorageArrayApi.md#DeleteArray) | **Delete** /array/{array_id} | Remove the specific storage array from all appliances. It requires Storage Manage right.
-[**GetArray**](StorageArrayApi.md#GetArray) | **Get** /array/{array_id} | Get individual storage array details.
-[**GetArrayTypes**](StorageArrayApi.md#GetArrayTypes) | **Get** /array/type | Get all supported storage array types from appliances. It requires Storage View right.
-[**ListArrays**](StorageArrayApi.md#ListArrays) | **Get** /array | Get a list of storage arrays
-[**OptionsForList3**](StorageArrayApi.md#OptionsForList3) | **Options** /array | Describes the fields available for filtering and sorting
-[**TestArray**](StorageArrayApi.md#TestArray) | **Post** /array/{array_id} | Connectivity test on the specific storage array. It requires Storage Manage right.
-[**UpdateArray**](StorageArrayApi.md#UpdateArray) | **Put** /array/{array_id} | Update a specific storage array. It requires Storage Manage right.
+[**CountArrays**](StorageArrayApi.md#CountArrays) | **Head** /array | Get a count of total storage arrays matching the filters. It requires backupdr.managementServers.viewStorage IAM permission
+[**CreateArray**](StorageArrayApi.md#CreateArray) | **Post** /array | Create a storage array. It requires backupdr.managementServers.manageStorage IAM permission
+[**CredentialTest**](StorageArrayApi.md#CredentialTest) | **Post** /array/pretest | Credential test before creating a storage array. It requires backupdr.managementServers.manageStorage IAM permission
+[**DeleteArray**](StorageArrayApi.md#DeleteArray) | **Delete** /array/{array_id} | Remove the specific storage array from all appliances. It requires backupdr.managementServers.manageStorage IAM permission
+[**GetArray**](StorageArrayApi.md#GetArray) | **Get** /array/{array_id} | Get individual storage array details. It requires backupdr.managementServers.viewStorage IAM permission
+[**GetArrayTypes**](StorageArrayApi.md#GetArrayTypes) | **Get** /array/type | Get all supported storage array types from appliances. It requires backupdr.managementServers.viewStorage IAM permission
+[**ListArrays**](StorageArrayApi.md#ListArrays) | **Get** /array | Get a list of storage arrays. It requires backupdr.managementServers.viewStorage IAM permission
+[**OptionsForListArray**](StorageArrayApi.md#OptionsForListArray) | **Options** /array | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.viewStorage IAM permission
+[**TestArray**](StorageArrayApi.md#TestArray) | **Post** /array/{array_id} | Connectivity test on the specific storage array. It requires backupdr.managementServers.manageStorage IAM permission
+[**UpdateArray**](StorageArrayApi.md#UpdateArray) | **Put** /array/{array_id} | Update a specific storage array. It requires backupdr.managementServers.manageStorage IAM permission
 
 # **CountArrays**
 > CountArrays(ctx, optional)
-Get a count of total storage arrays matching the filters.
+Get a count of total storage arrays matching the filters. It requires backupdr.managementServers.viewStorage IAM permission
 
 ### Required Parameters
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 # **CreateArray**
 > ArrayRest CreateArray(ctx, optional)
-Create a storage array. It requires Storage Manage right.
+Create a storage array. It requires backupdr.managementServers.manageStorage IAM permission
 
 ### Required Parameters
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 # **CredentialTest**
 > CredentialTest(ctx, optional)
-Credential test before creating a storage array. It requires Storage Manage right.
+Credential test before creating a storage array. It requires backupdr.managementServers.manageStorage IAM permission
 
 ### Required Parameters
 
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 # **DeleteArray**
 > DeleteArray(ctx, arrayId)
-Remove the specific storage array from all appliances. It requires Storage Manage right.
+Remove the specific storage array from all appliances. It requires backupdr.managementServers.manageStorage IAM permission
 
 ### Required Parameters
 
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 # **GetArray**
 > ArrayRest GetArray(ctx, arrayId)
-Get individual storage array details.
+Get individual storage array details. It requires backupdr.managementServers.viewStorage IAM permission
 
 ### Required Parameters
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 # **GetArrayTypes**
 > ListArrayTypeRest GetArrayTypes(ctx, )
-Get all supported storage array types from appliances. It requires Storage View right.
+Get all supported storage array types from appliances. It requires backupdr.managementServers.viewStorage IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -187,7 +187,7 @@ This endpoint does not need any parameter.
 
 # **ListArrays**
 > ListArrayRest ListArrays(ctx, optional)
-Get a list of storage arrays
+Get a list of storage arrays. It requires backupdr.managementServers.viewStorage IAM permission
 
 ### Required Parameters
 
@@ -220,9 +220,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList3**
-> OptionsRest OptionsForList3(ctx, )
-Describes the fields available for filtering and sorting
+# **OptionsForListArray**
+> OptionsRest OptionsForListArray(ctx, )
+Describes the fields available for filtering and sorting. It requires backupdr.managementServers.viewStorage IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -244,7 +244,7 @@ This endpoint does not need any parameter.
 
 # **TestArray**
 > ListArrayTestResultRest TestArray(ctx, arrayId)
-Connectivity test on the specific storage array. It requires Storage Manage right.
+Connectivity test on the specific storage array. It requires backupdr.managementServers.manageStorage IAM permission
 
 ### Required Parameters
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 # **UpdateArray**
 > ArrayRest UpdateArray(ctx, arrayId, optional)
-Update a specific storage array. It requires Storage Manage right.
+Update a specific storage array. It requires backupdr.managementServers.manageStorage IAM permission
 
 ### Required Parameters
 

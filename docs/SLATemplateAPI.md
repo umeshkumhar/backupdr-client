@@ -4,30 +4,30 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CloneTemplates**](SLATemplateApi.md#CloneTemplates) | **Post** /slt/{slt_id}/clone | Clone a specific slt. It requires SLA Manage right.
-[**CountSlts**](SLATemplateApi.md#CountSlts) | **Head** /slt | Get a count of total slts matching the filters. It requires SLA View, SLA Assign or SLA Manage rights.
-[**CreateOptionForPolicy**](SLATemplateApi.md#CreateOptionForPolicy) | **Post** /slt/{slt_id}/policy/{policy_id}/settableoption | Create a new settable option for the specific policy. It requires SLA Assign or SLA Manage rights.
-[**CreatePolicy**](SLATemplateApi.md#CreatePolicy) | **Post** /slt/{slt_id}/policy | Create a new policy. It requires SLA Manage right.
-[**CreateSlt**](SLATemplateApi.md#CreateSlt) | **Post** /slt | Create a new slt. It requires SLA Manage right.
-[**DeleteOptionForPolicy**](SLATemplateApi.md#DeleteOptionForPolicy) | **Delete** /slt/{slt_id}/policy/{policy_id}/settableoption/{option_id} | Remove a settable option for the specific policy. It requires SLA Assign or SLA Manage rights.
-[**DeletePolicy**](SLATemplateApi.md#DeletePolicy) | **Delete** /slt/{slt_id}/policy/{policy_id} | Remove a policy. It requires SLA Manage right.
-[**DeleteSlt**](SLATemplateApi.md#DeleteSlt) | **Delete** /slt/{slt_id} | Remove a slt. It requires SLA Manage right.
-[**GetOptionForPolicy**](SLATemplateApi.md#GetOptionForPolicy) | **Get** /slt/{slt_id}/policy/{policy_id}/settableoption/{option_id} | Get a specific settable option of the specific policy. It requires SLA View, SLA Assign or SLA Manage rights.
-[**GetPolicy**](SLATemplateApi.md#GetPolicy) | **Get** /slt/{slt_id}/policy/{policy_id} | Get individual policy. It requires SLA View, SLA Assign or SLA Manage rights.
-[**GetSlt**](SLATemplateApi.md#GetSlt) | **Get** /slt/{slt_id} | Get individual slt details. It requires SLA View, SLA Assign or SLA Manage rights.
-[**ListOptionForPolicy**](SLATemplateApi.md#ListOptionForPolicy) | **Get** /slt/{slt_id}/policy/{policy_id}/settableoption | List all existing settable options of the specific policy. It requires SLA View, SLA Assign or SLA Manage rights.
-[**ListPolicies**](SLATemplateApi.md#ListPolicies) | **Get** /slt/{slt_id}/policy | Get policy list from the specific slt. It requires SLA View, SLA Assign or SLA Manage rights.
-[**ListSlts**](SLATemplateApi.md#ListSlts) | **Get** /slt | Get a list of slts. It requires SLA View, SLA Assign or SLA Manage rights.
-[**OptionsForList15**](SLATemplateApi.md#OptionsForList15) | **Options** /slt | Describes the fields available for filtering and sorting
-[**SettableOptionMetadataForPolicy**](SLATemplateApi.md#SettableOptionMetadataForPolicy) | **Options** /slt/{slt_id}/policy/{policy_id}/settableoption | Get settable option metadata for the specific policy.
-[**SettableOptionMetadataForPolicyType1**](SLATemplateApi.md#SettableOptionMetadataForPolicyType1) | **Options** /slt/settableoption/{policytype} | Get settable option metadata for the specific policy type.
-[**UpdateOptionForPolicy**](SLATemplateApi.md#UpdateOptionForPolicy) | **Put** /slt/{slt_id}/policy/{policy_id}/settableoption/{option_id} | Update a settable option for the specific policy. It requires SLA Assgin or SLA Manage rights.
-[**UpdatePolicy**](SLATemplateApi.md#UpdatePolicy) | **Put** /slt/{slt_id}/policy/{policy_id} | Update a policy. It requires SLA Manage right.
-[**UpdateSlt**](SLATemplateApi.md#UpdateSlt) | **Put** /slt/{slt_id} | Update a slt. It requires SLA Manage right.
+[**CloneTemplates**](SLATemplateApi.md#CloneTemplates) | **Post** /slt/{slt_id}/clone | Clone a specific slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
+[**CountSlts**](SLATemplateApi.md#CountSlts) | **Head** /slt | Get a count of total slts matching the filters. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**CreateOptionForPolicy**](SLATemplateApi.md#CreateOptionForPolicy) | **Post** /slt/{slt_id}/policy/{policy_id}/settableoption | Create a new settable option for the specific policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
+[**CreatePolicy**](SLATemplateApi.md#CreatePolicy) | **Post** /slt/{slt_id}/policy | Create a new policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
+[**CreateSlt**](SLATemplateApi.md#CreateSlt) | **Post** /slt | Create a new slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
+[**DeleteOptionForPolicy**](SLATemplateApi.md#DeleteOptionForPolicy) | **Delete** /slt/{slt_id}/policy/{policy_id}/settableoption/{option_id} | Remove a settable option for the specific policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
+[**DeletePolicy**](SLATemplateApi.md#DeletePolicy) | **Delete** /slt/{slt_id}/policy/{policy_id} | Remove a policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
+[**DeleteSlt**](SLATemplateApi.md#DeleteSlt) | **Delete** /slt/{slt_id} | Remove a slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
+[**GetOptionForPolicy**](SLATemplateApi.md#GetOptionForPolicy) | **Get** /slt/{slt_id}/policy/{policy_id}/settableoption/{option_id} | Get a specific settable option of the specific policy. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**GetPolicy**](SLATemplateApi.md#GetPolicy) | **Get** /slt/{slt_id}/policy/{policy_id} | Get individual policy. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**GetSlt**](SLATemplateApi.md#GetSlt) | **Get** /slt/{slt_id} | Get individual slt details. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**ListOptionForPolicy**](SLATemplateApi.md#ListOptionForPolicy) | **Get** /slt/{slt_id}/policy/{policy_id}/settableoption | List all existing settable options of the specific policy. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**ListPolicies**](SLATemplateApi.md#ListPolicies) | **Get** /slt/{slt_id}/policy | Get policy list from the specific slt. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**ListSlts**](SLATemplateApi.md#ListSlts) | **Get** /slt | Get a list of slts. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**OptionsForListSlt**](SLATemplateApi.md#OptionsForListSlt) | **Options** /slt | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+[**SettableOptionMetadataForPolicy**](SLATemplateApi.md#SettableOptionMetadataForPolicy) | **Options** /slt/{slt_id}/policy/{policy_id}/settableoption | Get settable option metadata for the specific policy. It requires backupdr.managementServers.access IAM permission
+[**SettableOptionMetadataForPolicyType**](SLATemplateApi.md#SettableOptionMetadataForPolicyType) | **Options** /slt/settableoption/{policytype} | Get settable option metadata for the specific policy type. It requires backupdr.managementServers.access IAM permission
+[**UpdateOptionForPolicy**](SLATemplateApi.md#UpdateOptionForPolicy) | **Put** /slt/{slt_id}/policy/{policy_id}/settableoption/{option_id} | Update a settable option for the specific policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
+[**UpdatePolicy**](SLATemplateApi.md#UpdatePolicy) | **Put** /slt/{slt_id}/policy/{policy_id} | Update a policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
+[**UpdateSlt**](SLATemplateApi.md#UpdateSlt) | **Put** /slt/{slt_id} | Update a slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
 
 # **CloneTemplates**
 > SltRest CloneTemplates(ctx, sltId, optional)
-Clone a specific slt. It requires SLA Manage right.
+Clone a specific slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 # **CountSlts**
 > CountSlts(ctx, optional)
-Get a count of total slts matching the filters. It requires SLA View, SLA Assign or SLA Manage rights.
+Get a count of total slts matching the filters. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 # **CreateOptionForPolicy**
 > AdvancedOptionRest CreateOptionForPolicy(ctx, sltId, policyId, optional)
-Create a new settable option for the specific policy. It requires SLA Assign or SLA Manage rights.
+Create a new settable option for the specific policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 # **CreatePolicy**
 > PolicyRest CreatePolicy(ctx, sltId, optional)
-Create a new policy. It requires SLA Manage right.
+Create a new policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 # **CreateSlt**
 > SltRest CreateSlt(ctx, optional)
-Create a new slt. It requires SLA Manage right.
+Create a new slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 # **DeleteOptionForPolicy**
 > DeleteOptionForPolicy(ctx, sltId, policyId, optionId)
-Remove a settable option for the specific policy. It requires SLA Assign or SLA Manage rights.
+Remove a settable option for the specific policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 # **DeletePolicy**
 > DeletePolicy(ctx, sltId, policyId)
-Remove a policy. It requires SLA Manage right.
+Remove a policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 # **DeleteSlt**
 > DeleteSlt(ctx, sltId)
-Remove a slt. It requires SLA Manage right.
+Remove a slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 # **GetOptionForPolicy**
 > AdvancedOptionRest GetOptionForPolicy(ctx, sltId, policyId, optionId)
-Get a specific settable option of the specific policy. It requires SLA View, SLA Assign or SLA Manage rights.
+Get a specific settable option of the specific policy. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -304,7 +304,7 @@ Name | Type | Description  | Notes
 
 # **GetPolicy**
 > PolicyRest GetPolicy(ctx, sltId, policyId)
-Get individual policy. It requires SLA View, SLA Assign or SLA Manage rights.
+Get individual policy. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 # **GetSlt**
 > SltRest GetSlt(ctx, sltId)
-Get individual slt details. It requires SLA View, SLA Assign or SLA Manage rights.
+Get individual slt details. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 # **ListOptionForPolicy**
 > ListAdvancedOptionRest ListOptionForPolicy(ctx, sltId, policyId)
-List all existing settable options of the specific policy. It requires SLA View, SLA Assign or SLA Manage rights.
+List all existing settable options of the specific policy. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -384,7 +384,7 @@ Name | Type | Description  | Notes
 
 # **ListPolicies**
 > ListPolicyRest ListPolicies(ctx, sltId)
-Get policy list from the specific slt. It requires SLA View, SLA Assign or SLA Manage rights.
+Get policy list from the specific slt. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 # **ListSlts**
 > ListSltRest ListSlts(ctx, optional)
-Get a list of slts. It requires SLA View, SLA Assign or SLA Manage rights.
+Get a list of slts. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -443,9 +443,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList15**
-> OptionsRest OptionsForList15(ctx, )
-Describes the fields available for filtering and sorting
+# **OptionsForListSlt**
+> OptionsRest OptionsForListSlt(ctx, )
+Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -467,7 +467,7 @@ This endpoint does not need any parameter.
 
 # **SettableOptionMetadataForPolicy**
 > SettableOptionMetadataForPolicy(ctx, sltId, policyId)
-Get settable option metadata for the specific policy.
+Get settable option metadata for the specific policy. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -492,9 +492,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **SettableOptionMetadataForPolicyType1**
-> SettableOptionMetadataForPolicyType1(ctx, policytype, optional)
-Get settable option metadata for the specific policy type.
+# **SettableOptionMetadataForPolicyType**
+> SettableOptionMetadataForPolicyType(ctx, policytype, optional)
+Get settable option metadata for the specific policy type. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -502,10 +502,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **policytype** | **string**|  | 
- **optional** | ***SLATemplateApiSettableOptionMetadataForPolicyType1Opts** | optional parameters | nil if no parameters
+ **optional** | ***SLATemplateApiSettableOptionMetadataForPolicyTypeOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
-Optional parameters are passed through a pointer to a SLATemplateApiSettableOptionMetadataForPolicyType1Opts struct
+Optional parameters are passed through a pointer to a SLATemplateApiSettableOptionMetadataForPolicyTypeOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 
 # **UpdateOptionForPolicy**
 > AdvancedOptionRest UpdateOptionForPolicy(ctx, sltId, policyId, optionId, optional)
-Update a settable option for the specific policy. It requires SLA Assgin or SLA Manage rights.
+Update a settable option for the specific policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -566,7 +566,7 @@ Name | Type | Description  | Notes
 
 # **UpdatePolicy**
 > PolicyRest UpdatePolicy(ctx, sltId, policyId, optional)
-Update a policy. It requires SLA Manage right.
+Update a policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -602,7 +602,7 @@ Name | Type | Description  | Notes
 
 # **UpdateSlt**
 > SltRest UpdateSlt(ctx, sltId, optional)
-Update a slt. It requires SLA Manage right.
+Update a slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
 
 ### Required Parameters
 

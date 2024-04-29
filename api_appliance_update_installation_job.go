@@ -26,7 +26,7 @@ var (
 
 type ApplianceUpdateInstallationJobApiService service
 /*
-ApplianceUpdateInstallationJobApiService Get the count of total appliance update installation jobs.
+ApplianceUpdateInstallationJobApiService Get the count of total appliance update installation jobs. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ApplianceUpdateInstallationJobApiCountApplianceUpdatesInstallationJobsOpts - Optional Parameters:
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -164,7 +164,7 @@ func (a *ApplianceUpdateInstallationJobApiService) CountApplianceUpdatesInstalla
 	return localVarHttpResponse, nil
 }
 /*
-ApplianceUpdateInstallationJobApiService Get the appliance update job details.
+ApplianceUpdateInstallationJobApiService Get the appliance update job details. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param updateId
 @return ApplianceUpdateInstallationJobRest
@@ -311,18 +311,18 @@ func (a *ApplianceUpdateInstallationJobApiService) GetApplianceUpdateInstallatio
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplianceUpdateInstallationJobApiService Get readme of the update id passed.
+ApplianceUpdateInstallationJobApiService Get readme of the update id passed. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param optional nil or *ApplianceUpdateInstallationJobApiGetReadMeOpts - Optional Parameters:
+ * @param optional nil or *ApplianceUpdateInstallationJobApiGetReadMeForApplianceUpdateInstallationJobOpts - Optional Parameters:
      * @param "Id" (optional.Int64) - 
 @return ApplianceUpdateReadmeRest
 */
 
-type ApplianceUpdateInstallationJobApiGetReadMeOpts struct {
+type ApplianceUpdateInstallationJobApiGetReadMeForApplianceUpdateInstallationJobOpts struct {
     Id optional.Int64
 }
 
-func (a *ApplianceUpdateInstallationJobApiService) GetReadMe(ctx context.Context, localVarOptionals *ApplianceUpdateInstallationJobApiGetReadMeOpts) (ApplianceUpdateReadmeRest, *http.Response, error) {
+func (a *ApplianceUpdateInstallationJobApiService) GetReadMeForApplianceUpdateInstallationJob(ctx context.Context, localVarOptionals *ApplianceUpdateInstallationJobApiGetReadMeForApplianceUpdateInstallationJobOpts) (ApplianceUpdateReadmeRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -466,7 +466,7 @@ func (a *ApplianceUpdateInstallationJobApiService) GetReadMe(ctx context.Context
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplianceUpdateInstallationJobApiService Get logs of the update id passed.
+ApplianceUpdateInstallationJobApiService Get logs of the update id passed. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ApplianceUpdateInstallationJobApiGetUpdateLogsOpts - Optional Parameters:
      * @param "Id" (optional.Int64) - 
@@ -621,14 +621,14 @@ func (a *ApplianceUpdateInstallationJobApiService) GetUpdateLogs(ctx context.Con
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplianceUpdateInstallationJobApiService Get the list of update installation jobs.
+ApplianceUpdateInstallationJobApiService Get the list of update installation jobs. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ApplianceUpdateInstallationJobApiListApplianceUpdatesInstallationjobsOpts - Optional Parameters:
      * @param "Sort" (optional.String) -  Sort field. Use OPTIONS method to get possible sort fields.&lt;br&gt;Then append &#x27;:asc&#x27; or &#x27;:desc&#x27; for ascending or descending sort.&lt;br&gt;Sorting is case-sensitive.
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
      * @param "Limit" (optional.Int64) -  Limit on the number of results to return
      * @param "Offset" (optional.Int64) -  Used with limit to support pagination
-@return ListApplianceUpdateInstallationJobRest
+@return ListRestApplianceUpdateInstallationJobRest
 */
 
 type ApplianceUpdateInstallationJobApiListApplianceUpdatesInstallationjobsOpts struct {
@@ -638,13 +638,13 @@ type ApplianceUpdateInstallationJobApiListApplianceUpdatesInstallationjobsOpts s
     Offset optional.Int64
 }
 
-func (a *ApplianceUpdateInstallationJobApiService) ListApplianceUpdatesInstallationjobs(ctx context.Context, localVarOptionals *ApplianceUpdateInstallationJobApiListApplianceUpdatesInstallationjobsOpts) (ListApplianceUpdateInstallationJobRest, *http.Response, error) {
+func (a *ApplianceUpdateInstallationJobApiService) ListApplianceUpdatesInstallationjobs(ctx context.Context, localVarOptionals *ApplianceUpdateInstallationJobApiListApplianceUpdatesInstallationjobsOpts) (ListRestApplianceUpdateInstallationJobRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
-		localVarReturnValue ListApplianceUpdateInstallationJobRest
+		localVarReturnValue ListRestApplianceUpdateInstallationJobRest
 	)
 
 	// create path and map variables
@@ -726,7 +726,7 @@ func (a *ApplianceUpdateInstallationJobApiService) ListApplianceUpdatesInstallat
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
-			var v ListApplianceUpdateInstallationJobRest
+			var v ListRestApplianceUpdateInstallationJobRest
 			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
 				if err != nil {
 					newErr.error = err.Error()
@@ -791,11 +791,11 @@ func (a *ApplianceUpdateInstallationJobApiService) ListApplianceUpdatesInstallat
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplianceUpdateInstallationJobApiService Describes the fields available for filtering and sorting
+ApplianceUpdateInstallationJobApiService Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return OptionsRest
 */
-func (a *ApplianceUpdateInstallationJobApiService) OptionsForList(ctx context.Context) (OptionsRest, *http.Response, error) {
+func (a *ApplianceUpdateInstallationJobApiService) OptionsForListApplianceUpdateInstallationJobs(ctx context.Context) (OptionsRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}
@@ -938,10 +938,16 @@ func (a *ApplianceUpdateInstallationJobApiService) OptionsForList(ctx context.Co
 /*
 ApplianceUpdateInstallationJobApiService Update the acknowledge status of the notification to true
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id
+ * @param optional nil or *ApplianceUpdateInstallationJobApiUpdateNotificationForApplianceUpdateInstallationJobOpts - Optional Parameters:
+     * @param "Body" (optional.Interface of ApplianceUpdateNotificationRest) - 
 
 */
-func (a *ApplianceUpdateInstallationJobApiService) UpdateNotification(ctx context.Context, id string) (*http.Response, error) {
+
+type ApplianceUpdateInstallationJobApiUpdateNotificationForApplianceUpdateInstallationJobOpts struct {
+    Body optional.Interface
+}
+
+func (a *ApplianceUpdateInstallationJobApiService) UpdateNotificationForApplianceUpdateInstallationJob(ctx context.Context, localVarOptionals *ApplianceUpdateInstallationJobApiUpdateNotificationForApplianceUpdateInstallationJobOpts) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -951,15 +957,14 @@ func (a *ApplianceUpdateInstallationJobApiService) UpdateNotification(ctx contex
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/applianceupdateinstallationjob/notification/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
+	localVarPath := a.client.cfg.BasePath + "/applianceupdateinstallationjob/notification"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{}
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -974,6 +979,12 @@ func (a *ApplianceUpdateInstallationJobApiService) UpdateNotification(ctx contex
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarOptionals != nil && localVarOptionals.Body.IsSet() {
+		
+		localVarOptionalBody:= localVarOptionals.Body.Value()
+		localVarPostBody = &localVarOptionalBody
 	}
 	if ctx != nil {
 		// API Key Authentication

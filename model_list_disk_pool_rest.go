@@ -9,6 +9,6 @@
 package swagger
 
 type ListDiskPoolRest struct {
-	Count int32 `json:"count,omitempty"`
 	Items []DiskPoolRest `json:"items,omitempty"`
+	Count int32 `json:"count,omitempty"`
 }

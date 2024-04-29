@@ -9,29 +9,29 @@
 package swagger
 
 type UserRest struct {
-	Password string `json:"password,omitempty"`
 	Version int32 `json:"version,omitempty"`
-	Rightlist []RightRest `json:"rightlist,omitempty"`
-	Rolelist []RoleRest `json:"rolelist,omitempty"`
+	Password string `json:"password,omitempty"`
 	Modifydate int64 `json:"modifydate,omitempty"`
-	Email string `json:"email,omitempty"`
-	Name string `json:"name,omitempty"`
 	Dataaccesslevel int32 `json:"dataaccesslevel,omitempty"`
 	Timezone string `json:"timezone,omitempty"`
 	Firstname string `json:"firstname,omitempty"`
 	Lastname string `json:"lastname,omitempty"`
 	Comments string `json:"comments,omitempty"`
+	Email string `json:"email,omitempty"`
 	Createdate int64 `json:"createdate,omitempty"`
+	Name string `json:"name,omitempty"`
 	Lastpasswordchangedate int64 `json:"lastpasswordchangedate,omitempty"`
 	Userpref string `json:"userpref,omitempty"`
 	Localonly bool `json:"localonly,omitempty"`
+	Rightlist []RightRest `json:"rightlist,omitempty"`
+	Rolelist []RoleRest `json:"rolelist,omitempty"`
 	Orglist []OrganizationRest `json:"orglist,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

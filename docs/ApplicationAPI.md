@@ -4,32 +4,35 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BackupNow**](ApplicationApi.md#BackupNow) | **Post** /application/{application_id}/backup | Run a backup job. The user must have Application Manage, Host Manage, or Backup Manage right.
-[**CountApplications**](ApplicationApi.md#CountApplications) | **Head** /application | Get a count of total applications matching the filters.
-[**CreateWorkflow**](ApplicationApi.md#CreateWorkflow) | **Post** /application/{application_id}/workflow | Create new workflow for the particular application. It requires Workflow Manage right.
-[**DeleteApplication**](ApplicationApi.md#DeleteApplication) | **Delete** /application/{application_id} | Delete application. It requires Application Manage or Host Manage rights.
-[**DeleteOptionForApp**](ApplicationApi.md#DeleteOptionForApp) | **Delete** /application/{application_id}/settableoption/{option_id} | Delete the particular option from the particular application. It requires SLA Manage or SLA Assign rights.
-[**DeleteWorkflow**](ApplicationApi.md#DeleteWorkflow) | **Delete** /application/{application_id}/workflow/{workflow_id} | Delete existing workflow. It requires Workflow Manage right.
-[**ExpireBackups**](ApplicationApi.md#ExpireBackups) | **Post** /application/{application_id}/expirebackup | Expires backups of the particular application. It requires the manageExpiration permission
-[**GetAppClass**](ApplicationApi.md#GetAppClass) | **Get** /application/{application_id}/appclass | Get the particular application&#x27;s appclass metadata
-[**GetAppClassByAppclassName**](ApplicationApi.md#GetAppClassByAppclassName) | **Get** /application/appclass/{appclass_name} | Get appclass metadata for the particular appclass name
-[**GetAppClasses**](ApplicationApi.md#GetAppClasses) | **Get** /application/appclass | Get all available app classes from given cluster
-[**GetApplication**](ApplicationApi.md#GetApplication) | **Get** /application/{application_id} | Get details on the particular application
-[**GetOptionForApp**](ApplicationApi.md#GetOptionForApp) | **Get** /application/{application_id}/settableoption/{option_id} | Get the particular option of the particular application. It requires SLA View, SLA Manage, or SLA Assign rights.
-[**GetWorkflow**](ApplicationApi.md#GetWorkflow) | **Get** /application/{application_id}/workflow/{workflow_id} | Get individual workflow. It requires Workflow View right.
-[**ListActiveImages**](ApplicationApi.md#ListActiveImages) | **Get** /application/{application_id}/activeimage | Get active images for an application
-[**ListApplicationTypes**](ApplicationApi.md#ListApplicationTypes) | **Get** /application/types | Get list of application types that are currently in the system.
-[**ListApplications**](ApplicationApi.md#ListApplications) | **Get** /application | List applications.
-[**ListWorkflows**](ApplicationApi.md#ListWorkflows) | **Get** /application/{application_id}/workflow | Get list of workflows for the particular application. It requires Workflow View right.
-[**OptionsForList2**](ApplicationApi.md#OptionsForList2) | **Options** /application | Describes the fields available for filtering and sorting
-[**SettableOptionMetadataForPolicyType**](ApplicationApi.md#SettableOptionMetadataForPolicyType) | **Options** /application/settableoption/{apptype} | Settable option metadata for the particular application type
-[**UpdateApplication**](ApplicationApi.md#UpdateApplication) | **Put** /application/{application_id} | Update application data. It requires Application Manage or Host Manage rights.
-[**UpdateOptionForApp**](ApplicationApi.md#UpdateOptionForApp) | **Put** /application/{application_id}/settableoption/{option_id} | Update the particular option of the particular application. It requires SLA Manage or SLA Assign rights.
-[**UpdateWorkflow**](ApplicationApi.md#UpdateWorkflow) | **Put** /application/{application_id}/workflow/{workflow_id} | Update existing workflow. It requires Workflow Manage right.
+[**BackupNow**](ApplicationApi.md#BackupNow) | **Post** /application/{application_id}/backup | Run a backup job. It requires backupdr.managementServers.manageBackups IAM permission
+[**CountApplications**](ApplicationApi.md#CountApplications) | **Head** /application | Get a count of total applications matching the filters. It requires backupdr.managementServers.access IAM permission
+[**CreateOptionForApp**](ApplicationApi.md#CreateOptionForApp) | **Post** /application/{application_id}/settableoption | Create a settable option for the particular application. It requires backupdr.managementServers.assignBackupPlans IAM permission
+[**CreateWorkflow**](ApplicationApi.md#CreateWorkflow) | **Post** /application/{application_id}/workflow | Create new workflow for the particular application. It requires backupdr.managementServers.manageWorkflows IAM permission
+[**DeleteApplication**](ApplicationApi.md#DeleteApplication) | **Delete** /application/{application_id} | Delete application. It requires backupdr.managementServers.manageApplications IAM permission
+[**DeleteOptionForApp**](ApplicationApi.md#DeleteOptionForApp) | **Delete** /application/{application_id}/settableoption/{option_id} | Delete the particular option from the particular application. It requires backupdr.managementServers.assignBackupPlans IAM permission
+[**DeleteWorkflow**](ApplicationApi.md#DeleteWorkflow) | **Delete** /application/{application_id}/workflow/{workflow_id} | Delete existing workflow. It requires backupdr.managementServers.manageWorkflows IAM permission
+[**ExpireBackups**](ApplicationApi.md#ExpireBackups) | **Post** /application/{application_id}/expirebackup | Expires backups of the particular application. It requires backupdr.managementServers.manageExpiration IAM permission
+[**GetAppClass**](ApplicationApi.md#GetAppClass) | **Get** /application/{application_id}/appclass | Get the particular application&#x27;s appclass metadata. It requires backupdr.managementServers.access IAM permission
+[**GetAppClassByAppclassName**](ApplicationApi.md#GetAppClassByAppclassName) | **Get** /application/appclass/{appclass_name} | Get appclass metadata for the particular appclass name. It requires backupdr.managementServers.access IAM permission
+[**GetAppClasses**](ApplicationApi.md#GetAppClasses) | **Get** /application/appclass | Get all available app classes from given cluster. It requires backupdr.managementServers.access IAM permission
+[**GetApplication**](ApplicationApi.md#GetApplication) | **Get** /application/{application_id} | Get details on the particular application. It requires backupdr.managementServers.access IAM permission
+[**GetOptionForApp**](ApplicationApi.md#GetOptionForApp) | **Get** /application/{application_id}/settableoption/{option_id} | Get the particular option of the particular application. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**GetWorkflow**](ApplicationApi.md#GetWorkflow) | **Get** /application/{application_id}/workflow/{workflow_id} | Get individual workflow. It requires backupdr.managementServers.viewWorkflows IAM permission
+[**ListActiveImages**](ApplicationApi.md#ListActiveImages) | **Get** /application/{application_id}/activeimage | Get active images for an application. It requires backupdr.managementServers.access IAM permission
+[**ListApplicationTypes**](ApplicationApi.md#ListApplicationTypes) | **Get** /application/types | Get list of application types that are currently in the system. It requires backupdr.managementServers.access IAM permission
+[**ListApplications**](ApplicationApi.md#ListApplications) | **Get** /application | List applications. It requires backupdr.managementServers.access IAM permission
+[**ListOptionForApp**](ApplicationApi.md#ListOptionForApp) | **Get** /application/{application_id}/settableoption | List all existing settable options of the application. It requires backupdr.managementServers.access IAM permission
+[**ListWorkflowsPerApp**](ApplicationApi.md#ListWorkflowsPerApp) | **Get** /application/{application_id}/workflow | Get list of workflows for the particular application. It requires backupdr.managementServers.viewWorkflows IAM permission
+[**OptionsForListApplication**](ApplicationApi.md#OptionsForListApplication) | **Options** /application | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+[**SettableOptionMetadataForApp**](ApplicationApi.md#SettableOptionMetadataForApp) | **Options** /application/{application_id}/settableoption | Get settable option metadata of the particular application. It requires backupdr.managementServers.access IAM permission
+[**SettableOptionMetadataForAppType**](ApplicationApi.md#SettableOptionMetadataForAppType) | **Options** /application/settableoption/{apptype} | Settable option metadata for the particular application type. It requires backupdr.managementServers.access IAM permission
+[**UpdateApplication**](ApplicationApi.md#UpdateApplication) | **Put** /application/{application_id} | Update application data. It requires backupdr.managementServers.manageApplications and backupdr.managementServers.manageSensitiveData (for sensitive app) IAM permissions
+[**UpdateOptionForApp**](ApplicationApi.md#UpdateOptionForApp) | **Put** /application/{application_id}/settableoption/{option_id} | Update the particular option of the particular application. It requires backupdr.managementServers.assignBackupPlans IAM permission
+[**UpdateWorkflow**](ApplicationApi.md#UpdateWorkflow) | **Put** /application/{application_id}/workflow/{workflow_id} | Update existing workflow. It requires backupdr.managementServers.manageWorkflows IAM permission
 
 # **BackupNow**
 > BackupNow(ctx, applicationId, optional)
-Run a backup job. The user must have Application Manage, Host Manage, or Backup Manage right.
+Run a backup job. It requires backupdr.managementServers.manageBackups IAM permission
 
 ### Required Parameters
 
@@ -63,7 +66,7 @@ Name | Type | Description  | Notes
 
 # **CountApplications**
 > CountApplications(ctx, optional)
-Get a count of total applications matching the filters.
+Get a count of total applications matching the filters. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -93,9 +96,45 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **CreateOptionForApp**
+> AdvancedOptionRest CreateOptionForApp(ctx, applicationId, optional)
+Create a settable option for the particular application. It requires backupdr.managementServers.assignBackupPlans IAM permission
+
+Available options can be retrieved from the OPTIONS API. Existing options can be retrieved from GET API.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **applicationId** | **string**|  | 
+ **optional** | ***ApplicationApiCreateOptionForAppOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ApplicationApiCreateOptionForAppOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **body** | [**optional.Interface of AdvancedOptionRest**](AdvancedOptionRest.md)|  | 
+
+### Return type
+
+[**AdvancedOptionRest**](AdvancedOptionRest.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **CreateWorkflow**
 > WorkflowRest CreateWorkflow(ctx, applicationId, optional)
-Create new workflow for the particular application. It requires Workflow Manage right.
+Create new workflow for the particular application. It requires backupdr.managementServers.manageWorkflows IAM permission
 
 ### Required Parameters
 
@@ -129,7 +168,7 @@ Name | Type | Description  | Notes
 
 # **DeleteApplication**
 > DeleteApplication(ctx, applicationId)
-Delete application. It requires Application Manage or Host Manage rights.
+Delete application. It requires backupdr.managementServers.manageApplications IAM permission
 
 ### Required Parameters
 
@@ -155,7 +194,7 @@ Name | Type | Description  | Notes
 
 # **DeleteOptionForApp**
 > DeleteOptionForApp(ctx, applicationId, optionId)
-Delete the particular option from the particular application. It requires SLA Manage or SLA Assign rights.
+Delete the particular option from the particular application. It requires backupdr.managementServers.assignBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -182,7 +221,7 @@ Name | Type | Description  | Notes
 
 # **DeleteWorkflow**
 > DeleteWorkflow(ctx, applicationId, workflowId)
-Delete existing workflow. It requires Workflow Manage right.
+Delete existing workflow. It requires backupdr.managementServers.manageWorkflows IAM permission
 
 ### Required Parameters
 
@@ -209,7 +248,7 @@ Name | Type | Description  | Notes
 
 # **ExpireBackups**
 > ExpireBackups(ctx, applicationId, optional)
-Expires backups of the particular application. It requires the manageExpiration permission
+Expires backups of the particular application. It requires backupdr.managementServers.manageExpiration IAM permission
 
 Default to all backups. Optionally the type of backups can be specified in the payload (ExpireBackupRest). Valid type includes snapshot, dedup, remote-dedup and vault.
 
@@ -245,7 +284,7 @@ Name | Type | Description  | Notes
 
 # **GetAppClass**
 > AppClassRest GetAppClass(ctx, applicationId, optional)
-Get the particular application's appclass metadata
+Get the particular application's appclass metadata. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -282,7 +321,7 @@ Name | Type | Description  | Notes
 
 # **GetAppClassByAppclassName**
 > AppClassRest GetAppClassByAppclassName(ctx, appclassName, optional)
-Get appclass metadata for the particular appclass name
+Get appclass metadata for the particular appclass name. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -320,7 +359,7 @@ Name | Type | Description  | Notes
 
 # **GetAppClasses**
 > AppClassRest GetAppClasses(ctx, optional)
-Get all available app classes from given cluster
+Get all available app classes from given cluster. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -352,7 +391,7 @@ Name | Type | Description  | Notes
 
 # **GetApplication**
 > ApplicationRest GetApplication(ctx, applicationId)
-Get details on the particular application
+Get details on the particular application. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -378,7 +417,7 @@ Name | Type | Description  | Notes
 
 # **GetOptionForApp**
 > AdvancedOptionRest GetOptionForApp(ctx, applicationId, optionId)
-Get the particular option of the particular application. It requires SLA View, SLA Manage, or SLA Assign rights.
+Get the particular option of the particular application. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -405,7 +444,7 @@ Name | Type | Description  | Notes
 
 # **GetWorkflow**
 > WorkflowRest GetWorkflow(ctx, applicationId, workflowId)
-Get individual workflow. It requires Workflow View right.
+Get individual workflow. It requires backupdr.managementServers.viewWorkflows IAM permission
 
 Note: Workflow_id is not unique on AGM (it's actually the id on the appliance). It's unique per application_id though
 
@@ -434,7 +473,7 @@ Name | Type | Description  | Notes
 
 # **ListActiveImages**
 > ListBackupRest ListActiveImages(ctx, applicationId)
-Get active images for an application
+Get active images for an application. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -460,7 +499,7 @@ Name | Type | Description  | Notes
 
 # **ListApplicationTypes**
 > ListStringRest ListApplicationTypes(ctx, )
-Get list of application types that are currently in the system.
+Get list of application types that are currently in the system. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -482,7 +521,7 @@ This endpoint does not need any parameter.
 
 # **ListApplications**
 > ListApplicationRest ListApplications(ctx, optional)
-List applications.
+List applications. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -515,9 +554,35 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **ListWorkflows**
-> ListWorkflowRest ListWorkflows(ctx, applicationId)
-Get list of workflows for the particular application. It requires Workflow View right.
+# **ListOptionForApp**
+> ListAdvancedOptionRest ListOptionForApp(ctx, applicationId)
+List all existing settable options of the application. It requires backupdr.managementServers.access IAM permission
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **applicationId** | **string**|  | 
+
+### Return type
+
+[**ListAdvancedOptionRest**](ListAdvancedOptionRest.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **ListWorkflowsPerApp**
+> ListWorkflowRest ListWorkflowsPerApp(ctx, applicationId)
+Get list of workflows for the particular application. It requires backupdr.managementServers.viewWorkflows IAM permission
 
 ### Required Parameters
 
@@ -541,9 +606,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList2**
-> OptionsRest OptionsForList2(ctx, )
-Describes the fields available for filtering and sorting
+# **OptionsForListApplication**
+> OptionsRest OptionsForListApplication(ctx, )
+Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -563,9 +628,35 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **SettableOptionMetadataForPolicyType**
-> string SettableOptionMetadataForPolicyType(ctx, apptype)
-Settable option metadata for the particular application type
+# **SettableOptionMetadataForApp**
+> string SettableOptionMetadataForApp(ctx, applicationId)
+Get settable option metadata of the particular application. It requires backupdr.managementServers.access IAM permission
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **applicationId** | **string**|  | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **SettableOptionMetadataForAppType**
+> string SettableOptionMetadataForAppType(ctx, apptype)
+Settable option metadata for the particular application type. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -591,7 +682,7 @@ Name | Type | Description  | Notes
 
 # **UpdateApplication**
 > UpdateApplication(ctx, applicationId, optional)
-Update application data. It requires Application Manage or Host Manage rights.
+Update application data. It requires backupdr.managementServers.manageApplications and backupdr.managementServers.manageSensitiveData (for sensitive app) IAM permissions
 
 ### Required Parameters
 
@@ -625,7 +716,7 @@ Name | Type | Description  | Notes
 
 # **UpdateOptionForApp**
 > AdvancedOptionRest UpdateOptionForApp(ctx, applicationId, optionId, optional)
-Update the particular option of the particular application. It requires SLA Manage or SLA Assign rights.
+Update the particular option of the particular application. It requires backupdr.managementServers.assignBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -661,7 +752,7 @@ Name | Type | Description  | Notes
 
 # **UpdateWorkflow**
 > WorkflowRest UpdateWorkflow(ctx, applicationId, workflowId, optional)
-Update existing workflow. It requires Workflow Manage right.
+Update existing workflow. It requires backupdr.managementServers.manageWorkflows IAM permission
 
 ### Required Parameters
 

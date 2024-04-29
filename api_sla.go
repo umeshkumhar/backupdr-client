@@ -26,7 +26,7 @@ var (
 
 type SLAApiService service
 /*
-SLAApiService Get a count of total SLAs matching the filters. It requires SLA View, SLA Assign or SLA Manage rights.
+SLAApiService Get a count of total SLAs matching the filters. It requires backupdr.managementServers.viewBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *SLAApiCountSlasOpts - Optional Parameters:
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -164,7 +164,7 @@ func (a *SLAApiService) CountSlas(ctx context.Context, localVarOptionals *SLAApi
 	return localVarHttpResponse, nil
 }
 /*
-SLAApiService Create an overridden option on the specific SLA. It requires SLA Assign or SLA Manage rights.
+SLAApiService Create an overridden option on the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param slaId
  * @param optional nil or *SLAApiCreateOptionForSlaOpts - Optional Parameters:
@@ -324,7 +324,7 @@ func (a *SLAApiService) CreateOptionForSla(ctx context.Context, slaId string, lo
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLAApiService Create a new SLA. It requires SLA Assign right.
+SLAApiService Create a new SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *SLAApiCreateSlaOpts - Optional Parameters:
      * @param "Body" (optional.Interface of SlaRest) - 
@@ -482,7 +482,165 @@ func (a *SLAApiService) CreateSla(ctx context.Context, localVarOptionals *SLAApi
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLAApiService Delete a specific overridden option on the specific SLA. It requires SLA Assign or SLA Manage rights.
+SLAApiService Preflight on creating a new SLA. It requires SLA Assign right.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param optional nil or *SLAApiCreateSlaPreflightOpts - Optional Parameters:
+     * @param "Body" (optional.Interface of SlaPreflightRest) - 
+@return SlaErrorWarningsRest
+*/
+
+type SLAApiCreateSlaPreflightOpts struct {
+    Body optional.Interface
+}
+
+func (a *SLAApiService) CreateSlaPreflight(ctx context.Context, localVarOptionals *SLAApiCreateSlaPreflightOpts) (SlaErrorWarningsRest, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue SlaErrorWarningsRest
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/sla/preflight"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarOptionals != nil && localVarOptionals.Body.IsSet() {
+		
+		localVarOptionalBody:= localVarOptionals.Body.Value()
+		localVarPostBody = &localVarOptionalBody
+	}
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["backupdr-management-session"] = key
+			
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericSwaggerError{
+			body: localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v SlaErrorWarningsRest
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 400 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 401 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 403 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 404 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 500 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+/*
+SLAApiService Delete a specific overridden option on the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param slaId
  * @param optionId
@@ -614,7 +772,7 @@ func (a *SLAApiService) DeleteOptionForSla(ctx context.Context, slaId string, op
 	return localVarHttpResponse, nil
 }
 /*
-SLAApiService Remove the specific SLA. It requires SLA Assign right.
+SLAApiService Remove the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param slaId
 
@@ -744,7 +902,7 @@ func (a *SLAApiService) DeleteSla(ctx context.Context, slaId string) (*http.Resp
 	return localVarHttpResponse, nil
 }
 /*
-SLAApiService Get the details of a specific overridden option on the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
+SLAApiService Get the details of a specific overridden option on the specific SLA. It requires backupdr.managementServers.viewBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param slaId
  * @param optionId
@@ -893,7 +1051,7 @@ func (a *SLAApiService) GetOptionForSla(ctx context.Context, slaId string, optio
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLAApiService Get individual SLA details. It requires SLA View, SLA Assign or SLA Manage rights.
+SLAApiService Get individual SLA details. It requires backupdr.managementServers.viewBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param slaId
 @return SlaRest
@@ -1040,7 +1198,7 @@ func (a *SLAApiService) GetSla(ctx context.Context, slaId string) (SlaRest, *htt
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLAApiService List all overridden options already set on the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
+SLAApiService List all overridden options already set on the specific SLA. It requires backupdr.managementServers.viewBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param slaId
 @return ListAdvancedOptionRest
@@ -1187,7 +1345,7 @@ func (a *SLAApiService) ListOptionForSla(ctx context.Context, slaId string) (Lis
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLAApiService Get a list of SLAs. It requires SLA View, SLA Assign or SLA Manage rights.
+SLAApiService Get a list of SLAs. It requires backupdr.managementServers.viewBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *SLAApiListSlasOpts - Optional Parameters:
      * @param "Sort" (optional.String) -  Sort field. Use OPTIONS method to get possible sort fields.&lt;br&gt;Then append &#x27;:asc&#x27; or &#x27;:desc&#x27; for ascending or descending sort.&lt;br&gt;Sorting is case-sensitive.
@@ -1357,7 +1515,7 @@ func (a *SLAApiService) ListSlas(ctx context.Context, localVarOptionals *SLAApiL
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLAApiService List all overridable option metadata for the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
+SLAApiService List all overridable option metadata for the specific SLA. It requires backupdr.managementServers.viewBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param slaId
 @return JsonArray
@@ -1504,7 +1662,7 @@ func (a *SLAApiService) SettableOptionMetadataForSla(ctx context.Context, slaId 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLAApiService Update a specific overridden option on the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
+SLAApiService Update a specific overridden option on the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param slaId
  * @param optionId
@@ -1666,7 +1824,7 @@ func (a *SLAApiService) UpdateOptionForSla(ctx context.Context, slaId string, op
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLAApiService Update the specific slp. It requires SLA Assign right.
+SLAApiService Update the specific slp. It requires backupdr.managementServers.assignBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param slaId
  * @param optional nil or *SLAApiUpdateSlaOpts - Optional Parameters:

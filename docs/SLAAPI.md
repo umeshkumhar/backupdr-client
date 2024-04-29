@@ -4,22 +4,23 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CountSlas**](SLAApi.md#CountSlas) | **Head** /sla | Get a count of total SLAs matching the filters. It requires SLA View, SLA Assign or SLA Manage rights.
-[**CreateOptionForSla**](SLAApi.md#CreateOptionForSla) | **Post** /sla/{sla_id}/settableoption | Create an overridden option on the specific SLA. It requires SLA Assign or SLA Manage rights.
-[**CreateSla**](SLAApi.md#CreateSla) | **Post** /sla | Create a new SLA. It requires SLA Assign right.
-[**DeleteOptionForSla**](SLAApi.md#DeleteOptionForSla) | **Delete** /sla/{sla_id}/settableoption/{option_id} | Delete a specific overridden option on the specific SLA. It requires SLA Assign or SLA Manage rights.
-[**DeleteSla**](SLAApi.md#DeleteSla) | **Delete** /sla/{sla_id} | Remove the specific SLA. It requires SLA Assign right.
-[**GetOptionForSla**](SLAApi.md#GetOptionForSla) | **Get** /sla/{sla_id}/settableoption/{option_id} | Get the details of a specific overridden option on the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
-[**GetSla**](SLAApi.md#GetSla) | **Get** /sla/{sla_id} | Get individual SLA details. It requires SLA View, SLA Assign or SLA Manage rights.
-[**ListOptionForSla**](SLAApi.md#ListOptionForSla) | **Get** /sla/{sla_id}/settableoption | List all overridden options already set on the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
-[**ListSlas**](SLAApi.md#ListSlas) | **Get** /sla | Get a list of SLAs. It requires SLA View, SLA Assign or SLA Manage rights.
-[**SettableOptionMetadataForSla**](SLAApi.md#SettableOptionMetadataForSla) | **Options** /sla/{sla_id}/settableoption | List all overridable option metadata for the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
-[**UpdateOptionForSla**](SLAApi.md#UpdateOptionForSla) | **Put** /sla/{sla_id}/settableoption/{option_id} | Update a specific overridden option on the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
-[**UpdateSla**](SLAApi.md#UpdateSla) | **Put** /sla/{sla_id} | Update the specific slp. It requires SLA Assign right.
+[**CountSlas**](SLAApi.md#CountSlas) | **Head** /sla | Get a count of total SLAs matching the filters. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**CreateOptionForSla**](SLAApi.md#CreateOptionForSla) | **Post** /sla/{sla_id}/settableoption | Create an overridden option on the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
+[**CreateSla**](SLAApi.md#CreateSla) | **Post** /sla | Create a new SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
+[**CreateSlaPreflight**](SLAApi.md#CreateSlaPreflight) | **Post** /sla/preflight | Preflight on creating a new SLA. It requires SLA Assign right.
+[**DeleteOptionForSla**](SLAApi.md#DeleteOptionForSla) | **Delete** /sla/{sla_id}/settableoption/{option_id} | Delete a specific overridden option on the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
+[**DeleteSla**](SLAApi.md#DeleteSla) | **Delete** /sla/{sla_id} | Remove the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
+[**GetOptionForSla**](SLAApi.md#GetOptionForSla) | **Get** /sla/{sla_id}/settableoption/{option_id} | Get the details of a specific overridden option on the specific SLA. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**GetSla**](SLAApi.md#GetSla) | **Get** /sla/{sla_id} | Get individual SLA details. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**ListOptionForSla**](SLAApi.md#ListOptionForSla) | **Get** /sla/{sla_id}/settableoption | List all overridden options already set on the specific SLA. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**ListSlas**](SLAApi.md#ListSlas) | **Get** /sla | Get a list of SLAs. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**SettableOptionMetadataForSla**](SLAApi.md#SettableOptionMetadataForSla) | **Options** /sla/{sla_id}/settableoption | List all overridable option metadata for the specific SLA. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**UpdateOptionForSla**](SLAApi.md#UpdateOptionForSla) | **Put** /sla/{sla_id}/settableoption/{option_id} | Update a specific overridden option on the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
+[**UpdateSla**](SLAApi.md#UpdateSla) | **Put** /sla/{sla_id} | Update the specific slp. It requires backupdr.managementServers.assignBackupPlans IAM permission
 
 # **CountSlas**
 > CountSlas(ctx, optional)
-Get a count of total SLAs matching the filters. It requires SLA View, SLA Assign or SLA Manage rights.
+Get a count of total SLAs matching the filters. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -51,7 +52,7 @@ Name | Type | Description  | Notes
 
 # **CreateOptionForSla**
 > AdvancedOptionRest CreateOptionForSla(ctx, slaId, optional)
-Create an overridden option on the specific SLA. It requires SLA Assign or SLA Manage rights.
+Create an overridden option on the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -85,7 +86,7 @@ Name | Type | Description  | Notes
 
 # **CreateSla**
 > SlaRest CreateSla(ctx, optional)
-Create a new SLA. It requires SLA Assign right.
+Create a new SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -115,9 +116,41 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **CreateSlaPreflight**
+> SlaErrorWarningsRest CreateSlaPreflight(ctx, optional)
+Preflight on creating a new SLA. It requires SLA Assign right.
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+ **optional** | ***SLAApiCreateSlaPreflightOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a SLAApiCreateSlaPreflightOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**optional.Interface of SlaPreflightRest**](SlaPreflightRest.md)|  | 
+
+### Return type
+
+[**SlaErrorWarningsRest**](SlaErrorWarningsRest.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **DeleteOptionForSla**
 > DeleteOptionForSla(ctx, slaId, optionId)
-Delete a specific overridden option on the specific SLA. It requires SLA Assign or SLA Manage rights.
+Delete a specific overridden option on the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -144,7 +177,7 @@ Name | Type | Description  | Notes
 
 # **DeleteSla**
 > DeleteSla(ctx, slaId)
-Remove the specific SLA. It requires SLA Assign right.
+Remove the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -170,7 +203,7 @@ Name | Type | Description  | Notes
 
 # **GetOptionForSla**
 > AdvancedOptionRest GetOptionForSla(ctx, slaId, optionId)
-Get the details of a specific overridden option on the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
+Get the details of a specific overridden option on the specific SLA. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -197,7 +230,7 @@ Name | Type | Description  | Notes
 
 # **GetSla**
 > SlaRest GetSla(ctx, slaId)
-Get individual SLA details. It requires SLA View, SLA Assign or SLA Manage rights.
+Get individual SLA details. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -223,7 +256,7 @@ Name | Type | Description  | Notes
 
 # **ListOptionForSla**
 > ListAdvancedOptionRest ListOptionForSla(ctx, slaId)
-List all overridden options already set on the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
+List all overridden options already set on the specific SLA. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -249,7 +282,7 @@ Name | Type | Description  | Notes
 
 # **ListSlas**
 > ListSlaRest ListSlas(ctx, optional)
-Get a list of SLAs. It requires SLA View, SLA Assign or SLA Manage rights.
+Get a list of SLAs. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -284,7 +317,7 @@ Name | Type | Description  | Notes
 
 # **SettableOptionMetadataForSla**
 > JsonArray SettableOptionMetadataForSla(ctx, slaId)
-List all overridable option metadata for the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
+List all overridable option metadata for the specific SLA. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -310,7 +343,7 @@ Name | Type | Description  | Notes
 
 # **UpdateOptionForSla**
 > AdvancedOptionRest UpdateOptionForSla(ctx, slaId, optionId, optional)
-Update a specific overridden option on the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
+Update a specific overridden option on the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -346,7 +379,7 @@ Name | Type | Description  | Notes
 
 # **UpdateSla**
 > SlaRest UpdateSla(ctx, slaId, optional)
-Update the specific slp. It requires SLA Assign right.
+Update the specific slp. It requires backupdr.managementServers.assignBackupPlans IAM permission
 
 ### Required Parameters
 

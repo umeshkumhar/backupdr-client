@@ -9,16 +9,16 @@
 package swagger
 
 type ExportVolumeInfoRest struct {
-	Exportrule []ExportRuleInfoRest `json:"exportrule,omitempty"`
 	Exportedpath string `json:"exportedpath,omitempty"`
-	Objecttype string `json:"objecttype,omitempty"`
+	Exportrule []ExportRuleInfoRest `json:"exportrule,omitempty"`
 	Objectid string `json:"objectid,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Objecttype string `json:"objecttype,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

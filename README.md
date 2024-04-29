@@ -23,136 +23,169 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccessRightApi* | [**GetRight**](docs/AccessRightApi.md#getright) | **Get** /right/{right_name} | Get details for a specific right. It requires System View right.
 *AccessRightApi* | [**ListRights**](docs/AccessRightApi.md#listrights) | **Get** /right | Get a list of rights in the system. Rights are predefined and cannot be changed. It requires System View right.
-*AccessRightApi* | [**OptionsForList13**](docs/AccessRightApi.md#optionsforlist13) | **Options** /right | Describes the fields available for filtering and sorting
+*AccessRightApi* | [**OptionsForList1**](docs/AccessRightApi.md#optionsforlist1) | **Options** /right | Describes the fields available for filtering and sorting
 *AccessRoleApi* | [**CountRoles**](docs/AccessRoleApi.md#countroles) | **Head** /role | Get a count of total roles matching the filters. It requires System View right.
 *AccessRoleApi* | [**CreateRole**](docs/AccessRoleApi.md#createrole) | **Post** /role | Create a new role. It requires System Manage right.
 *AccessRoleApi* | [**DeleteRole**](docs/AccessRoleApi.md#deleterole) | **Delete** /role/{role_id} | Remove a specific role. It requires System Manage right.
 *AccessRoleApi* | [**GetRole**](docs/AccessRoleApi.md#getrole) | **Get** /role/{role_id} | Get individual role details. It requires System View right.
 *AccessRoleApi* | [**ListRoles**](docs/AccessRoleApi.md#listroles) | **Get** /role | Get a list of users. It requires System View right.
-*AccessRoleApi* | [**OptionsForList14**](docs/AccessRoleApi.md#optionsforlist14) | **Options** /role | Describes the fields available for filtering and sorting
+*AccessRoleApi* | [**OptionsForList2**](docs/AccessRoleApi.md#optionsforlist2) | **Options** /role | Describes the fields available for filtering and sorting
 *AccessRoleApi* | [**UpdateRole**](docs/AccessRoleApi.md#updaterole) | **Put** /role/{role_id} | Update a specific role. It requires System Manage right.
-*ApplianceApi* | [**CountClusters**](docs/ApplianceApi.md#countclusters) | **Head** /cluster | Get a count of total appliances matching the filters.
-*ApplianceApi* | [**GetCluster**](docs/ApplianceApi.md#getcluster) | **Get** /cluster/{cluster_id} | Get individual appliance.
-*ApplianceApi* | [**ListClusters**](docs/ApplianceApi.md#listclusters) | **Get** /cluster | Get a list of appliances.
-*ApplianceApi* | [**OptionsForList5**](docs/ApplianceApi.md#optionsforlist5) | **Options** /cluster | Describes the fields available for filtering and sorting
-*ApplianceDelegationApi* | [**DelegateGetCallDownloadLog**](docs/ApplianceDelegationApi.md#delegategetcalldownloadlog) | **Get** /appliancedelegation/{cluster_id}/config/download/log | Download logs from backup/recovery appliance
-*ApplianceDelegationApi* | [**DownloadConnector**](docs/ApplianceDelegationApi.md#downloadconnector) | **Get** /appliancedelegation/{cluster_id}/connectorbinary/{connectorname} | Download connectors from backup/recovery appliance
-*ApplianceDelegationApi* | [**DownloadOssNotice**](docs/ApplianceDelegationApi.md#downloadossnotice) | **Get** /appliancedelegation/{cluster_id}/config/download/ossnotice | Download zip file containing licenses and notices for open-source components from backup/recovery appliance
-*ApplianceDelegationApi* | [**UploadSoftwareUpgradeToAppliance**](docs/ApplianceDelegationApi.md#uploadsoftwareupgradetoappliance) | **Post** /appliancedelegation/{cluster_id}/cluster/uploadupdate | Upload software upgrade packages
-*ApplianceUpdateApi* | [**CountApplianceUpdates**](docs/ApplianceUpdateApi.md#countapplianceupdates) | **Head** /applianceupdate | Get a count of total applianceupdates matching the filters.
-*ApplianceUpdateApi* | [**DeleteSchedule**](docs/ApplianceUpdateApi.md#deleteschedule) | **Delete** /applianceupdate/schedule | Deletes the schedule for update
-*ApplianceUpdateApi* | [**DiscoverUpdates**](docs/ApplianceUpdateApi.md#discoverupdates) | **Post** /applianceupdate/discover | Discover new updates for the managed appliances.
-*ApplianceUpdateApi* | [**GetApplianceUpdate**](docs/ApplianceUpdateApi.md#getapplianceupdate) | **Get** /applianceupdate/{update_id} | Get update details.
-*ApplianceUpdateApi* | [**GetNotifications**](docs/ApplianceUpdateApi.md#getnotifications) | **Get** /applianceupdate/notification | Fetch the notifications that needs to be displayed to the user
-*ApplianceUpdateApi* | [**GetReadMe1**](docs/ApplianceUpdateApi.md#getreadme1) | **Get** /applianceupdate/readme | Get readme with respect to the update id passed.
-*ApplianceUpdateApi* | [**InstallApplianceUpdateNow**](docs/ApplianceUpdateApi.md#installapplianceupdatenow) | **Post** /applianceupdate/installnow | Install the updates now.
-*ApplianceUpdateApi* | [**ListApplianceUpdates**](docs/ApplianceUpdateApi.md#listapplianceupdates) | **Get** /applianceupdate | Get the list of actionable updates.
-*ApplianceUpdateApi* | [**OptionsForList1**](docs/ApplianceUpdateApi.md#optionsforlist1) | **Options** /applianceupdate | Describes the fields available for filtering and sorting
-*ApplianceUpdateApi* | [**UpdateNotification1**](docs/ApplianceUpdateApi.md#updatenotification1) | **Put** /applianceupdate/notification/{id} | Update the acknowledge status of the notification to true
-*ApplianceUpdateApi* | [**UpdateSchedule**](docs/ApplianceUpdateApi.md#updateschedule) | **Post** /applianceupdate/schedule | Creates the schedule for update
-*ApplianceUpdateInstallationJobApi* | [**CountApplianceUpdatesInstallationJobs**](docs/ApplianceUpdateInstallationJobApi.md#countapplianceupdatesinstallationjobs) | **Head** /applianceupdateinstallationjob | Get the count of total appliance update installation jobs.
-*ApplianceUpdateInstallationJobApi* | [**GetApplianceUpdateInstallationJob**](docs/ApplianceUpdateInstallationJobApi.md#getapplianceupdateinstallationjob) | **Get** /applianceupdateinstallationjob/{update_id} | Get the appliance update job details.
-*ApplianceUpdateInstallationJobApi* | [**GetReadMe**](docs/ApplianceUpdateInstallationJobApi.md#getreadme) | **Get** /applianceupdateinstallationjob/readme | Get readme of the update id passed.
-*ApplianceUpdateInstallationJobApi* | [**GetUpdateLogs**](docs/ApplianceUpdateInstallationJobApi.md#getupdatelogs) | **Get** /applianceupdateinstallationjob/log | Get logs of the update id passed.
-*ApplianceUpdateInstallationJobApi* | [**ListApplianceUpdatesInstallationjobs**](docs/ApplianceUpdateInstallationJobApi.md#listapplianceupdatesinstallationjobs) | **Get** /applianceupdateinstallationjob | Get the list of update installation jobs.
-*ApplianceUpdateInstallationJobApi* | [**OptionsForList**](docs/ApplianceUpdateInstallationJobApi.md#optionsforlist) | **Options** /applianceupdateinstallationjob | Describes the fields available for filtering and sorting
-*ApplianceUpdateInstallationJobApi* | [**UpdateNotification**](docs/ApplianceUpdateInstallationJobApi.md#updatenotification) | **Put** /applianceupdateinstallationjob/notification/{id} | Update the acknowledge status of the notification to true
-*ApplicationApi* | [**BackupNow**](docs/ApplicationApi.md#backupnow) | **Post** /application/{application_id}/backup | Run a backup job. The user must have Application Manage, Host Manage, or Backup Manage right.
-*ApplicationApi* | [**CountApplications**](docs/ApplicationApi.md#countapplications) | **Head** /application | Get a count of total applications matching the filters.
-*ApplicationApi* | [**CreateWorkflow**](docs/ApplicationApi.md#createworkflow) | **Post** /application/{application_id}/workflow | Create new workflow for the particular application. It requires Workflow Manage right.
-*ApplicationApi* | [**DeleteApplication**](docs/ApplicationApi.md#deleteapplication) | **Delete** /application/{application_id} | Delete application. It requires Application Manage or Host Manage rights.
-*ApplicationApi* | [**DeleteOptionForApp**](docs/ApplicationApi.md#deleteoptionforapp) | **Delete** /application/{application_id}/settableoption/{option_id} | Delete the particular option from the particular application. It requires SLA Manage or SLA Assign rights.
-*ApplicationApi* | [**DeleteWorkflow**](docs/ApplicationApi.md#deleteworkflow) | **Delete** /application/{application_id}/workflow/{workflow_id} | Delete existing workflow. It requires Workflow Manage right.
-*ApplicationApi* | [**ExpireBackups**](docs/ApplicationApi.md#expirebackups) | **Post** /application/{application_id}/expirebackup | Expires backups of the particular application. It requires the manageExpiration permission
-*ApplicationApi* | [**GetAppClass**](docs/ApplicationApi.md#getappclass) | **Get** /application/{application_id}/appclass | Get the particular application&#x27;s appclass metadata
-*ApplicationApi* | [**GetAppClassByAppclassName**](docs/ApplicationApi.md#getappclassbyappclassname) | **Get** /application/appclass/{appclass_name} | Get appclass metadata for the particular appclass name
-*ApplicationApi* | [**GetAppClasses**](docs/ApplicationApi.md#getappclasses) | **Get** /application/appclass | Get all available app classes from given cluster
-*ApplicationApi* | [**GetApplication**](docs/ApplicationApi.md#getapplication) | **Get** /application/{application_id} | Get details on the particular application
-*ApplicationApi* | [**GetOptionForApp**](docs/ApplicationApi.md#getoptionforapp) | **Get** /application/{application_id}/settableoption/{option_id} | Get the particular option of the particular application. It requires SLA View, SLA Manage, or SLA Assign rights.
-*ApplicationApi* | [**GetWorkflow**](docs/ApplicationApi.md#getworkflow) | **Get** /application/{application_id}/workflow/{workflow_id} | Get individual workflow. It requires Workflow View right.
-*ApplicationApi* | [**ListActiveImages**](docs/ApplicationApi.md#listactiveimages) | **Get** /application/{application_id}/activeimage | Get active images for an application
-*ApplicationApi* | [**ListApplicationTypes**](docs/ApplicationApi.md#listapplicationtypes) | **Get** /application/types | Get list of application types that are currently in the system.
-*ApplicationApi* | [**ListApplications**](docs/ApplicationApi.md#listapplications) | **Get** /application | List applications.
-*ApplicationApi* | [**ListWorkflows**](docs/ApplicationApi.md#listworkflows) | **Get** /application/{application_id}/workflow | Get list of workflows for the particular application. It requires Workflow View right.
-*ApplicationApi* | [**OptionsForList2**](docs/ApplicationApi.md#optionsforlist2) | **Options** /application | Describes the fields available for filtering and sorting
-*ApplicationApi* | [**SettableOptionMetadataForPolicyType**](docs/ApplicationApi.md#settableoptionmetadataforpolicytype) | **Options** /application/settableoption/{apptype} | Settable option metadata for the particular application type
-*ApplicationApi* | [**UpdateApplication**](docs/ApplicationApi.md#updateapplication) | **Put** /application/{application_id} | Update application data. It requires Application Manage or Host Manage rights.
-*ApplicationApi* | [**UpdateOptionForApp**](docs/ApplicationApi.md#updateoptionforapp) | **Put** /application/{application_id}/settableoption/{option_id} | Update the particular option of the particular application. It requires SLA Manage or SLA Assign rights.
-*ApplicationApi* | [**UpdateWorkflow**](docs/ApplicationApi.md#updateworkflow) | **Put** /application/{application_id}/workflow/{workflow_id} | Update existing workflow. It requires Workflow Manage right.
-*AuditLogApi* | [**CountAudits**](docs/AuditLogApi.md#countaudits) | **Head** /localaudit | Get a count of total audit records matching the filters. Caller with administrator role can do it.
-*AuditLogApi* | [**GetAudit**](docs/AuditLogApi.md#getaudit) | **Get** /localaudit/{audit_id} | Get individual audit record details. Caller with administrator role can do it.
-*AuditLogApi* | [**ListAudits**](docs/AuditLogApi.md#listaudits) | **Get** /localaudit | Get a list of local audit records. Caller with administrator role can do it.
-*AuditLogApi* | [**OptionsForList10**](docs/AuditLogApi.md#optionsforlist10) | **Options** /localaudit | Describes the fields available for filtering and sorting
-*BackupApi* | [**CloneBackup**](docs/BackupApi.md#clonebackup) | **Post** /backup/{backup_id}/clone | Clone a specific backup. It requires Application Manage, Host Manage or Clone Manage rights.
-*BackupApi* | [**CountBackups**](docs/BackupApi.md#countbackups) | **Head** /backup | Get a count of total backups matching the filters.
-*BackupApi* | [**DeleteBackup**](docs/BackupApi.md#deletebackup) | **Delete** /backup/{backup_id} | Delete a specific backup. It requires Application Manage, Host Manage or Backup Manage rights.
-*BackupApi* | [**ExpireBackup**](docs/BackupApi.md#expirebackup) | **Post** /backup/{backup_id}/expire | Expire a specific backup. It requires the manageExpiration permission
-*BackupApi* | [**FetchApplicationOptions**](docs/BackupApi.md#fetchapplicationoptions) | **Get** /backup/{backupid}/applicationOptions | Gets the dynamic list of application options and corresponding default value (if any) for given backup image.
-*BackupApi* | [**GetBackup**](docs/BackupApi.md#getbackup) | **Get** /backup/{backup_id} | Get individual backup details.
-*BackupApi* | [**GetDiskMapping**](docs/BackupApi.md#getdiskmapping) | **Get** /backup/{backupid}/diskmapping | Gets disk mapping options for restore (source disks, target disks, RAC node list etc)
-*BackupApi* | [**ListBackups**](docs/BackupApi.md#listbackups) | **Get** /backup | Get a list of backups.
-*BackupApi* | [**LiveCloneBackup**](docs/BackupApi.md#liveclonebackup) | **Post** /backup/{backup_id}/liveclone | Create live-clone of a specific backup. It requires Application Manage, Host Manage or Liveclone Manage rights.
-*BackupApi* | [**MigrateRestoreMountBackup**](docs/BackupApi.md#migraterestoremountbackup) | **Post** /backup/{backupid}/restoremigrate | Submit restore-migrate for Oracle restore-mounted image
-*BackupApi* | [**MountBackup**](docs/BackupApi.md#mountbackup) | **Post** /backup/{backup_id}/mount | Mount a specific backup. It requires Application Manage, Host Manage or Mount Manage rights.
-*BackupApi* | [**MountMigratePreflight**](docs/BackupApi.md#mountmigratepreflight) | **Post** /backup/{backupid}/mountmigratepreflight | Performs preflight check for Oracle restore-mount/restore-migrate operations
-*BackupApi* | [**OptionsForList4**](docs/BackupApi.md#optionsforlist4) | **Options** /backup | Describes the fields available for filtering and sorting
-*BackupApi* | [**PrepMountLiveCloneNew**](docs/BackupApi.md#prepmountliveclonenew) | **Post** /backup/{backup_id}/prepmount | Prep-mount a specific backup. It requires Application Manage, Host Manage, Mount Manage or Liveclone Manage rights.
-*BackupApi* | [**PrepUnmountBackup**](docs/BackupApi.md#prepunmountbackup) | **Post** /backup/{backup_id}/prepunmount | Prep-unmount a specific backup. It requires Application Manage, Host Manage, Mount Manage or Liveclone Manage rights.
-*BackupApi* | [**RefreshLiveClone**](docs/BackupApi.md#refreshliveclone) | **Post** /backup/{backup_id}/refresh | Refresh a live-clone backup. It requires Application Manage, Host Manage or Liveclone Manage rights.
-*BackupApi* | [**RestoreBackup**](docs/BackupApi.md#restorebackup) | **Post** /backup/{backup_id}/restore | Restore an application from a specific backup. It requires Application Manage, Host Manage, Restore Manage or Mirroring Manage rights.
-*BackupApi* | [**UnmountBackup**](docs/BackupApi.md#unmountbackup) | **Post** /backup/{backup_id}/unmount | Unmount a specific backup. It requires Application Manage, Host Manage or Mount Manage rights.
-*BackupApi* | [**UpdateBackup**](docs/BackupApi.md#updatebackup) | **Put** /backup/{backup_id} | Update the specific backup. It requires manageExpiration permission to update expiration, and manageBackups permission to update rest of the fields.
-*ConfigurationApi* | [**GetVersion**](docs/ConfigurationApi.md#getversion) | **Get** /config/version | Get version. No special right requirement as long as there is valid session id.
-*ConfigurationApi* | [**GetVersionDetail**](docs/ConfigurationApi.md#getversiondetail) | **Get** /config/versiondetail | Get version details. No special right requirement as long as there is valid session id.
+*ApplianceApi* | [**CountClusters**](docs/ApplianceApi.md#countclusters) | **Head** /cluster | Get a count of total appliances matching the filters. It requires backupdr.managementServers.viewSystem IAM permission
+*ApplianceApi* | [**GetCluster**](docs/ApplianceApi.md#getcluster) | **Get** /cluster/{cluster_id} | Get individual appliance. It requires backupdr.managementServers.viewSystem IAM permission
+*ApplianceApi* | [**ListClusters**](docs/ApplianceApi.md#listclusters) | **Get** /cluster | Get a list of appliances. It requires backupdr.managementServers.viewSystem IAM permission
+*ApplianceApi* | [**OptionsForListCluster**](docs/ApplianceApi.md#optionsforlistcluster) | **Options** /cluster | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+*ApplianceDelegationApi* | [**DelegateGetCallDownloadLog**](docs/ApplianceDelegationApi.md#delegategetcalldownloadlog) | **Get** /appliancedelegation/{cluster_id}/config/download/log | Download logs from backup/recovery appliance. It requires backupdr.managementServers.viewSystem IAM permission
+*ApplianceDelegationApi* | [**DownloadConnector**](docs/ApplianceDelegationApi.md#downloadconnector) | **Get** /appliancedelegation/{cluster_id}/connectorbinary/{connectorname} | Download connectors from backup/recovery appliance. It requires backupdr.managementServers.manageSystem IAM permission
+*ApplianceDelegationApi* | [**DownloadOssNotice**](docs/ApplianceDelegationApi.md#downloadossnotice) | **Get** /appliancedelegation/{cluster_id}/config/download/ossnotice | Download zip file containing licenses and notices for open-source components from backup/recovery appliance. It requires backupdr.managementServers.viewSystem IAM permission
+*ApplianceDelegationApi* | [**UploadSoftwareUpgradeToAppliance**](docs/ApplianceDelegationApi.md#uploadsoftwareupgradetoappliance) | **Post** /appliancedelegation/{cluster_id}/cluster/uploadupdate | Upload software upgrade packages. It requires backupdr.managementServers.manageSystem IAM permission
+*ApplianceUpdateApi* | [**CountApplianceUpdates**](docs/ApplianceUpdateApi.md#countapplianceupdates) | **Head** /applianceupdate | Get a count of total applianceupdates matching the filters. It requires backupdr.managementServers.viewSystem IAM permission
+*ApplianceUpdateApi* | [**DeleteSchedule**](docs/ApplianceUpdateApi.md#deleteschedule) | **Delete** /applianceupdate/schedule | Deletes the schedule for update. It requires backupdr.managementServers.manageSystem IAM permission
+*ApplianceUpdateApi* | [**DiscoverUpdates**](docs/ApplianceUpdateApi.md#discoverupdates) | **Post** /applianceupdate/discover | Discover new updates for the managed appliances. It requires backupdr.managementServers.manageSystem IAM permission
+*ApplianceUpdateApi* | [**GetApplianceUpdate**](docs/ApplianceUpdateApi.md#getapplianceupdate) | **Get** /applianceupdate/{update_id} | Get update details. It requires backupdr.managementServers.viewSystem IAM permission
+*ApplianceUpdateApi* | [**GetNotifications**](docs/ApplianceUpdateApi.md#getnotifications) | **Get** /applianceupdate/notification | Fetch the notifications that needs to be displayed to the user. It requires backupdr.managementServers.access IAM permission
+*ApplianceUpdateApi* | [**GetReadMeForApplianceUpdate**](docs/ApplianceUpdateApi.md#getreadmeforapplianceupdate) | **Get** /applianceupdate/readme | Get readme with respect to the update id passed. It requires backupdr.managementServers.viewSystem IAM permission
+*ApplianceUpdateApi* | [**InstallApplianceUpdateNow**](docs/ApplianceUpdateApi.md#installapplianceupdatenow) | **Post** /applianceupdate/installnow | Install the updates now. It requires backupdr.managementServers.manageSystem IAM permission
+*ApplianceUpdateApi* | [**ListApplianceUpdates**](docs/ApplianceUpdateApi.md#listapplianceupdates) | **Get** /applianceupdate | Get the list of actionable updates. It requires backupdr.managementServers.viewSystem IAM permission
+*ApplianceUpdateApi* | [**OptionsForListApplianceUpdates**](docs/ApplianceUpdateApi.md#optionsforlistapplianceupdates) | **Options** /applianceupdate | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+*ApplianceUpdateApi* | [**UpdateNotificationForApplianceUpdate**](docs/ApplianceUpdateApi.md#updatenotificationforapplianceupdate) | **Put** /applianceupdate/notification | Update the acknowledge status of the notification to true
+*ApplianceUpdateApi* | [**UpdateSchedule**](docs/ApplianceUpdateApi.md#updateschedule) | **Post** /applianceupdate/schedule | Creates the schedule for update. It requires backupdr.managementServers.manageSystem IAM permission
+*ApplianceUpdateInstallationJobApi* | [**CountApplianceUpdatesInstallationJobs**](docs/ApplianceUpdateInstallationJobApi.md#countapplianceupdatesinstallationjobs) | **Head** /applianceupdateinstallationjob | Get the count of total appliance update installation jobs. It requires backupdr.managementServers.viewSystem IAM permission
+*ApplianceUpdateInstallationJobApi* | [**GetApplianceUpdateInstallationJob**](docs/ApplianceUpdateInstallationJobApi.md#getapplianceupdateinstallationjob) | **Get** /applianceupdateinstallationjob/{update_id} | Get the appliance update job details. It requires backupdr.managementServers.viewSystem IAM permission
+*ApplianceUpdateInstallationJobApi* | [**GetReadMeForApplianceUpdateInstallationJob**](docs/ApplianceUpdateInstallationJobApi.md#getreadmeforapplianceupdateinstallationjob) | **Get** /applianceupdateinstallationjob/readme | Get readme of the update id passed. It requires backupdr.managementServers.viewSystem IAM permission
+*ApplianceUpdateInstallationJobApi* | [**GetUpdateLogs**](docs/ApplianceUpdateInstallationJobApi.md#getupdatelogs) | **Get** /applianceupdateinstallationjob/log | Get logs of the update id passed. It requires backupdr.managementServers.viewSystem IAM permission
+*ApplianceUpdateInstallationJobApi* | [**ListApplianceUpdatesInstallationjobs**](docs/ApplianceUpdateInstallationJobApi.md#listapplianceupdatesinstallationjobs) | **Get** /applianceupdateinstallationjob | Get the list of update installation jobs. It requires backupdr.managementServers.viewSystem IAM permission
+*ApplianceUpdateInstallationJobApi* | [**OptionsForListApplianceUpdateInstallationJobs**](docs/ApplianceUpdateInstallationJobApi.md#optionsforlistapplianceupdateinstallationjobs) | **Options** /applianceupdateinstallationjob | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+*ApplianceUpdateInstallationJobApi* | [**UpdateNotificationForApplianceUpdateInstallationJob**](docs/ApplianceUpdateInstallationJobApi.md#updatenotificationforapplianceupdateinstallationjob) | **Put** /applianceupdateinstallationjob/notification | Update the acknowledge status of the notification to true
+*ApplicationApi* | [**BackupNow**](docs/ApplicationApi.md#backupnow) | **Post** /application/{application_id}/backup | Run a backup job. It requires backupdr.managementServers.manageBackups IAM permission
+*ApplicationApi* | [**CountApplications**](docs/ApplicationApi.md#countapplications) | **Head** /application | Get a count of total applications matching the filters. It requires backupdr.managementServers.access IAM permission
+*ApplicationApi* | [**CreateOptionForApp**](docs/ApplicationApi.md#createoptionforapp) | **Post** /application/{application_id}/settableoption | Create a settable option for the particular application. It requires backupdr.managementServers.assignBackupPlans IAM permission
+*ApplicationApi* | [**CreateWorkflow**](docs/ApplicationApi.md#createworkflow) | **Post** /application/{application_id}/workflow | Create new workflow for the particular application. It requires backupdr.managementServers.manageWorkflows IAM permission
+*ApplicationApi* | [**DeleteApplication**](docs/ApplicationApi.md#deleteapplication) | **Delete** /application/{application_id} | Delete application. It requires backupdr.managementServers.manageApplications IAM permission
+*ApplicationApi* | [**DeleteOptionForApp**](docs/ApplicationApi.md#deleteoptionforapp) | **Delete** /application/{application_id}/settableoption/{option_id} | Delete the particular option from the particular application. It requires backupdr.managementServers.assignBackupPlans IAM permission
+*ApplicationApi* | [**DeleteWorkflow**](docs/ApplicationApi.md#deleteworkflow) | **Delete** /application/{application_id}/workflow/{workflow_id} | Delete existing workflow. It requires backupdr.managementServers.manageWorkflows IAM permission
+*ApplicationApi* | [**ExpireBackups**](docs/ApplicationApi.md#expirebackups) | **Post** /application/{application_id}/expirebackup | Expires backups of the particular application. It requires backupdr.managementServers.manageExpiration IAM permission
+*ApplicationApi* | [**GetAppClass**](docs/ApplicationApi.md#getappclass) | **Get** /application/{application_id}/appclass | Get the particular application&#x27;s appclass metadata. It requires backupdr.managementServers.access IAM permission
+*ApplicationApi* | [**GetAppClassByAppclassName**](docs/ApplicationApi.md#getappclassbyappclassname) | **Get** /application/appclass/{appclass_name} | Get appclass metadata for the particular appclass name. It requires backupdr.managementServers.access IAM permission
+*ApplicationApi* | [**GetAppClasses**](docs/ApplicationApi.md#getappclasses) | **Get** /application/appclass | Get all available app classes from given cluster. It requires backupdr.managementServers.access IAM permission
+*ApplicationApi* | [**GetApplication**](docs/ApplicationApi.md#getapplication) | **Get** /application/{application_id} | Get details on the particular application. It requires backupdr.managementServers.access IAM permission
+*ApplicationApi* | [**GetOptionForApp**](docs/ApplicationApi.md#getoptionforapp) | **Get** /application/{application_id}/settableoption/{option_id} | Get the particular option of the particular application. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*ApplicationApi* | [**GetWorkflow**](docs/ApplicationApi.md#getworkflow) | **Get** /application/{application_id}/workflow/{workflow_id} | Get individual workflow. It requires backupdr.managementServers.viewWorkflows IAM permission
+*ApplicationApi* | [**ListActiveImages**](docs/ApplicationApi.md#listactiveimages) | **Get** /application/{application_id}/activeimage | Get active images for an application. It requires backupdr.managementServers.access IAM permission
+*ApplicationApi* | [**ListApplicationTypes**](docs/ApplicationApi.md#listapplicationtypes) | **Get** /application/types | Get list of application types that are currently in the system. It requires backupdr.managementServers.access IAM permission
+*ApplicationApi* | [**ListApplications**](docs/ApplicationApi.md#listapplications) | **Get** /application | List applications. It requires backupdr.managementServers.access IAM permission
+*ApplicationApi* | [**ListOptionForApp**](docs/ApplicationApi.md#listoptionforapp) | **Get** /application/{application_id}/settableoption | List all existing settable options of the application. It requires backupdr.managementServers.access IAM permission
+*ApplicationApi* | [**ListWorkflowsPerApp**](docs/ApplicationApi.md#listworkflowsperapp) | **Get** /application/{application_id}/workflow | Get list of workflows for the particular application. It requires backupdr.managementServers.viewWorkflows IAM permission
+*ApplicationApi* | [**OptionsForListApplication**](docs/ApplicationApi.md#optionsforlistapplication) | **Options** /application | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+*ApplicationApi* | [**SettableOptionMetadataForApp**](docs/ApplicationApi.md#settableoptionmetadataforapp) | **Options** /application/{application_id}/settableoption | Get settable option metadata of the particular application. It requires backupdr.managementServers.access IAM permission
+*ApplicationApi* | [**SettableOptionMetadataForAppType**](docs/ApplicationApi.md#settableoptionmetadataforapptype) | **Options** /application/settableoption/{apptype} | Settable option metadata for the particular application type. It requires backupdr.managementServers.access IAM permission
+*ApplicationApi* | [**UpdateApplication**](docs/ApplicationApi.md#updateapplication) | **Put** /application/{application_id} | Update application data. It requires backupdr.managementServers.manageApplications and backupdr.managementServers.manageSensitiveData (for sensitive app) IAM permissions
+*ApplicationApi* | [**UpdateOptionForApp**](docs/ApplicationApi.md#updateoptionforapp) | **Put** /application/{application_id}/settableoption/{option_id} | Update the particular option of the particular application. It requires backupdr.managementServers.assignBackupPlans IAM permission
+*ApplicationApi* | [**UpdateWorkflow**](docs/ApplicationApi.md#updateworkflow) | **Put** /application/{application_id}/workflow/{workflow_id} | Update existing workflow. It requires backupdr.managementServers.manageWorkflows IAM permission
+*AuditLogApi* | [**CountAudits**](docs/AuditLogApi.md#countaudits) | **Head** /localaudit | Get a count of total audit records matching the filters. It requires backupdr.managementServers.viewSystem IAM permission
+*AuditLogApi* | [**GetAudit**](docs/AuditLogApi.md#getaudit) | **Get** /localaudit/{audit_id} | Get individual audit record details. It requires backupdr.managementServers.viewSystem IAM permission
+*AuditLogApi* | [**ListAudits**](docs/AuditLogApi.md#listaudits) | **Get** /localaudit | Get a list of local audit records. It requires backupdr.managementServers.viewSystem IAM permission
+*AuditLogApi* | [**OptionsForListLocalAudit**](docs/AuditLogApi.md#optionsforlistlocalaudit) | **Options** /localaudit | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.viewSystem IAM permission
+*BackupApi* | [**CloneBackup**](docs/BackupApi.md#clonebackup) | **Post** /backup/{backup_id}/clone | Clone a specific backup. It requires backupdr.managementServers.manageClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+*BackupApi* | [**CountBackups**](docs/BackupApi.md#countbackups) | **Head** /backup | Get a count of total backups matching the filters. It requires backupdr.managementServers.access IAM permission
+*BackupApi* | [**DeleteBackup**](docs/BackupApi.md#deletebackup) | **Delete** /backup/{backup_id} | Delete a specific backup. It requires backupdr.managementServers.manageExpiration and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+*BackupApi* | [**ExpireBackup**](docs/BackupApi.md#expirebackup) | **Post** /backup/{backup_id}/expire | Expire a specific backup. It requires backupdr.managementServers.manageExpiration and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+*BackupApi* | [**FetchApplicationOptions**](docs/BackupApi.md#fetchapplicationoptions) | **Get** /backup/{backupid}/applicationOptions | Gets the dynamic list of application options and corresponding default value (if any) for given backup image. It requires backupdr.managementServers.manageBackups and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+*BackupApi* | [**GetBackup**](docs/BackupApi.md#getbackup) | **Get** /backup/{backup_id} | Get individual backup details. It requires backupdr.managementServers.access and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+*BackupApi* | [**GetDiskMapping**](docs/BackupApi.md#getdiskmapping) | **Get** /backup/{backupid}/diskmapping | Gets disk mapping options for restore (source disks, target disks, RAC node list etc). It requires backupdr.managementServers.manageBackups and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+*BackupApi* | [**ListBackups**](docs/BackupApi.md#listbackups) | **Get** /backup | Get a list of backups. It requires backupdr.managementServers.access IAM permission
+*BackupApi* | [**LiveCloneBackup**](docs/BackupApi.md#liveclonebackup) | **Post** /backup/{backup_id}/liveclone | Create live-clone of a specific backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+*BackupApi* | [**MigrateRestoreMountBackup**](docs/BackupApi.md#migraterestoremountbackup) | **Post** /backup/{backupid}/restoremigrate | Submit restore-migrate for Oracle restore-mounted image. It requires backupdr.managementServers.manageMigrations and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+*BackupApi* | [**MountBackup**](docs/BackupApi.md#mountbackup) | **Post** /backup/{backup_id}/mount | Mount a specific backup. It require backupdr.managementServers.manageMounts IAM permission for mounting any backup, backupdr.managementServers.manageRestores IAM permission for restoring GCE backup, and backupdr.managementServers.accessSensitiveData IAM permission to access sensitive backup
+*BackupApi* | [**MountMigratePreflight**](docs/BackupApi.md#mountmigratepreflight) | **Post** /backup/{backupid}/mountmigratepreflight | Performs preflight check for Oracle restore-mount/restore-migrate operations. It requires backupdr.managementServers.manageMigrations and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+*BackupApi* | [**OptionsForListBackup**](docs/BackupApi.md#optionsforlistbackup) | **Options** /backup | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+*BackupApi* | [**PrepMountLiveCloneNew**](docs/BackupApi.md#prepmountliveclonenew) | **Post** /backup/{backup_id}/prepmount | Prep-mount a specific backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+*BackupApi* | [**PrepUnmountBackup**](docs/BackupApi.md#prepunmountbackup) | **Post** /backup/{backup_id}/prepunmount | Prep-unmount a specific backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+*BackupApi* | [**RefreshLiveClone**](docs/BackupApi.md#refreshliveclone) | **Post** /backup/{backup_id}/refresh | Refresh a live-clone backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+*BackupApi* | [**RestoreBackup**](docs/BackupApi.md#restorebackup) | **Post** /backup/{backup_id}/restore | Restore an application from a specific backup. It requires backupdr.managementServers.manageRestores and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+*BackupApi* | [**UnmountBackup**](docs/BackupApi.md#unmountbackup) | **Post** /backup/{backup_id}/unmount | Unmount a specific backup. It requires backupdr.managementServers.manageMounts and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+*BackupApi* | [**UpdateBackup**](docs/BackupApi.md#updatebackup) | **Put** /backup/{backup_id} | Update the specific backup. It requires backupdr.managementServers.manageExpiration IAM permission to update expiration, backupdr.managementServers.manageBackups IAM permission to update rest of the fields, backupdr.managementServers.accessSensitiveData IAM permission to update sensitive backup, and backupdr.managementServers.manageSensitiveData IAM permission to update sensitivity flag
+*ConfigurationApi* | [**GetVersion**](docs/ConfigurationApi.md#getversion) | **Get** /config/version | Get version. No special IAM permission requirement as long as there is valid session id.
+*ConfigurationApi* | [**GetVersionDetail**](docs/ConfigurationApi.md#getversiondetail) | **Get** /config/versiondetail | Get version details. No special IAM permission requirement as long as there is valid session id.
 *ConfigurationApi* | [**GetVmMetadataDetails**](docs/ConfigurationApi.md#getvmmetadatadetails) | **Get** /config/mgmtconsoledetails | 
-*ConfigurationApi* | [**ListFeatureFlags**](docs/ConfigurationApi.md#listfeatureflags) | **Get** /config/featureflags | Get Feature Flags. It requires System View right.
-*ConsistencyGroupApi* | [**CountConsistencyGroups**](docs/ConsistencyGroupApi.md#countconsistencygroups) | **Head** /consistencygroup | Get a count of total consistency groups matching the filters.
-*ConsistencyGroupApi* | [**CreateConsistencyGroup**](docs/ConsistencyGroupApi.md#createconsistencygroup) | **Post** /consistencygroup | Create a new consistency group. It requires Application Manage or Host Manage rights.
-*ConsistencyGroupApi* | [**DeleteConsistencyGroup**](docs/ConsistencyGroupApi.md#deleteconsistencygroup) | **Delete** /consistencygroup/{group_id} | Remove a consistency group. It requires Application Manage or Host Manage rights.
-*ConsistencyGroupApi* | [**GetConsistencyGroup**](docs/ConsistencyGroupApi.md#getconsistencygroup) | **Get** /consistencygroup/{group_id} | Get individual consistency group details.
-*ConsistencyGroupApi* | [**GetConsistencyGroupMember**](docs/ConsistencyGroupApi.md#getconsistencygroupmember) | **Get** /consistencygroup/{group_id}/member | Get consistency group&#x27;s members.
-*ConsistencyGroupApi* | [**ListConsistencyGroups**](docs/ConsistencyGroupApi.md#listconsistencygroups) | **Get** /consistencygroup | Get a list of consistency groups.
-*ConsistencyGroupApi* | [**ModifyConsistencyGroupMember**](docs/ConsistencyGroupApi.md#modifyconsistencygroupmember) | **Post** /consistencygroup/{group_id}/member | Incrementally add/delete consistency group members. It requires Application Manage or SLA Assign rights.
-*ConsistencyGroupApi* | [**OptionsForList7**](docs/ConsistencyGroupApi.md#optionsforlist7) | **Options** /consistencygroup | Describes the fields available for filtering and sorting
-*ConsistencyGroupApi* | [**UpdateConsistencyGroup**](docs/ConsistencyGroupApi.md#updateconsistencygroup) | **Put** /consistencygroup/{group_id} | Update a consistency group. It requires Application Manage or Host Manage rights.
-*DiskPoolApi* | [**CountDiskPools**](docs/DiskPoolApi.md#countdiskpools) | **Head** /diskpool | Get a count of total diskpools matching the filters.
-*DiskPoolApi* | [**CreateDiskPool**](docs/DiskPoolApi.md#creatediskpool) | **Post** /diskpool | Create a new diskpool. It requires Storage Manage right.
-*DiskPoolApi* | [**DeleteDiskPool**](docs/DiskPoolApi.md#deletediskpool) | **Delete** /diskpool/{diskpool_id} | Remove the specific diskpool. It requires Storage Manage right.
-*DiskPoolApi* | [**GetDiskPool**](docs/DiskPoolApi.md#getdiskpool) | **Get** /diskpool/{diskpool_id} | Get individual diskpool details.
-*DiskPoolApi* | [**GetDynamicJsonForPoolManage**](docs/DiskPoolApi.md#getdynamicjsonforpoolmanage) | **Get** /diskpool/vault/listdynamicfields/{pool_type} | List dynamic UI properties based on type of vault pool. Requires Storage Manage right.
+*ConsistencyGroupApi* | [**CountConsistencyGroups**](docs/ConsistencyGroupApi.md#countconsistencygroups) | **Head** /consistencygroup | Get a count of total consistency groups matching the filters. It requires backupdr.managementServers.access IAM permission
+*ConsistencyGroupApi* | [**CreateConsistencyGroup**](docs/ConsistencyGroupApi.md#createconsistencygroup) | **Post** /consistencygroup | Create a new consistency group. It requires backupdr.managementServers.manageApplications IAM permission
+*ConsistencyGroupApi* | [**DeleteConsistencyGroup**](docs/ConsistencyGroupApi.md#deleteconsistencygroup) | **Delete** /consistencygroup/{group_id} | Remove a consistency group. It requires backupdr.managementServers.manageApplications IAM permission
+*ConsistencyGroupApi* | [**GetConsistencyGroup**](docs/ConsistencyGroupApi.md#getconsistencygroup) | **Get** /consistencygroup/{group_id} | Get individual consistency group details. It requires backupdr.managementServers.access IAM permission
+*ConsistencyGroupApi* | [**GetConsistencyGroupMember**](docs/ConsistencyGroupApi.md#getconsistencygroupmember) | **Get** /consistencygroup/{group_id}/member | Get consistency group&#x27;s members. It requires backupdr.managementServers.access IAM permission
+*ConsistencyGroupApi* | [**ListConsistencyGroups**](docs/ConsistencyGroupApi.md#listconsistencygroups) | **Get** /consistencygroup | Get a list of consistency groups. It requires backupdr.managementServers.access IAM permission
+*ConsistencyGroupApi* | [**ModifyConsistencyGroupMember**](docs/ConsistencyGroupApi.md#modifyconsistencygroupmember) | **Post** /consistencygroup/{group_id}/member | Incrementally add/delete consistency group members. It requires backupdr.managementServers.manageApplications IAM permission
+*ConsistencyGroupApi* | [**OptionsForListConsistencyGroup**](docs/ConsistencyGroupApi.md#optionsforlistconsistencygroup) | **Options** /consistencygroup | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+*ConsistencyGroupApi* | [**UpdateConsistencyGroup**](docs/ConsistencyGroupApi.md#updateconsistencygroup) | **Put** /consistencygroup/{group_id} | Update a consistency group. It requires backupdr.managementServers.manageApplications IAM permission
+*DefaultApi* | [**AddCloudPool**](docs/DefaultApi.md#addcloudpool) | **Post** /cloudcredential/{cloudcredential_id}/cloudpool | 
+*DefaultApi* | [**AddVm**](docs/DefaultApi.md#addvm) | **Post** /cloudcredential/{cloudcredential_id}/discovervm/addvm | 
+*DefaultApi* | [**CountCloudCredentials**](docs/DefaultApi.md#countcloudcredentials) | **Head** /cloudcredential | 
+*DefaultApi* | [**CountDynamicProtections**](docs/DefaultApi.md#countdynamicprotections) | **Head** /dynamicprotection | Get a count of total dynamic protection entries. It requires backupdr.managementServers.getDynamicProtection IAM permission
+*DefaultApi* | [**CreateCredential**](docs/DefaultApi.md#createcredential) | **Post** /cloudcredential | 
+*DefaultApi* | [**CreateDynamicProtection**](docs/DefaultApi.md#createdynamicprotection) | **Post** /dynamicprotection | Create a new dynamic protection entry. It requires backupdr.managementServers.createDynamicProtection IAM permission
+*DefaultApi* | [**DeleteCloudPool**](docs/DefaultApi.md#deletecloudpool) | **Delete** /cloudcredential/{cloudcredential_id}/cloudpool | 
+*DefaultApi* | [**DeleteCredential**](docs/DefaultApi.md#deletecredential) | **Delete** /cloudcredential/{cloudcredential_id} | 
+*DefaultApi* | [**DeleteDynamicProtection**](docs/DefaultApi.md#deletedynamicprotection) | **Delete** /dynamicprotection/{dynamicprotection_id} | Remove a dynamic protection entry. It requires backupdr.managementServers.deleteDynamicProtection IAM permission
+*DefaultApi* | [**DiscoverCloudVm**](docs/DefaultApi.md#discovercloudvm) | **Post** /cloudcredential/{cloudcredential_id}/discovervm/vm | 
+*DefaultApi* | [**GetAllZones**](docs/DefaultApi.md#getallzones) | **Get** /cloudcredential/{cloudcredential_id}/region/{region}/zone | 
+*DefaultApi* | [**GetCloudCredentialMetaInfo**](docs/DefaultApi.md#getcloudcredentialmetainfo) | **Get** /cloudcredential/cloudtype/{type}/field | 
+*DefaultApi* | [**GetCloudTypes**](docs/DefaultApi.md#getcloudtypes) | **Get** /cloudcredential/cloudtype | 
+*DefaultApi* | [**GetCloudVmMetaInfo**](docs/DefaultApi.md#getcloudvmmetainfo) | **Get** /cloudcredential/cloudtype/{type}/vminfo | 
+*DefaultApi* | [**GetCredential**](docs/DefaultApi.md#getcredential) | **Get** /cloudcredential/{cloudcredential_id} | 
+*DefaultApi* | [**GetDynamicProtection**](docs/DefaultApi.md#getdynamicprotection) | **Get** /dynamicprotection/{dynamicprotection_id} | Get individual dynamic protection entry details. It requires backupdr.managementServers.getDynamicProtection IAM permission
+*DefaultApi* | [**GetExternalGrammar**](docs/DefaultApi.md#getexternalgrammar) | **Get** /application.wadl/{path} | 
+*DefaultApi* | [**GetGCPProjects**](docs/DefaultApi.md#getgcpprojects) | **Get** /cloudcredential/{cloudcredential_id}/projects | 
+*DefaultApi* | [**GetMountVmParams**](docs/DefaultApi.md#getmountvmparams) | **Get** /cloudcredential/{cloudcredential_id}/region/{region}/mountinfo | 
+*DefaultApi* | [**GetRegions**](docs/DefaultApi.md#getregions) | **Get** /cloudcredential/cloudtype/{type}/region | 
+*DefaultApi* | [**GetWadl**](docs/DefaultApi.md#getwadl) | **Get** /application.wadl | 
+*DefaultApi* | [**ListCredentials**](docs/DefaultApi.md#listcredentials) | **Get** /cloudcredential | 
+*DefaultApi* | [**ListDiskTypes**](docs/DefaultApi.md#listdisktypes) | **Get** /cloudcredential/{cloudcredential_id}/disktypes | 
+*DefaultApi* | [**ListDynamicProtections**](docs/DefaultApi.md#listdynamicprotections) | **Get** /dynamicprotection | Get a list of dynamic protection entries. It requires backupdr.managementServers.listDynamicProtection IAM
+*DefaultApi* | [**PromoteExistingCredential**](docs/DefaultApi.md#promoteexistingcredential) | **Post** /cloudcredential/{cloudcredential_id}/promote | 
+*DefaultApi* | [**RunDynamicProtectionJob**](docs/DefaultApi.md#rundynamicprotectionjob) | **Post** /dynamicprotection/job | Run dynamic protection job. It requires backupdr.managementServers.assignBackupPlans IAM permission
+*DefaultApi* | [**SetDynamicProtectionJobConfig**](docs/DefaultApi.md#setdynamicprotectionjobconfig) | **Put** /dynamicprotection/jobconfig | Update dynamic protection job config. It requires backupdr.managementServers.assignBackupPlans IAM permission
+*DefaultApi* | [**TestCredential**](docs/DefaultApi.md#testcredential) | **Post** /cloudcredential/testconnection | 
+*DefaultApi* | [**UpdateCloudPool**](docs/DefaultApi.md#updatecloudpool) | **Put** /cloudcredential/{cloudcredential_id}/cloudpool | 
+*DefaultApi* | [**UpdateCredential**](docs/DefaultApi.md#updatecredential) | **Put** /cloudcredential/{cloudcredential_id} | 
+*DiskPoolApi* | [**CountDiskPools**](docs/DiskPoolApi.md#countdiskpools) | **Head** /diskpool | Get a count of total diskpools matching the filters. It requires backupdr.managementServers.viewStorage IAM permission
+*DiskPoolApi* | [**CreateDiskPool**](docs/DiskPoolApi.md#creatediskpool) | **Post** /diskpool | Create a new diskpool. It requires backupdr.managementServers.manageStorage IAM permission
+*DiskPoolApi* | [**DeleteDiskPool**](docs/DiskPoolApi.md#deletediskpool) | **Delete** /diskpool/{diskpool_id} | Remove the specific diskpool. It requires backupdr.managementServers.manageStorage IAM permission
+*DiskPoolApi* | [**GetDiskPool**](docs/DiskPoolApi.md#getdiskpool) | **Get** /diskpool/{diskpool_id} | Get individual diskpool details. It requires backupdr.managementServers.viewStorage IAM permission
+*DiskPoolApi* | [**GetDynamicJsonForPoolManage**](docs/DiskPoolApi.md#getdynamicjsonforpoolmanage) | **Get** /diskpool/vault/listdynamicfields/{pool_type} | List dynamic UI properties based on type of vault pool. It requires backupdr.managementServers.manageStorage IAM permission
 *DiskPoolApi* | [**GetVaultList**](docs/DiskPoolApi.md#getvaultlist) | **Get** /diskpool/vault/listtype | List types of vault pool. Requires Storage Manage right.
-*DiskPoolApi* | [**ListDiskPools**](docs/DiskPoolApi.md#listdiskpools) | **Get** /diskpool | Get a list of diskpools
-*DiskPoolApi* | [**ListGcpVaultPool**](docs/DiskPoolApi.md#listgcpvaultpool) | **Get** /diskpool/listgcpvaultpool | Get a list of GCP vault pools. This operation is network costly and UI needs to cache the result
-*DiskPoolApi* | [**OptionsForList8**](docs/DiskPoolApi.md#optionsforlist8) | **Options** /diskpool | Describes the fields available for filtering and sorting
-*DiskPoolApi* | [**UpdateDiskPool**](docs/DiskPoolApi.md#updatediskpool) | **Put** /diskpool/{diskpool_id} | Update the specific diskpool. It requires Storage Manage right.
-*HostApi* | [**AddApplication**](docs/HostApi.md#addapplication) | **Post** /host/{host_id}/addapplication | Create a new application on the specific host. It requires Application Manage or Host Manage rights.
-*HostApi* | [**AppDiscovery**](docs/HostApi.md#appdiscovery) | **Post** /host/{host_id}/appdiscovery | Discover applications on the specific host. It requires Application Manage or Host Manage rights.
-*HostApi* | [**CountHosts**](docs/HostApi.md#counthosts) | **Head** /host | Get a count of total hosts matching the filters.
-*HostApi* | [**CreateHost**](docs/HostApi.md#createhost) | **Post** /host | Create a new host. It requires Application Manage or Host Manage rights.
-*HostApi* | [**DeleteHost**](docs/HostApi.md#deletehost) | **Delete** /host/{host_id} | Delete a host completely or remove the host from selective appliances. It requires Application Manage or Host Manage rights.
+*DiskPoolApi* | [**ListDiskPools**](docs/DiskPoolApi.md#listdiskpools) | **Get** /diskpool | Get a list of diskpools. It requires backupdr.managementServers.viewStorage IAM permission
+*DiskPoolApi* | [**ListGcpVaultPool**](docs/DiskPoolApi.md#listgcpvaultpool) | **Get** /diskpool/listgcpvaultpool | Get a list of GCP vault pools. This operation is network costly and UI needs to cache the result. It requires backupdr.managementServers.viewStorage IAM permission
+*DiskPoolApi* | [**OptionsForListDiskPool**](docs/DiskPoolApi.md#optionsforlistdiskpool) | **Options** /diskpool | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.viewStorage IAM permission
+*DiskPoolApi* | [**UpdateDiskPool**](docs/DiskPoolApi.md#updatediskpool) | **Put** /diskpool/{diskpool_id} | Update the specific diskpool. It requires backupdr.managementServers.manageStorage IAM permission
+*HostApi* | [**AddApplication**](docs/HostApi.md#addapplication) | **Post** /host/{host_id}/addapplication | Create a new application on the specific host. It requires backupdr.managementServers.manageApplications IAM permission
+*HostApi* | [**AppDiscovery**](docs/HostApi.md#appdiscovery) | **Post** /host/{host_id}/appdiscovery | Discover applications on the specific host. It requires backupdr.managementServers.manageApplications IAM permission
+*HostApi* | [**CountHosts**](docs/HostApi.md#counthosts) | **Head** /host | Get a count of total hosts matching the filters. It requires backupdr.managementServers.access IAM permission
+*HostApi* | [**CreateHost**](docs/HostApi.md#createhost) | **Post** /host | Create a new host. It requires backupdr.managementServers.manageHosts IAM permission
+*HostApi* | [**DeleteHost**](docs/HostApi.md#deletehost) | **Delete** /host/{host_id} | Delete a host completely or remove the host from selective appliances. It requires backupdr.managementServers.manageHosts IAM permission
 *HostApi* | [**EnableConnectorUpgrade**](docs/HostApi.md#enableconnectorupgrade) | **Post** /host/enableconnectorupgrade | 
-*HostApi* | [**GetHost**](docs/HostApi.md#gethost) | **Get** /host/{host_id} | Get individual host details.
-*HostApi* | [**ListHosts**](docs/HostApi.md#listhosts) | **Get** /host | Get a list of host.
-*HostApi* | [**OptionsForList9**](docs/HostApi.md#optionsforlist9) | **Options** /host | Describes the fields available for filtering and sorting
-*HostApi* | [**RevokeCertificate**](docs/HostApi.md#revokecertificate) | **Put** /host/revokeCertificate | Revokes existing certificates of passed in host and blocks them from creating any new certificates. It requires Host Manage rights.
-*HostApi* | [**UpdateHost**](docs/HostApi.md#updatehost) | **Put** /host/{host_id} | Update a host. It requires Application Manage or Host Manage rights.
-*HostApi* | [**VmAddNew**](docs/HostApi.md#vmaddnew) | **Post** /host/{host_id}/host/{cluster_name}/addvms | Add discovered VMs to appliances asynchronously. It requires Hosts Manage right.
-*HostApi* | [**VmDiscoveryWithoutCluster**](docs/HostApi.md#vmdiscoverywithoutcluster) | **Get** /host/{host_id}/discovervm | Discover VMS on the specific host. It requires Host Manage right.
-*JobApi* | [**CountCombinedJob**](docs/JobApi.md#countcombinedjob) | **Head** /jobstatus | Get a count of total jobs (including running jobs and finished jobs) matching the filters.
-*JobApi* | [**ListCombinedJobs**](docs/JobApi.md#listcombinedjobs) | **Get** /jobstatus | Get a list of jobs (including running jobs and finished jobs).
-*JobApi* | [**OptionsForList6**](docs/JobApi.md#optionsforlist6) | **Options** /jobstatus | Describes the fields available for filtering and sorting
-*LogicalGroupApi* | [**CountLogicalGroups**](docs/LogicalGroupApi.md#countlogicalgroups) | **Head** /logicalgroup | Get a count of total logical groups matching the filters.
-*LogicalGroupApi* | [**CreateLogicalGroup**](docs/LogicalGroupApi.md#createlogicalgroup) | **Post** /logicalgroup | Create a new logical group. It requires Application Manage or System Manage rights.
-*LogicalGroupApi* | [**CreateLogicalGroupSla**](docs/LogicalGroupApi.md#createlogicalgroupsla) | **Post** /logicalgroup/{group_id}/sla | Protect a logical group. It creates individual SLAs for all members. It requires SLA Assign right.
-*LogicalGroupApi* | [**DeleteLogicalGroup**](docs/LogicalGroupApi.md#deletelogicalgroup) | **Delete** /logicalgroup/{group_id} | Remove a logical group. It requires Application Manage or System Manage rights.
-*LogicalGroupApi* | [**DeleteLogicalGroupSla**](docs/LogicalGroupApi.md#deletelogicalgroupsla) | **Delete** /logicalgroup/{group_id}/sla | Unprotect a logical group. It removes SLAs for all members. It requires SLA Assign right.
-*LogicalGroupApi* | [**GetLogicalGroup**](docs/LogicalGroupApi.md#getlogicalgroup) | **Get** /logicalgroup/{group_id} | Get individual logical group details. It requires System View right.
-*LogicalGroupApi* | [**ListLogicalGroup**](docs/LogicalGroupApi.md#listlogicalgroup) | **Get** /logicalgroup | Get a list of logical groups. It requires System View right.
-*LogicalGroupApi* | [**ListLogicalGroupMembers**](docs/LogicalGroupApi.md#listlogicalgroupmembers) | **Get** /logicalgroup/{group_id}/member | Get logical group&#x27;s members. It requires SLA Assign or System View rights.
-*LogicalGroupApi* | [**ModifyLogicalGroupMembers**](docs/LogicalGroupApi.md#modifylogicalgroupmembers) | **Post** /logicalgroup/{group_id}/member | Incrementally add/delete logical group members. It requires System Manage or SLA Assign rights.
-*LogicalGroupApi* | [**OptionsForList11**](docs/LogicalGroupApi.md#optionsforlist11) | **Options** /logicalgroup | Describes the fields available for filtering and sorting
-*LogicalGroupApi* | [**UpdateLogicalGroup**](docs/LogicalGroupApi.md#updatelogicalgroup) | **Put** /logicalgroup/{group_id} | Update a logical group. It requires Application Manage or System Manage rights.
-*LogicalGroupApi* | [**UpdateLogicalGroupSla**](docs/LogicalGroupApi.md#updatelogicalgroupsla) | **Put** /logicalgroup/{group_id}/sla | Update the current SLAs for a logical group. It updates individual SLAs for all members. It requires SLA Manage right.
+*HostApi* | [**GetHost**](docs/HostApi.md#gethost) | **Get** /host/{host_id} | Get individual host details. It requires backupdr.managementServers.access IAM permission
+*HostApi* | [**ListHosts**](docs/HostApi.md#listhosts) | **Get** /host | Get a list of host. It requires backupdr.managementServers.access IAM permission
+*HostApi* | [**OptionsForListHost**](docs/HostApi.md#optionsforlisthost) | **Options** /host | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+*HostApi* | [**RevokeCertificate**](docs/HostApi.md#revokecertificate) | **Put** /host/revokeCertificate | Revokes existing certificates of passed in host and blocks them from creating any new certificates. It requires backupdr.managementServers.manageHosts IAM permission
+*HostApi* | [**TestConnectorConnection**](docs/HostApi.md#testconnectorconnection) | **Post** /host/{hostid}/testconnectorconnection | 
+*HostApi* | [**UpdateHost**](docs/HostApi.md#updatehost) | **Put** /host/{host_id} | Update a host. It requires backupdr.managementServers.manageHosts IAM permission
+*HostApi* | [**VmAddNew**](docs/HostApi.md#vmaddnew) | **Post** /host/{host_id}/host/{cluster_name}/addvms | Add discovered VMs to appliances asynchronously. It requires backupdr.managementServers.manageHosts IAM permission
+*HostApi* | [**VmDiscoveryWithoutCluster**](docs/HostApi.md#vmdiscoverywithoutcluster) | **Get** /host/{host_id}/discovervm | Discover VMS on the specific host. It requires backupdr.managementServers.manageHosts IAM permission
+*JobApi* | [**CountCombinedJob**](docs/JobApi.md#countcombinedjob) | **Head** /jobstatus | Get a count of total jobs (including running jobs and finished jobs) matching the filters. It requires backupdr.managementServers.access IAM permission
+*JobApi* | [**ListCombinedJobs**](docs/JobApi.md#listcombinedjobs) | **Get** /jobstatus | Get a list of jobs (including running jobs and finished jobs). It requires backupdr.managementServers.access IAM permission
+*JobApi* | [**OptionsForListCombinedJob**](docs/JobApi.md#optionsforlistcombinedjob) | **Options** /jobstatus | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+*LogicalGroupApi* | [**CountLogicalGroups**](docs/LogicalGroupApi.md#countlogicalgroups) | **Head** /logicalgroup | Get a count of total logical groups matching the filters. It requires backupdr.managementServers.access IAM permission
+*LogicalGroupApi* | [**CreateLogicalGroup**](docs/LogicalGroupApi.md#createlogicalgroup) | **Post** /logicalgroup | Create a new logical group. It requires backupdr.managementServers.manageApplications IAM permission
+*LogicalGroupApi* | [**CreateLogicalGroupSla**](docs/LogicalGroupApi.md#createlogicalgroupsla) | **Post** /logicalgroup/{group_id}/sla | Protect a logical group. It creates individual SLAs for all members. It requires backupdr.managementServers.assignBackupPlans IAM permission
+*LogicalGroupApi* | [**DeleteLogicalGroup**](docs/LogicalGroupApi.md#deletelogicalgroup) | **Delete** /logicalgroup/{group_id} | Remove a logical group. It requires backupdr.managementServers.manageApplications IAM permission
+*LogicalGroupApi* | [**DeleteLogicalGroupSla**](docs/LogicalGroupApi.md#deletelogicalgroupsla) | **Delete** /logicalgroup/{group_id}/sla | Unprotect a logical group. It removes SLAs for all members. It requires backupdr.managementServers.assignBackupPlans IAM permission
+*LogicalGroupApi* | [**GetLogicalGroup**](docs/LogicalGroupApi.md#getlogicalgroup) | **Get** /logicalgroup/{group_id} | Get individual logical group details. It requires backupdr.managementServers.access IAM permission
+*LogicalGroupApi* | [**ListLogicalGroup**](docs/LogicalGroupApi.md#listlogicalgroup) | **Get** /logicalgroup | Get a list of logical groups. It requires backupdr.managementServers.access IAM permission
+*LogicalGroupApi* | [**ListLogicalGroupMembers**](docs/LogicalGroupApi.md#listlogicalgroupmembers) | **Get** /logicalgroup/{group_id}/member | Get logical group&#x27;s members. It requires backupdr.managementServers.access IAM permission
+*LogicalGroupApi* | [**ModifyLogicalGroupMembers**](docs/LogicalGroupApi.md#modifylogicalgroupmembers) | **Post** /logicalgroup/{group_id}/member | Incrementally add/delete logical group members. It requires backupdr.managementServers.manageApplications IAM permission
+*LogicalGroupApi* | [**OptionsForListLogicalGroup**](docs/LogicalGroupApi.md#optionsforlistlogicalgroup) | **Options** /logicalgroup | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+*LogicalGroupApi* | [**UpdateLogicalGroup**](docs/LogicalGroupApi.md#updatelogicalgroup) | **Put** /logicalgroup/{group_id} | Update a logical group. It requires backupdr.managementServers.manageApplications IAM permission
+*LogicalGroupApi* | [**UpdateLogicalGroupSla**](docs/LogicalGroupApi.md#updatelogicalgroupsla) | **Put** /logicalgroup/{group_id}/sla | Update the current SLAs for a logical group. It updates individual SLAs for all members. It requires backupdr.managementServers.assignBackupPlans IAM permission
 *ManageACLApi* | [**GetDbDumpUploadUrls**](docs/ManageACLApi.md#getdbdumpuploadurls) | **Post** /manageacl/migration/getdbdumpuploadurls | 
 *ManageACLApi* | [**GetRMMigrationStatus**](docs/ManageACLApi.md#getrmmigrationstatus) | **Get** /manageacl/migration/rmmigrationstatus | 
 *ManageACLApi* | [**IsInMigrationMode**](docs/ManageACLApi.md#isinmigrationmode) | **Get** /manageacl/migration/isinmigrationmode | 
@@ -164,66 +197,68 @@ Class | Method | HTTP request | Description
 *OrganizationApi* | [**DeleteOrg**](docs/OrganizationApi.md#deleteorg) | **Delete** /org/{org_id} | Remove a specific organization. It requires System Manage right.
 *OrganizationApi* | [**GetOrg**](docs/OrganizationApi.md#getorg) | **Get** /org/{org_id} | Get individual organization details.
 *OrganizationApi* | [**ListOrgs**](docs/OrganizationApi.md#listorgs) | **Get** /org | Get a list of organizations.
-*OrganizationApi* | [**OptionsForList12**](docs/OrganizationApi.md#optionsforlist12) | **Options** /org | Describes the fields available for filtering and sorting
+*OrganizationApi* | [**OptionsForList**](docs/OrganizationApi.md#optionsforlist) | **Options** /org | Describes the fields available for filtering and sorting
 *OrganizationApi* | [**RemoveResourcesFromOrg**](docs/OrganizationApi.md#removeresourcesfromorg) | **Post** /org/{org_id}/assignment/remove | Remove resources from a specific organization. It requires System Manage right.
 *OrganizationApi* | [**UpdateOrg**](docs/OrganizationApi.md#updateorg) | **Put** /org/{org_id} | Update a specific organization. It requires System Manage right.
-*SLAApi* | [**CountSlas**](docs/SLAApi.md#countslas) | **Head** /sla | Get a count of total SLAs matching the filters. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLAApi* | [**CreateOptionForSla**](docs/SLAApi.md#createoptionforsla) | **Post** /sla/{sla_id}/settableoption | Create an overridden option on the specific SLA. It requires SLA Assign or SLA Manage rights.
-*SLAApi* | [**CreateSla**](docs/SLAApi.md#createsla) | **Post** /sla | Create a new SLA. It requires SLA Assign right.
-*SLAApi* | [**DeleteOptionForSla**](docs/SLAApi.md#deleteoptionforsla) | **Delete** /sla/{sla_id}/settableoption/{option_id} | Delete a specific overridden option on the specific SLA. It requires SLA Assign or SLA Manage rights.
-*SLAApi* | [**DeleteSla**](docs/SLAApi.md#deletesla) | **Delete** /sla/{sla_id} | Remove the specific SLA. It requires SLA Assign right.
-*SLAApi* | [**GetOptionForSla**](docs/SLAApi.md#getoptionforsla) | **Get** /sla/{sla_id}/settableoption/{option_id} | Get the details of a specific overridden option on the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLAApi* | [**GetSla**](docs/SLAApi.md#getsla) | **Get** /sla/{sla_id} | Get individual SLA details. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLAApi* | [**ListOptionForSla**](docs/SLAApi.md#listoptionforsla) | **Get** /sla/{sla_id}/settableoption | List all overridden options already set on the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLAApi* | [**ListSlas**](docs/SLAApi.md#listslas) | **Get** /sla | Get a list of SLAs. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLAApi* | [**SettableOptionMetadataForSla**](docs/SLAApi.md#settableoptionmetadataforsla) | **Options** /sla/{sla_id}/settableoption | List all overridable option metadata for the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLAApi* | [**UpdateOptionForSla**](docs/SLAApi.md#updateoptionforsla) | **Put** /sla/{sla_id}/settableoption/{option_id} | Update a specific overridden option on the specific SLA. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLAApi* | [**UpdateSla**](docs/SLAApi.md#updatesla) | **Put** /sla/{sla_id} | Update the specific slp. It requires SLA Assign right.
-*SLAProfileApi* | [**CountSlps**](docs/SLAProfileApi.md#countslps) | **Head** /slp | Get a count of total slps matching the filters. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLAProfileApi* | [**CreateSlp**](docs/SLAProfileApi.md#createslp) | **Post** /slp | Create a new slp. It requires SLA Manage right.
-*SLAProfileApi* | [**DeleteSlp**](docs/SLAProfileApi.md#deleteslp) | **Delete** /slp/{slp_id} | Remove the specific slp. It requires SLA Manage right.
-*SLAProfileApi* | [**GetSlp**](docs/SLAProfileApi.md#getslp) | **Get** /slp/{slp_id} | Get individual slp details. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLAProfileApi* | [**ListSlps**](docs/SLAProfileApi.md#listslps) | **Get** /slp | Get a list of slps. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLAProfileApi* | [**UpdateSlp**](docs/SLAProfileApi.md#updateslp) | **Put** /slp/{slp_id} | Update the specific slp. It requires SLA Manage right.
-*SLATemplateApi* | [**CloneTemplates**](docs/SLATemplateApi.md#clonetemplates) | **Post** /slt/{slt_id}/clone | Clone a specific slt. It requires SLA Manage right.
-*SLATemplateApi* | [**CountSlts**](docs/SLATemplateApi.md#countslts) | **Head** /slt | Get a count of total slts matching the filters. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLATemplateApi* | [**CreateOptionForPolicy**](docs/SLATemplateApi.md#createoptionforpolicy) | **Post** /slt/{slt_id}/policy/{policy_id}/settableoption | Create a new settable option for the specific policy. It requires SLA Assign or SLA Manage rights.
-*SLATemplateApi* | [**CreatePolicy**](docs/SLATemplateApi.md#createpolicy) | **Post** /slt/{slt_id}/policy | Create a new policy. It requires SLA Manage right.
-*SLATemplateApi* | [**CreateSlt**](docs/SLATemplateApi.md#createslt) | **Post** /slt | Create a new slt. It requires SLA Manage right.
-*SLATemplateApi* | [**DeleteOptionForPolicy**](docs/SLATemplateApi.md#deleteoptionforpolicy) | **Delete** /slt/{slt_id}/policy/{policy_id}/settableoption/{option_id} | Remove a settable option for the specific policy. It requires SLA Assign or SLA Manage rights.
-*SLATemplateApi* | [**DeletePolicy**](docs/SLATemplateApi.md#deletepolicy) | **Delete** /slt/{slt_id}/policy/{policy_id} | Remove a policy. It requires SLA Manage right.
-*SLATemplateApi* | [**DeleteSlt**](docs/SLATemplateApi.md#deleteslt) | **Delete** /slt/{slt_id} | Remove a slt. It requires SLA Manage right.
-*SLATemplateApi* | [**GetOptionForPolicy**](docs/SLATemplateApi.md#getoptionforpolicy) | **Get** /slt/{slt_id}/policy/{policy_id}/settableoption/{option_id} | Get a specific settable option of the specific policy. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLATemplateApi* | [**GetPolicy**](docs/SLATemplateApi.md#getpolicy) | **Get** /slt/{slt_id}/policy/{policy_id} | Get individual policy. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLATemplateApi* | [**GetSlt**](docs/SLATemplateApi.md#getslt) | **Get** /slt/{slt_id} | Get individual slt details. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLATemplateApi* | [**ListOptionForPolicy**](docs/SLATemplateApi.md#listoptionforpolicy) | **Get** /slt/{slt_id}/policy/{policy_id}/settableoption | List all existing settable options of the specific policy. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLATemplateApi* | [**ListPolicies**](docs/SLATemplateApi.md#listpolicies) | **Get** /slt/{slt_id}/policy | Get policy list from the specific slt. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLATemplateApi* | [**ListSlts**](docs/SLATemplateApi.md#listslts) | **Get** /slt | Get a list of slts. It requires SLA View, SLA Assign or SLA Manage rights.
-*SLATemplateApi* | [**OptionsForList15**](docs/SLATemplateApi.md#optionsforlist15) | **Options** /slt | Describes the fields available for filtering and sorting
-*SLATemplateApi* | [**SettableOptionMetadataForPolicy**](docs/SLATemplateApi.md#settableoptionmetadataforpolicy) | **Options** /slt/{slt_id}/policy/{policy_id}/settableoption | Get settable option metadata for the specific policy.
-*SLATemplateApi* | [**SettableOptionMetadataForPolicyType1**](docs/SLATemplateApi.md#settableoptionmetadataforpolicytype1) | **Options** /slt/settableoption/{policytype} | Get settable option metadata for the specific policy type.
-*SLATemplateApi* | [**UpdateOptionForPolicy**](docs/SLATemplateApi.md#updateoptionforpolicy) | **Put** /slt/{slt_id}/policy/{policy_id}/settableoption/{option_id} | Update a settable option for the specific policy. It requires SLA Assgin or SLA Manage rights.
-*SLATemplateApi* | [**UpdatePolicy**](docs/SLATemplateApi.md#updatepolicy) | **Put** /slt/{slt_id}/policy/{policy_id} | Update a policy. It requires SLA Manage right.
-*SLATemplateApi* | [**UpdateSlt**](docs/SLATemplateApi.md#updateslt) | **Put** /slt/{slt_id} | Update a slt. It requires SLA Manage right.
-*StorageArrayApi* | [**CountArrays**](docs/StorageArrayApi.md#countarrays) | **Head** /array | Get a count of total storage arrays matching the filters.
-*StorageArrayApi* | [**CreateArray**](docs/StorageArrayApi.md#createarray) | **Post** /array | Create a storage array. It requires Storage Manage right.
-*StorageArrayApi* | [**CredentialTest**](docs/StorageArrayApi.md#credentialtest) | **Post** /array/pretest | Credential test before creating a storage array. It requires Storage Manage right.
-*StorageArrayApi* | [**DeleteArray**](docs/StorageArrayApi.md#deletearray) | **Delete** /array/{array_id} | Remove the specific storage array from all appliances. It requires Storage Manage right.
-*StorageArrayApi* | [**GetArray**](docs/StorageArrayApi.md#getarray) | **Get** /array/{array_id} | Get individual storage array details.
-*StorageArrayApi* | [**GetArrayTypes**](docs/StorageArrayApi.md#getarraytypes) | **Get** /array/type | Get all supported storage array types from appliances. It requires Storage View right.
-*StorageArrayApi* | [**ListArrays**](docs/StorageArrayApi.md#listarrays) | **Get** /array | Get a list of storage arrays
-*StorageArrayApi* | [**OptionsForList3**](docs/StorageArrayApi.md#optionsforlist3) | **Options** /array | Describes the fields available for filtering and sorting
-*StorageArrayApi* | [**TestArray**](docs/StorageArrayApi.md#testarray) | **Post** /array/{array_id} | Connectivity test on the specific storage array. It requires Storage Manage right.
-*StorageArrayApi* | [**UpdateArray**](docs/StorageArrayApi.md#updatearray) | **Put** /array/{array_id} | Update a specific storage array. It requires Storage Manage right.
+*SLAApi* | [**CountSlas**](docs/SLAApi.md#countslas) | **Head** /sla | Get a count of total SLAs matching the filters. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLAApi* | [**CreateOptionForSla**](docs/SLAApi.md#createoptionforsla) | **Post** /sla/{sla_id}/settableoption | Create an overridden option on the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
+*SLAApi* | [**CreateSla**](docs/SLAApi.md#createsla) | **Post** /sla | Create a new SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
+*SLAApi* | [**CreateSlaPreflight**](docs/SLAApi.md#createslapreflight) | **Post** /sla/preflight | Preflight on creating a new SLA. It requires SLA Assign right.
+*SLAApi* | [**DeleteOptionForSla**](docs/SLAApi.md#deleteoptionforsla) | **Delete** /sla/{sla_id}/settableoption/{option_id} | Delete a specific overridden option on the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
+*SLAApi* | [**DeleteSla**](docs/SLAApi.md#deletesla) | **Delete** /sla/{sla_id} | Remove the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
+*SLAApi* | [**GetOptionForSla**](docs/SLAApi.md#getoptionforsla) | **Get** /sla/{sla_id}/settableoption/{option_id} | Get the details of a specific overridden option on the specific SLA. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLAApi* | [**GetSla**](docs/SLAApi.md#getsla) | **Get** /sla/{sla_id} | Get individual SLA details. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLAApi* | [**ListOptionForSla**](docs/SLAApi.md#listoptionforsla) | **Get** /sla/{sla_id}/settableoption | List all overridden options already set on the specific SLA. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLAApi* | [**ListSlas**](docs/SLAApi.md#listslas) | **Get** /sla | Get a list of SLAs. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLAApi* | [**SettableOptionMetadataForSla**](docs/SLAApi.md#settableoptionmetadataforsla) | **Options** /sla/{sla_id}/settableoption | List all overridable option metadata for the specific SLA. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLAApi* | [**UpdateOptionForSla**](docs/SLAApi.md#updateoptionforsla) | **Put** /sla/{sla_id}/settableoption/{option_id} | Update a specific overridden option on the specific SLA. It requires backupdr.managementServers.assignBackupPlans IAM permission
+*SLAApi* | [**UpdateSla**](docs/SLAApi.md#updatesla) | **Put** /sla/{sla_id} | Update the specific slp. It requires backupdr.managementServers.assignBackupPlans IAM permission
+*SLAProfileApi* | [**CountSlps**](docs/SLAProfileApi.md#countslps) | **Head** /slp | Get a count of total slps matching the filters. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLAProfileApi* | [**CreateSlp**](docs/SLAProfileApi.md#createslp) | **Post** /slp | Create a new slp. It requires backupdr.managementServers.manageBackupPlans IAM permission
+*SLAProfileApi* | [**DeleteSlp**](docs/SLAProfileApi.md#deleteslp) | **Delete** /slp/{slp_id} | Remove the specific slp. It requires backupdr.managementServers.manageBackupPlans IAM permission
+*SLAProfileApi* | [**GetGCPProjectsByProfile**](docs/SLAProfileApi.md#getgcpprojectsbyprofile) | **Get** /slp/{slp_id}/projects | 
+*SLAProfileApi* | [**GetSlp**](docs/SLAProfileApi.md#getslp) | **Get** /slp/{slp_id} | Get individual slp details. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLAProfileApi* | [**ListSlps**](docs/SLAProfileApi.md#listslps) | **Get** /slp | Get a list of slps. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLAProfileApi* | [**UpdateSlp**](docs/SLAProfileApi.md#updateslp) | **Put** /slp/{slp_id} | Update the specific slp. It requires backupdr.managementServers.manageBackupPlans IAM permission
+*SLATemplateApi* | [**CloneTemplates**](docs/SLATemplateApi.md#clonetemplates) | **Post** /slt/{slt_id}/clone | Clone a specific slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
+*SLATemplateApi* | [**CountSlts**](docs/SLATemplateApi.md#countslts) | **Head** /slt | Get a count of total slts matching the filters. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLATemplateApi* | [**CreateOptionForPolicy**](docs/SLATemplateApi.md#createoptionforpolicy) | **Post** /slt/{slt_id}/policy/{policy_id}/settableoption | Create a new settable option for the specific policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
+*SLATemplateApi* | [**CreatePolicy**](docs/SLATemplateApi.md#createpolicy) | **Post** /slt/{slt_id}/policy | Create a new policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
+*SLATemplateApi* | [**CreateSlt**](docs/SLATemplateApi.md#createslt) | **Post** /slt | Create a new slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
+*SLATemplateApi* | [**DeleteOptionForPolicy**](docs/SLATemplateApi.md#deleteoptionforpolicy) | **Delete** /slt/{slt_id}/policy/{policy_id}/settableoption/{option_id} | Remove a settable option for the specific policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
+*SLATemplateApi* | [**DeletePolicy**](docs/SLATemplateApi.md#deletepolicy) | **Delete** /slt/{slt_id}/policy/{policy_id} | Remove a policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
+*SLATemplateApi* | [**DeleteSlt**](docs/SLATemplateApi.md#deleteslt) | **Delete** /slt/{slt_id} | Remove a slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
+*SLATemplateApi* | [**GetOptionForPolicy**](docs/SLATemplateApi.md#getoptionforpolicy) | **Get** /slt/{slt_id}/policy/{policy_id}/settableoption/{option_id} | Get a specific settable option of the specific policy. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLATemplateApi* | [**GetPolicy**](docs/SLATemplateApi.md#getpolicy) | **Get** /slt/{slt_id}/policy/{policy_id} | Get individual policy. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLATemplateApi* | [**GetSlt**](docs/SLATemplateApi.md#getslt) | **Get** /slt/{slt_id} | Get individual slt details. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLATemplateApi* | [**ListOptionForPolicy**](docs/SLATemplateApi.md#listoptionforpolicy) | **Get** /slt/{slt_id}/policy/{policy_id}/settableoption | List all existing settable options of the specific policy. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLATemplateApi* | [**ListPolicies**](docs/SLATemplateApi.md#listpolicies) | **Get** /slt/{slt_id}/policy | Get policy list from the specific slt. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLATemplateApi* | [**ListSlts**](docs/SLATemplateApi.md#listslts) | **Get** /slt | Get a list of slts. It requires backupdr.managementServers.viewBackupPlans IAM permission
+*SLATemplateApi* | [**OptionsForListSlt**](docs/SLATemplateApi.md#optionsforlistslt) | **Options** /slt | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+*SLATemplateApi* | [**SettableOptionMetadataForPolicy**](docs/SLATemplateApi.md#settableoptionmetadataforpolicy) | **Options** /slt/{slt_id}/policy/{policy_id}/settableoption | Get settable option metadata for the specific policy. It requires backupdr.managementServers.access IAM permission
+*SLATemplateApi* | [**SettableOptionMetadataForPolicyType**](docs/SLATemplateApi.md#settableoptionmetadataforpolicytype) | **Options** /slt/settableoption/{policytype} | Get settable option metadata for the specific policy type. It requires backupdr.managementServers.access IAM permission
+*SLATemplateApi* | [**UpdateOptionForPolicy**](docs/SLATemplateApi.md#updateoptionforpolicy) | **Put** /slt/{slt_id}/policy/{policy_id}/settableoption/{option_id} | Update a settable option for the specific policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
+*SLATemplateApi* | [**UpdatePolicy**](docs/SLATemplateApi.md#updatepolicy) | **Put** /slt/{slt_id}/policy/{policy_id} | Update a policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
+*SLATemplateApi* | [**UpdateSlt**](docs/SLATemplateApi.md#updateslt) | **Put** /slt/{slt_id} | Update a slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
+*StorageArrayApi* | [**CountArrays**](docs/StorageArrayApi.md#countarrays) | **Head** /array | Get a count of total storage arrays matching the filters. It requires backupdr.managementServers.viewStorage IAM permission
+*StorageArrayApi* | [**CreateArray**](docs/StorageArrayApi.md#createarray) | **Post** /array | Create a storage array. It requires backupdr.managementServers.manageStorage IAM permission
+*StorageArrayApi* | [**CredentialTest**](docs/StorageArrayApi.md#credentialtest) | **Post** /array/pretest | Credential test before creating a storage array. It requires backupdr.managementServers.manageStorage IAM permission
+*StorageArrayApi* | [**DeleteArray**](docs/StorageArrayApi.md#deletearray) | **Delete** /array/{array_id} | Remove the specific storage array from all appliances. It requires backupdr.managementServers.manageStorage IAM permission
+*StorageArrayApi* | [**GetArray**](docs/StorageArrayApi.md#getarray) | **Get** /array/{array_id} | Get individual storage array details. It requires backupdr.managementServers.viewStorage IAM permission
+*StorageArrayApi* | [**GetArrayTypes**](docs/StorageArrayApi.md#getarraytypes) | **Get** /array/type | Get all supported storage array types from appliances. It requires backupdr.managementServers.viewStorage IAM permission
+*StorageArrayApi* | [**ListArrays**](docs/StorageArrayApi.md#listarrays) | **Get** /array | Get a list of storage arrays. It requires backupdr.managementServers.viewStorage IAM permission
+*StorageArrayApi* | [**OptionsForListArray**](docs/StorageArrayApi.md#optionsforlistarray) | **Options** /array | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.viewStorage IAM permission
+*StorageArrayApi* | [**TestArray**](docs/StorageArrayApi.md#testarray) | **Post** /array/{array_id} | Connectivity test on the specific storage array. It requires backupdr.managementServers.manageStorage IAM permission
+*StorageArrayApi* | [**UpdateArray**](docs/StorageArrayApi.md#updatearray) | **Put** /array/{array_id} | Update a specific storage array. It requires backupdr.managementServers.manageStorage IAM permission
 *UserApi* | [**CountUsers**](docs/UserApi.md#countusers) | **Head** /user | Get a count of total users matching the filters. It requires System View right.
 *UserApi* | [**CreateUser**](docs/UserApi.md#createuser) | **Post** /user | Create a new user. It requires System Manage right.
 *UserApi* | [**DeleteUser**](docs/UserApi.md#deleteuser) | **Delete** /user/{user_id} | Remove a specific user. It requires System Manage right.
 *UserApi* | [**GetUser**](docs/UserApi.md#getuser) | **Get** /user/{user_id} | Get individual user details. It requires System View right.
 *UserApi* | [**ListRoles1**](docs/UserApi.md#listroles1) | **Get** /user | Get a list of users. It requires System View right.
-*UserApi* | [**OptionsForList16**](docs/UserApi.md#optionsforlist16) | **Options** /user | Describes the fields available for filtering and sorting
+*UserApi* | [**OptionsForList3**](docs/UserApi.md#optionsforlist3) | **Options** /user | Describes the fields available for filtering and sorting
 *UserApi* | [**UpdateUser**](docs/UserApi.md#updateuser) | **Put** /user/{user_id} | Update a specific user. It requires System Manage right.
 *UserSessionApi* | [**GetPermissions**](docs/UserSessionApi.md#getpermissions) | **Get** /session/permissions | Get IAM permissions for the user
-*UserSessionApi* | [**GetSessionInfo**](docs/UserSessionApi.md#getsessioninfo) | **Get** /session/current | Get session information, including user preferences
+*UserSessionApi* | [**GetSessionInfo**](docs/UserSessionApi.md#getsessioninfo) | **Get** /session/current | Get session information, including user preferences. It requires backupdr.managementServers.access IAM permission
 *UserSessionApi* | [**Login**](docs/UserSessionApi.md#login) | **Post** /session | Register an user session
 *UserSessionApi* | [**Logout**](docs/UserSessionApi.md#logout) | **Delete** /session/current | Deregister the current user session
 *UserSessionApi* | [**PutUserpref**](docs/UserSessionApi.md#putuserpref) | **Put** /session/current | Update user preferences
@@ -237,6 +272,7 @@ Class | Method | HTTP request | Description
  - [AppDiscoveryRest](docs/AppDiscoveryRest.md)
  - [ApplianceUpdateInstallationJobRest](docs/ApplianceUpdateInstallationJobRest.md)
  - [ApplianceUpdateLogsRest](docs/ApplianceUpdateLogsRest.md)
+ - [ApplianceUpdateNotificationRest](docs/ApplianceUpdateNotificationRest.md)
  - [ApplianceUpdateReadmeRest](docs/ApplianceUpdateReadmeRest.md)
  - [ApplianceUpdateRest](docs/ApplianceUpdateRest.md)
  - [ApplicationRest](docs/ApplicationRest.md)
@@ -247,7 +283,9 @@ Class | Method | HTTP request | Description
  - [AuditRest](docs/AuditRest.md)
  - [AuthConfigRest](docs/AuthConfigRest.md)
  - [BackupNowRest](docs/BackupNowRest.md)
+ - [BackupPlanMetadata](docs/BackupPlanMetadata.md)
  - [BackupRest](docs/BackupRest.md)
+ - [BackupVaultRest](docs/BackupVaultRest.md)
  - [CallhomeInfoRest](docs/CallhomeInfoRest.md)
  - [CertificateRevocationRest](docs/CertificateRevocationRest.md)
  - [ChoiceMetaRest](docs/ChoiceMetaRest.md)
@@ -255,6 +293,8 @@ Class | Method | HTTP request | Description
  - [ClientInfoRest](docs/ClientInfoRest.md)
  - [CloneRest](docs/CloneRest.md)
  - [CloudCredentialRest](docs/CloudCredentialRest.md)
+ - [CloudFilterRest](docs/CloudFilterRest.md)
+ - [CloudVmDiscoveryRest](docs/CloudVmDiscoveryRest.md)
  - [CloudVmMountRest](docs/CloudVmMountRest.md)
  - [ClusterRest](docs/ClusterRest.md)
  - [ClusterStatusRest](docs/ClusterStatusRest.md)
@@ -263,32 +303,43 @@ Class | Method | HTTP request | Description
  - [ComplianceSettingsRest](docs/ComplianceSettingsRest.md)
  - [ComponentDetailRest](docs/ComponentDetailRest.md)
  - [ComponentRest](docs/ComponentRest.md)
+ - [ConnectorConnectionRest](docs/ConnectorConnectionRest.md)
  - [ConsistencyGroupRest](docs/ConsistencyGroupRest.md)
  - [ConsolidatedApplianceUpdatesRest](docs/ConsolidatedApplianceUpdatesRest.md)
  - [DataStoreRest](docs/DataStoreRest.md)
+ - [DbDumpUploadUrlRest](docs/DbDumpUploadUrlRest.md)
  - [DescValueRest](docs/DescValueRest.md)
  - [DiskMappingRest](docs/DiskMappingRest.md)
  - [DiskPoolCopiesRest](docs/DiskPoolCopiesRest.md)
  - [DiskPoolRest](docs/DiskPoolRest.md)
  - [DiskRest](docs/DiskRest.md)
+ - [DynamicProtectionJobConfigRest](docs/DynamicProtectionJobConfigRest.md)
+ - [DynamicProtectionRest](docs/DynamicProtectionRest.md)
  - [EntityRestPersistable](docs/EntityRestPersistable.md)
+ - [ErrorRest](docs/ErrorRest.md)
  - [EventRest](docs/EventRest.md)
  - [ExpireBackupRest](docs/ExpireBackupRest.md)
  - [ExportRuleInfoRest](docs/ExportRuleInfoRest.md)
  - [ExportVolumeInfoRest](docs/ExportVolumeInfoRest.md)
- - [FeatureFlagsRest](docs/FeatureFlagsRest.md)
  - [FileinfoRest](docs/FileinfoRest.md)
  - [FilterFieldClassMapping](docs/FilterFieldClassMapping.md)
  - [FormDataContentDisposition](docs/FormDataContentDisposition.md)
  - [FormFieldRest](docs/FormFieldRest.md)
  - [GetListRest](docs/GetListRest.md)
  - [HostRest](docs/HostRest.md)
+ - [IamPermissionsRest](docs/IamPermissionsRest.md)
+ - [InlineResponse200](docs/InlineResponse200.md)
+ - [InlineResponse200Cookies](docs/InlineResponse200Cookies.md)
+ - [InlineResponse200EntityTag](docs/InlineResponse200EntityTag.md)
+ - [InlineResponse200Language](docs/InlineResponse200Language.md)
+ - [InlineResponse200Links](docs/InlineResponse200Links.md)
+ - [InlineResponse200MediaType](docs/InlineResponse200MediaType.md)
+ - [InlineResponse200StatusInfo](docs/InlineResponse200StatusInfo.md)
  - [IscsiTestResultDetailRest](docs/IscsiTestResultDetailRest.md)
  - [JobRest](docs/JobRest.md)
  - [JsonArray](docs/JsonArray.md)
  - [KeyValueRest](docs/KeyValueRest.md)
  - [ListAdvancedOptionRest](docs/ListAdvancedOptionRest.md)
- - [ListApplianceUpdateInstallationJobRest](docs/ListApplianceUpdateInstallationJobRest.md)
  - [ListApplianceUpdateLogsRest](docs/ListApplianceUpdateLogsRest.md)
  - [ListApplicationRest](docs/ListApplicationRest.md)
  - [ListArrayRest](docs/ListArrayRest.md)
@@ -307,6 +358,36 @@ Class | Method | HTTP request | Description
  - [ListOrganizationRest](docs/ListOrganizationRest.md)
  - [ListPolicyRest](docs/ListPolicyRest.md)
  - [ListRest](docs/ListRest.md)
+ - [ListRestAdvancedOptionRest](docs/ListRestAdvancedOptionRest.md)
+ - [ListRestAppClassRest](docs/ListRestAppClassRest.md)
+ - [ListRestApplianceUpdateInstallationJobRest](docs/ListRestApplianceUpdateInstallationJobRest.md)
+ - [ListRestApplianceUpdateLogsRest](docs/ListRestApplianceUpdateLogsRest.md)
+ - [ListRestApplianceUpdateNotificationRest](docs/ListRestApplianceUpdateNotificationRest.md)
+ - [ListRestApplicationRest](docs/ListRestApplicationRest.md)
+ - [ListRestArrayRest](docs/ListRestArrayRest.md)
+ - [ListRestArrayTestResultRest](docs/ListRestArrayTestResultRest.md)
+ - [ListRestArrayTypeRest](docs/ListRestArrayTypeRest.md)
+ - [ListRestAuditRest](docs/ListRestAuditRest.md)
+ - [ListRestBackupRest](docs/ListRestBackupRest.md)
+ - [ListRestCloudCredentialRest](docs/ListRestCloudCredentialRest.md)
+ - [ListRestClusterRest](docs/ListRestClusterRest.md)
+ - [ListRestConsistencyGroupRest](docs/ListRestConsistencyGroupRest.md)
+ - [ListRestConsolidatedApplianceUpdatesRest](docs/ListRestConsolidatedApplianceUpdatesRest.md)
+ - [ListRestDbDumpUploadUrlRest](docs/ListRestDbDumpUploadUrlRest.md)
+ - [ListRestDiskPoolRest](docs/ListRestDiskPoolRest.md)
+ - [ListRestDynamicProtectionRest](docs/ListRestDynamicProtectionRest.md)
+ - [ListRestHostRest](docs/ListRestHostRest.md)
+ - [ListRestJobRest](docs/ListRestJobRest.md)
+ - [ListRestLogicalGroupRest](docs/ListRestLogicalGroupRest.md)
+ - [ListRestOrganizationRest](docs/ListRestOrganizationRest.md)
+ - [ListRestPolicyRest](docs/ListRestPolicyRest.md)
+ - [ListRestRightRest](docs/ListRestRightRest.md)
+ - [ListRestRoleRest](docs/ListRestRoleRest.md)
+ - [ListRestSlaRest](docs/ListRestSlaRest.md)
+ - [ListRestSlpRest](docs/ListRestSlpRest.md)
+ - [ListRestSltRest](docs/ListRestSltRest.md)
+ - [ListRestUserRest](docs/ListRestUserRest.md)
+ - [ListRestWorkflowRest](docs/ListRestWorkflowRest.md)
  - [ListRightRest](docs/ListRightRest.md)
  - [ListRoleRest](docs/ListRoleRest.md)
  - [ListSlaRest](docs/ListSlaRest.md)
@@ -325,7 +406,6 @@ Class | Method | HTTP request | Description
  - [ModelError](docs/ModelError.md)
  - [MountRest](docs/MountRest.md)
  - [NameValueRest](docs/NameValueRest.md)
- - [NasdConfigRest](docs/NasdConfigRest.md)
  - [NfsOptionsRest](docs/NfsOptionsRest.md)
  - [NotificationRest](docs/NotificationRest.md)
  - [ObjectRest](docs/ObjectRest.md)
@@ -347,16 +427,23 @@ Class | Method | HTTP request | Description
  - [RestorePreflightRest](docs/RestorePreflightRest.md)
  - [RestoreRest](docs/RestoreRest.md)
  - [RightRest](docs/RightRest.md)
+ - [RmMigrationStatusRest](docs/RmMigrationStatusRest.md)
  - [RoleRest](docs/RoleRest.md)
  - [ScriptFileRest](docs/ScriptFileRest.md)
  - [ScriptRest](docs/ScriptRest.md)
  - [SelectedObjectRest](docs/SelectedObjectRest.md)
  - [SessionRest](docs/SessionRest.md)
+ - [SlaErrorWarningsRest](docs/SlaErrorWarningsRest.md)
+ - [SlaMetadata](docs/SlaMetadata.md)
+ - [SlaPreflightRest](docs/SlaPreflightRest.md)
  - [SlaRest](docs/SlaRest.md)
  - [SlpRest](docs/SlpRest.md)
  - [SltRest](docs/SltRest.md)
  - [SourceRest](docs/SourceRest.md)
  - [SystemStateOptionRest](docs/SystemStateOptionRest.md)
+ - [TestCredentialErrorRest](docs/TestCredentialErrorRest.md)
+ - [TestCredentialResultRest](docs/TestCredentialResultRest.md)
+ - [TestCredentialSuccessRest](docs/TestCredentialSuccessRest.md)
  - [TestRest](docs/TestRest.md)
  - [UnmountRest](docs/UnmountRest.md)
  - [UpdateInformationRest](docs/UpdateInformationRest.md)
@@ -369,6 +456,7 @@ Class | Method | HTTP request | Description
  - [VmDiscoveryRest](docs/VmDiscoveryRest.md)
  - [VolumeSelectionRowRest](docs/VolumeSelectionRowRest.md)
  - [VolumeinfoRest](docs/VolumeinfoRest.md)
+ - [WarningRest](docs/WarningRest.md)
  - [WorkScheduleRest](docs/WorkScheduleRest.md)
  - [WorkflowItemRest](docs/WorkflowItemRest.md)
  - [WorkflowRest](docs/WorkflowRest.md)

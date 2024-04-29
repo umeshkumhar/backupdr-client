@@ -26,7 +26,7 @@ var (
 
 type ApplicationApiService service
 /*
-ApplicationApiService Run a backup job. The user must have Application Manage, Host Manage, or Backup Manage right.
+ApplicationApiService Run a backup job. It requires backupdr.managementServers.manageBackups IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
  * @param optional nil or *ApplicationApiBackupNowOpts - Optional Parameters:
@@ -169,7 +169,7 @@ func (a *ApplicationApiService) BackupNow(ctx context.Context, applicationId str
 	return localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Get a count of total applications matching the filters.
+ApplicationApiService Get a count of total applications matching the filters. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ApplicationApiCountApplicationsOpts - Optional Parameters:
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -307,7 +307,168 @@ func (a *ApplicationApiService) CountApplications(ctx context.Context, localVarO
 	return localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Create new workflow for the particular application. It requires Workflow Manage right.
+ApplicationApiService Create a settable option for the particular application. It requires backupdr.managementServers.assignBackupPlans IAM permission
+Available options can be retrieved from the OPTIONS API. Existing options can be retrieved from GET API.
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param applicationId
+ * @param optional nil or *ApplicationApiCreateOptionForAppOpts - Optional Parameters:
+     * @param "Body" (optional.Interface of AdvancedOptionRest) - 
+@return AdvancedOptionRest
+*/
+
+type ApplicationApiCreateOptionForAppOpts struct {
+    Body optional.Interface
+}
+
+func (a *ApplicationApiService) CreateOptionForApp(ctx context.Context, applicationId string, localVarOptionals *ApplicationApiCreateOptionForAppOpts) (AdvancedOptionRest, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue AdvancedOptionRest
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/application/{application_id}/settableoption"
+	localVarPath = strings.Replace(localVarPath, "{"+"application_id"+"}", fmt.Sprintf("%v", applicationId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarOptionals != nil && localVarOptionals.Body.IsSet() {
+		
+		localVarOptionalBody:= localVarOptionals.Body.Value()
+		localVarPostBody = &localVarOptionalBody
+	}
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["backupdr-management-session"] = key
+			
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericSwaggerError{
+			body: localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v AdvancedOptionRest
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 400 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 401 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 403 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 404 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 500 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+/*
+ApplicationApiService Create new workflow for the particular application. It requires backupdr.managementServers.manageWorkflows IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
  * @param optional nil or *ApplicationApiCreateWorkflowOpts - Optional Parameters:
@@ -467,7 +628,7 @@ func (a *ApplicationApiService) CreateWorkflow(ctx context.Context, applicationI
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Delete application. It requires Application Manage or Host Manage rights.
+ApplicationApiService Delete application. It requires backupdr.managementServers.manageApplications IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
 
@@ -597,7 +758,7 @@ func (a *ApplicationApiService) DeleteApplication(ctx context.Context, applicati
 	return localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Delete the particular option from the particular application. It requires SLA Manage or SLA Assign rights.
+ApplicationApiService Delete the particular option from the particular application. It requires backupdr.managementServers.assignBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
  * @param optionId
@@ -729,7 +890,7 @@ func (a *ApplicationApiService) DeleteOptionForApp(ctx context.Context, applicat
 	return localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Delete existing workflow. It requires Workflow Manage right.
+ApplicationApiService Delete existing workflow. It requires backupdr.managementServers.manageWorkflows IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
  * @param workflowId
@@ -861,7 +1022,7 @@ func (a *ApplicationApiService) DeleteWorkflow(ctx context.Context, applicationI
 	return localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Expires backups of the particular application. It requires the manageExpiration permission
+ApplicationApiService Expires backups of the particular application. It requires backupdr.managementServers.manageExpiration IAM permission
 Default to all backups. Optionally the type of backups can be specified in the payload (ExpireBackupRest). Valid type includes snapshot, dedup, remote-dedup and vault.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
@@ -1005,7 +1166,7 @@ func (a *ApplicationApiService) ExpireBackups(ctx context.Context, applicationId
 	return localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Get the particular application&#x27;s appclass metadata
+ApplicationApiService Get the particular application&#x27;s appclass metadata. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
  * @param optional nil or *ApplicationApiGetAppClassOpts - Optional Parameters:
@@ -1177,7 +1338,7 @@ func (a *ApplicationApiService) GetAppClass(ctx context.Context, applicationId s
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Get appclass metadata for the particular appclass name
+ApplicationApiService Get appclass metadata for the particular appclass name. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param appclassName
  * @param optional nil or *ApplicationApiGetAppClassByAppclassNameOpts - Optional Parameters:
@@ -1354,7 +1515,7 @@ func (a *ApplicationApiService) GetAppClassByAppclassName(ctx context.Context, a
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Get all available app classes from given cluster
+ApplicationApiService Get all available app classes from given cluster. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ApplicationApiGetAppClassesOpts - Optional Parameters:
      * @param "Clusterid" (optional.Int64) - 
@@ -1509,7 +1670,7 @@ func (a *ApplicationApiService) GetAppClasses(ctx context.Context, localVarOptio
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Get details on the particular application
+ApplicationApiService Get details on the particular application. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
 @return ApplicationRest
@@ -1656,7 +1817,7 @@ func (a *ApplicationApiService) GetApplication(ctx context.Context, applicationI
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Get the particular option of the particular application. It requires SLA View, SLA Manage, or SLA Assign rights.
+ApplicationApiService Get the particular option of the particular application. It requires backupdr.managementServers.viewBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
  * @param optionId
@@ -1805,7 +1966,7 @@ func (a *ApplicationApiService) GetOptionForApp(ctx context.Context, application
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Get individual workflow. It requires Workflow View right.
+ApplicationApiService Get individual workflow. It requires backupdr.managementServers.viewWorkflows IAM permission
 Note: Workflow_id is not unique on AGM (it&#x27;s actually the id on the appliance). It&#x27;s unique per application_id though
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
@@ -1955,7 +2116,7 @@ func (a *ApplicationApiService) GetWorkflow(ctx context.Context, applicationId s
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Get active images for an application
+ApplicationApiService Get active images for an application. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
 @return ListBackupRest
@@ -2102,7 +2263,7 @@ func (a *ApplicationApiService) ListActiveImages(ctx context.Context, applicatio
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Get list of application types that are currently in the system.
+ApplicationApiService Get list of application types that are currently in the system. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return ListStringRest
 */
@@ -2247,7 +2408,7 @@ func (a *ApplicationApiService) ListApplicationTypes(ctx context.Context) (ListS
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplicationApiService List applications.
+ApplicationApiService List applications. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ApplicationApiListApplicationsOpts - Optional Parameters:
      * @param "Sort" (optional.String) -  Sort field. Use OPTIONS method to get possible sort fields.&lt;br&gt;Then append &#x27;:asc&#x27; or &#x27;:desc&#x27; for ascending or descending sort.&lt;br&gt;Sorting is case-sensitive.
@@ -2417,12 +2578,159 @@ func (a *ApplicationApiService) ListApplications(ctx context.Context, localVarOp
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Get list of workflows for the particular application. It requires Workflow View right.
+ApplicationApiService List all existing settable options of the application. It requires backupdr.managementServers.access IAM permission
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param applicationId
+@return ListAdvancedOptionRest
+*/
+func (a *ApplicationApiService) ListOptionForApp(ctx context.Context, applicationId string) (ListAdvancedOptionRest, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Get")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue ListAdvancedOptionRest
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/application/{application_id}/settableoption"
+	localVarPath = strings.Replace(localVarPath, "{"+"application_id"+"}", fmt.Sprintf("%v", applicationId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["backupdr-management-session"] = key
+			
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericSwaggerError{
+			body: localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v ListAdvancedOptionRest
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 400 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 401 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 403 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 404 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 500 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+/*
+ApplicationApiService Get list of workflows for the particular application. It requires backupdr.managementServers.viewWorkflows IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
 @return ListWorkflowRest
 */
-func (a *ApplicationApiService) ListWorkflows(ctx context.Context, applicationId string) (ListWorkflowRest, *http.Response, error) {
+func (a *ApplicationApiService) ListWorkflowsPerApp(ctx context.Context, applicationId string) (ListWorkflowRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -2564,11 +2872,11 @@ func (a *ApplicationApiService) ListWorkflows(ctx context.Context, applicationId
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Describes the fields available for filtering and sorting
+ApplicationApiService Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return OptionsRest
 */
-func (a *ApplicationApiService) OptionsForList2(ctx context.Context) (OptionsRest, *http.Response, error) {
+func (a *ApplicationApiService) OptionsForListApplication(ctx context.Context) (OptionsRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}
@@ -2709,12 +3017,159 @@ func (a *ApplicationApiService) OptionsForList2(ctx context.Context) (OptionsRes
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Settable option metadata for the particular application type
+ApplicationApiService Get settable option metadata of the particular application. It requires backupdr.managementServers.access IAM permission
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param applicationId
+@return string
+*/
+func (a *ApplicationApiService) SettableOptionMetadataForApp(ctx context.Context, applicationId string) (string, *http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Options")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		localVarReturnValue string
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/application/{application_id}/settableoption"
+	localVarPath = strings.Replace(localVarPath, "{"+"application_id"+"}", fmt.Sprintf("%v", applicationId), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["backupdr-management-session"] = key
+			
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHttpResponse, err
+	}
+
+	if localVarHttpResponse.StatusCode < 300 {
+		// If we succeed, return the data, otherwise pass on to decode error.
+		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+		if err == nil { 
+			return localVarReturnValue, localVarHttpResponse, err
+		}
+	}
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericSwaggerError{
+			body: localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 200 {
+			var v string
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 400 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 401 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 403 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 404 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 500 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarReturnValue, localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHttpResponse, nil
+}
+/*
+ApplicationApiService Settable option metadata for the particular application type. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param apptype
 @return string
 */
-func (a *ApplicationApiService) SettableOptionMetadataForPolicyType(ctx context.Context, apptype string) (string, *http.Response, error) {
+func (a *ApplicationApiService) SettableOptionMetadataForAppType(ctx context.Context, apptype string) (string, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}
@@ -2856,7 +3311,7 @@ func (a *ApplicationApiService) SettableOptionMetadataForPolicyType(ctx context.
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Update application data. It requires Application Manage or Host Manage rights.
+ApplicationApiService Update application data. It requires backupdr.managementServers.manageApplications and backupdr.managementServers.manageSensitiveData (for sensitive app) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
  * @param optional nil or *ApplicationApiUpdateApplicationOpts - Optional Parameters:
@@ -2999,7 +3454,7 @@ func (a *ApplicationApiService) UpdateApplication(ctx context.Context, applicati
 	return localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Update the particular option of the particular application. It requires SLA Manage or SLA Assign rights.
+ApplicationApiService Update the particular option of the particular application. It requires backupdr.managementServers.assignBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
  * @param optionId
@@ -3161,7 +3616,7 @@ func (a *ApplicationApiService) UpdateOptionForApp(ctx context.Context, applicat
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplicationApiService Update existing workflow. It requires Workflow Manage right.
+ApplicationApiService Update existing workflow. It requires backupdr.managementServers.manageWorkflows IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param applicationId
  * @param workflowId

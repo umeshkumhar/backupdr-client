@@ -4,14 +4,14 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DelegateGetCallDownloadLog**](ApplianceDelegationApi.md#DelegateGetCallDownloadLog) | **Get** /appliancedelegation/{cluster_id}/config/download/log | Download logs from backup/recovery appliance
-[**DownloadConnector**](ApplianceDelegationApi.md#DownloadConnector) | **Get** /appliancedelegation/{cluster_id}/connectorbinary/{connectorname} | Download connectors from backup/recovery appliance
-[**DownloadOssNotice**](ApplianceDelegationApi.md#DownloadOssNotice) | **Get** /appliancedelegation/{cluster_id}/config/download/ossnotice | Download zip file containing licenses and notices for open-source components from backup/recovery appliance
-[**UploadSoftwareUpgradeToAppliance**](ApplianceDelegationApi.md#UploadSoftwareUpgradeToAppliance) | **Post** /appliancedelegation/{cluster_id}/cluster/uploadupdate | Upload software upgrade packages
+[**DelegateGetCallDownloadLog**](ApplianceDelegationApi.md#DelegateGetCallDownloadLog) | **Get** /appliancedelegation/{cluster_id}/config/download/log | Download logs from backup/recovery appliance. It requires backupdr.managementServers.viewSystem IAM permission
+[**DownloadConnector**](ApplianceDelegationApi.md#DownloadConnector) | **Get** /appliancedelegation/{cluster_id}/connectorbinary/{connectorname} | Download connectors from backup/recovery appliance. It requires backupdr.managementServers.manageSystem IAM permission
+[**DownloadOssNotice**](ApplianceDelegationApi.md#DownloadOssNotice) | **Get** /appliancedelegation/{cluster_id}/config/download/ossnotice | Download zip file containing licenses and notices for open-source components from backup/recovery appliance. It requires backupdr.managementServers.viewSystem IAM permission
+[**UploadSoftwareUpgradeToAppliance**](ApplianceDelegationApi.md#UploadSoftwareUpgradeToAppliance) | **Post** /appliancedelegation/{cluster_id}/cluster/uploadupdate | Upload software upgrade packages. It requires backupdr.managementServers.manageSystem IAM permission
 
 # **DelegateGetCallDownloadLog**
 > interface{} DelegateGetCallDownloadLog(ctx, clusterId)
-Download logs from backup/recovery appliance
+Download logs from backup/recovery appliance. It requires backupdr.managementServers.viewSystem IAM permission
 
 ### Required Parameters
 
@@ -37,7 +37,7 @@ Name | Type | Description  | Notes
 
 # **DownloadConnector**
 > interface{} DownloadConnector(ctx, connectorname, clusterId)
-Download connectors from backup/recovery appliance
+Download connectors from backup/recovery appliance. It requires backupdr.managementServers.manageSystem IAM permission
 
 ### Required Parameters
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 # **DownloadOssNotice**
 > interface{} DownloadOssNotice(ctx, clusterId)
-Download zip file containing licenses and notices for open-source components from backup/recovery appliance
+Download zip file containing licenses and notices for open-source components from backup/recovery appliance. It requires backupdr.managementServers.viewSystem IAM permission
 
 ### Required Parameters
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 # **UploadSoftwareUpgradeToAppliance**
 > string UploadSoftwareUpgradeToAppliance(ctx, clusterId, optional)
-Upload software upgrade packages
+Upload software upgrade packages. It requires backupdr.managementServers.manageSystem IAM permission
 
 ### Required Parameters
 

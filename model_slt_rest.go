@@ -9,25 +9,27 @@
 package swagger
 
 type SltRest struct {
-	Immutable bool `json:"immutable,omitempty"`
-	OptionHref string `json:"option_href,omitempty"`
+	Managedby string `json:"managedby,omitempty"`
+	Resource string `json:"resource,omitempty"`
+	Metadata *BackupPlanMetadata `json:"metadata,omitempty"`
 	PolicyHref string `json:"policy_href,omitempty"`
+	OptionHref string `json:"option_href,omitempty"`
 	Source []SourceRest `json:"source,omitempty"`
 	Description string `json:"description,omitempty"`
-	Name string `json:"name,omitempty"`
-	Sourcename string `json:"sourcename,omitempty"`
 	Override string `json:"override,omitempty"`
+	Sourcename string `json:"sourcename,omitempty"`
 	Policies []PolicyRest `json:"policies,omitempty"`
 	Options []AdvancedOptionRest `json:"options,omitempty"`
 	Orglist []OrganizationRest `json:"orglist,omitempty"`
 	Managedbyagm bool `json:"managedbyagm,omitempty"`
 	Usedbycloudapp bool `json:"usedbycloudapp,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Name string `json:"name,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

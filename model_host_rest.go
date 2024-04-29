@@ -10,6 +10,8 @@ package swagger
 
 // Host where the application resides.
 type HostRest struct {
+	Maxlogjobs int32 `json:"maxlogjobs,omitempty"`
+	Hostclusterid int64 `json:"hostclusterid,omitempty"`
 	// Indicates if a host's CA issued certificate has been revoked or not.
 	CertRevoked bool `json:"cert_revoked,omitempty"`
 	// Indicates if the host is enabled to use CA signed certificate. Valid states are TRUSTED (has valid CA issued certificate for communication), UNTRUSTED (doesn't have valid CA issued certificate for communication) and  NOT_APPLICABLE (doesn't needs CA issued certificate for communication).
@@ -17,14 +19,26 @@ type HostRest struct {
 	// List of error messages while trying to bootstrap PKI on the host using managing backup appliance
 	PkiErrors []string `json:"pki_errors,omitempty"`
 	Autoupgrade string `json:"autoupgrade,omitempty"`
-	Immutable bool `json:"immutable,omitempty"`
-	Mask string `json:"mask,omitempty"`
+	Managedby string `json:"managedby,omitempty"`
+	ConnectorConnectionStatus *ConnectorConnectionRest `json:"connectorConnectionStatus,omitempty"`
+	Projectid string `json:"projectid,omitempty"`
+	Guestvmiscsi bool `json:"guestvmiscsi,omitempty"`
+	Properties string `json:"properties,omitempty"`
+	Cloudcredential *CloudCredentialRest `json:"cloudcredential,omitempty"`
+	Chapusername string `json:"chapusername,omitempty"`
+	Chappassword string `json:"chappassword,omitempty"`
+	Clearchap bool `json:"clearchap,omitempty"`
+	Udsagent *AgentRest `json:"udsagent,omitempty"`
+	Applicationagent *AgentRest `json:"applicationagent,omitempty"`
+	Hypervisoragent *AgentRest `json:"hypervisoragent,omitempty"`
+	Hmcconnector *AgentRest `json:"hmcconnector,omitempty"`
 	Source []SourceRest `json:"source,omitempty"`
 	Zone string `json:"zone,omitempty"`
-	Description string `json:"description,omitempty"`
 	Sources []HostRest `json:"sources,omitempty"`
-	Name string `json:"name,omitempty"`
-	State string `json:"state,omitempty"`
+	Mask string `json:"mask,omitempty"`
+	Description string `json:"description,omitempty"`
+	Modifydate int64 `json:"modifydate,omitempty"`
+	Status string `json:"status,omitempty"`
 	Srcid string `json:"srcid,omitempty"`
 	Clusterid string `json:"clusterid,omitempty"`
 	Hosttype string `json:"hosttype,omitempty"`
@@ -33,10 +47,10 @@ type HostRest struct {
 	Isvm bool `json:"isvm,omitempty"`
 	Vmtype string `json:"vmtype,omitempty"`
 	Vcenterhostid string `json:"vcenterhostid,omitempty"`
-	Modifydate int64 `json:"modifydate,omitempty"`
 	Ipaddress string `json:"ipaddress,omitempty"`
-	Status string `json:"status,omitempty"`
 	Transport string `json:"transport,omitempty"`
+	Machinetype string `json:"machinetype,omitempty"`
+	Connect2actip string `json:"connect2actip,omitempty"`
 	Friendlypath string `json:"friendlypath,omitempty"`
 	Svcname string `json:"svcname,omitempty"`
 	Dataip string `json:"dataip,omitempty"`
@@ -56,12 +70,11 @@ type HostRest struct {
 	Diskpref string `json:"diskpref,omitempty"`
 	Nfsoption *NfsOptionsRest `json:"nfsoption,omitempty"`
 	Multiregion string `json:"multiregion,omitempty"`
-	Machinetype string `json:"machinetype,omitempty"`
 	Systemdetail string `json:"systemdetail,omitempty"`
-	Connect2actip string `json:"connect2actip,omitempty"`
+	Appliance *ClusterRest `json:"appliance,omitempty"`
+	Orglist []OrganizationRest `json:"orglist,omitempty"`
 	IsAutoDiscoveryEnabled bool `json:"is_auto_discovery_enabled,omitempty"`
 	IsShadowHost bool `json:"isShadowHost,omitempty"`
-	Orglist []OrganizationRest `json:"orglist,omitempty"`
 	Esxlist []HostRest `json:"esxlist,omitempty"`
 	NodeList []HostRest `json:"nodeList,omitempty"`
 	Datastorelist []DataStoreRest `json:"datastorelist,omitempty"`
@@ -79,22 +92,14 @@ type HostRest struct {
 	Agents []AgentRest `json:"agents,omitempty"`
 	Arrays []ArrayRest `json:"arrays,omitempty"`
 	VcenterHost *HostRest `json:"vcenterHost,omitempty"`
-	Nasdconfig *NasdConfigRest `json:"nasdconfig,omitempty"`
-	Cloudcredential *CloudCredentialRest `json:"cloudcredential,omitempty"`
-	Chapusername string `json:"chapusername,omitempty"`
-	Chappassword string `json:"chappassword,omitempty"`
-	Clearchap bool `json:"clearchap,omitempty"`
-	Udsagent *AgentRest `json:"udsagent,omitempty"`
-	Applicationagent *AgentRest `json:"applicationagent,omitempty"`
-	Hypervisoragent *AgentRest `json:"hypervisoragent,omitempty"`
-	Hmcconnector *AgentRest `json:"hmcconnector,omitempty"`
-	Appliance *ClusterRest `json:"appliance,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Name string `json:"name,omitempty"`
+	State string `json:"state,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

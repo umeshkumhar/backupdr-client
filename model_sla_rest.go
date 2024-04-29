@@ -9,24 +9,27 @@
 package swagger
 
 type SlaRest struct {
-	Immutable bool `json:"immutable,omitempty"`
+	ManagedBy string `json:"managedBy,omitempty"`
+	Metadata *SlaMetadata `json:"metadata,omitempty"`
+	ProtectionType string `json:"protectionType,omitempty"`
+	DynamicProtectionTagValue string `json:"dynamicProtectionTagValue,omitempty"`
 	Description string `json:"description,omitempty"`
-	Application *ApplicationRest `json:"application,omitempty"`
-	Slt *SltRest `json:"slt,omitempty"`
-	Options []AdvancedOptionRest `json:"options,omitempty"`
 	Modifydate int64 `json:"modifydate,omitempty"`
+	Application *ApplicationRest `json:"application,omitempty"`
 	Scheduleoff string `json:"scheduleoff,omitempty"`
+	Slt *SltRest `json:"slt,omitempty"`
 	Slp *SlpRest `json:"slp,omitempty"`
+	Options []AdvancedOptionRest `json:"options,omitempty"`
 	Logexpirationoff bool `json:"logexpirationoff,omitempty"`
 	Dedupasyncoff string `json:"dedupasyncoff,omitempty"`
 	Expirationoff string `json:"expirationoff,omitempty"`
 	Group *LogicalGroupRest `json:"group,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

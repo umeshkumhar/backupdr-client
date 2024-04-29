@@ -4,21 +4,21 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CountApplianceUpdates**](ApplianceUpdateApi.md#CountApplianceUpdates) | **Head** /applianceupdate | Get a count of total applianceupdates matching the filters.
-[**DeleteSchedule**](ApplianceUpdateApi.md#DeleteSchedule) | **Delete** /applianceupdate/schedule | Deletes the schedule for update
-[**DiscoverUpdates**](ApplianceUpdateApi.md#DiscoverUpdates) | **Post** /applianceupdate/discover | Discover new updates for the managed appliances.
-[**GetApplianceUpdate**](ApplianceUpdateApi.md#GetApplianceUpdate) | **Get** /applianceupdate/{update_id} | Get update details.
-[**GetNotifications**](ApplianceUpdateApi.md#GetNotifications) | **Get** /applianceupdate/notification | Fetch the notifications that needs to be displayed to the user
-[**GetReadMe1**](ApplianceUpdateApi.md#GetReadMe1) | **Get** /applianceupdate/readme | Get readme with respect to the update id passed.
-[**InstallApplianceUpdateNow**](ApplianceUpdateApi.md#InstallApplianceUpdateNow) | **Post** /applianceupdate/installnow | Install the updates now.
-[**ListApplianceUpdates**](ApplianceUpdateApi.md#ListApplianceUpdates) | **Get** /applianceupdate | Get the list of actionable updates.
-[**OptionsForList1**](ApplianceUpdateApi.md#OptionsForList1) | **Options** /applianceupdate | Describes the fields available for filtering and sorting
-[**UpdateNotification1**](ApplianceUpdateApi.md#UpdateNotification1) | **Put** /applianceupdate/notification/{id} | Update the acknowledge status of the notification to true
-[**UpdateSchedule**](ApplianceUpdateApi.md#UpdateSchedule) | **Post** /applianceupdate/schedule | Creates the schedule for update
+[**CountApplianceUpdates**](ApplianceUpdateApi.md#CountApplianceUpdates) | **Head** /applianceupdate | Get a count of total applianceupdates matching the filters. It requires backupdr.managementServers.viewSystem IAM permission
+[**DeleteSchedule**](ApplianceUpdateApi.md#DeleteSchedule) | **Delete** /applianceupdate/schedule | Deletes the schedule for update. It requires backupdr.managementServers.manageSystem IAM permission
+[**DiscoverUpdates**](ApplianceUpdateApi.md#DiscoverUpdates) | **Post** /applianceupdate/discover | Discover new updates for the managed appliances. It requires backupdr.managementServers.manageSystem IAM permission
+[**GetApplianceUpdate**](ApplianceUpdateApi.md#GetApplianceUpdate) | **Get** /applianceupdate/{update_id} | Get update details. It requires backupdr.managementServers.viewSystem IAM permission
+[**GetNotifications**](ApplianceUpdateApi.md#GetNotifications) | **Get** /applianceupdate/notification | Fetch the notifications that needs to be displayed to the user. It requires backupdr.managementServers.access IAM permission
+[**GetReadMeForApplianceUpdate**](ApplianceUpdateApi.md#GetReadMeForApplianceUpdate) | **Get** /applianceupdate/readme | Get readme with respect to the update id passed. It requires backupdr.managementServers.viewSystem IAM permission
+[**InstallApplianceUpdateNow**](ApplianceUpdateApi.md#InstallApplianceUpdateNow) | **Post** /applianceupdate/installnow | Install the updates now. It requires backupdr.managementServers.manageSystem IAM permission
+[**ListApplianceUpdates**](ApplianceUpdateApi.md#ListApplianceUpdates) | **Get** /applianceupdate | Get the list of actionable updates. It requires backupdr.managementServers.viewSystem IAM permission
+[**OptionsForListApplianceUpdates**](ApplianceUpdateApi.md#OptionsForListApplianceUpdates) | **Options** /applianceupdate | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+[**UpdateNotificationForApplianceUpdate**](ApplianceUpdateApi.md#UpdateNotificationForApplianceUpdate) | **Put** /applianceupdate/notification | Update the acknowledge status of the notification to true
+[**UpdateSchedule**](ApplianceUpdateApi.md#UpdateSchedule) | **Post** /applianceupdate/schedule | Creates the schedule for update. It requires backupdr.managementServers.manageSystem IAM permission
 
 # **CountApplianceUpdates**
 > CountApplianceUpdates(ctx, optional)
-Get a count of total applianceupdates matching the filters.
+Get a count of total applianceupdates matching the filters. It requires backupdr.managementServers.viewSystem IAM permission
 
 ### Required Parameters
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 # **DeleteSchedule**
 > DeleteSchedule(ctx, optional)
-Deletes the schedule for update
+Deletes the schedule for update. It requires backupdr.managementServers.manageSystem IAM permission
 
 ### Required Parameters
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 # **DiscoverUpdates**
 > DiscoverUpdates(ctx, )
-Discover new updates for the managed appliances.
+Discover new updates for the managed appliances. It requires backupdr.managementServers.manageSystem IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -104,7 +104,7 @@ This endpoint does not need any parameter.
 
 # **GetApplianceUpdate**
 > ApplianceUpdateRest GetApplianceUpdate(ctx, updateId)
-Get update details.
+Get update details. It requires backupdr.managementServers.viewSystem IAM permission
 
 ### Required Parameters
 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 # **GetNotifications**
 > ListRest GetNotifications(ctx, )
-Fetch the notifications that needs to be displayed to the user
+Fetch the notifications that needs to be displayed to the user. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -150,19 +150,19 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **GetReadMe1**
-> ApplianceUpdateReadmeRest GetReadMe1(ctx, optional)
-Get readme with respect to the update id passed.
+# **GetReadMeForApplianceUpdate**
+> ApplianceUpdateReadmeRest GetReadMeForApplianceUpdate(ctx, optional)
+Get readme with respect to the update id passed. It requires backupdr.managementServers.viewSystem IAM permission
 
 ### Required Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
- **optional** | ***ApplianceUpdateApiGetReadMe1Opts** | optional parameters | nil if no parameters
+ **optional** | ***ApplianceUpdateApiGetReadMeForApplianceUpdateOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
-Optional parameters are passed through a pointer to a ApplianceUpdateApiGetReadMe1Opts struct
+Optional parameters are passed through a pointer to a ApplianceUpdateApiGetReadMeForApplianceUpdateOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **optional.Int64**|  | 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 # **InstallApplianceUpdateNow**
 > InstallApplianceUpdateNow(ctx, optional)
-Install the updates now.
+Install the updates now. It requires backupdr.managementServers.manageSystem IAM permission
 
 ### Required Parameters
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 # **ListApplianceUpdates**
 > ListConsolidatedApplianceUpdatesRest ListApplianceUpdates(ctx, optional)
-Get the list of actionable updates.
+Get the list of actionable updates. It requires backupdr.managementServers.viewSystem IAM permission
 
 ### Required Parameters
 
@@ -249,9 +249,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList1**
-> OptionsRest OptionsForList1(ctx, )
-Describes the fields available for filtering and sorting
+# **OptionsForListApplianceUpdates**
+> OptionsRest OptionsForListApplianceUpdates(ctx, )
+Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -271,8 +271,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **UpdateNotification1**
-> UpdateNotification1(ctx, id)
+# **UpdateNotificationForApplianceUpdate**
+> UpdateNotificationForApplianceUpdate(ctx, optional)
 Update the acknowledge status of the notification to true
 
 ### Required Parameters
@@ -280,7 +280,13 @@ Update the acknowledge status of the notification to true
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **id** | **string**|  | 
+ **optional** | ***ApplianceUpdateApiUpdateNotificationForApplianceUpdateOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ApplianceUpdateApiUpdateNotificationForApplianceUpdateOpts struct
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**optional.Interface of ApplianceUpdateNotificationRest**](ApplianceUpdateNotificationRest.md)|  | 
 
 ### Return type
 
@@ -292,14 +298,14 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **UpdateSchedule**
 > UpdateSchedule(ctx, optional)
-Creates the schedule for update
+Creates the schedule for update. It requires backupdr.managementServers.manageSystem IAM permission
 
 ### Required Parameters
 

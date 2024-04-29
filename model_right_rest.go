@@ -10,11 +10,11 @@ package swagger
 
 type RightRest struct {
 	Children []RightRest `json:"children,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
 	Parents []RightRest `json:"parents,omitempty"`
 	// Name of access right
 	Name string `json:"name,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.

@@ -17,22 +17,27 @@ type BackupRest struct {
 	Datafilemovestarted bool `json:"datafilemovestarted,omitempty"`
 	// source to target storage mapping
 	Migratemapping string `json:"migratemapping,omitempty"`
+	IsSourceAppFromMountMigrateRestore bool `json:"isSourceAppFromMountMigrateRestore,omitempty"`
+	Backedupdbnames string `json:"backedupdbnames,omitempty"`
+	Cloudcredential *CloudCredentialRest `json:"cloudcredential,omitempty"`
+	Releaselogs bool `json:"releaselogs,omitempty"`
+	Retainlogs bool `json:"retainlogs,omitempty"`
+	Label string `json:"label,omitempty"`
 	Version string `json:"version,omitempty"`
 	Flags string `json:"flags,omitempty"`
+	Jobclasscode int32 `json:"jobclasscode,omitempty"`
 	Zone string `json:"zone,omitempty"`
-	Name string `json:"name,omitempty"`
-	Host *HostRest `json:"host,omitempty"`
 	Expiration int64 `json:"expiration,omitempty"`
-	Label string `json:"label,omitempty"`
-	Application *ApplicationRest `json:"application,omitempty"`
-	Jobclass string `json:"jobclass,omitempty"`
+	Modifydate int64 `json:"modifydate,omitempty"`
+	Status string `json:"status,omitempty"`
 	Srcid string `json:"srcid,omitempty"`
 	Clusterid string `json:"clusterid,omitempty"`
 	Appname string `json:"appname,omitempty"`
-	Modifydate int64 `json:"modifydate,omitempty"`
+	Application *ApplicationRest `json:"application,omitempty"`
 	Isasm bool `json:"isasm,omitempty"`
 	Apptype string `json:"apptype,omitempty"`
 	Snapshottype string `json:"snapshottype,omitempty"`
+	Jobclass string `json:"jobclass,omitempty"`
 	Consumedsize int64 `json:"consumedsize,omitempty"`
 	Catalogstate string `json:"catalogstate,omitempty"`
 	Backupname string `json:"backupname,omitempty"`
@@ -42,10 +47,14 @@ type BackupRest struct {
 	Appclass string `json:"appclass,omitempty"`
 	Cluster *ClusterRest `json:"cluster,omitempty"`
 	Diskpool *DiskPoolRest `json:"diskpool,omitempty"`
-	Status string `json:"status,omitempty"`
 	Transport string `json:"transport,omitempty"`
-	Multiregion string `json:"multiregion,omitempty"`
 	Sensitivity int32 `json:"sensitivity,omitempty"`
+	Multiregion string `json:"multiregion,omitempty"`
+	Vaultowner bool `json:"vaultowner,omitempty"`
+	Mountedhost []HostRest `json:"mountedhost,omitempty"`
+	Uniquehostname string `json:"uniquehostname,omitempty"`
+	Modifiedbytes string `json:"modifiedbytes,omitempty"`
+	Hasdependency bool `json:"hasdependency,omitempty"`
 	Originalbackupid string `json:"originalbackupid,omitempty"`
 	Backupdate int64 `json:"backupdate,omitempty"`
 	Immutabilitydate int64 `json:"immutabilitydate,omitempty"`
@@ -60,24 +69,6 @@ type BackupRest struct {
 	Snapshotlocation string `json:"snapshotlocation,omitempty"`
 	Endpit int64 `json:"endpit,omitempty"`
 	Beginpit int64 `json:"beginpit,omitempty"`
-	Uniquehostname string `json:"uniquehostname,omitempty"`
-	Modifiedbytes string `json:"modifiedbytes,omitempty"`
-	Hasdependency bool `json:"hasdependency,omitempty"`
-	Vaultowner bool `json:"vaultowner,omitempty"`
-	Mountedhost []HostRest `json:"mountedhost,omitempty"`
-	Jobclasscode int32 `json:"jobclasscode,omitempty"`
-	Cloudcredential *CloudCredentialRest `json:"cloudcredential,omitempty"`
-	Releaselogs bool `json:"releaselogs,omitempty"`
-	Retainlogs bool `json:"retainlogs,omitempty"`
-	Sourcediskpool *DiskPoolRest `json:"sourcediskpool,omitempty"`
-	Clonemigrateeligible bool `json:"clonemigrateeligible,omitempty"`
-	MigrateFrequency int32 `json:"migrate-frequency,omitempty"`
-	MigrateCopythreadcount int32 `json:"migrate-copythreadcount,omitempty"`
-	MigrateConfigured bool `json:"migrate-configured,omitempty"`
-	Yaml string `json:"yaml,omitempty"`
-	Yamlavailable bool `json:"yamlavailable,omitempty"`
-	Allowedips []string `json:"allowedips,omitempty"`
-	Volgroupname string `json:"volgroupname,omitempty"`
 	Racnodelist []string `json:"racnodelist,omitempty"`
 	Restorableobjects []RestorableRest `json:"restorableobjects,omitempty"`
 	Powerfactor int32 `json:"powerfactor,omitempty"`
@@ -108,12 +99,23 @@ type BackupRest struct {
 	Hananodelist []string `json:"hananodelist,omitempty"`
 	ApplicationAllocatedSize int64 `json:"application_allocated_size,omitempty"`
 	Exportvolume []ExportVolumeInfoRest `json:"exportvolume,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Sourcediskpool *DiskPoolRest `json:"sourcediskpool,omitempty"`
+	Clonemigrateeligible bool `json:"clonemigrateeligible,omitempty"`
+	MigrateFrequency int32 `json:"migrate-frequency,omitempty"`
+	MigrateCopythreadcount int32 `json:"migrate-copythreadcount,omitempty"`
+	MigrateConfigured bool `json:"migrate-configured,omitempty"`
+	Yaml string `json:"yaml,omitempty"`
+	Yamlavailable bool `json:"yamlavailable,omitempty"`
+	Allowedips []string `json:"allowedips,omitempty"`
+	Volgroupname string `json:"volgroupname,omitempty"`
+	Name string `json:"name,omitempty"`
+	Host *HostRest `json:"host,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

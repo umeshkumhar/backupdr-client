@@ -4,19 +4,19 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CountConsistencyGroups**](ConsistencyGroupApi.md#CountConsistencyGroups) | **Head** /consistencygroup | Get a count of total consistency groups matching the filters.
-[**CreateConsistencyGroup**](ConsistencyGroupApi.md#CreateConsistencyGroup) | **Post** /consistencygroup | Create a new consistency group. It requires Application Manage or Host Manage rights.
-[**DeleteConsistencyGroup**](ConsistencyGroupApi.md#DeleteConsistencyGroup) | **Delete** /consistencygroup/{group_id} | Remove a consistency group. It requires Application Manage or Host Manage rights.
-[**GetConsistencyGroup**](ConsistencyGroupApi.md#GetConsistencyGroup) | **Get** /consistencygroup/{group_id} | Get individual consistency group details.
-[**GetConsistencyGroupMember**](ConsistencyGroupApi.md#GetConsistencyGroupMember) | **Get** /consistencygroup/{group_id}/member | Get consistency group&#x27;s members.
-[**ListConsistencyGroups**](ConsistencyGroupApi.md#ListConsistencyGroups) | **Get** /consistencygroup | Get a list of consistency groups.
-[**ModifyConsistencyGroupMember**](ConsistencyGroupApi.md#ModifyConsistencyGroupMember) | **Post** /consistencygroup/{group_id}/member | Incrementally add/delete consistency group members. It requires Application Manage or SLA Assign rights.
-[**OptionsForList7**](ConsistencyGroupApi.md#OptionsForList7) | **Options** /consistencygroup | Describes the fields available for filtering and sorting
-[**UpdateConsistencyGroup**](ConsistencyGroupApi.md#UpdateConsistencyGroup) | **Put** /consistencygroup/{group_id} | Update a consistency group. It requires Application Manage or Host Manage rights.
+[**CountConsistencyGroups**](ConsistencyGroupApi.md#CountConsistencyGroups) | **Head** /consistencygroup | Get a count of total consistency groups matching the filters. It requires backupdr.managementServers.access IAM permission
+[**CreateConsistencyGroup**](ConsistencyGroupApi.md#CreateConsistencyGroup) | **Post** /consistencygroup | Create a new consistency group. It requires backupdr.managementServers.manageApplications IAM permission
+[**DeleteConsistencyGroup**](ConsistencyGroupApi.md#DeleteConsistencyGroup) | **Delete** /consistencygroup/{group_id} | Remove a consistency group. It requires backupdr.managementServers.manageApplications IAM permission
+[**GetConsistencyGroup**](ConsistencyGroupApi.md#GetConsistencyGroup) | **Get** /consistencygroup/{group_id} | Get individual consistency group details. It requires backupdr.managementServers.access IAM permission
+[**GetConsistencyGroupMember**](ConsistencyGroupApi.md#GetConsistencyGroupMember) | **Get** /consistencygroup/{group_id}/member | Get consistency group&#x27;s members. It requires backupdr.managementServers.access IAM permission
+[**ListConsistencyGroups**](ConsistencyGroupApi.md#ListConsistencyGroups) | **Get** /consistencygroup | Get a list of consistency groups. It requires backupdr.managementServers.access IAM permission
+[**ModifyConsistencyGroupMember**](ConsistencyGroupApi.md#ModifyConsistencyGroupMember) | **Post** /consistencygroup/{group_id}/member | Incrementally add/delete consistency group members. It requires backupdr.managementServers.manageApplications IAM permission
+[**OptionsForListConsistencyGroup**](ConsistencyGroupApi.md#OptionsForListConsistencyGroup) | **Options** /consistencygroup | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+[**UpdateConsistencyGroup**](ConsistencyGroupApi.md#UpdateConsistencyGroup) | **Put** /consistencygroup/{group_id} | Update a consistency group. It requires backupdr.managementServers.manageApplications IAM permission
 
 # **CountConsistencyGroups**
 > CountConsistencyGroups(ctx, optional)
-Get a count of total consistency groups matching the filters.
+Get a count of total consistency groups matching the filters. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 # **CreateConsistencyGroup**
 > ConsistencyGroupRest CreateConsistencyGroup(ctx, optional)
-Create a new consistency group. It requires Application Manage or Host Manage rights.
+Create a new consistency group. It requires backupdr.managementServers.manageApplications IAM permission
 
 ### Required Parameters
 
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 # **DeleteConsistencyGroup**
 > DeleteConsistencyGroup(ctx, groupId)
-Remove a consistency group. It requires Application Manage or Host Manage rights.
+Remove a consistency group. It requires backupdr.managementServers.manageApplications IAM permission
 
 ### Required Parameters
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 # **GetConsistencyGroup**
 > ConsistencyGroupRest GetConsistencyGroup(ctx, groupId)
-Get individual consistency group details.
+Get individual consistency group details. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -132,7 +132,7 @@ Name | Type | Description  | Notes
 
 # **GetConsistencyGroupMember**
 > ListApplicationRest GetConsistencyGroupMember(ctx, groupId, optional)
-Get consistency group's members.
+Get consistency group's members. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 # **ListConsistencyGroups**
 > ListConsistencyGroupRest ListConsistencyGroups(ctx, optional)
-Get a list of consistency groups.
+Get a list of consistency groups. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 
 # **ModifyConsistencyGroupMember**
 > ModifyConsistencyGroupMember(ctx, groupId, optional)
-Incrementally add/delete consistency group members. It requires Application Manage or SLA Assign rights.
+Incrementally add/delete consistency group members. It requires backupdr.managementServers.manageApplications IAM permission
 
 ### Required Parameters
 
@@ -233,9 +233,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList7**
-> OptionsRest OptionsForList7(ctx, )
-Describes the fields available for filtering and sorting
+# **OptionsForListConsistencyGroup**
+> OptionsRest OptionsForListConsistencyGroup(ctx, )
+Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -257,7 +257,7 @@ This endpoint does not need any parameter.
 
 # **UpdateConsistencyGroup**
 > ConsistencyGroupRest UpdateConsistencyGroup(ctx, groupId, optional)
-Update a consistency group. It requires Application Manage or Host Manage rights.
+Update a consistency group. It requires backupdr.managementServers.manageApplications IAM permission
 
 ### Required Parameters
 

@@ -10,13 +10,11 @@ package swagger
 
 // Application Rest Object
 type ApplicationRest struct {
-	Immutable bool `json:"immutable,omitempty"`
-	Description string `json:"description,omitempty"`
+	ManagedBy string `json:"managedBy,omitempty"`
+	Sourceapp string `json:"sourceapp,omitempty"`
 	// List of entries representing the consolidated application on particular appliances.
 	Sources []ApplicationRest `json:"sources,omitempty"`
-	// Application's name. It may not be the same as appname.
-	Name string `json:"name,omitempty"`
-	Host *HostRest `json:"host,omitempty"`
+	Description string `json:"description,omitempty"`
 	// Application's id on the appliance.
 	Srcid string `json:"srcid,omitempty"`
 	Uniquename string `json:"uniquename,omitempty"`
@@ -33,18 +31,14 @@ type ApplicationRest struct {
 	// If this application is a shadow, the value of this attribute will be the id of the original application on original appliance.
 	Originalappid string `json:"originalappid,omitempty"`
 	Pathname string `json:"pathname,omitempty"`
-	Username string `json:"username,omitempty"`
 	// List of backups, if available.
 	Backup []BackupRest `json:"backup,omitempty"`
 	// Indicates if the application is orphan, which still has backups but the original application was unproteced and removed on purpose.
 	Isorphan bool `json:"isorphan,omitempty"`
 	// Application Class. It's similar to application type. It is useful in app-aware mount
 	Appclass string `json:"appclass,omitempty"`
-	Sla *SlaRest `json:"sla,omitempty"`
 	Cluster *ClusterRest `json:"cluster,omitempty"`
-	Friendlypath string `json:"friendlypath,omitempty"`
-	// Application's original appliance's clusterid.
-	Sourcecluster string `json:"sourcecluster,omitempty"`
+	Sla *SlaRest `json:"sla,omitempty"`
 	Friendlytype string `json:"friendlytype,omitempty"`
 	Volumes []string `json:"volumes,omitempty"`
 	// If the application can be protected.
@@ -57,6 +51,7 @@ type ApplicationRest struct {
 	Networkname string `json:"networkname,omitempty"`
 	// Network IP address.
 	Networkip string `json:"networkip,omitempty"`
+	Username string `json:"username,omitempty"`
 	// If the application is marked as to be ignored.
 	Ignore bool `json:"ignore,omitempty"`
 	// If the application is clustered.
@@ -65,24 +60,30 @@ type ApplicationRest struct {
 	Frommount bool `json:"frommount,omitempty"`
 	// Sensitivity level.
 	Sensitivity int32 `json:"sensitivity,omitempty"`
+	Friendlypath string `json:"friendlypath,omitempty"`
+	// Application's original appliance's clusterid.
+	Sourcecluster string `json:"sourcecluster,omitempty"`
+	// List of organizations that the application belongs to.
+	Orglist []OrganizationRest `json:"orglist,omitempty"`
 	Mountedhosts []HostRest `json:"mountedhosts,omitempty"`
 	// Available SLP (profiles) that this application can potentially use for protection.
 	AvailableSlp []SlpRest `json:"available_slp,omitempty"`
-	// List of organizations that the application belongs to.
-	Orglist []OrganizationRest `json:"orglist,omitempty"`
+	Diskpools []string `json:"diskpools,omitempty"`
 	// If the application is being restore replaced.
 	Isrestoring bool `json:"isrestoring,omitempty"`
 	Consistencygroup *ApplicationRest `json:"consistencygroup,omitempty"`
 	Logicalgroup *LogicalGroupRest `json:"logicalgroup,omitempty"`
 	// Application's states.
 	AppstateText []string `json:"appstate_text,omitempty"`
-	Diskpools []string `json:"diskpools,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	// Application's name. It may not be the same as appname.
+	Name string `json:"name,omitempty"`
+	Host *HostRest `json:"host,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

@@ -4,14 +4,14 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CountClusters**](ApplianceApi.md#CountClusters) | **Head** /cluster | Get a count of total appliances matching the filters.
-[**GetCluster**](ApplianceApi.md#GetCluster) | **Get** /cluster/{cluster_id} | Get individual appliance.
-[**ListClusters**](ApplianceApi.md#ListClusters) | **Get** /cluster | Get a list of appliances.
-[**OptionsForList5**](ApplianceApi.md#OptionsForList5) | **Options** /cluster | Describes the fields available for filtering and sorting
+[**CountClusters**](ApplianceApi.md#CountClusters) | **Head** /cluster | Get a count of total appliances matching the filters. It requires backupdr.managementServers.viewSystem IAM permission
+[**GetCluster**](ApplianceApi.md#GetCluster) | **Get** /cluster/{cluster_id} | Get individual appliance. It requires backupdr.managementServers.viewSystem IAM permission
+[**ListClusters**](ApplianceApi.md#ListClusters) | **Get** /cluster | Get a list of appliances. It requires backupdr.managementServers.viewSystem IAM permission
+[**OptionsForListCluster**](ApplianceApi.md#OptionsForListCluster) | **Options** /cluster | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
 
 # **CountClusters**
 > CountClusters(ctx, optional)
-Get a count of total appliances matching the filters.
+Get a count of total appliances matching the filters. It requires backupdr.managementServers.viewSystem IAM permission
 
 ### Required Parameters
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 # **GetCluster**
 > ClusterRest GetCluster(ctx, clusterId, optional)
-Get individual appliance.
+Get individual appliance. It requires backupdr.managementServers.viewSystem IAM permission
 
 ### Required Parameters
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 # **ListClusters**
 > ListClusterRest ListClusters(ctx, optional)
-Get a list of appliances.
+Get a list of appliances. It requires backupdr.managementServers.viewSystem IAM permission
 
 ### Required Parameters
 
@@ -111,9 +111,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList5**
-> OptionsRest OptionsForList5(ctx, )
-Describes the fields available for filtering and sorting
+# **OptionsForListCluster**
+> OptionsRest OptionsForListCluster(ctx, )
+Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.

@@ -9,6 +9,6 @@
 package swagger
 
 type ListApplicationRest struct {
-	Count int32 `json:"count,omitempty"`
 	Items []ApplicationRest `json:"items,omitempty"`
+	Count int32 `json:"count,omitempty"`
 }

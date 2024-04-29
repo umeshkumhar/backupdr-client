@@ -9,6 +9,6 @@
 package swagger
 
 type ListConsistencyGroupRest struct {
-	Count int32 `json:"count,omitempty"`
 	Items []ConsistencyGroupRest `json:"items,omitempty"`
+	Count int32 `json:"count,omitempty"`
 }

@@ -26,7 +26,7 @@ var (
 
 type ConsistencyGroupApiService service
 /*
-ConsistencyGroupApiService Get a count of total consistency groups matching the filters.
+ConsistencyGroupApiService Get a count of total consistency groups matching the filters. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ConsistencyGroupApiCountConsistencyGroupsOpts - Optional Parameters:
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -164,7 +164,7 @@ func (a *ConsistencyGroupApiService) CountConsistencyGroups(ctx context.Context,
 	return localVarHttpResponse, nil
 }
 /*
-ConsistencyGroupApiService Create a new consistency group. It requires Application Manage or Host Manage rights.
+ConsistencyGroupApiService Create a new consistency group. It requires backupdr.managementServers.manageApplications IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ConsistencyGroupApiCreateConsistencyGroupOpts - Optional Parameters:
      * @param "Body" (optional.Interface of ConsistencyGroupRest) - 
@@ -322,7 +322,7 @@ func (a *ConsistencyGroupApiService) CreateConsistencyGroup(ctx context.Context,
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ConsistencyGroupApiService Remove a consistency group. It requires Application Manage or Host Manage rights.
+ConsistencyGroupApiService Remove a consistency group. It requires backupdr.managementServers.manageApplications IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId
 
@@ -452,7 +452,7 @@ func (a *ConsistencyGroupApiService) DeleteConsistencyGroup(ctx context.Context,
 	return localVarHttpResponse, nil
 }
 /*
-ConsistencyGroupApiService Get individual consistency group details.
+ConsistencyGroupApiService Get individual consistency group details. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId
 @return ConsistencyGroupRest
@@ -599,7 +599,7 @@ func (a *ConsistencyGroupApiService) GetConsistencyGroup(ctx context.Context, gr
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ConsistencyGroupApiService Get consistency group&#x27;s members.
+ConsistencyGroupApiService Get consistency group&#x27;s members. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId
  * @param optional nil or *ConsistencyGroupApiGetConsistencyGroupMemberOpts - Optional Parameters:
@@ -756,7 +756,7 @@ func (a *ConsistencyGroupApiService) GetConsistencyGroupMember(ctx context.Conte
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ConsistencyGroupApiService Get a list of consistency groups.
+ConsistencyGroupApiService Get a list of consistency groups. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ConsistencyGroupApiListConsistencyGroupsOpts - Optional Parameters:
      * @param "Sort" (optional.String) -  Sort field. Use OPTIONS method to get possible sort fields.&lt;br&gt;Then append &#x27;:asc&#x27; or &#x27;:desc&#x27; for ascending or descending sort.&lt;br&gt;Sorting is case-sensitive.
@@ -926,7 +926,7 @@ func (a *ConsistencyGroupApiService) ListConsistencyGroups(ctx context.Context, 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ConsistencyGroupApiService Incrementally add/delete consistency group members. It requires Application Manage or SLA Assign rights.
+ConsistencyGroupApiService Incrementally add/delete consistency group members. It requires backupdr.managementServers.manageApplications IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId
  * @param optional nil or *ConsistencyGroupApiModifyConsistencyGroupMemberOpts - Optional Parameters:
@@ -1069,11 +1069,11 @@ func (a *ConsistencyGroupApiService) ModifyConsistencyGroupMember(ctx context.Co
 	return localVarHttpResponse, nil
 }
 /*
-ConsistencyGroupApiService Describes the fields available for filtering and sorting
+ConsistencyGroupApiService Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return OptionsRest
 */
-func (a *ConsistencyGroupApiService) OptionsForList7(ctx context.Context) (OptionsRest, *http.Response, error) {
+func (a *ConsistencyGroupApiService) OptionsForListConsistencyGroup(ctx context.Context) (OptionsRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}
@@ -1214,7 +1214,7 @@ func (a *ConsistencyGroupApiService) OptionsForList7(ctx context.Context) (Optio
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ConsistencyGroupApiService Update a consistency group. It requires Application Manage or Host Manage rights.
+ConsistencyGroupApiService Update a consistency group. It requires backupdr.managementServers.manageApplications IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId
  * @param optional nil or *ConsistencyGroupApiUpdateConsistencyGroupOpts - Optional Parameters:

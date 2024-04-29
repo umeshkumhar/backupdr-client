@@ -9,9 +9,9 @@
 package swagger
 
 type VersionDetailRest struct {
-	Product string `json:"product,omitempty"`
 	Components []ComponentDetailRest `json:"components,omitempty"`
 	Summary string `json:"summary,omitempty"`
 	// Install time in UNIX Epoch time (microseconds since Jan 1, 1970)
 	Installed int64 `json:"installed,omitempty"`
+	Product string `json:"product,omitempty"`
 }

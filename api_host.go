@@ -26,7 +26,7 @@ var (
 
 type HostApiService service
 /*
-HostApiService Create a new application on the specific host. It requires Application Manage or Host Manage rights.
+HostApiService Create a new application on the specific host. It requires backupdr.managementServers.manageApplications IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param hostId
  * @param optional nil or *HostApiAddApplicationOpts - Optional Parameters:
@@ -186,7 +186,7 @@ func (a *HostApiService) AddApplication(ctx context.Context, hostId string, loca
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-HostApiService Discover applications on the specific host. It requires Application Manage or Host Manage rights.
+HostApiService Discover applications on the specific host. It requires backupdr.managementServers.manageApplications IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param hostId
  * @param optional nil or *HostApiAppDiscoveryOpts - Optional Parameters:
@@ -346,7 +346,7 @@ func (a *HostApiService) AppDiscovery(ctx context.Context, hostId string, localV
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-HostApiService Get a count of total hosts matching the filters.
+HostApiService Get a count of total hosts matching the filters. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *HostApiCountHostsOpts - Optional Parameters:
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -484,7 +484,7 @@ func (a *HostApiService) CountHosts(ctx context.Context, localVarOptionals *Host
 	return localVarHttpResponse, nil
 }
 /*
-HostApiService Create a new host. It requires Application Manage or Host Manage rights.
+HostApiService Create a new host. It requires backupdr.managementServers.manageHosts IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *HostApiCreateHostOpts - Optional Parameters:
      * @param "Body" (optional.Interface of HostRest) - 
@@ -652,7 +652,7 @@ func (a *HostApiService) CreateHost(ctx context.Context, localVarOptionals *Host
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-HostApiService Delete a host completely or remove the host from selective appliances. It requires Application Manage or Host Manage rights.
+HostApiService Delete a host completely or remove the host from selective appliances. It requires backupdr.managementServers.manageHosts IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param hostId
 
@@ -923,16 +923,18 @@ func (a *HostApiService) EnableConnectorUpgrade(ctx context.Context, localVarOpt
 	return localVarHttpResponse, nil
 }
 /*
-HostApiService Get individual host details.
+HostApiService Get individual host details. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param hostId
  * @param optional nil or *HostApiGetHostOpts - Optional Parameters:
      * @param "FetchExtraInfo" (optional.Bool) - 
+     * @param "FetchConnectorConnectionStatus" (optional.Bool) - 
 @return HostRest
 */
 
 type HostApiGetHostOpts struct {
     FetchExtraInfo optional.Bool
+    FetchConnectorConnectionStatus optional.Bool
 }
 
 func (a *HostApiService) GetHost(ctx context.Context, hostId string, localVarOptionals *HostApiGetHostOpts) (HostRest, *http.Response, error) {
@@ -954,6 +956,9 @@ func (a *HostApiService) GetHost(ctx context.Context, hostId string, localVarOpt
 
 	if localVarOptionals != nil && localVarOptionals.FetchExtraInfo.IsSet() {
 		localVarQueryParams.Add("fetchExtraInfo", parameterToString(localVarOptionals.FetchExtraInfo.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.FetchConnectorConnectionStatus.IsSet() {
+		localVarQueryParams.Add("fetchConnectorConnectionStatus", parameterToString(localVarOptionals.FetchConnectorConnectionStatus.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
@@ -1080,7 +1085,7 @@ func (a *HostApiService) GetHost(ctx context.Context, hostId string, localVarOpt
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-HostApiService Get a list of host.
+HostApiService Get a list of host. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *HostApiListHostsOpts - Optional Parameters:
      * @param "Sort" (optional.String) -  Sort field. Use OPTIONS method to get possible sort fields.&lt;br&gt;Then append &#x27;:asc&#x27; or &#x27;:desc&#x27; for ascending or descending sort.&lt;br&gt;Sorting is case-sensitive.
@@ -1250,11 +1255,11 @@ func (a *HostApiService) ListHosts(ctx context.Context, localVarOptionals *HostA
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-HostApiService Describes the fields available for filtering and sorting
+HostApiService Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return OptionsRest
 */
-func (a *HostApiService) OptionsForList9(ctx context.Context) (OptionsRest, *http.Response, error) {
+func (a *HostApiService) OptionsForListHost(ctx context.Context) (OptionsRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}
@@ -1395,7 +1400,7 @@ func (a *HostApiService) OptionsForList9(ctx context.Context) (OptionsRest, *htt
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-HostApiService Revokes existing certificates of passed in host and blocks them from creating any new certificates. It requires Host Manage rights.
+HostApiService Revokes existing certificates of passed in host and blocks them from creating any new certificates. It requires backupdr.managementServers.manageHosts IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *HostApiRevokeCertificateOpts - Optional Parameters:
      * @param "Body" (optional.Interface of []string) - 
@@ -1563,7 +1568,137 @@ func (a *HostApiService) RevokeCertificate(ctx context.Context, localVarOptional
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-HostApiService Update a host. It requires Application Manage or Host Manage rights.
+HostApiService
+ * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param hostid
+
+*/
+func (a *HostApiService) TestConnectorConnection(ctx context.Context, hostid string) (*http.Response, error) {
+	var (
+		localVarHttpMethod = strings.ToUpper("Post")
+		localVarPostBody   interface{}
+		localVarFileName   string
+		localVarFileBytes  []byte
+		
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/host/{hostid}/testconnectorconnection"
+	localVarPath = strings.Replace(localVarPath, "{"+"hostid"+"}", fmt.Sprintf("%v", hostid), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHttpContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
+	if localVarHttpContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHttpContentType
+	}
+
+	// to determine the Accept header
+	localVarHttpHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
+	if localVarHttpHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	if ctx != nil {
+		// API Key Authentication
+		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
+			var key string
+			if auth.Prefix != "" {
+				key = auth.Prefix + " " + auth.Key
+			} else {
+				key = auth.Key
+			}
+			localVarHeaderParams["backupdr-management-session"] = key
+			
+		}
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	localVarHttpResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHttpResponse == nil {
+		return localVarHttpResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
+	localVarHttpResponse.Body.Close()
+	if err != nil {
+		return localVarHttpResponse, err
+	}
+
+
+	if localVarHttpResponse.StatusCode >= 300 {
+		newErr := GenericSwaggerError{
+			body: localVarBody,
+			error: localVarHttpResponse.Status,
+		}
+		if localVarHttpResponse.StatusCode == 400 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 401 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 403 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 404 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarHttpResponse, newErr
+		}
+		if localVarHttpResponse.StatusCode == 500 {
+			var v ModelError
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
+				if err != nil {
+					newErr.error = err.Error()
+					return localVarHttpResponse, newErr
+				}
+				newErr.model = v
+				return localVarHttpResponse, newErr
+		}
+		return localVarHttpResponse, newErr
+	}
+
+	return localVarHttpResponse, nil
+}
+/*
+HostApiService Update a host. It requires backupdr.managementServers.manageHosts IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param hostId
  * @param optional nil or *HostApiUpdateHostOpts - Optional Parameters:
@@ -1738,7 +1873,7 @@ func (a *HostApiService) UpdateHost(ctx context.Context, hostId string, localVar
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-HostApiService Add discovered VMs to appliances asynchronously. It requires Hosts Manage right.
+HostApiService Add discovered VMs to appliances asynchronously. It requires backupdr.managementServers.manageHosts IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param hostId
  * @param clusterName
@@ -1883,7 +2018,7 @@ func (a *HostApiService) VmAddNew(ctx context.Context, hostId string, clusterNam
 	return localVarHttpResponse, nil
 }
 /*
-HostApiService Discover VMS on the specific host. It requires Host Manage right.
+HostApiService Discover VMS on the specific host. It requires backupdr.managementServers.manageHosts IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param hostId
 

@@ -9,31 +9,31 @@
 package swagger
 
 type ArrayRest struct {
+	Reset bool `json:"reset,omitempty"`
 	Sources []ArrayRest `json:"sources,omitempty"`
-	Name string `json:"name,omitempty"`
-	Properties []KeyValueRest `json:"properties,omitempty"`
+	Modifydate int64 `json:"modifydate,omitempty"`
+	Status string `json:"status,omitempty"`
 	Srcid int64 `json:"srcid,omitempty"`
 	Clusterid int64 `json:"clusterid,omitempty"`
-	Modifydate int64 `json:"modifydate,omitempty"`
-	Username string `json:"username,omitempty"`
 	Ipaddress string `json:"ipaddress,omitempty"`
-	Status string `json:"status,omitempty"`
 	Overallstatus string `json:"overallstatus,omitempty"`
+	Username string `json:"username,omitempty"`
 	Model string `json:"model,omitempty"`
 	Arraytype string `json:"arraytype,omitempty"`
-	Orglist []OrganizationRest `json:"orglist,omitempty"`
+	Appliance *ClusterRest `json:"appliance,omitempty"`
 	Storage []MdiskGroupRest `json:"storage,omitempty"`
+	Orglist []OrganizationRest `json:"orglist,omitempty"`
+	Diskpools []DiskPoolRest `json:"diskpools,omitempty"`
 	Arraytypelabel string `json:"arraytypelabel,omitempty"`
 	Hostcount int32 `json:"hostcount,omitempty"`
-	Diskpools []DiskPoolRest `json:"diskpools,omitempty"`
-	Reset bool `json:"reset,omitempty"`
-	Appliance *ClusterRest `json:"appliance,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Name string `json:"name,omitempty"`
+	Properties []KeyValueRest `json:"properties,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

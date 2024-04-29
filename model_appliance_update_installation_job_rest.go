@@ -9,22 +9,23 @@
 package swagger
 
 type ApplianceUpdateInstallationJobRest struct {
-	StartTime int64 `json:"startTime,omitempty"`
 	EndTime int64 `json:"endTime,omitempty"`
+	StartTime int64 `json:"startTime,omitempty"`
 	Clusterid int64 `json:"clusterid,omitempty"`
 	Details string `json:"details,omitempty"`
 	Appliancename string `json:"appliancename,omitempty"`
+	Updateinformation *UpdateInformationRest `json:"updateinformation,omitempty"`
 	Updatestatus string `json:"updatestatus,omitempty"`
 	Installduration int64 `json:"installduration,omitempty"`
 	Logslink string `json:"logslink,omitempty"`
 	Updateprogress int32 `json:"updateprogress,omitempty"`
-	Updateinformation *UpdateInformationRest `json:"updateinformation,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Rebootrequired bool `json:"rebootrequired,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

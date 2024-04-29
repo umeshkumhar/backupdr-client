@@ -10,25 +10,25 @@ package swagger
 
 // This object represent a valid login session
 type SessionRest struct {
-	// region
-	Region string `json:"region,omitempty"`
-	Username string `json:"username,omitempty"`
-	// User's timezone, if set.
-	Timezone string `json:"timezone,omitempty"`
-	// This object contains user preferences that client programs can utilize. The content is opaque to API service.
-	Userpref string `json:"userpref,omitempty"`
-	User *UserRest `json:"user,omitempty"`
 	// Session id of the current login
 	SessionId string `json:"session_id,omitempty"`
+	// region
+	Region string `json:"region,omitempty"`
+	User *UserRest `json:"user,omitempty"`
+	// User's timezone, if set.
+	Timezone string `json:"timezone,omitempty"`
+	Username string `json:"username,omitempty"`
+	// This object contains user preferences that client programs can utilize. The content is opaque to API service.
+	Userpref string `json:"userpref,omitempty"`
 	// Effective access rights that this login session contains.
 	Rights []RightRest `json:"rights,omitempty"`
 	Authconfig *AuthConfigRest `json:"authconfig,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

@@ -18,21 +18,21 @@ type CollectionRest struct {
 	Arraylist []string `json:"arraylist,omitempty"`
 	Lglist []string `json:"lglist,omitempty"`
 	Cloudcredentiallist []string `json:"cloudcredentiallist,omitempty"`
-	Sltlistcount int64 `json:"sltlistcount,omitempty"`
-	Hostlistcount int64 `json:"hostlistcount,omitempty"`
-	Slplistcount int64 `json:"slplistcount,omitempty"`
-	Userlistcount int64 `json:"userlistcount,omitempty"`
 	Poollistcount int64 `json:"poollistcount,omitempty"`
 	Applistcount int64 `json:"applistcount,omitempty"`
 	Arraylistcount int64 `json:"arraylistcount,omitempty"`
 	Lglistcount int64 `json:"lglistcount,omitempty"`
 	Cloudcredentiallistcount int64 `json:"cloudcredentiallistcount,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Sltlistcount int64 `json:"sltlistcount,omitempty"`
+	Hostlistcount int64 `json:"hostlistcount,omitempty"`
+	Slplistcount int64 `json:"slplistcount,omitempty"`
+	Userlistcount int64 `json:"userlistcount,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

@@ -9,6 +9,6 @@
 package swagger
 
 type ListArrayRest struct {
-	Count int32 `json:"count,omitempty"`
 	Items []ArrayRest `json:"items,omitempty"`
+	Count int32 `json:"count,omitempty"`
 }

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**DeleteUser**](UserApi.md#DeleteUser) | **Delete** /user/{user_id} | Remove a specific user. It requires System Manage right.
 [**GetUser**](UserApi.md#GetUser) | **Get** /user/{user_id} | Get individual user details. It requires System View right.
 [**ListRoles1**](UserApi.md#ListRoles1) | **Get** /user | Get a list of users. It requires System View right.
-[**OptionsForList16**](UserApi.md#OptionsForList16) | **Options** /user | Describes the fields available for filtering and sorting
+[**OptionsForList3**](UserApi.md#OptionsForList3) | **Options** /user | Describes the fields available for filtering and sorting
 [**UpdateUser**](UserApi.md#UpdateUser) | **Put** /user/{user_id} | Update a specific user. It requires System Manage right.
 
 # **CountUsers**
@@ -163,8 +163,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList16**
-> OptionsRest OptionsForList16(ctx, )
+# **OptionsForList3**
+> OptionsRest OptionsForList3(ctx, )
 Describes the fields available for filtering and sorting
 
 ### Required Parameters

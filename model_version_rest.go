@@ -10,9 +10,9 @@ package swagger
 
 type VersionRest struct {
 	Revision string `json:"revision,omitempty"`
-	Product string `json:"product,omitempty"`
+	Summary string `json:"summary,omitempty"`
 	Major string `json:"major,omitempty"`
 	Minor string `json:"minor,omitempty"`
-	Summary string `json:"summary,omitempty"`
+	Product string `json:"product,omitempty"`
 	Maintenance string `json:"maintenance,omitempty"`
 }

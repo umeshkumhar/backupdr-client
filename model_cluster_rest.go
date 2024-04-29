@@ -15,35 +15,39 @@ type ClusterRest struct {
 	Zone string `json:"zone,omitempty"`
 	Region string `json:"region,omitempty"`
 	Projectid string `json:"projectid,omitempty"`
-	Password string `json:"password,omitempty"`
+	Resource string `json:"resource,omitempty"`
+	// Shows the support status of cluster
+	Supportstatus string `json:"supportstatus,omitempty"`
 	Version string `json:"version,omitempty"`
+	Password string `json:"password,omitempty"`
 	Description string `json:"description,omitempty"`
-	Name string `json:"name,omitempty"`
-	Type_ string `json:"type,omitempty"`
-	Protocol int32 `json:"protocol,omitempty"`
+	Clusterstatus *ClusterStatusRest `json:"clusterstatus,omitempty"`
 	Datacenter string `json:"datacenter,omitempty"`
 	Masterid string `json:"masterid,omitempty"`
 	Clusterid string `json:"clusterid,omitempty"`
-	Importstatus string `json:"importstatus,omitempty"`
-	Username string `json:"username,omitempty"`
 	Ipaddress string `json:"ipaddress,omitempty"`
+	Importstatus string `json:"importstatus,omitempty"`
 	Timezone string `json:"timezone,omitempty"`
-	Clusterstatus *ClusterStatusRest `json:"clusterstatus,omitempty"`
 	Lastsync int64 `json:"lastsync,omitempty"`
+	Systemversion string `json:"systemversion,omitempty"`
 	Publicip string `json:"publicip,omitempty"`
 	Secureconnect bool `json:"secureconnect,omitempty"`
 	PkiBootstrapped bool `json:"pkiBootstrapped,omitempty"`
+	Batype string `json:"batype,omitempty"`
+	Username string `json:"username,omitempty"`
 	Clusterlist []ClusterRest `json:"clusterlist,omitempty"`
 	CallhomeInfo *CallhomeInfoRest `json:"callhomeInfo,omitempty"`
 	Rmipaddress []string `json:"rmipaddress,omitempty"`
-	// Shows the support status of cluster
-	Supportstatus string `json:"supportstatus,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	MachineType string `json:"machineType,omitempty"`
+	Name string `json:"name,omitempty"`
+	Type_ string `json:"type,omitempty"`
+	Protocol int32 `json:"protocol,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

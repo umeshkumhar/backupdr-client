@@ -26,7 +26,7 @@ var (
 
 type SLATemplateApiService service
 /*
-SLATemplateApiService Clone a specific slt. It requires SLA Manage right.
+SLATemplateApiService Clone a specific slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
  * @param optional nil or *SLATemplateApiCloneTemplatesOpts - Optional Parameters:
@@ -186,7 +186,7 @@ func (a *SLATemplateApiService) CloneTemplates(ctx context.Context, sltId int64,
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Get a count of total slts matching the filters. It requires SLA View, SLA Assign or SLA Manage rights.
+SLATemplateApiService Get a count of total slts matching the filters. It requires backupdr.managementServers.viewBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *SLATemplateApiCountSltsOpts - Optional Parameters:
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -324,7 +324,7 @@ func (a *SLATemplateApiService) CountSlts(ctx context.Context, localVarOptionals
 	return localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Create a new settable option for the specific policy. It requires SLA Assign or SLA Manage rights.
+SLATemplateApiService Create a new settable option for the specific policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
  * @param policyId
@@ -486,7 +486,7 @@ func (a *SLATemplateApiService) CreateOptionForPolicy(ctx context.Context, sltId
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Create a new policy. It requires SLA Manage right.
+SLATemplateApiService Create a new policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
  * @param optional nil or *SLATemplateApiCreatePolicyOpts - Optional Parameters:
@@ -646,7 +646,7 @@ func (a *SLATemplateApiService) CreatePolicy(ctx context.Context, sltId string, 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Create a new slt. It requires SLA Manage right.
+SLATemplateApiService Create a new slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *SLATemplateApiCreateSltOpts - Optional Parameters:
      * @param "Body" (optional.Interface of SltRest) - 
@@ -804,7 +804,7 @@ func (a *SLATemplateApiService) CreateSlt(ctx context.Context, localVarOptionals
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Remove a settable option for the specific policy. It requires SLA Assign or SLA Manage rights.
+SLATemplateApiService Remove a settable option for the specific policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
  * @param policyId
@@ -938,7 +938,7 @@ func (a *SLATemplateApiService) DeleteOptionForPolicy(ctx context.Context, sltId
 	return localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Remove a policy. It requires SLA Manage right.
+SLATemplateApiService Remove a policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
  * @param policyId
@@ -1070,7 +1070,7 @@ func (a *SLATemplateApiService) DeletePolicy(ctx context.Context, sltId string, 
 	return localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Remove a slt. It requires SLA Manage right.
+SLATemplateApiService Remove a slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
 
@@ -1200,7 +1200,7 @@ func (a *SLATemplateApiService) DeleteSlt(ctx context.Context, sltId string) (*h
 	return localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Get a specific settable option of the specific policy. It requires SLA View, SLA Assign or SLA Manage rights.
+SLATemplateApiService Get a specific settable option of the specific policy. It requires backupdr.managementServers.viewBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
  * @param policyId
@@ -1351,7 +1351,7 @@ func (a *SLATemplateApiService) GetOptionForPolicy(ctx context.Context, sltId st
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Get individual policy. It requires SLA View, SLA Assign or SLA Manage rights.
+SLATemplateApiService Get individual policy. It requires backupdr.managementServers.viewBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
  * @param policyId
@@ -1500,7 +1500,7 @@ func (a *SLATemplateApiService) GetPolicy(ctx context.Context, sltId string, pol
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Get individual slt details. It requires SLA View, SLA Assign or SLA Manage rights.
+SLATemplateApiService Get individual slt details. It requires backupdr.managementServers.viewBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
 @return SltRest
@@ -1647,7 +1647,7 @@ func (a *SLATemplateApiService) GetSlt(ctx context.Context, sltId string) (SltRe
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService List all existing settable options of the specific policy. It requires SLA View, SLA Assign or SLA Manage rights.
+SLATemplateApiService List all existing settable options of the specific policy. It requires backupdr.managementServers.viewBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
  * @param policyId
@@ -1796,7 +1796,7 @@ func (a *SLATemplateApiService) ListOptionForPolicy(ctx context.Context, sltId s
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Get policy list from the specific slt. It requires SLA View, SLA Assign or SLA Manage rights.
+SLATemplateApiService Get policy list from the specific slt. It requires backupdr.managementServers.viewBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
 @return ListPolicyRest
@@ -1943,7 +1943,7 @@ func (a *SLATemplateApiService) ListPolicies(ctx context.Context, sltId int64) (
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Get a list of slts. It requires SLA View, SLA Assign or SLA Manage rights.
+SLATemplateApiService Get a list of slts. It requires backupdr.managementServers.viewBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *SLATemplateApiListSltsOpts - Optional Parameters:
      * @param "Sort" (optional.String) -  Sort field. Use OPTIONS method to get possible sort fields.&lt;br&gt;Then append &#x27;:asc&#x27; or &#x27;:desc&#x27; for ascending or descending sort.&lt;br&gt;Sorting is case-sensitive.
@@ -2113,11 +2113,11 @@ func (a *SLATemplateApiService) ListSlts(ctx context.Context, localVarOptionals 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Describes the fields available for filtering and sorting
+SLATemplateApiService Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return OptionsRest
 */
-func (a *SLATemplateApiService) OptionsForList15(ctx context.Context) (OptionsRest, *http.Response, error) {
+func (a *SLATemplateApiService) OptionsForListSlt(ctx context.Context) (OptionsRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}
@@ -2258,7 +2258,7 @@ func (a *SLATemplateApiService) OptionsForList15(ctx context.Context) (OptionsRe
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Get settable option metadata for the specific policy.
+SLATemplateApiService Get settable option metadata for the specific policy. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
  * @param policyId
@@ -2390,19 +2390,19 @@ func (a *SLATemplateApiService) SettableOptionMetadataForPolicy(ctx context.Cont
 	return localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Get settable option metadata for the specific policy type.
+SLATemplateApiService Get settable option metadata for the specific policy type. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param policytype
- * @param optional nil or *SLATemplateApiSettableOptionMetadataForPolicyType1Opts - Optional Parameters:
+ * @param optional nil or *SLATemplateApiSettableOptionMetadataForPolicyTypeOpts - Optional Parameters:
      * @param "Apptype" (optional.String) - 
 
 */
 
-type SLATemplateApiSettableOptionMetadataForPolicyType1Opts struct {
+type SLATemplateApiSettableOptionMetadataForPolicyTypeOpts struct {
     Apptype optional.String
 }
 
-func (a *SLATemplateApiService) SettableOptionMetadataForPolicyType1(ctx context.Context, policytype string, localVarOptionals *SLATemplateApiSettableOptionMetadataForPolicyType1Opts) (*http.Response, error) {
+func (a *SLATemplateApiService) SettableOptionMetadataForPolicyType(ctx context.Context, policytype string, localVarOptionals *SLATemplateApiSettableOptionMetadataForPolicyTypeOpts) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}
@@ -2530,7 +2530,7 @@ func (a *SLATemplateApiService) SettableOptionMetadataForPolicyType1(ctx context
 	return localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Update a settable option for the specific policy. It requires SLA Assgin or SLA Manage rights.
+SLATemplateApiService Update a settable option for the specific policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
  * @param policyId
@@ -2694,7 +2694,7 @@ func (a *SLATemplateApiService) UpdateOptionForPolicy(ctx context.Context, sltId
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Update a policy. It requires SLA Manage right.
+SLATemplateApiService Update a policy. It requires backupdr.managementServers.manageBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
  * @param policyId
@@ -2856,7 +2856,7 @@ func (a *SLATemplateApiService) UpdatePolicy(ctx context.Context, sltId string, 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-SLATemplateApiService Update a slt. It requires SLA Manage right.
+SLATemplateApiService Update a slt. It requires backupdr.managementServers.manageBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param sltId
  * @param optional nil or *SLATemplateApiUpdateSltOpts - Optional Parameters:

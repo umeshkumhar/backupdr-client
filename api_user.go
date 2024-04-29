@@ -773,7 +773,7 @@ UserApiService Describes the fields available for filtering and sorting
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return OptionsRest
 */
-func (a *UserApiService) OptionsForList16(ctx context.Context) (OptionsRest, *http.Response, error) {
+func (a *UserApiService) OptionsForList3(ctx context.Context) (OptionsRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}

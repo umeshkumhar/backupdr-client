@@ -9,8 +9,8 @@
 package swagger
 
 type ScriptRest struct {
-	Timeout string `json:"timeout,omitempty"`
 	Args []string `json:"args,omitempty"`
-	Name string `json:"name,omitempty"`
+	Timeout string `json:"timeout,omitempty"`
 	Phase string `json:"phase,omitempty"`
+	Name string `json:"name,omitempty"`
 }

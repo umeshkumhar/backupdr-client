@@ -9,9 +9,9 @@
 package swagger
 
 type GetListRest struct {
-	Sortablefields []string `json:"sortablefields,omitempty"`
-	Sortable bool `json:"sortable,omitempty"`
 	Filterable bool `json:"filterable,omitempty"`
-	Filterablefields []FilterFieldClassMapping `json:"filterablefields,omitempty"`
+	Sortable bool `json:"sortable,omitempty"`
 	Pageable bool `json:"pageable,omitempty"`
+	Sortablefields []string `json:"sortablefields,omitempty"`
+	Filterablefields []FilterFieldClassMapping `json:"filterablefields,omitempty"`
 }

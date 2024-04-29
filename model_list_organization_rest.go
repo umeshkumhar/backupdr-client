@@ -9,6 +9,6 @@
 package swagger
 
 type ListOrganizationRest struct {
-	Count int32 `json:"count,omitempty"`
 	Items []OrganizationRest `json:"items,omitempty"`
+	Count int32 `json:"count,omitempty"`
 }

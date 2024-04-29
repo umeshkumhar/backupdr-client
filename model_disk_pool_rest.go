@@ -13,21 +13,23 @@ type DiskPoolRest struct {
 	Immutable bool `json:"immutable,omitempty"`
 	Metadataonly bool `json:"metadataonly,omitempty"`
 	Location string `json:"location,omitempty"`
+	Bvinfo *BackupVaultRest `json:"bvinfo,omitempty"`
+	Cloudcredential *CloudCredentialRest `json:"cloudcredential,omitempty"`
 	Array *ArrayRest `json:"array,omitempty"`
-	Name string `json:"name,omitempty"`
-	Properties []KeyValueRest `json:"properties,omitempty"`
-	State string `json:"state,omitempty"`
-	Type_ string `json:"type,omitempty"`
-	Srcid string `json:"srcid,omitempty"`
 	Modifydate int64 `json:"modifydate,omitempty"`
-	Cluster *ClusterRest `json:"cluster,omitempty"`
 	Status string `json:"status,omitempty"`
+	Srcid string `json:"srcid,omitempty"`
+	Cluster *ClusterRest `json:"cluster,omitempty"`
 	Mdiskgrp string `json:"mdiskgrp,omitempty"`
 	Warnpct int32 `json:"warnpct,omitempty"`
 	Safepct int32 `json:"safepct,omitempty"`
 	Udsuid int32 `json:"udsuid,omitempty"`
-	Orglist []OrganizationRest `json:"orglist,omitempty"`
+	Pooltype string `json:"pooltype,omitempty"`
+	Copies []DiskPoolCopiesRest `json:"copies,omitempty"`
 	Storage []string `json:"storage,omitempty"`
+	Orglist []OrganizationRest `json:"orglist,omitempty"`
+	Nocache bool `json:"nocache,omitempty"`
+	Grainsize int32 `json:"grainsize,omitempty"`
 	FreeMb int64 `json:"free_mb,omitempty"`
 	UsageMb int64 `json:"usage_mb,omitempty"`
 	CapacityMb int64 `json:"capacity_mb,omitempty"`
@@ -35,17 +37,16 @@ type DiskPoolRest struct {
 	Pooltypedisplayname string `json:"pooltypedisplayname,omitempty"`
 	Vaultprops *VaultPropsRest `json:"vaultprops,omitempty"`
 	Ext int32 `json:"ext,omitempty"`
-	Pooltype string `json:"pooltype,omitempty"`
-	Cloudcredential *CloudCredentialRest `json:"cloudcredential,omitempty"`
-	Nocache bool `json:"nocache,omitempty"`
-	Grainsize int32 `json:"grainsize,omitempty"`
-	Copies []DiskPoolCopiesRest `json:"copies,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Name string `json:"name,omitempty"`
+	Properties []KeyValueRest `json:"properties,omitempty"`
+	State string `json:"state,omitempty"`
+	Type_ string `json:"type,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

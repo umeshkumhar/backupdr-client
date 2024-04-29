@@ -11,21 +11,21 @@ package swagger
 type NameValueRest struct {
 	Desc string `json:"desc,omitempty"`
 	Description string `json:"description,omitempty"`
-	Name string `json:"name,omitempty"`
-	Value string `json:"value,omitempty"`
-	Default_ string `json:"default,omitempty"`
-	Type_ string `json:"type,omitempty"`
 	Selection []DescValueRest `json:"selection,omitempty"`
 	Alias string `json:"alias,omitempty"`
 	Constant string `json:"constant,omitempty"`
 	Select_ bool `json:"select,omitempty"`
 	Editableonmount bool `json:"editableonmount,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Name string `json:"name,omitempty"`
+	Value string `json:"value,omitempty"`
+	Default_ string `json:"default,omitempty"`
+	Type_ string `json:"type,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

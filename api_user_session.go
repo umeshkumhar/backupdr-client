@@ -153,7 +153,7 @@ func (a *UserSessionApiService) GetPermissions(ctx context.Context) (*http.Respo
 	return localVarHttpResponse, nil
 }
 /*
-UserSessionApiService Get session information, including user preferences
+UserSessionApiService Get session information, including user preferences. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return SessionRest
 */

@@ -14,12 +14,12 @@ type RestorableRest struct {
 	Backedupdb string `json:"backedupdb,omitempty"`
 	Skippeddb string `json:"skippeddb,omitempty"`
 	Faileddb string `json:"faileddb,omitempty"`
-	Name string `json:"name,omitempty"`
-	Type_ string `json:"type,omitempty"`
+	Fullpath string `json:"fullpath,omitempty"`
 	Application *ApplicationRest `json:"application,omitempty"`
 	Pathname string `json:"pathname,omitempty"`
 	Systemdb bool `json:"systemdb,omitempty"`
-	AppState int64 `json:"appState,omitempty"`
-	Fullpath string `json:"fullpath,omitempty"`
 	Volumeinfo []VolumeinfoRest `json:"volumeinfo,omitempty"`
+	AppState int64 `json:"appState,omitempty"`
+	Name string `json:"name,omitempty"`
+	Type_ string `json:"type,omitempty"`
 }

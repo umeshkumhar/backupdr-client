@@ -4,14 +4,14 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CountAudits**](AuditLogApi.md#CountAudits) | **Head** /localaudit | Get a count of total audit records matching the filters. Caller with administrator role can do it.
-[**GetAudit**](AuditLogApi.md#GetAudit) | **Get** /localaudit/{audit_id} | Get individual audit record details. Caller with administrator role can do it.
-[**ListAudits**](AuditLogApi.md#ListAudits) | **Get** /localaudit | Get a list of local audit records. Caller with administrator role can do it.
-[**OptionsForList10**](AuditLogApi.md#OptionsForList10) | **Options** /localaudit | Describes the fields available for filtering and sorting
+[**CountAudits**](AuditLogApi.md#CountAudits) | **Head** /localaudit | Get a count of total audit records matching the filters. It requires backupdr.managementServers.viewSystem IAM permission
+[**GetAudit**](AuditLogApi.md#GetAudit) | **Get** /localaudit/{audit_id} | Get individual audit record details. It requires backupdr.managementServers.viewSystem IAM permission
+[**ListAudits**](AuditLogApi.md#ListAudits) | **Get** /localaudit | Get a list of local audit records. It requires backupdr.managementServers.viewSystem IAM permission
+[**OptionsForListLocalAudit**](AuditLogApi.md#OptionsForListLocalAudit) | **Options** /localaudit | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.viewSystem IAM permission
 
 # **CountAudits**
 > CountAudits(ctx, optional)
-Get a count of total audit records matching the filters. Caller with administrator role can do it.
+Get a count of total audit records matching the filters. It requires backupdr.managementServers.viewSystem IAM permission
 
 ### Required Parameters
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 # **GetAudit**
 > OrganizationRest GetAudit(ctx, auditId)
-Get individual audit record details. Caller with administrator role can do it.
+Get individual audit record details. It requires backupdr.managementServers.viewSystem IAM permission
 
 ### Required Parameters
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 # **ListAudits**
 > ListAuditRest ListAudits(ctx, optional)
-Get a list of local audit records. Caller with administrator role can do it.
+Get a list of local audit records. It requires backupdr.managementServers.viewSystem IAM permission
 
 ### Required Parameters
 
@@ -102,9 +102,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList10**
-> OptionsRest OptionsForList10(ctx, )
-Describes the fields available for filtering and sorting
+# **OptionsForListLocalAudit**
+> OptionsRest OptionsForListLocalAudit(ctx, )
+Describes the fields available for filtering and sorting. It requires backupdr.managementServers.viewSystem IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.

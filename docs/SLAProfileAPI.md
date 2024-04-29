@@ -4,16 +4,17 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CountSlps**](SLAProfileApi.md#CountSlps) | **Head** /slp | Get a count of total slps matching the filters. It requires SLA View, SLA Assign or SLA Manage rights.
-[**CreateSlp**](SLAProfileApi.md#CreateSlp) | **Post** /slp | Create a new slp. It requires SLA Manage right.
-[**DeleteSlp**](SLAProfileApi.md#DeleteSlp) | **Delete** /slp/{slp_id} | Remove the specific slp. It requires SLA Manage right.
-[**GetSlp**](SLAProfileApi.md#GetSlp) | **Get** /slp/{slp_id} | Get individual slp details. It requires SLA View, SLA Assign or SLA Manage rights.
-[**ListSlps**](SLAProfileApi.md#ListSlps) | **Get** /slp | Get a list of slps. It requires SLA View, SLA Assign or SLA Manage rights.
-[**UpdateSlp**](SLAProfileApi.md#UpdateSlp) | **Put** /slp/{slp_id} | Update the specific slp. It requires SLA Manage right.
+[**CountSlps**](SLAProfileApi.md#CountSlps) | **Head** /slp | Get a count of total slps matching the filters. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**CreateSlp**](SLAProfileApi.md#CreateSlp) | **Post** /slp | Create a new slp. It requires backupdr.managementServers.manageBackupPlans IAM permission
+[**DeleteSlp**](SLAProfileApi.md#DeleteSlp) | **Delete** /slp/{slp_id} | Remove the specific slp. It requires backupdr.managementServers.manageBackupPlans IAM permission
+[**GetGCPProjectsByProfile**](SLAProfileApi.md#GetGCPProjectsByProfile) | **Get** /slp/{slp_id}/projects | 
+[**GetSlp**](SLAProfileApi.md#GetSlp) | **Get** /slp/{slp_id} | Get individual slp details. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**ListSlps**](SLAProfileApi.md#ListSlps) | **Get** /slp | Get a list of slps. It requires backupdr.managementServers.viewBackupPlans IAM permission
+[**UpdateSlp**](SLAProfileApi.md#UpdateSlp) | **Put** /slp/{slp_id} | Update the specific slp. It requires backupdr.managementServers.manageBackupPlans IAM permission
 
 # **CountSlps**
 > CountSlps(ctx, optional)
-Get a count of total slps matching the filters. It requires SLA View, SLA Assign or SLA Manage rights.
+Get a count of total slps matching the filters. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -45,7 +46,7 @@ Name | Type | Description  | Notes
 
 # **CreateSlp**
 > SlpRest CreateSlp(ctx, optional)
-Create a new slp. It requires SLA Manage right.
+Create a new slp. It requires backupdr.managementServers.manageBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -77,7 +78,33 @@ Name | Type | Description  | Notes
 
 # **DeleteSlp**
 > DeleteSlp(ctx, slpId)
-Remove the specific slp. It requires SLA Manage right.
+Remove the specific slp. It requires backupdr.managementServers.manageBackupPlans IAM permission
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **slpId** | **string**|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **GetGCPProjectsByProfile**
+> GetGCPProjectsByProfile(ctx, slpId)
+
 
 ### Required Parameters
 
@@ -103,7 +130,7 @@ Name | Type | Description  | Notes
 
 # **GetSlp**
 > SlpRest GetSlp(ctx, slpId)
-Get individual slp details. It requires SLA View, SLA Assign or SLA Manage rights.
+Get individual slp details. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -129,7 +156,7 @@ Name | Type | Description  | Notes
 
 # **ListSlps**
 > ListSlpRest ListSlps(ctx, optional)
-Get a list of slps. It requires SLA View, SLA Assign or SLA Manage rights.
+Get a list of slps. It requires backupdr.managementServers.viewBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -164,7 +191,7 @@ Name | Type | Description  | Notes
 
 # **UpdateSlp**
 > SlpRest UpdateSlp(ctx, slpId, optional)
-Update the specific slp. It requires SLA Manage right.
+Update the specific slp. It requires backupdr.managementServers.manageBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -180,6 +207,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **body** | [**optional.Interface of SlpRest**](SlpRest.md)|  | 
+ **validateOnly** | **optional.**|  | 
 
 ### Return type
 

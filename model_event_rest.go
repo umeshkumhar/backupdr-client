@@ -9,10 +9,12 @@
 package swagger
 
 type EventRest struct {
-	Object *ObjectRest `json:"object,omitempty"`
+	Sequenceid int64 `json:"sequenceid,omitempty"`
+	Requiresclearing bool `json:"requiresclearing,omitempty"`
+	Eventstatus string `json:"eventstatus,omitempty"`
 	Errorcode string `json:"errorcode,omitempty"`
-	Srcid string `json:"srcid,omitempty"`
 	Component *ComponentRest `json:"component,omitempty"`
+	Srcid string `json:"srcid,omitempty"`
 	Appname string `json:"appname,omitempty"`
 	Apptype string `json:"apptype,omitempty"`
 	Cluster *ClusterRest `json:"cluster,omitempty"`
@@ -22,17 +24,15 @@ type EventRest struct {
 	Jobname string `json:"jobname,omitempty"`
 	Errormessage string `json:"errormessage,omitempty"`
 	Messagetext string `json:"messagetext,omitempty"`
-	Sequenceid int64 `json:"sequenceid,omitempty"`
-	Requiresclearing bool `json:"requiresclearing,omitempty"`
-	Eventstatus string `json:"eventstatus,omitempty"`
 	Notification *NotificationRest `json:"notification,omitempty"`
 	Errormessages []string `json:"errormessages,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Object *ObjectRest `json:"object,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }
