@@ -13,7 +13,7 @@ type CloudVmDiscoveryRest struct {
 	Region       string           `json:"region,omitempty"`
 	Limit        int32            `json:"limit,omitempty"`
 	ListOnly     bool             `json:"listonly,omitempty"`
-	ProjectId    string           `json:"projectId,omitempty"`
+	ProjectId    string           `json:"projectid,omitempty"`
 	Cluster      *ClusterRest     `json:"cluster,omitempty"`
 	Vmids        []string         `json:"vmids,omitempty"`
 	Actifioroles []string         `json:"actifioroles,omitempty"`
