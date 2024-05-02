@@ -9,6 +9,7 @@
 package swagger
 
 type ClusterStatusRest struct {
+	Copydata int64 `json:"copydata,omitempty"`
 	Accessible bool `json:"accessible,omitempty"`
 	Vdiskcount int32 `json:"vdiskcount,omitempty"`
 	Vdisklimit int32 `json:"vdisklimit,omitempty"`
@@ -16,5 +17,4 @@ type ClusterStatusRest struct {
 	Localsnapshotcolor string `json:"localsnapshotcolor,omitempty"`
 	Localdedupcolor string `json:"localdedupcolor,omitempty"`
 	Remoteprotectioncolor string `json:"remoteprotectioncolor,omitempty"`
-	Copydata int64 `json:"copydata,omitempty"`
 }

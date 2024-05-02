@@ -9,44 +9,44 @@
 package swagger
 
 type PolicyRest struct {
+	ManagedBy string `json:"managedBy,omitempty"`
 	Source []SourceRest `json:"source,omitempty"`
 	Description string `json:"description,omitempty"`
-	Name string `json:"name,omitempty"`
-	Priority string `json:"priority,omitempty"`
 	Slt *SltRest `json:"slt,omitempty"`
-	Endtime string `json:"endtime,omitempty"`
 	Rpom string `json:"rpom,omitempty"`
 	Rpo string `json:"rpo,omitempty"`
 	Predecessor *PolicyRest `json:"predecessor,omitempty"`
 	Exclusiontype string `json:"exclusiontype,omitempty"`
+	Targetvault int32 `json:"targetvault,omitempty"`
+	Retention string `json:"retention,omitempty"`
+	Retentionm string `json:"retentionm,omitempty"`
 	Iscontinuous bool `json:"iscontinuous,omitempty"`
 	Starttime string `json:"starttime,omitempty"`
-	Targetvault int32 `json:"targetvault,omitempty"`
 	Sourcevault int32 `json:"sourcevault,omitempty"`
 	Selection string `json:"selection,omitempty"`
 	Scheduletype string `json:"scheduletype,omitempty"`
-	Scheduling string `json:"scheduling,omitempty"`
 	Exclusion string `json:"exclusion,omitempty"`
-	Reptype string `json:"reptype,omitempty"`
-	Retention string `json:"retention,omitempty"`
-	Retentionm string `json:"retentionm,omitempty"`
 	Encrypt string `json:"encrypt,omitempty"`
 	Repeatinterval string `json:"repeatinterval,omitempty"`
 	Exclusioninterval string `json:"exclusioninterval,omitempty"`
+	Endtime string `json:"endtime,omitempty"`
+	Reptype string `json:"reptype,omitempty"`
 	Remoteretention int32 `json:"remoteretention,omitempty"`
 	Compliancesettings *ComplianceSettingsRest `json:"compliancesettings,omitempty"`
-	Options []AdvancedOptionRest `json:"options,omitempty"`
 	PolicyType string `json:"policyType,omitempty"`
 	Truncatelog string `json:"truncatelog,omitempty"`
 	Verifychoice string `json:"verifychoice,omitempty"`
 	Op string `json:"op,omitempty"`
+	Options []AdvancedOptionRest `json:"options,omitempty"`
 	Verification bool `json:"verification,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Name string `json:"name,omitempty"`
+	Priority string `json:"priority,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

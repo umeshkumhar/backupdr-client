@@ -9,16 +9,14 @@
 package swagger
 
 type RestoreRest struct {
-	Password string `json:"password,omitempty"`
-	Host *HostRest `json:"host,omitempty"`
 	Label string `json:"label,omitempty"`
+	Password string `json:"password,omitempty"`
 	Username string `json:"username,omitempty"`
 	Cloudvmoptions *CloudVmMountRest `json:"cloudvmoptions,omitempty"`
 	Rdmmode string `json:"rdmmode,omitempty"`
 	Physicalrdm string `json:"physicalrdm,omitempty"`
 	Targetnode string `json:"targetnode,omitempty"`
 	Replacesource bool `json:"replacesource,omitempty"`
-	Parts string `json:"parts,omitempty"`
 	Datastore string `json:"datastore,omitempty"`
 	Recover bool `json:"recover,omitempty"`
 	Recoverytime int64 `json:"recoverytime,omitempty"`
@@ -31,14 +29,16 @@ type RestoreRest struct {
 	Nfsoptions *NfsOptionsRest `json:"nfsoptions,omitempty"`
 	Instantmount bool `json:"instantmount,omitempty"`
 	Notdisableschedule bool `json:"notdisableschedule,omitempty"`
+	Parts string `json:"parts,omitempty"`
+	Host *HostRest `json:"host,omitempty"`
 	Container bool `json:"container,omitempty"`
 	Allowedips []string `json:"allowedips,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

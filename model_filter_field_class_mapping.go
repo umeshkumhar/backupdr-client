@@ -9,7 +9,7 @@
 package swagger
 
 type FilterFieldClassMapping struct {
+	Values []string `json:"values,omitempty"`
 	Field string `json:"field,omitempty"`
 	Type_ string `json:"type,omitempty"`
-	Values []string `json:"values,omitempty"`
 }

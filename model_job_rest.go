@@ -9,45 +9,44 @@
 package swagger
 
 type JobRest struct {
-	Pid int32 `json:"pid,omitempty"`
-	Task *interface{} `json:"task,omitempty"`
-	Flags int64 `json:"flags,omitempty"`
-	Description string `json:"description,omitempty"`
-	Message string `json:"message,omitempty"`
-	Priority string `json:"priority,omitempty"`
-	Expiration int64 `json:"expiration,omitempty"`
 	Duration int64 `json:"duration,omitempty"`
 	Label string `json:"label,omitempty"`
+	Flags int64 `json:"flags,omitempty"`
+	Task *interface{} `json:"task,omitempty"`
+	Jobclasscode int32 `json:"jobclasscode,omitempty"`
+	Progress int64 `json:"progress,omitempty"`
+	Pid int32 `json:"pid,omitempty"`
+	Expiration int64 `json:"expiration,omitempty"`
+	Description string `json:"description,omitempty"`
 	Errorcode string `json:"errorcode,omitempty"`
-	Jobclass string `json:"jobclass,omitempty"`
-	Appid string `json:"appid,omitempty"`
-	Hostid int64 `json:"hostid,omitempty"`
+	Status string `json:"status,omitempty"`
 	Srcid string `json:"srcid,omitempty"`
 	Clusterid string `json:"clusterid,omitempty"`
 	Hostname string `json:"hostname,omitempty"`
+	Hostid int64 `json:"hostid,omitempty"`
 	Appname string `json:"appname,omitempty"`
 	Apptype string `json:"apptype,omitempty"`
+	Appid string `json:"appid,omitempty"`
+	Jobclass string `json:"jobclass,omitempty"`
 	Backup *BackupRest `json:"backup,omitempty"`
 	Sourceuds int64 `json:"sourceuds,omitempty"`
 	Originatinguds int64 `json:"originatinguds,omitempty"`
 	Targetuds int64 `json:"targetuds,omitempty"`
 	Parentid string `json:"parentid,omitempty"`
-	Status string `json:"status,omitempty"`
 	Jobname string `json:"jobname,omitempty"`
-	Transport string `json:"transport,omitempty"`
 	Startdate int64 `json:"startdate,omitempty"`
 	Enddate int64 `json:"enddate,omitempty"`
+	Transport string `json:"transport,omitempty"`
 	Immutabilitydate int64 `json:"immutabilitydate,omitempty"`
 	Consistencydate int64 `json:"consistencydate,omitempty"`
 	Virtualsize int64 `json:"virtualsize,omitempty"`
 	Sltname string `json:"sltname,omitempty"`
 	Policyname string `json:"policyname,omitempty"`
-	Isexpired bool `json:"isexpired,omitempty"`
 	Targethost string `json:"targethost,omitempty"`
 	Sourceid string `json:"sourceid,omitempty"`
+	Isexpired bool `json:"isexpired,omitempty"`
 	Jobcount int32 `json:"jobcount,omitempty"`
 	Changerequest int32 `json:"changerequest,omitempty"`
-	Progress int64 `json:"progress,omitempty"`
 	Relativesize int64 `json:"relativesize,omitempty"`
 	Retrycount int32 `json:"retrycount,omitempty"`
 	Queuedate int64 `json:"queuedate,omitempty"`
@@ -55,24 +54,25 @@ type JobRest struct {
 	Isscheduled bool `json:"isscheduled,omitempty"`
 	Jobtag string `json:"jobtag,omitempty"`
 	Event *EventRest `json:"event,omitempty"`
-	Id2 string `json:"id2,omitempty"`
-	Changerequesttext string `json:"changerequesttext,omitempty"`
-	Logsmarttype string `json:"logsmarttype,omitempty"`
-	Extrainfo string `json:"extrainfo,omitempty"`
-	Diskpools []DiskPoolRest `json:"diskpools,omitempty"`
-	Targetdiskpool *DiskPoolRest `json:"targetdiskpool,omitempty"`
-	Jobclasscode int32 `json:"jobclasscode,omitempty"`
-	Sourcediskpool *DiskPoolRest `json:"sourcediskpool,omitempty"`
-	Yaml string `json:"yaml,omitempty"`
 	Appliance *ClusterRest `json:"appliance,omitempty"`
 	ConsistencyMode string `json:"consistency-mode,omitempty"`
 	FlagsText []string `json:"flags_text,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Sourcediskpool *DiskPoolRest `json:"sourcediskpool,omitempty"`
+	Yaml string `json:"yaml,omitempty"`
+	Id2 string `json:"id2,omitempty"`
+	Diskpools []DiskPoolRest `json:"diskpools,omitempty"`
+	Changerequesttext string `json:"changerequesttext,omitempty"`
+	Logsmarttype string `json:"logsmarttype,omitempty"`
+	Extrainfo string `json:"extrainfo,omitempty"`
+	Targetdiskpool *DiskPoolRest `json:"targetdiskpool,omitempty"`
+	Message string `json:"message,omitempty"`
+	Priority string `json:"priority,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

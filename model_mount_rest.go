@@ -9,8 +9,6 @@
 package swagger
 
 type MountRest struct {
-	Path string `json:"path,omitempty"`
-	Host *HostRest `json:"host,omitempty"`
 	Label string `json:"label,omitempty"`
 	// Mutually exclusive with host, when mounting as a brand new host(VM)
 	Hostname string `json:"hostname,omitempty"`
@@ -22,7 +20,6 @@ type MountRest struct {
 	Appaware bool `json:"appaware,omitempty"`
 	Systemstateoptions []SystemStateOptionRest `json:"systemstateoptions,omitempty"`
 	Migratevm bool `json:"migratevm,omitempty"`
-	Allowedips []string `json:"allowedips,omitempty"`
 	// Mutually exclusive with diskpool
 	Datastore string `json:"datastore,omitempty"`
 	// Can be used when log backup is available. Microseconds since Epoch in UTC
@@ -40,12 +37,15 @@ type MountRest struct {
 	Instantmount bool `json:"instantmount,omitempty"`
 	Mgmtserver *HostRest `json:"mgmtserver,omitempty"`
 	Hypervisor *HostRest `json:"hypervisor,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Allowedips []string `json:"allowedips,omitempty"`
+	Path string `json:"path,omitempty"`
+	Host *HostRest `json:"host,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

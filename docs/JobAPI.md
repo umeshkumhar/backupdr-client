@@ -4,13 +4,13 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CountCombinedJob**](JobApi.md#CountCombinedJob) | **Head** /jobstatus | Get a count of total jobs (including running jobs and finished jobs) matching the filters.
-[**ListCombinedJobs**](JobApi.md#ListCombinedJobs) | **Get** /jobstatus | Get a list of jobs (including running jobs and finished jobs).
-[**OptionsForList6**](JobApi.md#OptionsForList6) | **Options** /jobstatus | Describes the fields available for filtering and sorting
+[**CountCombinedJob**](JobApi.md#CountCombinedJob) | **Head** /jobstatus | Get a count of total jobs (including running jobs and finished jobs) matching the filters. It requires backupdr.managementServers.access IAM permission
+[**ListCombinedJobs**](JobApi.md#ListCombinedJobs) | **Get** /jobstatus | Get a list of jobs (including running jobs and finished jobs). It requires backupdr.managementServers.access IAM permission
+[**OptionsForListCombinedJob**](JobApi.md#OptionsForListCombinedJob) | **Options** /jobstatus | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
 
 # **CountCombinedJob**
 > CountCombinedJob(ctx, optional)
-Get a count of total jobs (including running jobs and finished jobs) matching the filters.
+Get a count of total jobs (including running jobs and finished jobs) matching the filters. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 # **ListCombinedJobs**
 > ListJobRest ListCombinedJobs(ctx, optional)
-Get a list of jobs (including running jobs and finished jobs).
+Get a list of jobs (including running jobs and finished jobs). It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -75,9 +75,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList6**
-> OptionsRest OptionsForList6(ctx, )
-Describes the fields available for filtering and sorting
+# **OptionsForListCombinedJob**
+> OptionsRest OptionsForListCombinedJob(ctx, )
+Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.

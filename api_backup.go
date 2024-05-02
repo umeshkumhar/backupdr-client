@@ -26,7 +26,7 @@ var (
 
 type BackupApiService service
 /*
-BackupApiService Clone a specific backup. It requires Application Manage, Host Manage or Clone Manage rights.
+BackupApiService Clone a specific backup. It requires backupdr.managementServers.manageClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupId
  * @param optional nil or *BackupApiCloneBackupOpts - Optional Parameters:
@@ -169,7 +169,7 @@ func (a *BackupApiService) CloneBackup(ctx context.Context, backupId string, loc
 	return localVarHttpResponse, nil
 }
 /*
-BackupApiService Get a count of total backups matching the filters.
+BackupApiService Get a count of total backups matching the filters. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *BackupApiCountBackupsOpts - Optional Parameters:
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -307,7 +307,7 @@ func (a *BackupApiService) CountBackups(ctx context.Context, localVarOptionals *
 	return localVarHttpResponse, nil
 }
 /*
-BackupApiService Delete a specific backup. It requires Application Manage, Host Manage or Backup Manage rights.
+BackupApiService Delete a specific backup. It requires backupdr.managementServers.manageExpiration and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupId
 
@@ -437,7 +437,7 @@ func (a *BackupApiService) DeleteBackup(ctx context.Context, backupId string) (*
 	return localVarHttpResponse, nil
 }
 /*
-BackupApiService Expire a specific backup. It requires the manageExpiration permission
+BackupApiService Expire a specific backup. It requires backupdr.managementServers.manageExpiration and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupId
  * @param optional nil or *BackupApiExpireBackupOpts - Optional Parameters:
@@ -577,7 +577,7 @@ func (a *BackupApiService) ExpireBackup(ctx context.Context, backupId string, lo
 	return localVarHttpResponse, nil
 }
 /*
-BackupApiService Gets the dynamic list of application options and corresponding default value (if any) for given backup image.
+BackupApiService Gets the dynamic list of application options and corresponding default value (if any) for given backup image. It requires backupdr.managementServers.manageBackups and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupid Id of the backup image whose application options are required.
 @return AppClassRest
@@ -724,7 +724,7 @@ func (a *BackupApiService) FetchApplicationOptions(ctx context.Context, backupid
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-BackupApiService Get individual backup details.
+BackupApiService Get individual backup details. It requires backupdr.managementServers.access and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupId
 @return BackupRest
@@ -871,7 +871,7 @@ func (a *BackupApiService) GetBackup(ctx context.Context, backupId string) (Back
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-BackupApiService Gets disk mapping options for restore (source disks, target disks, RAC node list etc)
+BackupApiService Gets disk mapping options for restore (source disks, target disks, RAC node list etc). It requires backupdr.managementServers.manageBackups and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupid Id of the backup image to be restored
  * @param optional nil or *BackupApiGetDiskMappingOpts - Optional Parameters:
@@ -1033,7 +1033,7 @@ func (a *BackupApiService) GetDiskMapping(ctx context.Context, backupid string, 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-BackupApiService Get a list of backups.
+BackupApiService Get a list of backups. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *BackupApiListBackupsOpts - Optional Parameters:
      * @param "Sort" (optional.String) -  Sort field. Use OPTIONS method to get possible sort fields.&lt;br&gt;Then append &#x27;:asc&#x27; or &#x27;:desc&#x27; for ascending or descending sort.&lt;br&gt;Sorting is case-sensitive.
@@ -1203,7 +1203,7 @@ func (a *BackupApiService) ListBackups(ctx context.Context, localVarOptionals *B
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-BackupApiService Create live-clone of a specific backup. It requires Application Manage, Host Manage or Liveclone Manage rights.
+BackupApiService Create live-clone of a specific backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupId
  * @param optional nil or *BackupApiLiveCloneBackupOpts - Optional Parameters:
@@ -1346,7 +1346,7 @@ func (a *BackupApiService) LiveCloneBackup(ctx context.Context, backupId string,
 	return localVarHttpResponse, nil
 }
 /*
-BackupApiService Submit restore-migrate for Oracle restore-mounted image
+BackupApiService Submit restore-migrate for Oracle restore-mounted image. It requires backupdr.managementServers.manageMigrations and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupid Id of the restore-mounted image to be migrated
  * @param optional nil or *BackupApiMigrateRestoreMountBackupOpts - Optional Parameters:
@@ -1489,7 +1489,7 @@ func (a *BackupApiService) MigrateRestoreMountBackup(ctx context.Context, backup
 	return localVarHttpResponse, nil
 }
 /*
-BackupApiService Mount a specific backup. It requires Application Manage, Host Manage or Mount Manage rights.
+BackupApiService Mount a specific backup. It require backupdr.managementServers.manageMounts IAM permission for mounting any backup, backupdr.managementServers.manageRestores IAM permission for restoring GCE backup, and backupdr.managementServers.accessSensitiveData IAM permission to access sensitive backup
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupId
  * @param optional nil or *BackupApiMountBackupOpts - Optional Parameters:
@@ -1632,7 +1632,7 @@ func (a *BackupApiService) MountBackup(ctx context.Context, backupId string, loc
 	return localVarHttpResponse, nil
 }
 /*
-BackupApiService Performs preflight check for Oracle restore-mount/restore-migrate operations
+BackupApiService Performs preflight check for Oracle restore-mount/restore-migrate operations. It requires backupdr.managementServers.manageMigrations and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupid Id of the backup image which will be restore-mounted or restore-migrated.
  * @param optional nil or *BackupApiMountMigratePreflightOpts - Optional Parameters:
@@ -1792,11 +1792,11 @@ func (a *BackupApiService) MountMigratePreflight(ctx context.Context, backupid s
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-BackupApiService Describes the fields available for filtering and sorting
+BackupApiService Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return OptionsRest
 */
-func (a *BackupApiService) OptionsForList4(ctx context.Context) (OptionsRest, *http.Response, error) {
+func (a *BackupApiService) OptionsForListBackup(ctx context.Context) (OptionsRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}
@@ -1937,7 +1937,7 @@ func (a *BackupApiService) OptionsForList4(ctx context.Context) (OptionsRest, *h
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-BackupApiService Prep-mount a specific backup. It requires Application Manage, Host Manage, Mount Manage or Liveclone Manage rights.
+BackupApiService Prep-mount a specific backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupId
  * @param optional nil or *BackupApiPrepMountLiveCloneNewOpts - Optional Parameters:
@@ -2080,7 +2080,7 @@ func (a *BackupApiService) PrepMountLiveCloneNew(ctx context.Context, backupId s
 	return localVarHttpResponse, nil
 }
 /*
-BackupApiService Prep-unmount a specific backup. It requires Application Manage, Host Manage, Mount Manage or Liveclone Manage rights.
+BackupApiService Prep-unmount a specific backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupId
  * @param optional nil or *BackupApiPrepUnmountBackupOpts - Optional Parameters:
@@ -2223,7 +2223,7 @@ func (a *BackupApiService) PrepUnmountBackup(ctx context.Context, backupId strin
 	return localVarHttpResponse, nil
 }
 /*
-BackupApiService Refresh a live-clone backup. It requires Application Manage, Host Manage or Liveclone Manage rights.
+BackupApiService Refresh a live-clone backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupId
  * @param optional nil or *BackupApiRefreshLiveCloneOpts - Optional Parameters:
@@ -2366,7 +2366,7 @@ func (a *BackupApiService) RefreshLiveClone(ctx context.Context, backupId string
 	return localVarHttpResponse, nil
 }
 /*
-BackupApiService Restore an application from a specific backup. It requires Application Manage, Host Manage, Restore Manage or Mirroring Manage rights.
+BackupApiService Restore an application from a specific backup. It requires backupdr.managementServers.manageRestores and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupId
  * @param optional nil or *BackupApiRestoreBackupOpts - Optional Parameters:
@@ -2509,7 +2509,7 @@ func (a *BackupApiService) RestoreBackup(ctx context.Context, backupId string, l
 	return localVarHttpResponse, nil
 }
 /*
-BackupApiService Unmount a specific backup. It requires Application Manage, Host Manage or Mount Manage rights.
+BackupApiService Unmount a specific backup. It requires backupdr.managementServers.manageMounts and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupId
  * @param optional nil or *BackupApiUnmountBackupOpts - Optional Parameters:
@@ -2657,7 +2657,7 @@ func (a *BackupApiService) UnmountBackup(ctx context.Context, backupId string, l
 	return localVarHttpResponse, nil
 }
 /*
-BackupApiService Update the specific backup. It requires manageExpiration permission to update expiration, and manageBackups permission to update rest of the fields.
+BackupApiService Update the specific backup. It requires backupdr.managementServers.manageExpiration IAM permission to update expiration, backupdr.managementServers.manageBackups IAM permission to update rest of the fields, backupdr.managementServers.accessSensitiveData IAM permission to update sensitive backup, and backupdr.managementServers.manageSensitiveData IAM permission to update sensitivity flag
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param backupId
  * @param optional nil or *BackupApiUpdateBackupOpts - Optional Parameters:

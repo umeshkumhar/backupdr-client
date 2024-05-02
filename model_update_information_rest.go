@@ -9,11 +9,12 @@
 package swagger
 
 type UpdateInformationRest struct {
-	Rebootrequired bool `json:"rebootrequired,omitempty"`
+	Updatetype string `json:"updatetype,omitempty"`
 	Componentname string `json:"componentname,omitempty"`
 	Updateid string `json:"updateid,omitempty"`
 	Readmelink string `json:"readmelink,omitempty"`
 	Expectedduration int64 `json:"expectedduration,omitempty"`
 	Releasedate int64 `json:"releasedate,omitempty"`
 	Duedate int64 `json:"duedate,omitempty"`
+	Updatename string `json:"updatename,omitempty"`
 }

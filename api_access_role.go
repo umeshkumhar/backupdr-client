@@ -773,7 +773,7 @@ AccessRoleApiService Describes the fields available for filtering and sorting
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return OptionsRest
 */
-func (a *AccessRoleApiService) OptionsForList14(ctx context.Context) (OptionsRest, *http.Response, error) {
+func (a *AccessRoleApiService) OptionsForList2(ctx context.Context) (OptionsRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}

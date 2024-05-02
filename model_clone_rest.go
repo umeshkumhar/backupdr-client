@@ -9,12 +9,9 @@
 package swagger
 
 type CloneRest struct {
-	Path string `json:"path,omitempty"`
-	Host *HostRest `json:"host,omitempty"`
 	Label string `json:"label,omitempty"`
 	Hostname string `json:"hostname,omitempty"`
 	Diskpool *DiskPoolRest `json:"diskpool,omitempty"`
-	Vcenter *HostRest `json:"vcenter,omitempty"`
 	Datastore string `json:"datastore,omitempty"`
 	Recoverytime int64 `json:"recoverytime,omitempty"`
 	Poweronvm bool `json:"poweronvm,omitempty"`
@@ -30,14 +27,17 @@ type CloneRest struct {
 	Hypervisor *HostRest `json:"hypervisor,omitempty"`
 	Vmname string `json:"vmname,omitempty"`
 	Esxhost *HostRest `json:"esxhost,omitempty"`
+	Vcenter *HostRest `json:"vcenter,omitempty"`
+	Path string `json:"path,omitempty"`
+	Host *HostRest `json:"host,omitempty"`
 	Container bool `json:"container,omitempty"`
 	Allowedips []string `json:"allowedips,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

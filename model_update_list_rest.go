@@ -10,5 +10,6 @@ package swagger
 
 type UpdateListRest struct {
 	Scheduletime int64 `json:"scheduletime,omitempty"`
+	Force bool `json:"force,omitempty"`
 	Updateids []int64 `json:"updateids,omitempty"`
 }

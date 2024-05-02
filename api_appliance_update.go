@@ -26,7 +26,7 @@ var (
 
 type ApplianceUpdateApiService service
 /*
-ApplianceUpdateApiService Get a count of total applianceupdates matching the filters.
+ApplianceUpdateApiService Get a count of total applianceupdates matching the filters. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ApplianceUpdateApiCountApplianceUpdatesOpts - Optional Parameters:
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -164,7 +164,7 @@ func (a *ApplianceUpdateApiService) CountApplianceUpdates(ctx context.Context, l
 	return localVarHttpResponse, nil
 }
 /*
-ApplianceUpdateApiService Deletes the schedule for update
+ApplianceUpdateApiService Deletes the schedule for update. It requires backupdr.managementServers.manageSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ApplianceUpdateApiDeleteScheduleOpts - Optional Parameters:
      * @param "Body" (optional.Interface of UpdateListRest) - 
@@ -305,7 +305,7 @@ func (a *ApplianceUpdateApiService) DeleteSchedule(ctx context.Context, localVar
 	return localVarHttpResponse, nil
 }
 /*
-ApplianceUpdateApiService Discover new updates for the managed appliances.
+ApplianceUpdateApiService Discover new updates for the managed appliances. It requires backupdr.managementServers.manageSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 
 */
@@ -433,7 +433,7 @@ func (a *ApplianceUpdateApiService) DiscoverUpdates(ctx context.Context) (*http.
 	return localVarHttpResponse, nil
 }
 /*
-ApplianceUpdateApiService Get update details.
+ApplianceUpdateApiService Get update details. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param updateId
 @return ApplianceUpdateRest
@@ -580,7 +580,7 @@ func (a *ApplianceUpdateApiService) GetApplianceUpdate(ctx context.Context, upda
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplianceUpdateApiService Fetch the notifications that needs to be displayed to the user
+ApplianceUpdateApiService Fetch the notifications that needs to be displayed to the user. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return ListRest
 */
@@ -725,18 +725,18 @@ func (a *ApplianceUpdateApiService) GetNotifications(ctx context.Context) (ListR
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplianceUpdateApiService Get readme with respect to the update id passed.
+ApplianceUpdateApiService Get readme with respect to the update id passed. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param optional nil or *ApplianceUpdateApiGetReadMe1Opts - Optional Parameters:
+ * @param optional nil or *ApplianceUpdateApiGetReadMeForApplianceUpdateOpts - Optional Parameters:
      * @param "Id" (optional.Int64) - 
 @return ApplianceUpdateReadmeRest
 */
 
-type ApplianceUpdateApiGetReadMe1Opts struct {
+type ApplianceUpdateApiGetReadMeForApplianceUpdateOpts struct {
     Id optional.Int64
 }
 
-func (a *ApplianceUpdateApiService) GetReadMe1(ctx context.Context, localVarOptionals *ApplianceUpdateApiGetReadMe1Opts) (ApplianceUpdateReadmeRest, *http.Response, error) {
+func (a *ApplianceUpdateApiService) GetReadMeForApplianceUpdate(ctx context.Context, localVarOptionals *ApplianceUpdateApiGetReadMeForApplianceUpdateOpts) (ApplianceUpdateReadmeRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Get")
 		localVarPostBody   interface{}
@@ -880,7 +880,7 @@ func (a *ApplianceUpdateApiService) GetReadMe1(ctx context.Context, localVarOpti
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplianceUpdateApiService Install the updates now.
+ApplianceUpdateApiService Install the updates now. It requires backupdr.managementServers.manageSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ApplianceUpdateApiInstallApplianceUpdateNowOpts - Optional Parameters:
      * @param "Body" (optional.Interface of UpdateListRest) - 
@@ -1021,7 +1021,7 @@ func (a *ApplianceUpdateApiService) InstallApplianceUpdateNow(ctx context.Contex
 	return localVarHttpResponse, nil
 }
 /*
-ApplianceUpdateApiService Get the list of actionable updates.
+ApplianceUpdateApiService Get the list of actionable updates. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ApplianceUpdateApiListApplianceUpdatesOpts - Optional Parameters:
      * @param "Sort" (optional.String) -  Sort field. Use OPTIONS method to get possible sort fields.&lt;br&gt;Then append &#x27;:asc&#x27; or &#x27;:desc&#x27; for ascending or descending sort.&lt;br&gt;Sorting is case-sensitive.
@@ -1191,11 +1191,11 @@ func (a *ApplianceUpdateApiService) ListApplianceUpdates(ctx context.Context, lo
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplianceUpdateApiService Describes the fields available for filtering and sorting
+ApplianceUpdateApiService Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return OptionsRest
 */
-func (a *ApplianceUpdateApiService) OptionsForList1(ctx context.Context) (OptionsRest, *http.Response, error) {
+func (a *ApplianceUpdateApiService) OptionsForListApplianceUpdates(ctx context.Context) (OptionsRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}
@@ -1338,10 +1338,16 @@ func (a *ApplianceUpdateApiService) OptionsForList1(ctx context.Context) (Option
 /*
 ApplianceUpdateApiService Update the acknowledge status of the notification to true
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param id
+ * @param optional nil or *ApplianceUpdateApiUpdateNotificationForApplianceUpdateOpts - Optional Parameters:
+     * @param "Body" (optional.Interface of ApplianceUpdateNotificationRest) - 
 
 */
-func (a *ApplianceUpdateApiService) UpdateNotification1(ctx context.Context, id string) (*http.Response, error) {
+
+type ApplianceUpdateApiUpdateNotificationForApplianceUpdateOpts struct {
+    Body optional.Interface
+}
+
+func (a *ApplianceUpdateApiService) UpdateNotificationForApplianceUpdate(ctx context.Context, localVarOptionals *ApplianceUpdateApiUpdateNotificationForApplianceUpdateOpts) (*http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Put")
 		localVarPostBody   interface{}
@@ -1351,15 +1357,14 @@ func (a *ApplianceUpdateApiService) UpdateNotification1(ctx context.Context, id 
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/applianceupdate/notification/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", fmt.Sprintf("%v", id), -1)
+	localVarPath := a.client.cfg.BasePath + "/applianceupdate/notification"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{}
+	localVarHttpContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
@@ -1374,6 +1379,12 @@ func (a *ApplianceUpdateApiService) UpdateNotification1(ctx context.Context, id 
 	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
 	if localVarHttpHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
+	}
+	// body params
+	if localVarOptionals != nil && localVarOptionals.Body.IsSet() {
+		
+		localVarOptionalBody:= localVarOptionals.Body.Value()
+		localVarPostBody = &localVarOptionalBody
 	}
 	if ctx != nil {
 		// API Key Authentication
@@ -1466,7 +1477,7 @@ func (a *ApplianceUpdateApiService) UpdateNotification1(ctx context.Context, id 
 	return localVarHttpResponse, nil
 }
 /*
-ApplianceUpdateApiService Creates the schedule for update
+ApplianceUpdateApiService Creates the schedule for update. It requires backupdr.managementServers.manageSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ApplianceUpdateApiUpdateScheduleOpts - Optional Parameters:
      * @param "Body" (optional.Interface of UpdateListRest) - 

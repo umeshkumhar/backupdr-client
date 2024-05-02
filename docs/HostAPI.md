@@ -4,23 +4,24 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddApplication**](HostApi.md#AddApplication) | **Post** /host/{host_id}/addapplication | Create a new application on the specific host. It requires Application Manage or Host Manage rights.
-[**AppDiscovery**](HostApi.md#AppDiscovery) | **Post** /host/{host_id}/appdiscovery | Discover applications on the specific host. It requires Application Manage or Host Manage rights.
-[**CountHosts**](HostApi.md#CountHosts) | **Head** /host | Get a count of total hosts matching the filters.
-[**CreateHost**](HostApi.md#CreateHost) | **Post** /host | Create a new host. It requires Application Manage or Host Manage rights.
-[**DeleteHost**](HostApi.md#DeleteHost) | **Delete** /host/{host_id} | Delete a host completely or remove the host from selective appliances. It requires Application Manage or Host Manage rights.
+[**AddApplication**](HostApi.md#AddApplication) | **Post** /host/{host_id}/addapplication | Create a new application on the specific host. It requires backupdr.managementServers.manageApplications IAM permission
+[**AppDiscovery**](HostApi.md#AppDiscovery) | **Post** /host/{host_id}/appdiscovery | Discover applications on the specific host. It requires backupdr.managementServers.manageApplications IAM permission
+[**CountHosts**](HostApi.md#CountHosts) | **Head** /host | Get a count of total hosts matching the filters. It requires backupdr.managementServers.access IAM permission
+[**CreateHost**](HostApi.md#CreateHost) | **Post** /host | Create a new host. It requires backupdr.managementServers.manageHosts IAM permission
+[**DeleteHost**](HostApi.md#DeleteHost) | **Delete** /host/{host_id} | Delete a host completely or remove the host from selective appliances. It requires backupdr.managementServers.manageHosts IAM permission
 [**EnableConnectorUpgrade**](HostApi.md#EnableConnectorUpgrade) | **Post** /host/enableconnectorupgrade | 
-[**GetHost**](HostApi.md#GetHost) | **Get** /host/{host_id} | Get individual host details.
-[**ListHosts**](HostApi.md#ListHosts) | **Get** /host | Get a list of host.
-[**OptionsForList9**](HostApi.md#OptionsForList9) | **Options** /host | Describes the fields available for filtering and sorting
-[**RevokeCertificate**](HostApi.md#RevokeCertificate) | **Put** /host/revokeCertificate | Revokes existing certificates of passed in host and blocks them from creating any new certificates. It requires Host Manage rights.
-[**UpdateHost**](HostApi.md#UpdateHost) | **Put** /host/{host_id} | Update a host. It requires Application Manage or Host Manage rights.
-[**VmAddNew**](HostApi.md#VmAddNew) | **Post** /host/{host_id}/host/{cluster_name}/addvms | Add discovered VMs to appliances asynchronously. It requires Hosts Manage right.
-[**VmDiscoveryWithoutCluster**](HostApi.md#VmDiscoveryWithoutCluster) | **Get** /host/{host_id}/discovervm | Discover VMS on the specific host. It requires Host Manage right.
+[**GetHost**](HostApi.md#GetHost) | **Get** /host/{host_id} | Get individual host details. It requires backupdr.managementServers.access IAM permission
+[**ListHosts**](HostApi.md#ListHosts) | **Get** /host | Get a list of host. It requires backupdr.managementServers.access IAM permission
+[**OptionsForListHost**](HostApi.md#OptionsForListHost) | **Options** /host | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+[**RevokeCertificate**](HostApi.md#RevokeCertificate) | **Put** /host/revokeCertificate | Revokes existing certificates of passed in host and blocks them from creating any new certificates. It requires backupdr.managementServers.manageHosts IAM permission
+[**TestConnectorConnection**](HostApi.md#TestConnectorConnection) | **Post** /host/{hostid}/testconnectorconnection | 
+[**UpdateHost**](HostApi.md#UpdateHost) | **Put** /host/{host_id} | Update a host. It requires backupdr.managementServers.manageHosts IAM permission
+[**VmAddNew**](HostApi.md#VmAddNew) | **Post** /host/{host_id}/host/{cluster_name}/addvms | Add discovered VMs to appliances asynchronously. It requires backupdr.managementServers.manageHosts IAM permission
+[**VmDiscoveryWithoutCluster**](HostApi.md#VmDiscoveryWithoutCluster) | **Get** /host/{host_id}/discovervm | Discover VMS on the specific host. It requires backupdr.managementServers.manageHosts IAM permission
 
 # **AddApplication**
 > ListApplicationRest AddApplication(ctx, hostId, optional)
-Create a new application on the specific host. It requires Application Manage or Host Manage rights.
+Create a new application on the specific host. It requires backupdr.managementServers.manageApplications IAM permission
 
 ### Required Parameters
 
@@ -54,7 +55,7 @@ Name | Type | Description  | Notes
 
 # **AppDiscovery**
 > ListApplicationRest AppDiscovery(ctx, hostId, optional)
-Discover applications on the specific host. It requires Application Manage or Host Manage rights.
+Discover applications on the specific host. It requires backupdr.managementServers.manageApplications IAM permission
 
 ### Required Parameters
 
@@ -88,7 +89,7 @@ Name | Type | Description  | Notes
 
 # **CountHosts**
 > CountHosts(ctx, optional)
-Get a count of total hosts matching the filters.
+Get a count of total hosts matching the filters. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -120,7 +121,7 @@ Name | Type | Description  | Notes
 
 # **CreateHost**
 > HostRest CreateHost(ctx, optional)
-Create a new host. It requires Application Manage or Host Manage rights.
+Create a new host. It requires backupdr.managementServers.manageHosts IAM permission
 
 ### Required Parameters
 
@@ -152,7 +153,7 @@ Name | Type | Description  | Notes
 
 # **DeleteHost**
 > DeleteHost(ctx, hostId)
-Delete a host completely or remove the host from selective appliances. It requires Application Manage or Host Manage rights.
+Delete a host completely or remove the host from selective appliances. It requires backupdr.managementServers.manageHosts IAM permission
 
 ### Required Parameters
 
@@ -210,7 +211,7 @@ Name | Type | Description  | Notes
 
 # **GetHost**
 > HostRest GetHost(ctx, hostId, optional)
-Get individual host details.
+Get individual host details. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -226,6 +227,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **fetchExtraInfo** | **optional.Bool**|  | 
+ **fetchConnectorConnectionStatus** | **optional.Bool**|  | 
 
 ### Return type
 
@@ -244,7 +246,7 @@ Name | Type | Description  | Notes
 
 # **ListHosts**
 > ListHostRest ListHosts(ctx, optional)
-Get a list of host.
+Get a list of host. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -277,9 +279,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList9**
-> OptionsRest OptionsForList9(ctx, )
-Describes the fields available for filtering and sorting
+# **OptionsForListHost**
+> OptionsRest OptionsForListHost(ctx, )
+Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -301,7 +303,7 @@ This endpoint does not need any parameter.
 
 # **RevokeCertificate**
 > CertificateRevocationRest RevokeCertificate(ctx, optional)
-Revokes existing certificates of passed in host and blocks them from creating any new certificates. It requires Host Manage rights.
+Revokes existing certificates of passed in host and blocks them from creating any new certificates. It requires backupdr.managementServers.manageHosts IAM permission
 
 ### Required Parameters
 
@@ -331,9 +333,35 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **TestConnectorConnection**
+> TestConnectorConnection(ctx, hostid)
+
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **hostid** | **string**|  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **UpdateHost**
 > HostRest UpdateHost(ctx, hostId, optional)
-Update a host. It requires Application Manage or Host Manage rights.
+Update a host. It requires backupdr.managementServers.manageHosts IAM permission
 
 ### Required Parameters
 
@@ -368,7 +396,7 @@ Name | Type | Description  | Notes
 
 # **VmAddNew**
 > VmAddNew(ctx, hostId, clusterName, optional)
-Add discovered VMs to appliances asynchronously. It requires Hosts Manage right.
+Add discovered VMs to appliances asynchronously. It requires backupdr.managementServers.manageHosts IAM permission
 
 ### Required Parameters
 
@@ -404,7 +432,7 @@ Name | Type | Description  | Notes
 
 # **VmDiscoveryWithoutCluster**
 > VmDiscoveryWithoutCluster(ctx, hostId)
-Discover VMS on the specific host. It requires Host Manage right.
+Discover VMS on the specific host. It requires backupdr.managementServers.manageHosts IAM permission
 
 ### Required Parameters
 

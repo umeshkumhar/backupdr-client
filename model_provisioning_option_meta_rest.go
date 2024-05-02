@@ -9,24 +9,24 @@
 package swagger
 
 type ProvisioningOptionMetaRest struct {
-	Choice []ChoiceMetaRest `json:"choice,omitempty"`
+	Required bool `json:"required,omitempty"`
 	ValidationRegex string `json:"validationRegex,omitempty"`
 	Unique bool `json:"unique,omitempty"`
 	Restoreimmutable bool `json:"restoreimmutable,omitempty"`
-	Required bool `json:"required,omitempty"`
 	Description string `json:"description,omitempty"`
+	Alias string `json:"alias,omitempty"`
+	Choice []ChoiceMetaRest `json:"choice,omitempty"`
+	Select_ bool `json:"select,omitempty"`
 	Name string `json:"name,omitempty"`
 	Value []NameValueRest `json:"value,omitempty"`
 	Type_ string `json:"type,omitempty"`
 	DefaultValue string `json:"defaultValue,omitempty"`
-	Alias string `json:"alias,omitempty"`
-	Select_ bool `json:"select,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

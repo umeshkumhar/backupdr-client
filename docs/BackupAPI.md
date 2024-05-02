@@ -4,29 +4,29 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CloneBackup**](BackupApi.md#CloneBackup) | **Post** /backup/{backup_id}/clone | Clone a specific backup. It requires Application Manage, Host Manage or Clone Manage rights.
-[**CountBackups**](BackupApi.md#CountBackups) | **Head** /backup | Get a count of total backups matching the filters.
-[**DeleteBackup**](BackupApi.md#DeleteBackup) | **Delete** /backup/{backup_id} | Delete a specific backup. It requires Application Manage, Host Manage or Backup Manage rights.
-[**ExpireBackup**](BackupApi.md#ExpireBackup) | **Post** /backup/{backup_id}/expire | Expire a specific backup. It requires the manageExpiration permission
-[**FetchApplicationOptions**](BackupApi.md#FetchApplicationOptions) | **Get** /backup/{backupid}/applicationOptions | Gets the dynamic list of application options and corresponding default value (if any) for given backup image.
-[**GetBackup**](BackupApi.md#GetBackup) | **Get** /backup/{backup_id} | Get individual backup details.
-[**GetDiskMapping**](BackupApi.md#GetDiskMapping) | **Get** /backup/{backupid}/diskmapping | Gets disk mapping options for restore (source disks, target disks, RAC node list etc)
-[**ListBackups**](BackupApi.md#ListBackups) | **Get** /backup | Get a list of backups.
-[**LiveCloneBackup**](BackupApi.md#LiveCloneBackup) | **Post** /backup/{backup_id}/liveclone | Create live-clone of a specific backup. It requires Application Manage, Host Manage or Liveclone Manage rights.
-[**MigrateRestoreMountBackup**](BackupApi.md#MigrateRestoreMountBackup) | **Post** /backup/{backupid}/restoremigrate | Submit restore-migrate for Oracle restore-mounted image
-[**MountBackup**](BackupApi.md#MountBackup) | **Post** /backup/{backup_id}/mount | Mount a specific backup. It requires Application Manage, Host Manage or Mount Manage rights.
-[**MountMigratePreflight**](BackupApi.md#MountMigratePreflight) | **Post** /backup/{backupid}/mountmigratepreflight | Performs preflight check for Oracle restore-mount/restore-migrate operations
-[**OptionsForList4**](BackupApi.md#OptionsForList4) | **Options** /backup | Describes the fields available for filtering and sorting
-[**PrepMountLiveCloneNew**](BackupApi.md#PrepMountLiveCloneNew) | **Post** /backup/{backup_id}/prepmount | Prep-mount a specific backup. It requires Application Manage, Host Manage, Mount Manage or Liveclone Manage rights.
-[**PrepUnmountBackup**](BackupApi.md#PrepUnmountBackup) | **Post** /backup/{backup_id}/prepunmount | Prep-unmount a specific backup. It requires Application Manage, Host Manage, Mount Manage or Liveclone Manage rights.
-[**RefreshLiveClone**](BackupApi.md#RefreshLiveClone) | **Post** /backup/{backup_id}/refresh | Refresh a live-clone backup. It requires Application Manage, Host Manage or Liveclone Manage rights.
-[**RestoreBackup**](BackupApi.md#RestoreBackup) | **Post** /backup/{backup_id}/restore | Restore an application from a specific backup. It requires Application Manage, Host Manage, Restore Manage or Mirroring Manage rights.
-[**UnmountBackup**](BackupApi.md#UnmountBackup) | **Post** /backup/{backup_id}/unmount | Unmount a specific backup. It requires Application Manage, Host Manage or Mount Manage rights.
-[**UpdateBackup**](BackupApi.md#UpdateBackup) | **Put** /backup/{backup_id} | Update the specific backup. It requires manageExpiration permission to update expiration, and manageBackups permission to update rest of the fields.
+[**CloneBackup**](BackupApi.md#CloneBackup) | **Post** /backup/{backup_id}/clone | Clone a specific backup. It requires backupdr.managementServers.manageClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+[**CountBackups**](BackupApi.md#CountBackups) | **Head** /backup | Get a count of total backups matching the filters. It requires backupdr.managementServers.access IAM permission
+[**DeleteBackup**](BackupApi.md#DeleteBackup) | **Delete** /backup/{backup_id} | Delete a specific backup. It requires backupdr.managementServers.manageExpiration and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+[**ExpireBackup**](BackupApi.md#ExpireBackup) | **Post** /backup/{backup_id}/expire | Expire a specific backup. It requires backupdr.managementServers.manageExpiration and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+[**FetchApplicationOptions**](BackupApi.md#FetchApplicationOptions) | **Get** /backup/{backupid}/applicationOptions | Gets the dynamic list of application options and corresponding default value (if any) for given backup image. It requires backupdr.managementServers.manageBackups and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+[**GetBackup**](BackupApi.md#GetBackup) | **Get** /backup/{backup_id} | Get individual backup details. It requires backupdr.managementServers.access and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+[**GetDiskMapping**](BackupApi.md#GetDiskMapping) | **Get** /backup/{backupid}/diskmapping | Gets disk mapping options for restore (source disks, target disks, RAC node list etc). It requires backupdr.managementServers.manageBackups and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+[**ListBackups**](BackupApi.md#ListBackups) | **Get** /backup | Get a list of backups. It requires backupdr.managementServers.access IAM permission
+[**LiveCloneBackup**](BackupApi.md#LiveCloneBackup) | **Post** /backup/{backup_id}/liveclone | Create live-clone of a specific backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+[**MigrateRestoreMountBackup**](BackupApi.md#MigrateRestoreMountBackup) | **Post** /backup/{backupid}/restoremigrate | Submit restore-migrate for Oracle restore-mounted image. It requires backupdr.managementServers.manageMigrations and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+[**MountBackup**](BackupApi.md#MountBackup) | **Post** /backup/{backup_id}/mount | Mount a specific backup. It require backupdr.managementServers.manageMounts IAM permission for mounting any backup, backupdr.managementServers.manageRestores IAM permission for restoring GCE backup, and backupdr.managementServers.accessSensitiveData IAM permission to access sensitive backup
+[**MountMigratePreflight**](BackupApi.md#MountMigratePreflight) | **Post** /backup/{backupid}/mountmigratepreflight | Performs preflight check for Oracle restore-mount/restore-migrate operations. It requires backupdr.managementServers.manageMigrations and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+[**OptionsForListBackup**](BackupApi.md#OptionsForListBackup) | **Options** /backup | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+[**PrepMountLiveCloneNew**](BackupApi.md#PrepMountLiveCloneNew) | **Post** /backup/{backup_id}/prepmount | Prep-mount a specific backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+[**PrepUnmountBackup**](BackupApi.md#PrepUnmountBackup) | **Post** /backup/{backup_id}/prepunmount | Prep-unmount a specific backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+[**RefreshLiveClone**](BackupApi.md#RefreshLiveClone) | **Post** /backup/{backup_id}/refresh | Refresh a live-clone backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+[**RestoreBackup**](BackupApi.md#RestoreBackup) | **Post** /backup/{backup_id}/restore | Restore an application from a specific backup. It requires backupdr.managementServers.manageRestores and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+[**UnmountBackup**](BackupApi.md#UnmountBackup) | **Post** /backup/{backup_id}/unmount | Unmount a specific backup. It requires backupdr.managementServers.manageMounts and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
+[**UpdateBackup**](BackupApi.md#UpdateBackup) | **Put** /backup/{backup_id} | Update the specific backup. It requires backupdr.managementServers.manageExpiration IAM permission to update expiration, backupdr.managementServers.manageBackups IAM permission to update rest of the fields, backupdr.managementServers.accessSensitiveData IAM permission to update sensitive backup, and backupdr.managementServers.manageSensitiveData IAM permission to update sensitivity flag
 
 # **CloneBackup**
 > CloneBackup(ctx, backupId, optional)
-Clone a specific backup. It requires Application Manage, Host Manage or Clone Manage rights.
+Clone a specific backup. It requires backupdr.managementServers.manageClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
 
 ### Required Parameters
 
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 
 # **CountBackups**
 > CountBackups(ctx, optional)
-Get a count of total backups matching the filters.
+Get a count of total backups matching the filters. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 # **DeleteBackup**
 > DeleteBackup(ctx, backupId)
-Delete a specific backup. It requires Application Manage, Host Manage or Backup Manage rights.
+Delete a specific backup. It requires backupdr.managementServers.manageExpiration and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
 
 ### Required Parameters
 
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 # **ExpireBackup**
 > ExpireBackup(ctx, backupId, optional)
-Expire a specific backup. It requires the manageExpiration permission
+Expire a specific backup. It requires backupdr.managementServers.manageExpiration and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
 
 ### Required Parameters
 
@@ -152,7 +152,7 @@ Name | Type | Description  | Notes
 
 # **FetchApplicationOptions**
 > AppClassRest FetchApplicationOptions(ctx, backupid)
-Gets the dynamic list of application options and corresponding default value (if any) for given backup image.
+Gets the dynamic list of application options and corresponding default value (if any) for given backup image. It requires backupdr.managementServers.manageBackups and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
 
 ### Required Parameters
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 # **GetBackup**
 > BackupRest GetBackup(ctx, backupId)
-Get individual backup details.
+Get individual backup details. It requires backupdr.managementServers.access and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
 
 ### Required Parameters
 
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 # **GetDiskMapping**
 > DiskMappingRest GetDiskMapping(ctx, backupid, optional)
-Gets disk mapping options for restore (source disks, target disks, RAC node list etc)
+Gets disk mapping options for restore (source disks, target disks, RAC node list etc). It requires backupdr.managementServers.manageBackups and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
 
 ### Required Parameters
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 # **ListBackups**
 > ListBackupRest ListBackups(ctx, optional)
-Get a list of backups.
+Get a list of backups. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 # **LiveCloneBackup**
 > LiveCloneBackup(ctx, backupId, optional)
-Create live-clone of a specific backup. It requires Application Manage, Host Manage or Liveclone Manage rights.
+Create live-clone of a specific backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
 
 ### Required Parameters
 
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 # **MigrateRestoreMountBackup**
 > MigrateRestoreMountBackup(ctx, backupid, optional)
-Submit restore-migrate for Oracle restore-mounted image
+Submit restore-migrate for Oracle restore-mounted image. It requires backupdr.managementServers.manageMigrations and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
 
 ### Required Parameters
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 # **MountBackup**
 > MountBackup(ctx, backupId, optional)
-Mount a specific backup. It requires Application Manage, Host Manage or Mount Manage rights.
+Mount a specific backup. It require backupdr.managementServers.manageMounts IAM permission for mounting any backup, backupdr.managementServers.manageRestores IAM permission for restoring GCE backup, and backupdr.managementServers.accessSensitiveData IAM permission to access sensitive backup
 
 ### Required Parameters
 
@@ -376,7 +376,7 @@ Name | Type | Description  | Notes
 
 # **MountMigratePreflight**
 > RestorePreflightRest MountMigratePreflight(ctx, backupid, optional)
-Performs preflight check for Oracle restore-mount/restore-migrate operations
+Performs preflight check for Oracle restore-mount/restore-migrate operations. It requires backupdr.managementServers.manageMigrations and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
 
 ### Required Parameters
 
@@ -408,9 +408,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList4**
-> OptionsRest OptionsForList4(ctx, )
-Describes the fields available for filtering and sorting
+# **OptionsForListBackup**
+> OptionsRest OptionsForListBackup(ctx, )
+Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -432,7 +432,7 @@ This endpoint does not need any parameter.
 
 # **PrepMountLiveCloneNew**
 > PrepMountLiveCloneNew(ctx, backupId, optional)
-Prep-mount a specific backup. It requires Application Manage, Host Manage, Mount Manage or Liveclone Manage rights.
+Prep-mount a specific backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
 
 ### Required Parameters
 
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 
 # **PrepUnmountBackup**
 > PrepUnmountBackup(ctx, backupId, optional)
-Prep-unmount a specific backup. It requires Application Manage, Host Manage, Mount Manage or Liveclone Manage rights.
+Prep-unmount a specific backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
 
 ### Required Parameters
 
@@ -500,7 +500,7 @@ Name | Type | Description  | Notes
 
 # **RefreshLiveClone**
 > RefreshLiveClone(ctx, backupId, optional)
-Refresh a live-clone backup. It requires Application Manage, Host Manage or Liveclone Manage rights.
+Refresh a live-clone backup. It requires backupdr.managementServers.manageLiveClones and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
 
 ### Required Parameters
 
@@ -534,7 +534,7 @@ Name | Type | Description  | Notes
 
 # **RestoreBackup**
 > RestoreBackup(ctx, backupId, optional)
-Restore an application from a specific backup. It requires Application Manage, Host Manage, Restore Manage or Mirroring Manage rights.
+Restore an application from a specific backup. It requires backupdr.managementServers.manageRestores and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
 
 ### Required Parameters
 
@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
 
 # **UnmountBackup**
 > UnmountBackup(ctx, backupId, optional)
-Unmount a specific backup. It requires Application Manage, Host Manage or Mount Manage rights.
+Unmount a specific backup. It requires backupdr.managementServers.manageMounts and backupdr.managementServers.accessSensitiveData (for sensitive backup) IAM permissions
 
 ### Required Parameters
 
@@ -603,7 +603,7 @@ Name | Type | Description  | Notes
 
 # **UpdateBackup**
 > BackupRest UpdateBackup(ctx, backupId, optional)
-Update the specific backup. It requires manageExpiration permission to update expiration, and manageBackups permission to update rest of the fields.
+Update the specific backup. It requires backupdr.managementServers.manageExpiration IAM permission to update expiration, backupdr.managementServers.manageBackups IAM permission to update rest of the fields, backupdr.managementServers.accessSensitiveData IAM permission to update sensitive backup, and backupdr.managementServers.manageSensitiveData IAM permission to update sensitivity flag
 
 ### Required Parameters
 

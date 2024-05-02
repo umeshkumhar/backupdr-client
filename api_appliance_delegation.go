@@ -26,7 +26,7 @@ var (
 
 type ApplianceDelegationApiService service
 /*
-ApplianceDelegationApiService Download logs from backup/recovery appliance
+ApplianceDelegationApiService Download logs from backup/recovery appliance. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param clusterId
 @return interface{}
@@ -173,7 +173,7 @@ func (a *ApplianceDelegationApiService) DelegateGetCallDownloadLog(ctx context.C
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplianceDelegationApiService Download connectors from backup/recovery appliance
+ApplianceDelegationApiService Download connectors from backup/recovery appliance. It requires backupdr.managementServers.manageSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param connectorname
  * @param clusterId
@@ -322,7 +322,7 @@ func (a *ApplianceDelegationApiService) DownloadConnector(ctx context.Context, c
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplianceDelegationApiService Download zip file containing licenses and notices for open-source components from backup/recovery appliance
+ApplianceDelegationApiService Download zip file containing licenses and notices for open-source components from backup/recovery appliance. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param clusterId
 @return interface{}
@@ -469,7 +469,7 @@ func (a *ApplianceDelegationApiService) DownloadOssNotice(ctx context.Context, c
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplianceDelegationApiService Upload software upgrade packages
+ApplianceDelegationApiService Upload software upgrade packages. It requires backupdr.managementServers.manageSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param clusterId
  * @param optional nil or *ApplianceDelegationApiUploadSoftwareUpgradeToApplianceOpts - Optional Parameters:

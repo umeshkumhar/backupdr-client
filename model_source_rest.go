@@ -10,7 +10,7 @@ package swagger
 
 type SourceRest struct {
 	Slps []SlpRest `json:"slps,omitempty"`
-	Host *HostRest `json:"host,omitempty"`
 	Srcid string `json:"srcid,omitempty"`
 	Clusterid string `json:"clusterid,omitempty"`
+	Host *HostRest `json:"host,omitempty"`
 }

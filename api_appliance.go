@@ -26,7 +26,7 @@ var (
 
 type ApplianceApiService service
 /*
-ApplianceApiService Get a count of total appliances matching the filters.
+ApplianceApiService Get a count of total appliances matching the filters. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ApplianceApiCountClustersOpts - Optional Parameters:
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -164,7 +164,7 @@ func (a *ApplianceApiService) CountClusters(ctx context.Context, localVarOptiona
 	return localVarHttpResponse, nil
 }
 /*
-ApplianceApiService Get individual appliance.
+ApplianceApiService Get individual appliance. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param clusterId
  * @param optional nil or *ApplianceApiGetClusterOpts - Optional Parameters:
@@ -321,7 +321,7 @@ func (a *ApplianceApiService) GetCluster(ctx context.Context, clusterId int64, l
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplianceApiService Get a list of appliances.
+ApplianceApiService Get a list of appliances. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *ApplianceApiListClustersOpts - Optional Parameters:
      * @param "Sort" (optional.String) -  Sort field. Use OPTIONS method to get possible sort fields.&lt;br&gt;Then append &#x27;:asc&#x27; or &#x27;:desc&#x27; for ascending or descending sort.&lt;br&gt;Sorting is case-sensitive.
@@ -496,11 +496,11 @@ func (a *ApplianceApiService) ListClusters(ctx context.Context, localVarOptional
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-ApplianceApiService Describes the fields available for filtering and sorting
+ApplianceApiService Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return OptionsRest
 */
-func (a *ApplianceApiService) OptionsForList5(ctx context.Context) (OptionsRest, *http.Response, error) {
+func (a *ApplianceApiService) OptionsForListCluster(ctx context.Context) (OptionsRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}

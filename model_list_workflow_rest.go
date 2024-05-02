@@ -9,6 +9,6 @@
 package swagger
 
 type ListWorkflowRest struct {
-	Count int32 `json:"count,omitempty"`
 	Items []WorkflowRest `json:"items,omitempty"`
+	Count int32 `json:"count,omitempty"`
 }

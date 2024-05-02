@@ -12,20 +12,20 @@ type AppDiscoveryRest struct {
 	Apptypes []string `json:"apptypes,omitempty"`
 	Listonly bool `json:"listonly,omitempty"`
 	Password string `json:"password,omitempty"`
+	Ipaddress string `json:"ipaddress,omitempty"`
+	Cluster string `json:"cluster,omitempty"`
+	Username string `json:"username,omitempty"`
+	Org string `json:"org,omitempty"`
+	Versiononly bool `json:"versiononly,omitempty"`
 	Type_ string `json:"type,omitempty"`
 	Port int32 `json:"port,omitempty"`
 	Host *HostRest `json:"host,omitempty"`
-	Username string `json:"username,omitempty"`
-	Ipaddress string `json:"ipaddress,omitempty"`
-	Cluster string `json:"cluster,omitempty"`
-	Versiononly bool `json:"versiononly,omitempty"`
-	Org string `json:"org,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

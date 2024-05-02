@@ -26,7 +26,7 @@ var (
 
 type StorageArrayApiService service
 /*
-StorageArrayApiService Get a count of total storage arrays matching the filters.
+StorageArrayApiService Get a count of total storage arrays matching the filters. It requires backupdr.managementServers.viewStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *StorageArrayApiCountArraysOpts - Optional Parameters:
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -164,7 +164,7 @@ func (a *StorageArrayApiService) CountArrays(ctx context.Context, localVarOption
 	return localVarHttpResponse, nil
 }
 /*
-StorageArrayApiService Create a storage array. It requires Storage Manage right.
+StorageArrayApiService Create a storage array. It requires backupdr.managementServers.manageStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *StorageArrayApiCreateArrayOpts - Optional Parameters:
      * @param "Body" (optional.Interface of ArrayRest) - 
@@ -322,7 +322,7 @@ func (a *StorageArrayApiService) CreateArray(ctx context.Context, localVarOption
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-StorageArrayApiService Credential test before creating a storage array. It requires Storage Manage right.
+StorageArrayApiService Credential test before creating a storage array. It requires backupdr.managementServers.manageStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *StorageArrayApiCredentialTestOpts - Optional Parameters:
      * @param "Body" (optional.Interface of ArrayRest) - 
@@ -463,7 +463,7 @@ func (a *StorageArrayApiService) CredentialTest(ctx context.Context, localVarOpt
 	return localVarHttpResponse, nil
 }
 /*
-StorageArrayApiService Remove the specific storage array from all appliances. It requires Storage Manage right.
+StorageArrayApiService Remove the specific storage array from all appliances. It requires backupdr.managementServers.manageStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param arrayId
 
@@ -593,7 +593,7 @@ func (a *StorageArrayApiService) DeleteArray(ctx context.Context, arrayId string
 	return localVarHttpResponse, nil
 }
 /*
-StorageArrayApiService Get individual storage array details.
+StorageArrayApiService Get individual storage array details. It requires backupdr.managementServers.viewStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param arrayId
 @return ArrayRest
@@ -740,7 +740,7 @@ func (a *StorageArrayApiService) GetArray(ctx context.Context, arrayId string) (
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-StorageArrayApiService Get all supported storage array types from appliances. It requires Storage View right.
+StorageArrayApiService Get all supported storage array types from appliances. It requires backupdr.managementServers.viewStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return ListArrayTypeRest
 */
@@ -885,7 +885,7 @@ func (a *StorageArrayApiService) GetArrayTypes(ctx context.Context) (ListArrayTy
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-StorageArrayApiService Get a list of storage arrays
+StorageArrayApiService Get a list of storage arrays. It requires backupdr.managementServers.viewStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *StorageArrayApiListArraysOpts - Optional Parameters:
      * @param "Sort" (optional.String) -  Sort field. Use OPTIONS method to get possible sort fields.&lt;br&gt;Then append &#x27;:asc&#x27; or &#x27;:desc&#x27; for ascending or descending sort.&lt;br&gt;Sorting is case-sensitive.
@@ -1055,11 +1055,11 @@ func (a *StorageArrayApiService) ListArrays(ctx context.Context, localVarOptiona
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-StorageArrayApiService Describes the fields available for filtering and sorting
+StorageArrayApiService Describes the fields available for filtering and sorting. It requires backupdr.managementServers.viewStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return OptionsRest
 */
-func (a *StorageArrayApiService) OptionsForList3(ctx context.Context) (OptionsRest, *http.Response, error) {
+func (a *StorageArrayApiService) OptionsForListArray(ctx context.Context) (OptionsRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}
@@ -1200,7 +1200,7 @@ func (a *StorageArrayApiService) OptionsForList3(ctx context.Context) (OptionsRe
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-StorageArrayApiService Connectivity test on the specific storage array. It requires Storage Manage right.
+StorageArrayApiService Connectivity test on the specific storage array. It requires backupdr.managementServers.manageStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param arrayId
 @return ListArrayTestResultRest
@@ -1347,7 +1347,7 @@ func (a *StorageArrayApiService) TestArray(ctx context.Context, arrayId string) 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-StorageArrayApiService Update a specific storage array. It requires Storage Manage right.
+StorageArrayApiService Update a specific storage array. It requires backupdr.managementServers.manageStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param arrayId
  * @param optional nil or *StorageArrayApiUpdateArrayOpts - Optional Parameters:

@@ -10,20 +10,20 @@ package swagger
 
 type CloudVmMountRest struct {
 	Version int32 `json:"version,omitempty"`
-	Name string `json:"name,omitempty"`
-	Fields []FormFieldRest `json:"fields,omitempty"`
+	MissingPermissions *MissingPermissionsRest `json:"missingPermissions,omitempty"`
 	Cloudtype string `json:"cloudtype,omitempty"`
 	Transaction int32 `json:"transaction,omitempty"`
-	Image string `json:"image,omitempty"`
 	Getformtype string `json:"getformtype,omitempty"`
+	Image string `json:"image,omitempty"`
 	Jobstatus string `json:"jobstatus,omitempty"`
-	MissingPermissions *MissingPermissionsRest `json:"missingPermissions,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Name string `json:"name,omitempty"`
+	Fields []FormFieldRest `json:"fields,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

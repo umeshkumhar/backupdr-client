@@ -9,6 +9,6 @@
 package swagger
 
 type ListRightRest struct {
-	Count int32 `json:"count,omitempty"`
 	Items []RightRest `json:"items,omitempty"`
+	Count int32 `json:"count,omitempty"`
 }

@@ -11,21 +11,21 @@ package swagger
 // The logical group that the application belongs to, if it applies.
 type LogicalGroupRest struct {
 	Description string `json:"description,omitempty"`
-	Name string `json:"name,omitempty"`
-	Srcid string `json:"srcid,omitempty"`
 	Modifydate int64 `json:"modifydate,omitempty"`
+	Srcid string `json:"srcid,omitempty"`
 	Managed bool `json:"managed,omitempty"`
 	Scheduleoff bool `json:"scheduleoff,omitempty"`
-	Sla *SlaRest `json:"sla,omitempty"`
 	Cluster *ClusterRest `json:"cluster,omitempty"`
+	Sla *SlaRest `json:"sla,omitempty"`
 	Membercount int32 `json:"membercount,omitempty"`
 	Orglist []OrganizationRest `json:"orglist,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Name string `json:"name,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

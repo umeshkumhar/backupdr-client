@@ -5,7 +5,7 @@ All URIs are relative to */actifio*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetPermissions**](UserSessionApi.md#GetPermissions) | **Get** /session/permissions | Get IAM permissions for the user
-[**GetSessionInfo**](UserSessionApi.md#GetSessionInfo) | **Get** /session/current | Get session information, including user preferences
+[**GetSessionInfo**](UserSessionApi.md#GetSessionInfo) | **Get** /session/current | Get session information, including user preferences. It requires backupdr.managementServers.access IAM permission
 [**Login**](UserSessionApi.md#Login) | **Post** /session | Register an user session
 [**Logout**](UserSessionApi.md#Logout) | **Delete** /session/current | Deregister the current user session
 [**PutUserpref**](UserSessionApi.md#PutUserpref) | **Put** /session/current | Update user preferences
@@ -34,7 +34,7 @@ This endpoint does not need any parameter.
 
 # **GetSessionInfo**
 > SessionRest GetSessionInfo(ctx, )
-Get session information, including user preferences
+Get session information, including user preferences. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.

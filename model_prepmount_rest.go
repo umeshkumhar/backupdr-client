@@ -9,7 +9,6 @@
 package swagger
 
 type PrepmountRest struct {
-	Host *HostRest `json:"host,omitempty"`
 	Rdmmode string `json:"rdmmode,omitempty"`
 	Physicalrdm string `json:"physicalrdm,omitempty"`
 	Appaware bool `json:"appaware,omitempty"`
@@ -21,14 +20,15 @@ type PrepmountRest struct {
 	Selectedobjects []SelectedObjectRest `json:"selectedobjects,omitempty"`
 	Nfsoptions *NfsOptionsRest `json:"nfsoptions,omitempty"`
 	Instantmount bool `json:"instantmount,omitempty"`
+	Host *HostRest `json:"host,omitempty"`
 	Container bool `json:"container,omitempty"`
 	Allowedips []string `json:"allowedips,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

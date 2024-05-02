@@ -4,22 +4,22 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CountLogicalGroups**](LogicalGroupApi.md#CountLogicalGroups) | **Head** /logicalgroup | Get a count of total logical groups matching the filters.
-[**CreateLogicalGroup**](LogicalGroupApi.md#CreateLogicalGroup) | **Post** /logicalgroup | Create a new logical group. It requires Application Manage or System Manage rights.
-[**CreateLogicalGroupSla**](LogicalGroupApi.md#CreateLogicalGroupSla) | **Post** /logicalgroup/{group_id}/sla | Protect a logical group. It creates individual SLAs for all members. It requires SLA Assign right.
-[**DeleteLogicalGroup**](LogicalGroupApi.md#DeleteLogicalGroup) | **Delete** /logicalgroup/{group_id} | Remove a logical group. It requires Application Manage or System Manage rights.
-[**DeleteLogicalGroupSla**](LogicalGroupApi.md#DeleteLogicalGroupSla) | **Delete** /logicalgroup/{group_id}/sla | Unprotect a logical group. It removes SLAs for all members. It requires SLA Assign right.
-[**GetLogicalGroup**](LogicalGroupApi.md#GetLogicalGroup) | **Get** /logicalgroup/{group_id} | Get individual logical group details. It requires System View right.
-[**ListLogicalGroup**](LogicalGroupApi.md#ListLogicalGroup) | **Get** /logicalgroup | Get a list of logical groups. It requires System View right.
-[**ListLogicalGroupMembers**](LogicalGroupApi.md#ListLogicalGroupMembers) | **Get** /logicalgroup/{group_id}/member | Get logical group&#x27;s members. It requires SLA Assign or System View rights.
-[**ModifyLogicalGroupMembers**](LogicalGroupApi.md#ModifyLogicalGroupMembers) | **Post** /logicalgroup/{group_id}/member | Incrementally add/delete logical group members. It requires System Manage or SLA Assign rights.
-[**OptionsForList11**](LogicalGroupApi.md#OptionsForList11) | **Options** /logicalgroup | Describes the fields available for filtering and sorting
-[**UpdateLogicalGroup**](LogicalGroupApi.md#UpdateLogicalGroup) | **Put** /logicalgroup/{group_id} | Update a logical group. It requires Application Manage or System Manage rights.
-[**UpdateLogicalGroupSla**](LogicalGroupApi.md#UpdateLogicalGroupSla) | **Put** /logicalgroup/{group_id}/sla | Update the current SLAs for a logical group. It updates individual SLAs for all members. It requires SLA Manage right.
+[**CountLogicalGroups**](LogicalGroupApi.md#CountLogicalGroups) | **Head** /logicalgroup | Get a count of total logical groups matching the filters. It requires backupdr.managementServers.access IAM permission
+[**CreateLogicalGroup**](LogicalGroupApi.md#CreateLogicalGroup) | **Post** /logicalgroup | Create a new logical group. It requires backupdr.managementServers.manageApplications IAM permission
+[**CreateLogicalGroupSla**](LogicalGroupApi.md#CreateLogicalGroupSla) | **Post** /logicalgroup/{group_id}/sla | Protect a logical group. It creates individual SLAs for all members. It requires backupdr.managementServers.assignBackupPlans IAM permission
+[**DeleteLogicalGroup**](LogicalGroupApi.md#DeleteLogicalGroup) | **Delete** /logicalgroup/{group_id} | Remove a logical group. It requires backupdr.managementServers.manageApplications IAM permission
+[**DeleteLogicalGroupSla**](LogicalGroupApi.md#DeleteLogicalGroupSla) | **Delete** /logicalgroup/{group_id}/sla | Unprotect a logical group. It removes SLAs for all members. It requires backupdr.managementServers.assignBackupPlans IAM permission
+[**GetLogicalGroup**](LogicalGroupApi.md#GetLogicalGroup) | **Get** /logicalgroup/{group_id} | Get individual logical group details. It requires backupdr.managementServers.access IAM permission
+[**ListLogicalGroup**](LogicalGroupApi.md#ListLogicalGroup) | **Get** /logicalgroup | Get a list of logical groups. It requires backupdr.managementServers.access IAM permission
+[**ListLogicalGroupMembers**](LogicalGroupApi.md#ListLogicalGroupMembers) | **Get** /logicalgroup/{group_id}/member | Get logical group&#x27;s members. It requires backupdr.managementServers.access IAM permission
+[**ModifyLogicalGroupMembers**](LogicalGroupApi.md#ModifyLogicalGroupMembers) | **Post** /logicalgroup/{group_id}/member | Incrementally add/delete logical group members. It requires backupdr.managementServers.manageApplications IAM permission
+[**OptionsForListLogicalGroup**](LogicalGroupApi.md#OptionsForListLogicalGroup) | **Options** /logicalgroup | Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
+[**UpdateLogicalGroup**](LogicalGroupApi.md#UpdateLogicalGroup) | **Put** /logicalgroup/{group_id} | Update a logical group. It requires backupdr.managementServers.manageApplications IAM permission
+[**UpdateLogicalGroupSla**](LogicalGroupApi.md#UpdateLogicalGroupSla) | **Put** /logicalgroup/{group_id}/sla | Update the current SLAs for a logical group. It updates individual SLAs for all members. It requires backupdr.managementServers.assignBackupPlans IAM permission
 
 # **CountLogicalGroups**
 > CountLogicalGroups(ctx, optional)
-Get a count of total logical groups matching the filters.
+Get a count of total logical groups matching the filters. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 # **CreateLogicalGroup**
 > LogicalGroupRest CreateLogicalGroup(ctx, optional)
-Create a new logical group. It requires Application Manage or System Manage rights.
+Create a new logical group. It requires backupdr.managementServers.manageApplications IAM permission
 
 ### Required Parameters
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 # **CreateLogicalGroupSla**
 > CreateLogicalGroupSla(ctx, groupId, optional)
-Protect a logical group. It creates individual SLAs for all members. It requires SLA Assign right.
+Protect a logical group. It creates individual SLAs for all members. It requires backupdr.managementServers.assignBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 # **DeleteLogicalGroup**
 > DeleteLogicalGroup(ctx, groupId)
-Remove a logical group. It requires Application Manage or System Manage rights.
+Remove a logical group. It requires backupdr.managementServers.manageApplications IAM permission
 
 ### Required Parameters
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 # **DeleteLogicalGroupSla**
 > DeleteLogicalGroupSla(ctx, groupId)
-Unprotect a logical group. It removes SLAs for all members. It requires SLA Assign right.
+Unprotect a logical group. It removes SLAs for all members. It requires backupdr.managementServers.assignBackupPlans IAM permission
 
 ### Required Parameters
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 # **GetLogicalGroup**
 > LogicalGroupRest GetLogicalGroup(ctx, groupId)
-Get individual logical group details. It requires System View right.
+Get individual logical group details. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 # **ListLogicalGroup**
 > ListLogicalGroupRest ListLogicalGroup(ctx, optional)
-Get a list of logical groups. It requires System View right.
+Get a list of logical groups. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 # **ListLogicalGroupMembers**
 > ListApplicationRest ListLogicalGroupMembers(ctx, groupId)
-Get logical group's members. It requires SLA Assign or System View rights.
+Get logical group's members. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 # **ModifyLogicalGroupMembers**
 > ModifyLogicalGroupMembers(ctx, groupId, optional)
-Incrementally add/delete logical group members. It requires System Manage or SLA Assign rights.
+Incrementally add/delete logical group members. It requires backupdr.managementServers.manageApplications IAM permission
 
 ### Required Parameters
 
@@ -288,9 +288,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList11**
-> OptionsRest OptionsForList11(ctx, )
-Describes the fields available for filtering and sorting
+# **OptionsForListLogicalGroup**
+> OptionsRest OptionsForListLogicalGroup(ctx, )
+Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -312,7 +312,7 @@ This endpoint does not need any parameter.
 
 # **UpdateLogicalGroup**
 > LogicalGroupRest UpdateLogicalGroup(ctx, groupId, optional)
-Update a logical group. It requires Application Manage or System Manage rights.
+Update a logical group. It requires backupdr.managementServers.manageApplications IAM permission
 
 ### Required Parameters
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 # **UpdateLogicalGroupSla**
 > LogicalGroupRest UpdateLogicalGroupSla(ctx, groupId, optional)
-Update the current SLAs for a logical group. It updates individual SLAs for all members. It requires SLA Manage right.
+Update the current SLAs for a logical group. It updates individual SLAs for all members. It requires backupdr.managementServers.assignBackupPlans IAM permission
 
 ### Required Parameters
 

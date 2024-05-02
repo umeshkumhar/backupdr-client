@@ -11,32 +11,32 @@ package swagger
 type CloudCredentialRest struct {
 	Usedefaultsa bool `json:"usedefaultsa,omitempty"`
 	Immutable bool `json:"immutable,omitempty"`
+	Secretkey string `json:"secretkey,omitempty"`
+	Cloudtype string `json:"cloudtype,omitempty"`
 	Region string `json:"region,omitempty"`
-	Domain string `json:"domain,omitempty"`
 	Sources []CloudCredentialRest `json:"sources,omitempty"`
-	Name string `json:"name,omitempty"`
-	Publickey string `json:"publickey,omitempty"`
-	Vaultpool *DiskPoolRest `json:"vaultpool,omitempty"`
+	Serviceaccount string `json:"serviceaccount,omitempty"`
+	Domain string `json:"domain,omitempty"`
 	Projectid string `json:"projectid,omitempty"`
+	Vaultpool *DiskPoolRest `json:"vaultpool,omitempty"`
 	SrcId int64 `json:"srcId,omitempty"`
 	Vaultudsuid int32 `json:"vaultudsuid,omitempty"`
 	ClusterId int64 `json:"clusterId,omitempty"`
+	Appliance *ClusterRest `json:"appliance,omitempty"`
+	Endpoint string `json:"endpoint,omitempty"`
 	Clientid string `json:"clientid,omitempty"`
 	Privatekey string `json:"privatekey,omitempty"`
 	Orglist []OrganizationRest `json:"orglist,omitempty"`
-	Secretkey string `json:"secretkey,omitempty"`
-	Serviceaccount string `json:"serviceaccount,omitempty"`
 	Credential string `json:"credential,omitempty"`
-	Cloudtype string `json:"cloudtype,omitempty"`
-	Endpoint string `json:"endpoint,omitempty"`
 	Subscriptionid string `json:"subscriptionid,omitempty"`
-	Appliance *ClusterRest `json:"appliance,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Name string `json:"name,omitempty"`
+	Publickey string `json:"publickey,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**DeleteOrg**](OrganizationApi.md#DeleteOrg) | **Delete** /org/{org_id} | Remove a specific organization. It requires System Manage right.
 [**GetOrg**](OrganizationApi.md#GetOrg) | **Get** /org/{org_id} | Get individual organization details.
 [**ListOrgs**](OrganizationApi.md#ListOrgs) | **Get** /org | Get a list of organizations.
-[**OptionsForList12**](OrganizationApi.md#OptionsForList12) | **Options** /org | Describes the fields available for filtering and sorting
+[**OptionsForList**](OrganizationApi.md#OptionsForList) | **Options** /org | Describes the fields available for filtering and sorting
 [**RemoveResourcesFromOrg**](OrganizationApi.md#RemoveResourcesFromOrg) | **Post** /org/{org_id}/assignment/remove | Remove resources from a specific organization. It requires System Manage right.
 [**UpdateOrg**](OrganizationApi.md#UpdateOrg) | **Put** /org/{org_id} | Update a specific organization. It requires System Manage right.
 
@@ -199,8 +199,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList12**
-> OptionsRest OptionsForList12(ctx, )
+# **OptionsForList**
+> OptionsRest OptionsForList(ctx, )
 Describes the fields available for filtering and sorting
 
 ### Required Parameters

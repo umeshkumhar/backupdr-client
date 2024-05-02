@@ -26,7 +26,7 @@ var (
 
 type AuditLogApiService service
 /*
-AuditLogApiService Get a count of total audit records matching the filters. Caller with administrator role can do it.
+AuditLogApiService Get a count of total audit records matching the filters. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *AuditLogApiCountAuditsOpts - Optional Parameters:
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -164,7 +164,7 @@ func (a *AuditLogApiService) CountAudits(ctx context.Context, localVarOptionals 
 	return localVarHttpResponse, nil
 }
 /*
-AuditLogApiService Get individual audit record details. Caller with administrator role can do it.
+AuditLogApiService Get individual audit record details. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param auditId
 @return OrganizationRest
@@ -311,7 +311,7 @@ func (a *AuditLogApiService) GetAudit(ctx context.Context, auditId string) (Orga
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-AuditLogApiService Get a list of local audit records. Caller with administrator role can do it.
+AuditLogApiService Get a list of local audit records. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *AuditLogApiListAuditsOpts - Optional Parameters:
      * @param "Sort" (optional.String) -  Sort field. Use OPTIONS method to get possible sort fields.&lt;br&gt;Then append &#x27;:asc&#x27; or &#x27;:desc&#x27; for ascending or descending sort.&lt;br&gt;Sorting is case-sensitive.
@@ -481,11 +481,11 @@ func (a *AuditLogApiService) ListAudits(ctx context.Context, localVarOptionals *
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-AuditLogApiService Describes the fields available for filtering and sorting
+AuditLogApiService Describes the fields available for filtering and sorting. It requires backupdr.managementServers.viewSystem IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return OptionsRest
 */
-func (a *AuditLogApiService) OptionsForList10(ctx context.Context) (OptionsRest, *http.Response, error) {
+func (a *AuditLogApiService) OptionsForListLocalAudit(ctx context.Context) (OptionsRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}

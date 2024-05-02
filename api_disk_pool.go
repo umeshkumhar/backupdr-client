@@ -26,7 +26,7 @@ var (
 
 type DiskPoolApiService service
 /*
-DiskPoolApiService Get a count of total diskpools matching the filters.
+DiskPoolApiService Get a count of total diskpools matching the filters. It requires backupdr.managementServers.viewStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *DiskPoolApiCountDiskPoolsOpts - Optional Parameters:
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -164,7 +164,7 @@ func (a *DiskPoolApiService) CountDiskPools(ctx context.Context, localVarOptiona
 	return localVarHttpResponse, nil
 }
 /*
-DiskPoolApiService Create a new diskpool. It requires Storage Manage right.
+DiskPoolApiService Create a new diskpool. It requires backupdr.managementServers.manageStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *DiskPoolApiCreateDiskPoolOpts - Optional Parameters:
      * @param "Body" (optional.Interface of DiskPoolRest) - 
@@ -322,7 +322,7 @@ func (a *DiskPoolApiService) CreateDiskPool(ctx context.Context, localVarOptiona
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-DiskPoolApiService Remove the specific diskpool. It requires Storage Manage right.
+DiskPoolApiService Remove the specific diskpool. It requires backupdr.managementServers.manageStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param diskpoolId
 
@@ -452,7 +452,7 @@ func (a *DiskPoolApiService) DeleteDiskPool(ctx context.Context, diskpoolId stri
 	return localVarHttpResponse, nil
 }
 /*
-DiskPoolApiService Get individual diskpool details.
+DiskPoolApiService Get individual diskpool details. It requires backupdr.managementServers.viewStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param diskpoolId
 @return DiskPoolRest
@@ -599,7 +599,7 @@ func (a *DiskPoolApiService) GetDiskPool(ctx context.Context, diskpoolId string)
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-DiskPoolApiService List dynamic UI properties based on type of vault pool. Requires Storage Manage right.
+DiskPoolApiService List dynamic UI properties based on type of vault pool. It requires backupdr.managementServers.manageStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param poolType The vault type for which dynamic json will be rendered
 
@@ -857,13 +857,14 @@ func (a *DiskPoolApiService) GetVaultList(ctx context.Context) (*http.Response, 
 	return localVarHttpResponse, nil
 }
 /*
-DiskPoolApiService Get a list of diskpools
+DiskPoolApiService Get a list of diskpools. It requires backupdr.managementServers.viewStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *DiskPoolApiListDiskPoolsOpts - Optional Parameters:
      * @param "Sort" (optional.String) -  Sort field. Use OPTIONS method to get possible sort fields.&lt;br&gt;Then append &#x27;:asc&#x27; or &#x27;:desc&#x27; for ascending or descending sort.&lt;br&gt;Sorting is case-sensitive.
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
      * @param "Limit" (optional.Int64) -  Limit on the number of results to return
      * @param "Offset" (optional.Int64) -  Used with limit to support pagination
+     * @param "FetchExtraInfo" (optional.Bool) - 
 @return ListDiskPoolRest
 */
 
@@ -872,6 +873,7 @@ type DiskPoolApiListDiskPoolsOpts struct {
     Filter optional.String
     Limit optional.Int64
     Offset optional.Int64
+    FetchExtraInfo optional.Bool
 }
 
 func (a *DiskPoolApiService) ListDiskPools(ctx context.Context, localVarOptionals *DiskPoolApiListDiskPoolsOpts) (ListDiskPoolRest, *http.Response, error) {
@@ -901,6 +903,9 @@ func (a *DiskPoolApiService) ListDiskPools(ctx context.Context, localVarOptional
 	}
 	if localVarOptionals != nil && localVarOptionals.Offset.IsSet() {
 		localVarQueryParams.Add("offset", parameterToString(localVarOptionals.Offset.Value(), ""))
+	}
+	if localVarOptionals != nil && localVarOptionals.FetchExtraInfo.IsSet() {
+		localVarQueryParams.Add("fetchExtraInfo", parameterToString(localVarOptionals.FetchExtraInfo.Value(), ""))
 	}
 	// to determine the Content-Type header
 	localVarHttpContentTypes := []string{}
@@ -1027,7 +1032,7 @@ func (a *DiskPoolApiService) ListDiskPools(ctx context.Context, localVarOptional
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-DiskPoolApiService Get a list of GCP vault pools. This operation is network costly and UI needs to cache the result
+DiskPoolApiService Get a list of GCP vault pools. This operation is network costly and UI needs to cache the result. It requires backupdr.managementServers.viewStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *DiskPoolApiListGcpVaultPoolOpts - Optional Parameters:
      * @param "Sort" (optional.String) -  Sort field. Use OPTIONS method to get possible sort fields.&lt;br&gt;Then append &#x27;:asc&#x27; or &#x27;:desc&#x27; for ascending or descending sort.&lt;br&gt;Sorting is case-sensitive.
@@ -1197,11 +1202,11 @@ func (a *DiskPoolApiService) ListGcpVaultPool(ctx context.Context, localVarOptio
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-DiskPoolApiService Describes the fields available for filtering and sorting
+DiskPoolApiService Describes the fields available for filtering and sorting. It requires backupdr.managementServers.viewStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return OptionsRest
 */
-func (a *DiskPoolApiService) OptionsForList8(ctx context.Context) (OptionsRest, *http.Response, error) {
+func (a *DiskPoolApiService) OptionsForListDiskPool(ctx context.Context) (OptionsRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}
@@ -1342,7 +1347,7 @@ func (a *DiskPoolApiService) OptionsForList8(ctx context.Context) (OptionsRest, 
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-DiskPoolApiService Update the specific diskpool. It requires Storage Manage right.
+DiskPoolApiService Update the specific diskpool. It requires backupdr.managementServers.manageStorage IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param diskpoolId
  * @param optional nil or *DiskPoolApiUpdateDiskPoolOpts - Optional Parameters:

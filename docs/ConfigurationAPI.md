@@ -4,14 +4,13 @@ All URIs are relative to */actifio*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetVersion**](ConfigurationApi.md#GetVersion) | **Get** /config/version | Get version. No special right requirement as long as there is valid session id.
-[**GetVersionDetail**](ConfigurationApi.md#GetVersionDetail) | **Get** /config/versiondetail | Get version details. No special right requirement as long as there is valid session id.
+[**GetVersion**](ConfigurationApi.md#GetVersion) | **Get** /config/version | Get version. No special IAM permission requirement as long as there is valid session id.
+[**GetVersionDetail**](ConfigurationApi.md#GetVersionDetail) | **Get** /config/versiondetail | Get version details. No special IAM permission requirement as long as there is valid session id.
 [**GetVmMetadataDetails**](ConfigurationApi.md#GetVmMetadataDetails) | **Get** /config/mgmtconsoledetails | 
-[**ListFeatureFlags**](ConfigurationApi.md#ListFeatureFlags) | **Get** /config/featureflags | Get Feature Flags. It requires System View right.
 
 # **GetVersion**
 > VersionRest GetVersion(ctx, )
-Get version. No special right requirement as long as there is valid session id.
+Get version. No special IAM permission requirement as long as there is valid session id.
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -33,7 +32,7 @@ This endpoint does not need any parameter.
 
 # **GetVersionDetail**
 > VersionDetailRest GetVersionDetail(ctx, )
-Get version details. No special right requirement as long as there is valid session id.
+Get version details. No special IAM permission requirement as long as there is valid session id.
 
 ### Required Parameters
 This endpoint does not need any parameter.
@@ -63,28 +62,6 @@ This endpoint does not need any parameter.
 ### Return type
 
  (empty response body)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **ListFeatureFlags**
-> []FeatureFlagsRest ListFeatureFlags(ctx, )
-Get Feature Flags. It requires System View right.
-
-### Required Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**[]FeatureFlagsRest**](array.md)
 
 ### Authorization
 

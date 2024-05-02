@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetRight**](AccessRightApi.md#GetRight) | **Get** /right/{right_name} | Get details for a specific right. It requires System View right.
 [**ListRights**](AccessRightApi.md#ListRights) | **Get** /right | Get a list of rights in the system. Rights are predefined and cannot be changed. It requires System View right.
-[**OptionsForList13**](AccessRightApi.md#OptionsForList13) | **Options** /right | Describes the fields available for filtering and sorting
+[**OptionsForList1**](AccessRightApi.md#OptionsForList1) | **Options** /right | Describes the fields available for filtering and sorting
 
 # **GetRight**
 > RightRest GetRight(ctx, rightName)
@@ -56,8 +56,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList13**
-> OptionsRest OptionsForList13(ctx, )
+# **OptionsForList1**
+> OptionsRest OptionsForList1(ctx, )
 Describes the fields available for filtering and sorting
 
 ### Required Parameters

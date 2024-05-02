@@ -26,7 +26,7 @@ var (
 
 type LogicalGroupApiService service
 /*
-LogicalGroupApiService Get a count of total logical groups matching the filters.
+LogicalGroupApiService Get a count of total logical groups matching the filters. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *LogicalGroupApiCountLogicalGroupsOpts - Optional Parameters:
      * @param "Filter" (optional.String) -  Filter field. Use OPTIONS method to get possible filter fields.&lt;br&gt;Then append an operator and value. Operators always begin with a colon and include:&lt;br&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Operator&lt;/th&gt;&lt;th&gt;Meaning&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;&#x3D;&lt;/td&gt;&lt;td&gt;equals&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;|&lt;/td&gt;&lt;td&gt;contains (case-insensitive)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&gt;&#x3D;&lt;/td&gt;&lt;td&gt;greater than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&lt;&#x3D;&lt;/td&gt;&lt;td&gt;less than or equal to&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;:&#x3D;b&lt;/td&gt;&lt;td&gt;bitwise and&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -164,7 +164,7 @@ func (a *LogicalGroupApiService) CountLogicalGroups(ctx context.Context, localVa
 	return localVarHttpResponse, nil
 }
 /*
-LogicalGroupApiService Create a new logical group. It requires Application Manage or System Manage rights.
+LogicalGroupApiService Create a new logical group. It requires backupdr.managementServers.manageApplications IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *LogicalGroupApiCreateLogicalGroupOpts - Optional Parameters:
      * @param "Body" (optional.Interface of LogicalGroupRest) - 
@@ -322,7 +322,7 @@ func (a *LogicalGroupApiService) CreateLogicalGroup(ctx context.Context, localVa
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-LogicalGroupApiService Protect a logical group. It creates individual SLAs for all members. It requires SLA Assign right.
+LogicalGroupApiService Protect a logical group. It creates individual SLAs for all members. It requires backupdr.managementServers.assignBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId
  * @param optional nil or *LogicalGroupApiCreateLogicalGroupSlaOpts - Optional Parameters:
@@ -465,7 +465,7 @@ func (a *LogicalGroupApiService) CreateLogicalGroupSla(ctx context.Context, grou
 	return localVarHttpResponse, nil
 }
 /*
-LogicalGroupApiService Remove a logical group. It requires Application Manage or System Manage rights.
+LogicalGroupApiService Remove a logical group. It requires backupdr.managementServers.manageApplications IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId
 
@@ -595,7 +595,7 @@ func (a *LogicalGroupApiService) DeleteLogicalGroup(ctx context.Context, groupId
 	return localVarHttpResponse, nil
 }
 /*
-LogicalGroupApiService Unprotect a logical group. It removes SLAs for all members. It requires SLA Assign right.
+LogicalGroupApiService Unprotect a logical group. It removes SLAs for all members. It requires backupdr.managementServers.assignBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId
 
@@ -725,7 +725,7 @@ func (a *LogicalGroupApiService) DeleteLogicalGroupSla(ctx context.Context, grou
 	return localVarHttpResponse, nil
 }
 /*
-LogicalGroupApiService Get individual logical group details. It requires System View right.
+LogicalGroupApiService Get individual logical group details. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId
 @return LogicalGroupRest
@@ -872,7 +872,7 @@ func (a *LogicalGroupApiService) GetLogicalGroup(ctx context.Context, groupId st
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-LogicalGroupApiService Get a list of logical groups. It requires System View right.
+LogicalGroupApiService Get a list of logical groups. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param optional nil or *LogicalGroupApiListLogicalGroupOpts - Optional Parameters:
      * @param "Sort" (optional.String) -  Sort field. Use OPTIONS method to get possible sort fields.&lt;br&gt;Then append &#x27;:asc&#x27; or &#x27;:desc&#x27; for ascending or descending sort.&lt;br&gt;Sorting is case-sensitive.
@@ -1042,7 +1042,7 @@ func (a *LogicalGroupApiService) ListLogicalGroup(ctx context.Context, localVarO
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-LogicalGroupApiService Get logical group&#x27;s members. It requires SLA Assign or System View rights.
+LogicalGroupApiService Get logical group&#x27;s members. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId
 @return ListApplicationRest
@@ -1189,7 +1189,7 @@ func (a *LogicalGroupApiService) ListLogicalGroupMembers(ctx context.Context, gr
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-LogicalGroupApiService Incrementally add/delete logical group members. It requires System Manage or SLA Assign rights.
+LogicalGroupApiService Incrementally add/delete logical group members. It requires backupdr.managementServers.manageApplications IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId
  * @param optional nil or *LogicalGroupApiModifyLogicalGroupMembersOpts - Optional Parameters:
@@ -1332,11 +1332,11 @@ func (a *LogicalGroupApiService) ModifyLogicalGroupMembers(ctx context.Context, 
 	return localVarHttpResponse, nil
 }
 /*
-LogicalGroupApiService Describes the fields available for filtering and sorting
+LogicalGroupApiService Describes the fields available for filtering and sorting. It requires backupdr.managementServers.access IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return OptionsRest
 */
-func (a *LogicalGroupApiService) OptionsForList11(ctx context.Context) (OptionsRest, *http.Response, error) {
+func (a *LogicalGroupApiService) OptionsForListLogicalGroup(ctx context.Context) (OptionsRest, *http.Response, error) {
 	var (
 		localVarHttpMethod = strings.ToUpper("Options")
 		localVarPostBody   interface{}
@@ -1477,7 +1477,7 @@ func (a *LogicalGroupApiService) OptionsForList11(ctx context.Context) (OptionsR
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-LogicalGroupApiService Update a logical group. It requires Application Manage or System Manage rights.
+LogicalGroupApiService Update a logical group. It requires backupdr.managementServers.manageApplications IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId
  * @param optional nil or *LogicalGroupApiUpdateLogicalGroupOpts - Optional Parameters:
@@ -1637,7 +1637,7 @@ func (a *LogicalGroupApiService) UpdateLogicalGroup(ctx context.Context, groupId
 	return localVarReturnValue, localVarHttpResponse, nil
 }
 /*
-LogicalGroupApiService Update the current SLAs for a logical group. It updates individual SLAs for all members. It requires SLA Manage right.
+LogicalGroupApiService Update the current SLAs for a logical group. It updates individual SLAs for all members. It requires backupdr.managementServers.assignBackupPlans IAM permission
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param groupId
  * @param optional nil or *LogicalGroupApiUpdateLogicalGroupSlaOpts - Optional Parameters:

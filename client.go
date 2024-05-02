@@ -66,6 +66,8 @@ type APIClient struct {
 
 	ConsistencyGroupApi *ConsistencyGroupApiService
 
+	DefaultApi *DefaultApiService
+
 	DiskPoolApi *DiskPoolApiService
 
 	HostApi *HostApiService
@@ -118,6 +120,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.BackupApi = (*BackupApiService)(&c.common)
 	c.ConfigurationApi = (*ConfigurationApiService)(&c.common)
 	c.ConsistencyGroupApi = (*ConsistencyGroupApiService)(&c.common)
+	c.DefaultApi = (*DefaultApiService)(&c.common)
 	c.DiskPoolApi = (*DiskPoolApiService)(&c.common)
 	c.HostApi = (*HostApiService)(&c.common)
 	c.JobApi = (*JobApiService)(&c.common)
@@ -526,9 +529,9 @@ type GenericSwaggerError struct {
 // Error returns non-empty string if there was an error.
 func (e GenericSwaggerError) Error() string {
 	if e.model != nil {
-	     return e.error + string(e.model.(ModelError).ErrCode) + e.model.(ModelError).ErrMessage
+		return e.error + string(e.model.(ModelError).ErrCode) + " - " + e.model.(ModelError).ErrMessage
 	}
-	return e.error 
+	return e.error
 }
 
 // Body returns the raw bytes of the response

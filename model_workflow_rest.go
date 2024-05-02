@@ -9,20 +9,20 @@
 package swagger
 
 type WorkflowRest struct {
-	Name string `json:"name,omitempty"`
+	Items []WorkflowItemRest `json:"items,omitempty"`
+	Status *WorkflowStatusRest `json:"status,omitempty"`
 	Application *ApplicationRest `json:"application,omitempty"`
 	Cluster *ClusterRest `json:"cluster,omitempty"`
-	Status *WorkflowStatusRest `json:"status,omitempty"`
 	Disabled bool `json:"disabled,omitempty"`
-	Props []KeyValueRest `json:"props,omitempty"`
 	Schedule *WorkScheduleRest `json:"schedule,omitempty"`
-	Items []WorkflowItemRest `json:"items,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Props []KeyValueRest `json:"props,omitempty"`
+	Name string `json:"name,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

@@ -11,14 +11,14 @@ package swagger
 type UserInfoRest struct {
 	Accessmode []string `json:"accessmode,omitempty"`
 	Username string `json:"username,omitempty"`
-	Group string `json:"group,omitempty"`
 	Haspassword bool `json:"haspassword,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
+	Group string `json:"group,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }

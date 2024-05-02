@@ -9,6 +9,6 @@
 package swagger
 
 type ListSlaRest struct {
-	Count int32 `json:"count,omitempty"`
 	Items []SlaRest `json:"items,omitempty"`
+	Count int32 `json:"count,omitempty"`
 }

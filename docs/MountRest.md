@@ -3,8 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Path** | **string** |  | [optional] [default to null]
-**Host** | [***HostRest**](HostRest.md) |  | [optional] [default to null]
 **Label** | **string** |  | [optional] [default to null]
 **Hostname** | **string** | Mutually exclusive with host, when mounting as a brand new host(VM) | [optional] [default to null]
 **Container** | **bool** |  | [optional] [default to null]
@@ -15,7 +13,6 @@ Name | Type | Description | Notes
 **Appaware** | **bool** |  | [optional] [default to null]
 **Systemstateoptions** | [**[]SystemStateOptionRest**](SystemStateOptionRest.md) |  | [optional] [default to null]
 **Migratevm** | **bool** |  | [optional] [default to null]
-**Allowedips** | **[]string** |  | [optional] [default to null]
 **Datastore** | **string** | Mutually exclusive with diskpool | [optional] [default to null]
 **Recoverytime** | **int64** | Can be used when log backup is available. Microseconds since Epoch in UTC | [optional] [default to null]
 **Poweronvm** | **bool** |  | [optional] [default to null]
@@ -28,10 +25,13 @@ Name | Type | Description | Notes
 **Instantmount** | **bool** |  | [optional] [default to null]
 **Mgmtserver** | [***HostRest**](HostRest.md) |  | [optional] [default to null]
 **Hypervisor** | [***HostRest**](HostRest.md) |  | [optional] [default to null]
-**Id** | **string** | Unique ID for this object | [optional] [default to null]
+**Allowedips** | **[]string** |  | [optional] [default to null]
+**Path** | **string** |  | [optional] [default to null]
+**Host** | [***HostRest**](HostRest.md) |  | [optional] [default to null]
 **Href** | **string** | URL to access this object | [optional] [default to null]
 **Syncdate** | **int64** | When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources. | [optional] [default to null]
 **Stale** | **bool** | Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources. | [optional] [default to null]
+**Id** | **string** | Unique ID for this object | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

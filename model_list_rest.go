@@ -9,6 +9,6 @@
 package swagger
 
 type ListRest struct {
-	Count int32 `json:"count,omitempty"`
 	Items []EntityRestPersistable `json:"items,omitempty"`
+	Count int32 `json:"count,omitempty"`
 }

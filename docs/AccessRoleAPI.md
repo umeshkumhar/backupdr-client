@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**DeleteRole**](AccessRoleApi.md#DeleteRole) | **Delete** /role/{role_id} | Remove a specific role. It requires System Manage right.
 [**GetRole**](AccessRoleApi.md#GetRole) | **Get** /role/{role_id} | Get individual role details. It requires System View right.
 [**ListRoles**](AccessRoleApi.md#ListRoles) | **Get** /role | Get a list of users. It requires System View right.
-[**OptionsForList14**](AccessRoleApi.md#OptionsForList14) | **Options** /role | Describes the fields available for filtering and sorting
+[**OptionsForList2**](AccessRoleApi.md#OptionsForList2) | **Options** /role | Describes the fields available for filtering and sorting
 [**UpdateRole**](AccessRoleApi.md#UpdateRole) | **Put** /role/{role_id} | Update a specific role. It requires System Manage right.
 
 # **CountRoles**
@@ -163,8 +163,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **OptionsForList14**
-> OptionsRest OptionsForList14(ctx, )
+# **OptionsForList2**
+> OptionsRest OptionsForList2(ctx, )
 Describes the fields available for filtering and sorting
 
 ### Required Parameters

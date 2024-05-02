@@ -9,21 +9,21 @@
 package swagger
 
 type AuditRest struct {
+	Status int32 `json:"status,omitempty"`
 	Component string `json:"component,omitempty"`
+	Ipaddress string `json:"ipaddress,omitempty"`
+	Jobname string `json:"jobname,omitempty"`
 	Command string `json:"command,omitempty"`
 	Username string `json:"username,omitempty"`
-	Ipaddress string `json:"ipaddress,omitempty"`
-	Status int32 `json:"status,omitempty"`
-	Jobname string `json:"jobname,omitempty"`
 	Issuedate int64 `json:"issuedate,omitempty"`
 	Proxy string `json:"proxy,omitempty"`
 	Privileged bool `json:"privileged,omitempty"`
-	// Unique ID for this object
-	Id string `json:"id,omitempty"`
 	// URL to access this object
 	Href string `json:"href,omitempty"`
 	// When this object was last synced from appliances (UNIX Epoch time in microseconds). It does not apply to local resources.
 	Syncdate int64 `json:"syncdate,omitempty"`
 	// Optional flag to indicate if the information is out-of-date due to communication problems with appliances. It does not apply to local resources.
 	Stale bool `json:"stale,omitempty"`
+	// Unique ID for this object
+	Id string `json:"id,omitempty"`
 }
