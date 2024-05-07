@@ -2870,7 +2870,7 @@ type SLATemplateApiUpdateSltOpts struct {
 
 func (a *SLATemplateApiService) UpdateSlt(ctx context.Context, sltId string, localVarOptionals *SLATemplateApiUpdateSltOpts) (SltRest, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
+		localVarHttpMethod = strings.ToUpper("Post")
 		localVarPostBody   interface{}
 		localVarFileName   string
 		localVarFileBytes  []byte
